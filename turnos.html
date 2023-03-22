@@ -2,9 +2,53 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Turnos | Clinica Universitaria</title>
 	</head>
-	<body></body>
+	<body>
+		<header>
+			<img src="./images/header/logo.png" alt="Logo" />
+			<h1>Clinica Universitaria</h1>
+			<form method="GET" autocomplete="off">
+				<input
+					type="search"
+					id="search"
+					name="search"
+					placeholder="Buscar en el sitio web..."
+				/>
+			</form>
+			<button>
+				<img
+					src="./images/header/profile.svg"
+					alt="Perfil del paciente"
+					height="30px"
+					width="30px"
+				/>
+			</button>
+		</header>
+
+		<nav>
+			<a href="/">Inicio</a>
+			<a href="/turnos.html">Turnos</a>
+			<a href="/profesionales.html">Profesionales</a>
+			<a href="/especialidades.html">Especialidades</a>
+			<a href="/noticias.html">Noticias</a>
+			<a href="/institucional.html">Institucional</a>
+			<a href="/obras-sociales.html">Obras sociales</a>
+			<a href="/contacto.html">Contacto</a>
+		</nav>
+		<main>
+			<header><h2>Turnos</h2></header>
+			<section>
+				<button>Solicitar turno nuevo</button>
+				<h3>Turnos solicitados por el paciente Apellido, Nombre</h3>
+				<input
+					type="text"
+					autocomplete="off"
+					placeholder="Filtrar..."
+				/>
+				<ul></ul>
+			</section>
+		</main>
+	</body>
 </html>
