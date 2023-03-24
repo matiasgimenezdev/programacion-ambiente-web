@@ -39,21 +39,29 @@
 			<h2>Turnos</h2>
 			<section>
 				<button>Solicitar turno nuevo</button>
-				<h3>Turnos solicitados por el paciente Apellido, Nombre</h3>
-				<input
-					type="text"
-					autocomplete="off"
-					placeholder="Filtrar..."
-				/>
+				<h3>Listado de turnos del paciente Apellido, Nombre</h3>
+				<form action="" method="GET">
+					<p>
+						<label for="filter">Filtrar</label>
+						<input
+							type="text"
+							id="filter"
+							name="filter"
+							autocomplete="off"
+							maxlength="60"
+						/>
+					</p>
+				</form>
+
 				<ul>
 					<li>
 						<h4>Turno 1</h4>
 						<section>
 							<h5>Información del turno</h5>
-							<p>Fecha: 22/03/2023</p>
-							<p>Hora: 19:00</p>
 							<p>Médico: Marcos Gutierrez</p>
 							<p>Especialidad: Odontólogo</p>
+							<p>Fecha: 22/03/2023</p>
+							<p>Hora: 19:00</p>
 							<button>Cancelar turno</button>
 						</section>
 					</li>
