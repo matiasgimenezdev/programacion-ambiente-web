@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iniciar Sesión | Clínica Universitaria</title>
-  </head>
-  <body>
-    <header>
-      <a href="index.html">
-        <img src="images/encabezado/logo.png" alt="Logo" />
-      </a>
-      <h1>Clinica Universitaria</h1>
-    </header>
-    <main>
-      <form action="" method="POST" name="formulario-inicio-de-sesion">
-        <header>
-          <h2>Bienvenido!</h2>
-        </header>
-        <fieldset id="datos-inicio-de-sesion">
-          <legend>Iniciar sesión</legend>
-          <ul>
-            <li>
-              <label for="dni">DNI</label>
-              <input type="number" name="dni" id="dni" required tabindex="1" />
-            </li>
-            <li>
-              <label for="password">Contraseña</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                required
-                tabindex="2"
-              />
-            </li>
-          </ul>
-        </fieldset>
-        <button type="submit" id="boton-submit">Iniciar Sesión</button>
-      </form>
-      <div>
-        <p>
-          <small>
-            ¿No tiene Cuenta?
-            <a href="registrarse.html">Registrese aquí.</a>
-          </small>
-        </p>
-      </div>
-    </main>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Iniciar Sesión | Clínica Universitaria</title>
+	</head>
+	<body>
+		<header>
+			<h1>Clinica Universitaria</h1>
+		</header>
+		<main>
+			<form action="" method="POST" name="formulario-inicio-de-sesion">
+				<header>
+					<h2>Bienvenido!</h2>
+				</header>
+				<fieldset id="datos-inicio-de-sesion">
+					<legend>Iniciar sesión</legend>
+					<ul>
+						<li>
+							<label for="dni">DNI</label>
+							<input
+								type="number"
+								name="dni"
+								id="dni"
+								required
+								tabindex="1"
+							/>
+						</li>
+						<li>
+							<label for="password">Contraseña</label>
+							<input
+								type="password"
+								name="password"
+								id="password"
+								required
+								tabindex="2"
+							/>
+						</li>
+					</ul>
+				</fieldset>
+				<button type="submit" id="boton-submit">Iniciar Sesión</button>
+			</form>
+			<div>
+				<p>
+					<small>
+						¿No tiene Cuenta?
+						<a href="registrarse.html">Registrese aquí.</a>
+					</small>
+				</p>
+			</div>
+		</main>
+	</body>
 </html>
