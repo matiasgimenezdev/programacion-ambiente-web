@@ -1,101 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registrarse | Clínica Universitaria</title>
-  </head>
-  <body>
-    <h1>Clinica Universitaria</h1>
-    <form action="" method="POST">
-      <fieldset>
-        <legend>Registrarse</legend>
-        <p>
-          <label for="dni">DNI</label>
-          <input
-            type="number"
-            name="dni"
-            id="dni"
-            required
-            tabindex="1"
-            maxlength="8"
-          />
-        </p>
-        <p>
-          <label for="nombre">Nombre</label>
-          <input
-            type="text"
-            name="nombre"
-            id="nombre"
-            required
-            tabindex="2"
-            maxlength="30"
-          />
-        </p>
-        <p>
-          <label for="apellido">Apellido</label>
-          <input
-            type="text"
-            name="apellido"
-            id="apellido"
-            required
-            tabindex="3"
-            maxlength="50"
-          />
-        </p>
-        <p>
-          <label for="email">Correo electrónico</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            required
-            tabindex="4"
-            maxlength="50"
-          />
-        </p>
-        <p>
-          <label for="email2">Reingrese correo electrónico</label>
-          <input
-            type="email"
-            name="email2"
-            id="email2"
-            required
-            tabindex="5"
-            maxlength="50"
-          />
-        </p>
-        <p>
-          <label for="password">Contraseña</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            required
-            tabindex="6"
-            minlength="5"
-            maxlength="30"
-          />
-        </p>
-        <p>
-          <label for="password2">Reingrese la Contraseña</label>
-          <input
-            type="password"
-            name="password2"
-            id="password"
-            required
-            tabindex="7"
-            minlength="5"
-            maxlength="30"
-          />
-        </p>
-        <button type="submit" id="boton-submit">Registrarme</button>
-      </fieldset>
-    </form>
-    <p>
-      ¿Ya tiene una Cuenta?
-      <a href="iniciar-sesion.html">Iniciar sesión.</a>
-    </p>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Registrarse | Clínica Universitaria</title>
+	</head>
+	<body>
+		<h1>Clinica Universitaria</h1>
+		<form action="" method="POST">
+			<fieldset>
+				<legend>Registrarse</legend>
+				<p>
+					<label for="dni">DNI</label>
+					<input
+						type="number"
+						name="dni"
+						id="dni"
+						required
+						tabindex="1"
+						maxlength="8"
+					/>
+				</p>
+				<p>
+					<label for="nombre">Nombre</label>
+					<input
+						type="text"
+						name="nombre"
+						id="nombre"
+						required
+						tabindex="2"
+						maxlength="30"
+					/>
+				</p>
+				<p>
+					<label for="apellido">Apellido</label>
+					<input
+						type="text"
+						name="apellido"
+						id="apellido"
+						required
+						tabindex="3"
+						maxlength="50"
+					/>
+				</p>
+				<p>
+					<label for="email">Correo electrónico</label>
+					<input
+						type="email"
+						name="email"
+						id="email"
+						required
+						tabindex="4"
+						maxlength="50"
+					/>
+				</p>
+				<p>
+					<label for="email2">Reingrese correo electrónico</label>
+					<input
+						type="email"
+						name="email2"
+						id="email2"
+						required
+						tabindex="5"
+						maxlength="50"
+					/>
+				</p>
+				<p>
+					<label for="password">Contraseña</label>
+					<input
+						type="password"
+						name="password"
+						id="password"
+						required
+						tabindex="6"
+						minlength="5"
+						maxlength="30"
+					/>
+					<span>👁‍🗨</span>
+				</p>
+				<p>
+					<label for="password2">Reingrese la Contraseña</label>
+					<input
+						type="password"
+						name="password2"
+						id="password"
+						required
+						tabindex="7"
+						minlength="5"
+						maxlength="30"
+					/>
+					<span>👁‍🗨</span>
+				</p>
+				<p>
+					<input
+						type="checkbox"
+						name="terminos-condiciones"
+						id="terminos-condiciones"
+					/>
+					<label for="terminos-condiciones">
+						He leído y acepto los términos y condiciones de uso
+						<a href="terminos.html" target="_blank">
+							términos y condiciones de uso
+						</a>
+					</label>
+				</p>
+				<button type="submit" id="boton-submit">Registrarme</button>
+			</fieldset>
+		</form>
+		<p>
+			¿Ya tiene una Cuenta?
+			<a href="iniciar-sesion.html">Iniciar sesión.</a>
+		</p>
+	</body>
 </html>
