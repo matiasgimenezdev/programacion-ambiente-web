@@ -1,84 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Turnos | Clinica Universitaria</title>
-  </head>
-  <body>
-    <header>
-      <section>
-        <h1>Clinica Universitaria</h1>
-        <a href="iniciar-sesion.html">
-          <img
-            src="./images/encabezado/profile.svg"
-            alt="Perfil del paciente"
-            height="30px"
-            width="30px"
-          />
-        </a>
-      </section>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Turnos | Clinica Universitaria</title>
+	</head>
+	<body>
+		<header>
+			<section>
+				<h1>Clinica Universitaria</h1>
+				<a href="iniciar-sesion.html">
+					<img
+						src="./images/encabezado/profile.svg"
+						alt="Perfil del paciente"
+						height="30px"
+						width="30px"
+					/>
+				</a>
+			</section>
 
-      <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="turnos.html">Turnos</a></li>
-          <li><a href="profesionales.html">Profesionales</a></li>
-          <li><a href="especialidades.html">Especialidades</a></li>
-          <li><a href="noticias.html">Noticias</a></li>
-          <li><a href="institucional.html">Institucional</a></li>
-          <li><a href="obras-sociales.html">Obras sociales</a></li>
-          <li><a href="/contacto">Contacto</a></li>
-        </ul>
-      </nav>
-    </header>
+			<nav>
+				<ul>
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="turnos.html">Turnos</a></li>
+					<li><a href="profesionales.html">Profesionales</a></li>
+					<li><a href="especialidades.html">Especialidades</a></li>
+					<li><a href="noticias.html">Noticias</a></li>
+					<li><a href="institucional.html">Institucional</a></li>
+					<li><a href="obras-sociales.html">Obras sociales</a></li>
+					<li><a href="/contacto">Contacto</a></li>
+				</ul>
+			</nav>
+		</header>
 
-    <main>
-      <h2>Turnos</h2>
-      <section>
-        <button>
-          <a href="solicitar-turno.html">Solicitar turno nuevo</a>
-        </button>
-        <h3>Listado de turnos del paciente Apellido, Nombre</h3>
-        <form action="" method="GET">
-          <p>
-            <label for="filter">Filtrar</label>
-            <input
-              type="text"
-              id="filter"
-              name="filter"
-              autocomplete="off"
-              maxlength="60"
-            />
-          </p>
-        </form>
+		<main>
+			<h2>Turnos</h2>
+			<section>
+				<button>
+					<a href="solicitar-turno.html">Solicitar turno nuevo</a>
+				</button>
+				<h3>Listado de turnos del paciente Apellido, Nombre</h3>
+				<form action="" method="GET">
+					<p>
+						<label for="filter">Filtrar</label>
+						<input
+							type="text"
+							id="filter"
+							name="filter"
+							autocomplete="off"
+							maxlength="60"
+						/>
+					</p>
+				</form>
 
-        <ul>
-          <li>
-            <h4>Turno 1</h4>
-            <section>
-              <h5>Información del turno</h5>
-              <p>Médico: Marcos Gutierrez</p>
-              <p>Especialidad: Odontólogo</p>
-              <p>Fecha: 22/03/2023</p>
-              <p>Hora: 19:00</p>
-              <button>Cancelar turno</button>
-            </section>
-          </li>
-          <li>
-            <h4>Turno 2</h4>
-            <section>
-              <h5>Información del turno</h5>
-              <p>Fecha: 25/03/2023</p>
-              <p>Hora: 15:00</p>
-              <p>Médico: Alfredo Montes</p>
-              <p>Especialidad: Oculista</p>
-              <button>Cancelar turno</button>
-            </section>
-          </li>
-        </ul>
-      </section>
-    </main>
-  </body>
+				<ul>
+					<li>
+						<details>
+							<summary>Turno 1</summary>
+							<h5>Información del turno</h5>
+							<p>Médico: Marcos Gutierrez</p>
+							<p>Especialidad: Odontólogo</p>
+							<p>Fecha: 22/03/2023</p>
+							<p>Hora: 19:00</p>
+							<button>Cancelar turno</button>
+						</details>
+					</li>
+					<li>
+						<details>
+							<summary>Turno 2</summary>
+							<h5>Información del turno</h5>
+							<p>Fecha: 25/03/2023</p>
+							<p>Hora: 15:00</p>
+							<p>Médico: Alfredo Montes</p>
+							<p>Especialidad: Oculista</p>
+							<button>Cancelar turno</button>
+						</details>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
 </html>
