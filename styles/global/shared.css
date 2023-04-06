@@ -1,0 +1,139 @@
+@import url('./reset.css');
+@import url('./variables.css');
+
+:root {
+	font-size: 16px;
+	font-family: var(--font-family);
+}
+
+.header {
+	width: 100vw;
+	background-color: var(--green);
+	height: 13vh;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 0.5rem;
+}
+
+.header::after {
+	content: '';
+	display: block;
+	padding: 1rem;
+	width: 11rem;
+	height: 5rem;
+	background-image: url('./images/ImagotipoMobile.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 5px;
+	left: 0;
+	margin: 0;
+}
+
+#logotipoUNLuPAW > path {
+	color: white;
+}
+
+.header section {
+	min-width: 35vw;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 1rem;
+}
+
+.menu {
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0;
+	background-color: transparent;
+	margin-right: 5vw;
+	border: none;
+	outline: none;
+	background-image: url('./images/Menu.svg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.profile {
+	display: inline-block;
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0;
+	background-image: url('./images/ProfileMobile.svg');
+	background-color: transparent;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.nav {
+	display: none;
+}
+
+@media only screen and (min-width: 800px) {
+	.header {
+		height: 22vh;
+		display: flex;
+		background-color: var(--light-grey);
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-end;
+		gap: 2rem;
+	}
+
+	.header::after {
+		background-image: url('./images/ImagotipoDesktop.svg');
+		width: 15rem;
+		height: 5rem;
+		position: absolute;
+		top: 2vh;
+	}
+
+	.header section {
+		min-width: 15vw;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 1rem;
+	}
+
+	.menu {
+		display: none;
+	}
+
+	.profile {
+		width: 2.8rem;
+		height: 2.8rem;
+		background-image: url('./images/ProfileDesktop.svg');
+		margin-right: 3vw;
+		margin-top: 2rem;
+	}
+
+	.nav {
+		width: 100%;
+		height: 10vh;
+		display: initial;
+	}
+
+	.nav-list {
+		width: 100vw;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		background-color: var(--green);
+		font-weight: 600;
+	}
+
+	.nav-item a {
+		text-decoration: none;
+		color: var(--light-grey);
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.nav-list {
+		font-size: 1.2rem;
+	}
+}
