@@ -16,8 +16,12 @@
 			</section>
 			<nav class="nav">
 				<ul class="nav-list">
-					<li class="nav-item"><a href="index.html">Inicio</a></li>
-					<li class="nav-item"><a href="turnos.html">Turnos</a></li>
+					<li class="nav-item current">
+						<a href="index.html">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a href="turnos.html">Turnos</a>
+					</li>
 					<li class="nav-item">
 						<a href="profesionales.html">Profesionales</a>
 					</li>
@@ -41,45 +45,36 @@
 		</header>
 
 		<main>
-			<article>
-				<ul>
-					<li>
+			<article class="carousel">
+				<ul class="carousel-list">
+					<li class="carousel-item active">
 						<img
-							src="./images/inicio/carousel/clinica.jpg"
+							src="./images/inicio/carousel/clinica.webp"
 							alt="Vista del frente de la clínica"
-							height="300"
-							width="500"
 						/>
 					</li>
-					<li>
+					<li class="carousel-item">
 						<img
-							src="./images/inicio/carousel/habitacion.jpg"
-							alt="Habitación de la clínica"
-							height="300"
-							width="500"
+							src="./images/inicio/carousel/medicos.webp"
+							alt="Medicos trabajando"
 						/>
 					</li>
-					<li>
+					<li class="carousel-item">
 						<img
-							src="./images/inicio/carousel/quirofano.jpg"
+							src="./images/inicio/carousel/quirofano.webp"
 							alt="Quirófano de la clínica"
-							height="300"
-							width="500"
 						/>
 					</li>
-					<li>
+					<li class="carousel-item">
 						<img
-							src="./images/inicio/carousel/sala-espera.jpg"
-							alt="Una sala de espera de la clinica"
-							height="300"
-							width="500"
+							src="./images/inicio/carousel/madre&hijo.webp"
+							alt="Una madre con su hijo recien nacido"
 						/>
 					</li>
 				</ul>
 			</article>
-			<section>
-				<h2>Ultimas noticias</h2>
-				<article>
+			<section class="latest-news">
+				<article class="new">
 					<img
 						src="./images/inicio/noticias/medicacion.jpg"
 						alt="Persona con medicamentos en su mano"
@@ -95,7 +90,7 @@
 						dolor o contrarrestar una molestia.
 					</p>
 				</article>
-				<article>
+				<article class="new">
 					<img
 						src="./images/inicio/noticias/lactancia.jpg"
 						alt="Madre amamantando a su bebe"
@@ -111,7 +106,7 @@
 						de protegerlo de enfermedades infecciosas y crónicas.
 					</p>
 				</article>
-				<article>
+				<article class="new">
 					<img
 						src="./images/inicio/noticias/covid.jpg"
 						alt="Medica con barbijo levantando la mano"
@@ -130,7 +125,7 @@
 						día.
 					</p>
 				</article>
-				<a href="/noticias.html">Ver más noticias</a>
+				<a class="more-news" href="/noticias.html">Ver más noticias</a>
 			</section>
 		</main>
 
