@@ -1,9 +1,3 @@
-*,
-*::after,
-*::before {
-	box-sizing: border-box;
-}
-
 html,
 body,
 div,
@@ -94,6 +88,17 @@ video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
+html {
+	box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
