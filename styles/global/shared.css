@@ -5,6 +5,7 @@
 	font-size: 16px;
 	font-family: var(--font-family);
 	overflow-x: hidden;
+	scroll-behavior: smooth;
 }
 
 .header {
@@ -15,6 +16,9 @@
 	align-items: center;
 	justify-content: flex-end;
 	gap: 0.5rem;
+	position: sticky;
+	top: 0;
+	z-index: 2000;
 }
 
 .header::after {
@@ -68,9 +72,16 @@
 	display: none;
 }
 
+.footer {
+	margin-top: 4rem;
+	padding: 1rem;
+	background-color: var(--green);
+	color: var(--light-grey);
+}
+
 @media only screen and (min-width: 800px) {
 	.header {
-		height: 22vh;
+		height: 21vh;
 		display: flex;
 		background-color: var(--light-grey);
 		flex-direction: column;
