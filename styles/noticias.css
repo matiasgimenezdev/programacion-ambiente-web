@@ -58,4 +58,8 @@
     font-size: 1.6rem;
   }
 
+  .head:hover {
+    transform: scale(1);
+  }
+
 }
