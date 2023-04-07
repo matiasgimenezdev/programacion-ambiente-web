@@ -82,9 +82,13 @@
 }
 
 .more-news::after {
-	content: '>';
-	margin-left: 0.5rem;
-	cursor: pointer;
+	content: '';
+	position: absolute;
+	width: 1rem;
+	height: 1rem;
+	background-image: url('./global/images/ArrowRight.svg');
+	background-size: cover;
+	margin-left: 0.3rem;
 }
 
 @media only screen and (min-width: 624px) {
@@ -181,7 +185,15 @@
 @media only screen and (min-width: 1200px) {
 	.new {
 		width: 30%;
-		height: 50vh;
+		height: min(65vh, 500px);
+	}
+
+	.new p {
+		font-size: 1.1rem;
+	}
+
+	.new h3 {
+		font-size: 1.3rem;
 	}
 }
 
