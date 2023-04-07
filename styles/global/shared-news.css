@@ -37,7 +37,6 @@
 	padding: 1rem;
 }
 
-
 @media only screen and (min-width: 624px) {
 	.new {
 		min-height: 45vh;
@@ -67,9 +66,7 @@
 	}
 }
 
-
 @media only screen and (min-width: 1000px) {
-
 	.latest-news {
 		width: 100%;
 		position: relative;
@@ -101,7 +98,15 @@
 @media only screen and (min-width: 1200px) {
 	.new {
 		width: 30%;
-		height: 50vh;
+		height: min(65vh, 500px);
+	}
+
+	.new p {
+		font-size: 1.1rem;
+	}
+
+	.new h3 {
+		font-size: 1.3rem;
 	}
 }
 
