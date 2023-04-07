@@ -79,6 +79,10 @@
 	color: var(--light-grey);
 }
 
+.footer a {
+	color: var(--light-grey);
+}
+
 @media only screen and (min-width: 800px) {
 	.header {
 		height: 21vh;
@@ -137,6 +141,10 @@
 		color: var(--light-grey);
 		margin: 0;
 		padding: 0;
+	}
+
+	.nav-item a:hover {
+		opacity: 80%;
 	}
 
 	.current a {
