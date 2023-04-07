@@ -1,0 +1,40 @@
+@import url('./global/reset.css');
+@import url('./global/variables.css');
+@import url('./global/shared.css');
+
+.titulo h2 {
+  color: var(--green);
+  font-weight: bold;
+  padding: 1rem;
+  font-size: 3rem;
+  padding-bottom: 0rem;
+}
+
+.item-section {
+  width: 100vw;
+  margin: auto;
+}
+
+.detail {
+  border: 1px solid var(--green);
+}
+
+.titulo-item {
+  outline: none;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  color: var(--green);
+	font-weight: bold;
+	padding: 2rem;
+	font-size: 2rem;
+	border-bottom: 1px solid var(--green);
+  background-color: var(--light-grey);
+}
+
+.titulo-item:active {
+  color: var(--light-grey);
+}
+
+
