@@ -27,7 +27,7 @@
 	padding: 1rem;
 	width: 11rem;
 	height: 5rem;
-	background-image: url('./images/ImagotipoMobile.svg');
+	background-image: url('./images/ImagotipoLight.svg');
 	background-size: contain;
 	background-repeat: no-repeat;
 	position: absolute;
@@ -62,7 +62,7 @@
 	width: 2.5rem;
 	height: 2.5rem;
 	padding: 0;
-	background-image: url('./images/ProfileMobile.svg');
+	background-image: url('./images/ProfileLight.svg');
 	background-color: transparent;
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -77,10 +77,28 @@
 	padding: 1rem;
 	background-color: var(--green);
 	color: var(--light-grey);
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.footer address p {
+	display: inline;
+}
+
+.footer address p {
+	display: block;
+	margin-top: 0.4rem;
+}
+
+.footer ul li {
+	font-size: 1.1rem;
+	margin-top: 0.2rem;
 }
 
 .footer a {
-	color: var(--light-grey);
+	color: var(--yellow);
+	text-decoration: none;
 }
 
 @media only screen and (min-width: 800px) {
@@ -95,7 +113,7 @@
 	}
 
 	.header::after {
-		background-image: url('./images/ImagotipoDesktop.svg');
+		background-image: url('./images/ImagotipoDark.svg');
 		width: 15rem;
 		height: 5rem;
 		position: absolute;
@@ -113,14 +131,14 @@
 	.profile {
 		width: 2.8rem;
 		height: 2.8rem;
-		background-image: url('./images/ProfileDesktop.svg');
+		background-image: url('./images/ProfileDark.svg');
 		margin-right: 2vw;
 		margin-top: 2rem;
 	}
 
 	.nav {
 		width: 100%;
-		height: 10vh;
+		height: max(13vh, 40px);
 		min-width: 100vw;
 		display: initial;
 	}
@@ -130,7 +148,8 @@
 		height: 100%;
 		display: flex;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: center;
+		gap: 2rem;
 		background-color: var(--green);
 		font-weight: 600;
 		font-size: 1.1rem;
@@ -150,10 +169,28 @@
 	.current a {
 		color: var(--yellow);
 	}
+
+	.footer {
+		position: relative;
+	}
+
+	.footer::after {
+		position: absolute;
+		bottom: 15px;
+		right: 15px;
+		content: '';
+		background-image: url('./images/ImagotipoLight.svg');
+		background-position: center;
+		background-size: cover;
+		height: 5rem;
+		width: 15rem;
+		color: red;
+	}
 }
 
 @media only screen and (min-width: 1100px) {
 	.nav-list {
-		font-size: 1.3rem;
+		font-size: 1.2rem;
+		justify-content: space-evenly;
 	}
 }
