@@ -22,7 +22,7 @@
 .new img {
 	width: 100%;
 	object-fit: cover;
-	border-radius: 10px;
+	border-radius: 10px 10px 0 0;
 }
 
 .new h3 {
