@@ -137,3 +137,27 @@ input[type='submit']:hover {
 	color: var(--green);
 	font-weight: bold;
 }
+
+@media screen and (min-width: 700px) {
+	form {
+		width: 85vw;
+	}
+
+	span {
+		margin-left: 1rem;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	form {
+		width: 50vw;
+	}
+
+	span {
+		font-size: 1.5rem;
+	}
+
+	input[type='submit'] {
+		width: 20rem;
+	}
+}
