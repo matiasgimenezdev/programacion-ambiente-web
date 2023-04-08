@@ -1,31 +1,25 @@
-@import url('./global/reset.css');
-@import url('./global/variables.css');
 @import url('./global/shared.css');
 @import url('./global/shared-forms.css');
+
+body {
+	height: 100vh;
+	gap: 5rem;
+}
 
 .title {
 	top: 2rem;
 	left: 0.5rem;
 }
 
-body {
-	background-color: var(--light-grey);
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 5rem;
-}
-
 .register-link {
 	font-size: 1.2rem;
+	color: var(--light-grey);
 }
 
 .register-link a {
 	text-decoration: none;
-	color: var(--green);
+	color: var(--yellow);
+	filter: drop-shadow(2px 2px 5px black);
 	font-weight: bold;
 }
 
