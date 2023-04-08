@@ -3,7 +3,7 @@
 @import url('./global/shared.css');
 
 body {
-	/* background-color: var(--light-grey); */
+	background-color: var(--light-grey);
 	height: 100vh;
 	width: 100vw;
 	display: flex;
@@ -36,23 +36,24 @@ body {
 }
 
 form {
+	padding: 0.2rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	gap: 2rem;
 	width: 90vw;
-	height: 50vh;
-	margin-top: 2rem;
+	height: 55vh;
+	margin-top: 6rem;
 	border-radius: 15px;
-	box-shadow: 5px 5px 15px var(--grey), -5px -5px 15px var(--grey);
+	box-shadow: 2px 2px 15px var(--grey), -2px -2px 15px var(--grey);
 }
 
 form h2 {
 	width: 100%;
 	text-align: center;
 	padding: 0.5rem;
-	font-size: 2.2rem;
+	font-size: 2.5rem;
 	color: var(--green);
 }
 
@@ -84,10 +85,13 @@ form fieldset {
 	padding: 0.2rem 0.5rem;
 	outline: none;
 	border: none;
-	color: var(--green);
-	outline: 1px solid var(--green);
+	outline: 1px solid var(--grey);
 	border-radius: 5px;
-	background-color: var(--light-grey);
+	background-color: transparent;
+}
+
+.input:focus {
+	outline: 2px solid var(--grey);
 }
 
 .input[type='password'] {
@@ -95,7 +99,7 @@ form fieldset {
 }
 
 span {
-	margin-left: 0.2rem;
+	margin-left: 0.3rem;
 	cursor: pointer;
 }
 
@@ -104,11 +108,32 @@ legend {
 }
 
 input[type='submit'] {
+	margin-top: 1rem;
 	background-color: var(--green);
 	color: var(--light-grey);
 	border: none;
 	outline: none;
-	height: 2rem;
-	width: 10rem;
+	height: 2.5rem;
+	width: 14rem;
 	cursor: pointer;
+	font-weight: bold;
+	border-radius: 5px;
+	font-size: 1.05rem;
+	transition: background 0.3s ease;
+}
+
+input[type='submit']:hover {
+	background-color: transparent;
+	color: var(--green);
+	border: 2px solid var(--green);
+}
+
+.register-link {
+	font-size: 1.3rem;
+}
+
+.register-link a {
+	text-decoration: none;
+	color: var(--green);
+	font-weight: bold;
 }
