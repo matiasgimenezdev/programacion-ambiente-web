@@ -64,6 +64,18 @@
 	.carousel {
 		height: 45vh;
 		width: 100vw;
+		position: relative;
+	}
+
+	.carousel::after {
+		content: 'El cuidado que necesitas de los médicos en los que confías';
+		position: absolute;
+		bottom: 30px;
+		left: 30px;
+		color: var(--light-grey);
+		font-size: 2.5rem;
+		font-weight: 700;
+		filter: drop-shadow(2px 2px 3px #000);
 	}
 
 	.carousel-list {
@@ -81,7 +93,7 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		filter: contrast(120%);
+		filter: opacity(0.75);
 	}
 
 	.active {

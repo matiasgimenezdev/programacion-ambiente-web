@@ -22,12 +22,13 @@
 .new img {
 	width: 100%;
 	object-fit: cover;
+	border-radius: 10px;
 }
 
 .new h3 {
 	color: var(--green);
 	font-weight: bold;
-	padding: 1rem;
+	padding: 0.5rem 1rem;
 	font-size: 1.3rem;
 	border-bottom: 1px solid var(--green);
 }
@@ -83,7 +84,8 @@
 		flex-direction: column;
 		width: 45%;
 		min-height: 45vh;
-		transition: transform 0.2s;
+		transition: transform 0.3s;
+		cursor: pointer;
 	}
 
 	.new h3 {
@@ -96,7 +98,7 @@
 	}
 
 	.new:hover {
-		transform: scale(1.05);
+		transform: scale(1.015);
 	}
 }
 
