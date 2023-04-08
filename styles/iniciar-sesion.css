@@ -1,6 +1,12 @@
 @import url('./global/reset.css');
 @import url('./global/variables.css');
 @import url('./global/shared.css');
+@import url('./global/shared-forms.css');
+
+.title {
+	top: 2rem;
+	left: 0.5rem;
+}
 
 body {
 	background-color: var(--light-grey);
@@ -13,129 +19,24 @@ body {
 	gap: 5rem;
 }
 
-.title {
-	font-size: 3rem;
-	color: var(--grey);
-	margin: 1rem 0.5rem;
-	align-self: flex-start;
-	position: absolute;
-	top: 2rem;
-	left: 0.5rem;
-}
-
-.title::after {
-	content: '';
-	background-image: url('./global/images/Isotipo.svg');
-	width: 3rem;
-	height: 3rem;
-	background-position: center;
-	background-size: cover;
-	display: inline-block;
-	position: absolute;
-	margin-left: 1rem;
-}
-
-form {
-	padding: 0.2rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2rem;
-	width: 90vw;
-	height: 55vh;
-	margin-top: 6rem;
-	border-radius: 15px;
-	box-shadow: 2px 2px 15px var(--grey), -2px -2px 15px var(--grey);
-}
-
-form h2 {
-	width: 100%;
-	text-align: center;
-	padding: 0.5rem;
-	font-size: 2.5rem;
-	color: var(--green);
-}
-
-form fieldset {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 95%;
-	gap: 1rem;
-}
-
-.input-container {
-	width: 100%;
-	margin-left: 1rem;
-}
-
-.label {
-	display: block;
-	font-weight: bold;
-	font-size: 1.2rem;
-	margin: 0.5rem 0;
-	color: var(--green);
-}
-
-.input {
-	width: 88%;
-	height: 2rem;
-	padding: 0.2rem 0.5rem;
-	outline: none;
-	border: none;
-	outline: 1px solid var(--grey);
-	border-radius: 5px;
-	background-color: transparent;
-}
-
-.input:focus {
-	outline: 2px solid var(--grey);
-}
-
-.input[type='password'] {
-	display: inline-block;
-}
-
-span {
-	margin-left: 0.3rem;
-	cursor: pointer;
-}
-
-legend {
-	display: none;
-}
-
-input[type='submit'] {
-	margin-top: 1rem;
-	background-color: var(--green);
-	color: var(--light-grey);
-	border: none;
-	outline: none;
-	height: 2.5rem;
-	width: 14rem;
-	cursor: pointer;
-	font-weight: bold;
-	border-radius: 5px;
-	font-size: 1.05rem;
-	transition: background 0.3s ease;
-}
-
-input[type='submit']:hover {
-	background-color: transparent;
-	color: var(--green);
-	border: 2px solid var(--green);
-}
-
 .register-link {
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 }
 
 .register-link a {
 	text-decoration: none;
 	color: var(--green);
 	font-weight: bold;
+}
+
+form {
+	height: 55vh;
+	width: 90vw;
+}
+
+span {
+	margin-left: 0.5rem;
+	cursor: pointer;
 }
 
 @media screen and (min-width: 700px) {
@@ -154,7 +55,7 @@ input[type='submit']:hover {
 	}
 
 	span {
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 	}
 
 	input[type='submit'] {

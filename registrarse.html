@@ -4,16 +4,20 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Registrarse | Clínica Universitaria</title>
+		<link rel="stylesheet" href="./styles/registrarse.css" />
+		<link rel="icon" type="image/svg" href="./images/Favicon.svg" />
+		<title>Registrarse | UL Hospitals</title>
 	</head>
 	<body>
-		<h1>Clinica Universitaria</h1>
+		<h1 class="title">Registrarse</h1>
 		<form action="" method="POST">
 			<fieldset>
 				<legend>Registrarse</legend>
-				<p>
-					<label for="dni">DNI</label>
+				<p class="input-container">
+					<label class="label" for="dni">DNI</label>
 					<input
+						autocomplete="off"
+						class="input"
 						type="number"
 						name="dni"
 						id="dni"
@@ -22,9 +26,11 @@
 						maxlength="8"
 					/>
 				</p>
-				<p>
-					<label for="nombre">Nombre</label>
+				<p class="input-container">
+					<label class="label" for="nombre">Nombre</label>
 					<input
+						autocomplete="off"
+						class="input"
 						type="text"
 						name="nombre"
 						id="nombre"
@@ -33,9 +39,11 @@
 						maxlength="30"
 					/>
 				</p>
-				<p>
-					<label for="apellido">Apellido</label>
+				<p class="input-container">
+					<label class="label" for="apellido">Apellido</label>
 					<input
+						autocomplete="off"
+						class="input"
 						type="text"
 						name="apellido"
 						id="apellido"
@@ -44,9 +52,11 @@
 						maxlength="50"
 					/>
 				</p>
-				<p>
-					<label for="email">Correo electrónico</label>
+				<p class="input-container">
+					<label class="label" for="email">Correo electrónico</label>
 					<input
+						autocomplete="off"
+						class="input"
 						type="email"
 						name="email"
 						id="email"
@@ -55,9 +65,13 @@
 						maxlength="50"
 					/>
 				</p>
-				<p>
-					<label for="email2">Reingrese correo electrónico</label>
+				<p class="input-container">
+					<label class="label" for="email2"
+						>Reingrese correo electrónico</label
+					>
 					<input
+						autocomplete="off"
+						class="input"
 						type="email"
 						name="email2"
 						id="email2"
@@ -66,9 +80,10 @@
 						maxlength="50"
 					/>
 				</p>
-				<p>
-					<label for="password">Contraseña</label>
+				<p class="input-container">
+					<label class="label" for="password">Contraseña</label>
 					<input
+						class="input"
 						type="password"
 						name="password"
 						id="password"
@@ -79,9 +94,12 @@
 					/>
 					<span>👁‍🗨</span>
 				</p>
-				<p>
-					<label for="password2">Reingrese la Contraseña</label>
+				<p class="input-container">
+					<label class="label" for="password2"
+						>Reingrese la Contraseña</label
+					>
 					<input
+						class="input"
 						type="password"
 						name="password2"
 						id="password"
@@ -98,17 +116,17 @@
 						name="terminos-condiciones"
 						id="terminos-condiciones"
 					/>
-					<label for="terminos-condiciones">
+					<label for="terminos-condiciones" class="terms-conditions">
 						He leído y acepto los términos y condiciones de uso
 						<a href="terminos.html" target="_blank">
 							términos y condiciones de uso
 						</a>
 					</label>
 				</p>
-				<button type="submit" id="boton-submit">Registrarme</button>
+				<input type="submit" id="boton-submit" value="Registrarme" />
 			</fieldset>
 		</form>
-		<p>
+		<p class="login-link">
 			¿Ya tiene una Cuenta?
 			<a href="iniciar-sesion.html">Iniciar sesión.</a>
 		</p>
