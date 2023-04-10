@@ -3,14 +3,6 @@
 @import url('./global/shared.css');
 @import url(./global/shared-news.css);
 
-.title {
-	color: var(--grey);
-	font-weight: bold;
-	padding: 1rem;
-	font-size: 3em;
-	padding-bottom: 0rem;
-}
-
 .head h3 {
 	padding: 1.5rem;
 }

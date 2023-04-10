@@ -44,6 +44,13 @@
 	gap: 1rem;
 }
 
+.title {
+	color: var(--grey);
+	font-weight: bold;
+	padding: 1rem;
+	font-size: 2.5rem;
+}
+
 .menu {
 	width: 2.5rem;
 	height: 2.5rem;
