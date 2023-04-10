@@ -1,0 +1,107 @@
+@import url('./global/variables.css');
+
+.title {
+	color: var(--light-grey);
+	position: absolute;
+	top: 5px;
+	filter: drop-shadow(4px 4px 3px black);
+	font-weight: bold;
+	align-self: flex-start;
+}
+
+.search-section {
+	display: flex;
+	align-items: center;
+	position: relative;
+	justify-content: space-evenly;
+	background-image: url('./images/Background.webp');
+	background-position: center;
+	background-size: cover;
+	height: 60vh;
+	flex-direction: column;
+}
+
+form {
+	width: 90vw;
+	background-color: var(--light-grey);
+	padding: 1.7rem;
+	border-radius: 10px;
+	box-shadow: 2px 2px 15px var(--grey), -2px -2px 15px var(--grey);
+}
+
+fieldset {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	flex-direction: column;
+}
+
+fieldset legend {
+	font-size: 1.7rem;
+	color: var(--grey);
+}
+
+.input-container {
+	margin-top: 1rem;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.5rem;
+}
+
+.label {
+	color: var(--green);
+	font-style: italic;
+}
+
+.input {
+	width: 100%;
+	height: 2rem;
+	padding: 0.2rem 0.5rem;
+	outline: none;
+	border: none;
+	outline: 1px solid var(--grey);
+	border-radius: 5px;
+	background-color: transparent;
+}
+
+.input:focus {
+	outline: 2px solid var(--grey);
+}
+
+input[type='submit'] {
+	margin-top: 1rem;
+	background-color: var(--green);
+	color: var(--light-grey);
+	border: none;
+	outline: none;
+	height: 2.5rem;
+	width: 14rem;
+	cursor: pointer;
+	font-weight: bold;
+	border-radius: 5px;
+	font-size: 1.05rem;
+	transition: background 0.3s ease;
+}
+
+input[type='submit']:hover {
+	background-color: transparent;
+	color: var(--green);
+	border: 2px solid var(--green);
+}
+
+@media screen and (min-width: 1000px) {
+	fieldset legend {
+		font-size: 2rem;
+	}
+
+	.label {
+		font-size: 1.2rem;
+	}
+
+	input[type='submit'] {
+		width: 25rem;
+	}
+}

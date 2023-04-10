@@ -1,5 +1,5 @@
 @import url('./global/shared.css');
-@import url('./global/shared-forms.css');
+@import url('./global/shared-data-form.css');
 
 body {
 	height: 100vh;
