@@ -14,7 +14,7 @@
 	align-items: center;
 	position: relative;
 	justify-content: space-evenly;
-	background-image: url('./images/Background.webp');
+	background-image: url('./images/Background-B.webp');
 	background-position: center;
 	background-size: cover;
 	height: 60vh;
@@ -53,7 +53,8 @@ fieldset legend {
 
 .label {
 	color: var(--green);
-	font-style: italic;
+	font-weight: bold;
+	padding: 0.2rem 0;
 }
 
 .input {
@@ -95,6 +96,10 @@ input[type='submit']:hover {
 @media screen and (min-width: 1000px) {
 	fieldset legend {
 		font-size: 2rem;
+	}
+
+	form {
+		width: 80vw;
 	}
 
 	.label {
