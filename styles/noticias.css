@@ -7,7 +7,7 @@
 	color: var(--grey);
 	font-weight: bold;
 	padding: 1rem;
-	font-size: 3rem;
+	font-size: 3em;
 	padding-bottom: 0rem;
 }
 
@@ -28,11 +28,11 @@
 	}
 
 	.head h3 {
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 
 	.head p {
-		font-size: 1.6rem;
+		font-size: 1.2rem;
 		width: 60vw;
 	}
 
@@ -59,12 +59,12 @@
 	}
 
 	.head h3 {
-		font-size: 2rem;
+		font-size: 1.7rem;
 		width: 60vw;
 	}
 
 	.head p {
-		font-size: 1.6rem;
-		padding: 1.5rem;
+		font-size: 1.5rem;
+		padding: 1rem;
 	}
 }
