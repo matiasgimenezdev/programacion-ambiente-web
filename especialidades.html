@@ -4,45 +4,57 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Especialidades | Clinica Universitaria</title>
+		<link rel="stylesheet" href="./styles/especialidades.css" />
+		<link rel="icon" type="image/svg" href="./images/Favicon.svg" />
+		<title>Especialidades | UL Hospitals</title>
 	</head>
 	<body>
-		<header>
+		<header class="header">
 			<section>
-				<h1>Clinica Universitaria</h1>
-				<a href="iniciar-sesion.html">
-					<img
-						src="./images/encabezado/profile.svg"
-						alt="Perfil del paciente"
-						height="30"
-						width="30"
-					/>
-				</a>
+				<a href="iniciar-sesion.html" class="profile"> </a>
+				<button class="menu"></button>
 			</section>
-			<nav>
-				<ul>
-					<li><a href="index.html">Inicio</a></li>
-					<li><a href="turnos.html">Turnos</a></li>
-					<li><a href="profesionales.html">Profesionales</a></li>
-					<li><a href="especialidades.html">Especialidades</a></li>
-					<li><a href="noticias.html">Noticias</a></li>
-					<li><a href="institucional.html">Institucional</a></li>
-					<li><a href="obras-sociales.html">Obras sociales</a></li>
-					<li><a href="contacto.html">Contacto</a></li>
+			<nav class="nav">
+				<ul class="nav-list">
+					<li class="nav-item">
+						<a href="index.html">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a href="turnos.html">Turnos</a>
+					</li>
+					<li class="nav-item">
+						<a href="profesionales.html">Profesionales</a>
+					</li>
+					<li class="nav-item current">
+						<a href="especialidades.html">Especialidades</a>
+					</li>
+					<li class="nav-item">
+						<a href="noticias.html">Noticias</a>
+					</li>
+					<li class="nav-item">
+						<a href="institucional.html">Institucional</a>
+					</li>
+					<li class="nav-item">
+						<a href="obras-sociales.html">Obras sociales</a>
+					</li>
+					<li class="nav-item">
+						<a href="contacto.html">Contacto</a>
+					</li>
 				</ul>
 			</nav>
 		</header>
 		<main>
-			<section>
-				<h2>Especialidades</h2>
+			<section class="search-section">
+				<h2 class="title">Especialidades</h2>
 				<form action="" method="GET">
 					<fieldset>
 						<legend>Buscar especialidad</legend>
-						<p>
-							<label for="especialidad">
+						<p class="input-container">
+							<label class="label" for="especialidad">
 								¿Que especialidad esta buscando?
 							</label>
 							<input
+								class="input"
 								type="search"
 								id="especialidad"
 								name="especialidad"
@@ -69,19 +81,26 @@
 				</article>
 			</section>
 		</main>
-		<footer>
-			<p>&copy;2023 Clinica Universitaria</p>
-			<p><small>Todos los derechos reservados</small></p>
+		<footer class="footer">
 			<address>
 				<p>Ruta 5 y Avenida Constitución, Luján, Buenos Aires</p>
-				<p>+54 (2324) xxxxxx Atención telefónica las 24hs</p>
+				<p>+54 (2323) 221133 - Atención telefónica las 24hs</p>
 			</address>
 			<nav>
 				<ul>
 					<li><a href="index.html">Volver al inicio</a></li>
-					<li><a href="/contacto">Más información de contacto</a></li>
+					<li>
+						<a href="/contacto">Más información de contacto</a>
+					</li>
+					<li>
+						<a href="/terminos.html">Términos y condiciones</a>
+					</li>
 				</ul>
 			</nav>
+			<p>
+				&copy;2023 Clinica Universitaria.
+				<small>Todos los derechos reservados.</small>
+			</p>
 		</footer>
 	</body>
 </html>
