@@ -1,24 +1,15 @@
 @import url('./global/shared.css');
 
-.titulo h2 {
-  color: var(--green);
-  font-weight: bold;
-  padding: 1.5rem;
-  font-size: 1.5rem;
-}
-
-
-
 .detail-section {
-  padding-top: 1.5rem;
   width: 100vw;
 }
 
-.detail-section details {
+.detail {
   border: 1px solid var(--green);
+  background: var(--light-grey);
 }
 
-.detail-section summary {
+.titulo-detail {
   outline: none;
   cursor: pointer;
   list-style: none;
@@ -32,8 +23,58 @@
   background-color: var(--light-grey);
 }
 
-.titulo-detail:active {
+.detail[open] > .titulo-detail {
   color: var(--light-grey);
+  background-color: var(--grey);
 }
+
+.detail p {
+  padding: 1.2rem;
+}
+
+.detail h3 {
+  font-weight: bold;
+  padding-top: 1.2rem;
+  padding-left: 1.2rem;
+  color: var(--green);
+}
+
+.detail figure {
+  display: flex;
+  padding: 0.5em;
+  border: 1px solid var(--green);
+}
+
+.detail figcaption {
+  color: var(--green);
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: auto;
+}
+
+.detail img {
+  width: 100px;
+  height: 100px;
+}
+
+@media only screen and (min-width: 800px) {
+  
+  .detail h3 {
+    font-size: 1.2rem;
+  }
+
+  .detail figcaption {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  
+  .detail figure {
+    margin: 2rem;
+    border-radius: 10px;
+  }
+}
+
 
 
