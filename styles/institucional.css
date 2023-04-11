@@ -1,25 +1,24 @@
-@import url('./global/reset.css');
-@import url('./global/variables.css');
 @import url('./global/shared.css');
 
 .titulo h2 {
   color: var(--green);
   font-weight: bold;
-  padding: 1rem;
-  font-size: 3rem;
-  padding-bottom: 0rem;
+  padding: 1.5rem;
+  font-size: 1.5rem;
 }
 
-.item-section {
+
+
+.detail-section {
+  padding-top: 1.5rem;
   width: 100vw;
-  margin: auto;
 }
 
-.detail {
+.detail-section details {
   border: 1px solid var(--green);
 }
 
-.titulo-item {
+.detail-section summary {
   outline: none;
   cursor: pointer;
   list-style: none;
@@ -27,13 +26,13 @@
   justify-content: center;
   color: var(--green);
 	font-weight: bold;
-	padding: 2rem;
-	font-size: 2rem;
+	padding: 1.2rem;
+	font-size: 1.4rem;
 	border-bottom: 1px solid var(--green);
   background-color: var(--light-grey);
 }
 
-.titulo-item:active {
+.titulo-detail:active {
   color: var(--light-grey);
 }
 

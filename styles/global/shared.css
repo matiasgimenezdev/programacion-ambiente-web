@@ -80,7 +80,7 @@
 }
 
 .footer {
-	margin-top: 4rem;
+	margin-top: auto; /* margin-top auto para que quede en el final del body */
 	padding: 1rem;
 	background-color: var(--green);
 	color: var(--light-grey);
@@ -106,6 +106,19 @@
 .footer a {
 	color: var(--yellow);
 	text-decoration: none;
+}
+
+/* Las siguientes propiedades del body 
+		están especificadas para que e body
+		ocupe la totalidad de la pantalla 
+		sin importar si el contenido no es lo
+		suficientemente grande, de manera que 
+		el margin-top: auto; en el .footer establece
+		el pie de página al final de la misma*/
+body { 
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 main {
@@ -200,7 +213,7 @@ main {
 		color: var(--yellow);
 	}
 
-	.footer {
+.footer {
 		position: relative;
 	}
 
