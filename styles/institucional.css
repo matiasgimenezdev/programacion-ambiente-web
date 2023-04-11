@@ -70,9 +70,18 @@
 
 @media only screen and (min-width: 1200px) {
   
+  .detail-section {
+    width: 80vw;
+    margin: auto;
+  }
+
   .detail figure {
     margin: 2rem;
     border-radius: 10px;
+  }
+
+  .titulo-detail {
+    padding: 2rem;
   }
 }
 
