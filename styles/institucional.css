@@ -15,17 +15,22 @@
   list-style: none;
   display: flex;
   justify-content: center;
-  color: var(--green);
+  color: var(--light-grey);
 	font-weight: bold;
 	padding: 1.2rem;
 	font-size: 1.4rem;
-	border-bottom: 1px solid var(--green);
-  background-color: var(--light-grey);
+	border-bottom: 1px solid var(--light-grey);
+  background-color: var(--green);
 }
 
 .detail[open] > .titulo-detail {
-  color: var(--light-grey);
-  background-color: var(--grey);
+  background-color: var(--light-grey);
+  color: var(--green);
+}
+
+.titulo-detail:hover {
+  background-color: var(--light-grey);
+  color: var(--green);
 }
 
 .detail p {
