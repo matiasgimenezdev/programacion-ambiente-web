@@ -1,2 +1,20 @@
 @import url('./global/shared.css');
 @import url('./global/shared-search-form.css');
+
+.profesional-name {
+	font-weight: bold;
+	color: var(--green);
+	font-size: 1.2rem;
+}
+
+.profesional-area {
+	padding: 0.3rem 0;
+	color: var(--grey);
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+
+.profesional-description {
+	padding: 0.3rem 0;
+	line-height: 1.3rem;
+}

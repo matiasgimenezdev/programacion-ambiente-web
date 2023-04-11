@@ -1,2 +1,25 @@
 @import url('./global/shared.css');
 @import url('./global/shared-search-form.css');
+
+.specialty-name {
+	font-weight: bold;
+	color: var(--green);
+	font-size: 1.2rem;
+	padding: 0.3rem 0;
+}
+
+.specialty-description {
+	padding: 0.3rem 0;
+	line-height: 1.3rem;
+}
+
+@media screen and (min-width: 1400px) {
+	.result-section {
+		justify-content: flex-start;
+	}
+
+	.search-result {
+		width: 45%;
+		margin-top: 2.5rem;
+	}
+}
