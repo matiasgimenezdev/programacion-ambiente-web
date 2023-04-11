@@ -115,7 +115,7 @@
 		suficientemente grande, de manera que 
 		el margin-top: auto; en el .footer establece
 		el pie de página al final de la misma*/
-body { 
+body {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
@@ -130,8 +130,8 @@ main {
 	border: 2px solid #025255;
 	outline: none;
 	border-radius: 50%;
-	bottom: 10px;
-	right: 5px;
+	bottom: 3rem;
+	right: 1rem;
 	width: 4rem;
 	height: 4rem;
 	background-color: var(--yellow);
@@ -213,7 +213,7 @@ main {
 		color: var(--yellow);
 	}
 
-.footer {
+	.footer {
 		position: relative;
 	}
 

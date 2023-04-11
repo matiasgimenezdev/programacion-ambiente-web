@@ -1,4 +1,4 @@
-@import url('./global/variables.css');
+@import url('./variables.css');
 
 .title {
 	color: var(--light-grey);
@@ -93,6 +93,62 @@ input[type='submit']:hover {
 	border: 2px solid var(--green);
 }
 
+.result-section {
+	padding: 1rem;
+	padding-bottom: 0;
+	margin-bottom: 2rem;
+}
+
+.result-section h3 {
+	font-size: 1.3rem;
+}
+
+.search-text {
+	color: var(--green);
+	font-style: italic;
+	font-weight: bold;
+}
+
+.search-result {
+	margin-top: 1rem;
+	padding: 1rem;
+	border: 1px solid var(--grey);
+	border-radius: 10px;
+}
+
+button {
+	background-color: transparent;
+	outline: none;
+	border: none;
+	width: 100%;
+	border-radius: 5px;
+	height: 2.5rem;
+	padding: 0.5rem;
+	margin: 1rem auto;
+	background-color: var(--green);
+	color: var(--yellow);
+	font-weight: bold;
+	font-size: 1rem;
+	transition: transform 0.2s linear;
+	cursor: pointer;
+}
+
+button:hover {
+	transform: scale(1.02);
+}
+
+@media screen and (min-width: 650px) {
+	button {
+		width: 50%;
+	}
+}
+
+@media screen and (min-width: 950px) {
+	button {
+		width: 30%;
+	}
+}
+
 @media screen and (min-width: 1000px) {
 	fieldset legend {
 		font-size: 2rem;
@@ -108,5 +164,31 @@ input[type='submit']:hover {
 
 	input[type='submit'] {
 		width: 25rem;
+	}
+}
+
+@media screen and (min-width: 1400px) {
+	.result-section {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0 2rem;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+	}
+
+	.result-section h3 {
+		position: absolute;
+		top: 1rem;
+		left: 1rem;
+	}
+
+	.search-result {
+		width: 45%;
+		margin-top: 2.5rem;
+	}
+
+	button {
+		width: 50%;
 	}
 }
