@@ -1,0 +1,68 @@
+@import url('./global/shared.css');
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  margin: auto;
+}
+  
+legend {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--green);
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--green);
+  margin-top: 1.05rem;
+}
+
+input {
+  width: 90vw;
+  background-color: var(--light-grey);
+  border: 1px solid #0000001d;
+  display: flex;
+  margin: auto;
+  height: 1.5rem;
+}
+
+.label-genero {
+  display: inline;
+}
+
+.in-genero {
+  width: 18px;
+  display: inline;
+  height: auto;
+}
+
+.dc-form {
+  margin-top: 1.2rem;
+}
+
+.dt-form {
+  margin-top: 1.05rem;
+}
+
+.nacimiento {
+  display: inline;
+  float: left;
+}
+
+.nacimiento input {
+  width: 50vw;
+  display: inline;
+}
+
+.edad {
+  display: inline;
+  float: right;
+}
+
+.edad input {
+  width: 30vw;
+  display: inline;
+}
