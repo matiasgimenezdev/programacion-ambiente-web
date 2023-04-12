@@ -1,7 +1,7 @@
 @import url('./reset.css');
 @import url('./variables.css');
 
-:root {
+html {
 	font-size: 16px;
 	font-family: var(--font-family);
 	overflow-x: hidden;

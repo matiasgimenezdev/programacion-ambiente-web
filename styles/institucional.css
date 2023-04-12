@@ -1,94 +1,109 @@
 @import url('./global/shared.css');
 
 .detail-section {
-  width: 100vw;
+	width: 95vw;
+	margin: auto;
 }
 
 .detail {
-  border: 1px solid var(--green);
-  background: var(--light-grey);
+	border: 1px solid var(--green);
+	background: var(--light-grey);
 }
 
 .titulo-detail {
-  outline: none;
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  color: var(--light-grey);
+	outline: none;
+	cursor: pointer;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	color: var(--light-grey);
 	font-weight: bold;
 	padding: 1.2rem;
 	font-size: 1.4rem;
 	border-bottom: 1px solid var(--light-grey);
-  background-color: var(--green);
+	background-color: var(--green);
+	transition: background 0.3s ease-in-out;
 }
 
 .detail[open] > .titulo-detail {
-  background-color: var(--light-grey);
-  color: var(--green);
+	background-color: var(--light-grey);
+	color: var(--green);
+	border-bottom: 1px solid var(--green);
+}
+
+.detail[open] > .titulo-detail:hover {
+	background-color: var(--red);
+	color: var(--light-grey);
+	opacity: 0.9;
 }
 
 .titulo-detail:hover {
-  background-color: var(--light-grey);
-  color: var(--green);
+	background-color: var(--light-grey);
+	color: var(--green);
 }
 
 .detail p {
-  padding: 1.2rem;
+	padding: 1.2rem;
+	line-height: 1.2rem;
 }
 
 .detail h3 {
-  font-weight: bold;
-  padding-top: 1.2rem;
-  padding-left: 1.2rem;
-  color: var(--green);
+	font-weight: bold;
+	padding-top: 1.2rem;
+	padding-left: 1.2rem;
+	color: var(--green);
 }
 
 .detail figure {
-  display: flex;
-  padding: 0.5em;
-  border: 1px solid var(--green);
+	display: flex;
+	padding: 0.5em;
+	border-bottom: 1px solid var(--green);
+	overflow: hidden;
 }
 
 .detail figcaption {
-  color: var(--green);
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin: auto;
+	color: var(--green);
+	font-weight: bold;
+	font-size: 1.1rem;
+	margin: auto;
 }
 
 .detail img {
-  width: 100px;
-  height: 100px;
+	width: 100px;
+	height: 100px;
 }
 
 @media only screen and (min-width: 800px) {
-  
-  .detail h3 {
-    font-size: 1.2rem;
-  }
+	.detail-section {
+		margin: auto;
+		width: 90vw;
+	}
 
-  .detail figcaption {
-    font-size: 1.3rem;
-  }
+	.detail h3 {
+		font-size: 1.2rem;
+	}
+
+	.detail figcaption {
+		font-size: 1.3rem;
+	}
 }
 
 @media only screen and (min-width: 1200px) {
-  
-  .detail-section {
-    width: 80vw;
-    margin: auto;
-  }
+	.detail-section {
+		width: 80vw;
+		margin: 1rem auto;
+	}
 
-  .detail figure {
-    margin: 2rem;
-    border-radius: 10px;
-  }
+	.detail figure {
+		margin: 2rem;
+		/* border-radius: 10px; */
+	}
 
-  .titulo-detail {
-    padding: 2rem;
-  }
+	.detail figcaption {
+		margin: auto 2rem;
+	}
+
+	.titulo-detail {
+		padding: 2rem;
+	}
 }
-
-
-
