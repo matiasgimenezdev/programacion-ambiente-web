@@ -4,76 +4,96 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Contacto | Clinica Universitaria</title>
+		<link rel="stylesheet" href="./styles/contacto.css" />
+		<link rel="icon" type="image/svg" href="./images/Favicon.svg" />
+		<title>Contacto | UL Hospitals</title>
 	</head>
 	<body>
-		<header>
+		<header class="header">
 			<section>
-				<h1>Clinica Universitaria</h1>
-				<a href="iniciar-sesion.html">
-					<img
-						src="./images/encabezado/profile.svg"
-						alt="Perfil del paciente"
-						height="30px"
-						width="30px"
-					/>
-				</a>
+				<a href="iniciar-sesion.html" class="profile"> </a>
+				<button class="menu"></button>
 			</section>
-			<nav>
-				<ul>
-					<li><a href="index.html">Inicio</a></li>
-					<li><a href="turnos.html">Turnos</a></li>
-					<li><a href="profesionales.html">Profesionales</a></li>
-					<li><a href="especialidades.html">Especialidades</a></li>
-					<li><a href="noticias.html">Noticias</a></li>
-					<li><a href="institucional.html">Institucional</a></li>
-					<li><a href="obras-sociales.html">Obras sociales</a></li>
-					<li><a href="contacto.html">Contacto</a></li>
+			<nav class="nav">
+				<ul class="nav-list">
+					<li class="nav-item current">
+						<a href="index.html">Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a href="turnos.html">Turnos</a>
+					</li>
+					<li class="nav-item">
+						<a href="profesionales.html">Profesionales</a>
+					</li>
+					<li class="nav-item">
+						<a href="especialidades.html">Especialidades</a>
+					</li>
+					<li class="nav-item">
+						<a href="noticias.html">Noticias</a>
+					</li>
+					<li class="nav-item">
+						<a href="institucional.html">Institucional</a>
+					</li>
+					<li class="nav-item">
+						<a href="obras-sociales.html">Obras sociales</a>
+					</li>
+					<li class="nav-item">
+						<a href="contacto.html">Contacto</a>
+					</li>
 				</ul>
 			</nav>
 		</header>
 		<main>
-			<h2>Contacto</h2>
+			<h2 class="title">Contacto</h2>
 			<h3>Para comunicarse con la clínica</h3>
-			<section>
+			<section class="contact-section">
 				<h4>Personalmente o por correo postal</h4>
-				<address>
+				<address class="contact-information">
 					<p>Ruta 5 y Avenida Constitución, Luján, Buenos Aires</p>
-					<div style="width: 100%">
-						<iframe
-							width="100%"
-							height="200"
-							name="ubicacion"
-							scrolling="no"
-							src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ruta%205%20y,%20Av.%20Constituci%C3%B3n%20+(Universidad%20Nacional%20de%20Lujan)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-						></iframe>
-					</div>
 				</address>
 			</section>
-			<section>
+			<section class="contact-section">
 				<h4>Por teléfono (atención telefonica las 24 horas)</h4>
-				<address>
+				<address class="contact-information">
 					<p>
 						Para llamadas desde el interior de Argentina:
-						2324-xxxxxx
+						<span class="tel">2323-221133</span>
 					</p>
-					<p>Para llamadas internacionales: +54 2324-xxxxxx</p>
+					<p>
+						Para llamadas internacionales:
+						<span class="tel">+54 2323-221133</span>
+					</p>
 				</address>
 			</section>
+			<iframe
+				width="100%"
+				height="200"
+				name="ubicacion"
+				scrolling="no"
+				src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ruta%205%20y,%20Av.%20Constituci%C3%B3n%20+(Universidad%20Nacional%20de%20Lujan)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+			></iframe>
+			<button class="turn"></button>
 		</main>
-		<footer>
-			<p>&copy;2023 Clinica Universitaria</p>
-			<p><small>Todos los derechos reservados</small></p>
+		<footer class="footer">
 			<address>
 				<p>Ruta 5 y Avenida Constitución, Luján, Buenos Aires</p>
-				<p>+54 (2324) xxxxxx Atención telefónica las 24hs</p>
+				<p>+54 (2323) 221133 - Atención telefónica las 24hs</p>
 			</address>
 			<nav>
 				<ul>
 					<li><a href="index.html">Volver al inicio</a></li>
-					<li><a href="/contacto">Más información de contacto</a></li>
+					<li>
+						<a href="/contacto.html">Más información de contacto</a>
+					</li>
+					<li>
+						<a href="/terminos.html">Términos y condiciones</a>
+					</li>
 				</ul>
 			</nav>
+			<p>
+				&copy;2023 Clinica Universitaria.
+				<small>Todos los derechos reservados.</small>
+			</p>
 		</footer>
 	</body>
 </html>
