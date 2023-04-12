@@ -104,7 +104,7 @@
             />
             <label class="label-genero" for="masculino">Masculino</label>
           </p>
-          <p class="nacimiento">
+          <p class="fecha">
             <label for="nacimiento">Fecha de Nacimiento</label>
             <input
               type="date"
@@ -186,7 +186,7 @@
               maxlength="30"
             />
           </p>
-          <p>
+          <p class="fecha">
             <label for="fecha-turno">Fecha del Turno</label>
             <input
               type="date"
@@ -195,6 +195,8 @@
               required
               tabindex="11"
             />
+          </p>
+          <p class="hora">
             <label for="hora-turno">Horario del Turno</label>
             <input
               type="time"
@@ -205,8 +207,10 @@
             />
           </p>
         </fieldset>
-        <input type="submit" value="Solicitar Turno" />
-        <input type="reset" value="Limpiar" />
+        <section class="buttons">
+          <input class="submit" type="submit" value="Solicitar Turno" />
+          <input class="reset" type="reset" value="Limpiar" />
+        </section>
       </form>
     </main>
   </body>
