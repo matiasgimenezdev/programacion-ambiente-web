@@ -1,6 +1,11 @@
 @import url('./global/shared.css');
 @import url('./global/shared-details-style.css');
 
+.section-header {
+  width: 95vw;
+  margin: auto;
+}
+
 .detail h4 {
 	font-weight: bold;
 	padding-top: 1.2rem;
@@ -35,7 +40,6 @@
 	border-radius: 5px;
 	font-size: 1.05rem;
 	transition: background 0.3s ease;
-  margin-left: 1rem;
   border: 2px solid var(--light-grey);
 }
 
@@ -54,13 +58,14 @@
 }
 
 .list-title {
-  margin: 1.2rem;
+  margin-top: 1.2rem;
   font-size: 1.2rem;
   width: 40vh;
 }
 
 .form {
-  margin: 1.2rem;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .form label {
@@ -78,32 +83,28 @@
 }
 
 @media only screen and (min-width: 800px) {
-	.form {
-    margin-left: 2.5rem;
-  }
 
   .list-title {
-    margin-left: 2.5rem;
     width: 100vh;
   }
 
   .solicitar-turno-button {
     width: 14rem;
-    margin-left: 2.5rem;
+  }
+
+  .section-header {
+    width: 90vw;
+    margin: auto;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-	.form {
-    margin-left: 8rem;
-  }
-
-  .list-title {
-    margin-left: 8rem;
-  }
-
   .solicitar-turno-button {
     width: 14rem;
-    margin-left: 8rem;
+  }
+
+  .section-header {
+    width: 80vw;
+    margin: auto;
   }
 }
