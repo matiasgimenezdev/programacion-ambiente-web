@@ -116,8 +116,6 @@ html {
 		el margin-top: auto; en el .footer establece
 		el pie de página al final de la misma*/
 body {
-	display: flex;
-	flex-direction: column;
 	min-height: 100vh;
 }
 
