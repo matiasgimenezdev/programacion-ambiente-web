@@ -1,122 +1,204 @@
 @import url('./global/shared.css');
 
 form {
-  display: flex;
-  flex-direction: column;
-  width: 90vw;
-  margin: auto;
+	margin: auto;
+	width: 90vw;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
 }
-  
+
+fieldset {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
 legend {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--green);
+	font-size: 1.3rem;
+	font-weight: bold;
+	color: var(--green);
+	font-style: italic;
 }
 
 label {
-  display: block;
-  font-size: 1.2rem;
-  color: var(--green);
-  margin-top: 1.05rem;
+	display: block;
+	font-size: 1.2rem;
+	color: var(--green);
+	margin: 0.7rem 0 0.5rem 0;
 }
 
 input {
-  width: 90vw;
-  background-color: var(--light-grey);
-  border: 1px solid #0000001d;
-  display: flex;
-  margin: auto;
-  height: 1.5rem;
+	width: 90vw;
+	height: 2rem;
+	margin: 0;
+	padding: 0.2rem 0.5rem;
+	background-color: transparent;
+	border-radius: 5px;
+	outline: none;
+	border: none;
+	outline: 1px solid var(--grey);
 }
 
-.label-genero {
-  display: inline;
+input:focus {
+	outline: 2px solid var(--green);
 }
 
-.in-genero {
-  width: 18px;
-  display: inline;
-  height: auto;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
 
-.dc-form {
-  margin-top: 1.2rem;
+input[type='number'] {
+	-moz-appearance: textfield;
+	appearance: textfield;
 }
 
-.dt-form {
-  margin-top: 1.05rem;
+input[type='radio'] {
+	outline: none;
 }
 
-.fecha {
-  display: inline;
-  float: left;
+.genero label {
+	display: inline;
+	color: var(--grey);
 }
 
-.fecha input {
-  width: 45vw;
-  display: inline;
+.genero label:nth-child(1) {
+	display: block;
+	padding: 0.3rem 0;
+	color: var(--green);
 }
 
-.edad {
-  display: inline;
-  float: right;
+.genero input {
+	width: 18px;
+	display: inline;
+	height: auto;
+}
+
+input[type='time'],
+input[type='date'] {
+	width: 45vw;
 }
 
 .edad input {
-  width: 40vw;
-  display: inline;
+	width: 15vw;
 }
 
-.hora {
-  display: inline;
-  float: right;
+.edad::after {
+	content: 'años';
+	color: var(--grey);
+	margin-left: 0.4rem;
+	display: inline;
 }
 
-.hora input {
-  width: 40vw;
-  display: inline;
-}
-
-.buttons {
-  display: flex;
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
+.button-container {
+	display: flex;
+	gap: 0.3rem;
+	margin-bottom: 1.2rem;
 }
 
 .submit {
-  display: inline;
-  width: 50vw;
-  margin-left: 0;
-  height: 10vw;
-  background-color: var(--green);
-  color: var(--light-grey);
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 4px;
-  border: 2px solid var(--light-grey);
+	width: 60vw;
+	background-color: var(--green);
+	color: var(--light-grey);
+	font-size: 0.95rem;
+	font-weight: bold;
+	border-radius: 10px;
+	transition: background 0.25s ease-in-out;
+	outline: none;
 }
 
 .submit:hover {
-  background-color: var(--light-grey);
-  color: var(--green);
-  border: 2px solid var(--green);
+	background-color: var(--light-grey);
+	color: var(--green);
+	border: 2px solid var(--green);
 }
 
 .reset {
-  display: inline;
-  margin-right: 0;
-  width: 35vw;
-  height: 10vw;
-  background-color: var(--red);
-  color: var(--light-grey);
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 4px;
-  border: 2px solid var(--light-grey);
+	outline: none;
+
+	width: 30vw;
+	background-color: var(--red);
+	color: var(--light-grey);
+	font-size: 0.9rem;
+	font-weight: bold;
+	border-radius: 10px;
+	transition: background 0.25s ease-in-out;
 }
 
 .reset:hover {
-  background-color: var(--light-grey);
-  color: var(--red);
-  border: 2px solid var(--red);
+	background-color: var(--light-grey);
+	color: var(--red);
+	border: 2px solid var(--red);
+}
+
+@media screen and (min-width: 1100px) {
+	form {
+		display: grid;
+		gap: 1.5rem 2rem;
+		grid-template-columns: repeat(3, 30vw);
+	}
+
+	.patient-data {
+		grid-column: 1/2;
+		grid-row: 1 / 2;
+	}
+
+	.contact-data {
+		grid-row: 1/2;
+		grid-column: 3/4;
+	}
+
+	.turn-data {
+		grid-column: 2/3;
+		grid-row: 1 / 2;
+		margin-bottom: 0;
+	}
+
+	fieldset {
+		width: 30vw;
+		gap: 0;
+		justify-content: flex-start;
+	}
+
+	fieldset p {
+		width: 100%;
+	}
+
+	input {
+		width: 90%;
+	}
+
+	input[type='time'],
+	input[type='date'] {
+		width: 50%;
+	}
+
+	.edad input {
+		width: 15%;
+	}
+
+	.button-container {
+		position: absolute;
+		width: 25vw;
+		margin-bottom: 1rem;
+		right: 4%;
+		bottom: 28vh;
+		gap: 0.5rem;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.button-container {
+		right: 5%;
+	}
+}
+
+@media screen and (min-height: 1300px) {
+	.button-container {
+		bottom: 30vh;
+	}
 }
