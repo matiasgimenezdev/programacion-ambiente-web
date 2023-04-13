@@ -1,9 +1,9 @@
 @import url('./global/shared.css');
-@import url('./global/shared-details-style.css');
+@import url('./global/shared-details.css');
 
 .section-header {
-  width: 95vw;
-  margin: auto;
+	width: 95vw;
+	margin: auto;
 }
 
 .detail h4 {
@@ -11,22 +11,32 @@
 	padding-top: 1.2rem;
 	padding-left: 1.2rem;
 	color: var(--green);
-  font-size: 1.2rem;
+	font-size: 1.4rem;
 }
 
 .detail ul {
-  padding: 1.2rem;
+	padding: 1.2rem;
+	font-size: 1.1rem;
 }
 
-.detail button {
-  color: var(--light-grey);
-  background-color: var(--red);
-  border: none;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  display: flex;
-  margin-left: auto;
-  margin-right: 1rem;
+.cancelar-turno {
+	font-weight: bold;
+	border-radius: 10px;
+	font-size: 0.9rem;
+	cursor: pointer;
+	color: var(--light-grey);
+	background-color: var(--red);
+	border: none;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	display: flex;
+	margin-left: auto;
+	margin-right: 1rem;
+	transition: transform 0.15s ease-in-out;
+}
+
+.cancelar-turno:hover {
+	transform: scale(1.03);
 }
 
 .solicitar-turno-button {
@@ -40,12 +50,12 @@
 	border-radius: 5px;
 	font-size: 1.05rem;
 	transition: background 0.3s ease;
-  border: 2px solid var(--light-grey);
+	border: 2px solid var(--light-grey);
 }
 
 .solicitar-turno-button a {
-  color: var(--light-grey);
-  text-decoration: none;
+	color: var(--light-grey);
+	text-decoration: none;
 }
 
 .solicitar-turno-button:hover {
@@ -58,48 +68,66 @@
 }
 
 .list-title {
-  margin-top: 1.2rem;
-  font-size: 1.2rem;
-  width: 40vh;
+	margin-top: 1.2rem;
+	font-size: 1.2rem;
+	width: 40vh;
+}
+
+.patient-name {
+	font-style: italic;
+	font-weight: bold;
+	color: var(--green);
 }
 
 .form {
-  margin-top: 1.2rem;
-  margin-bottom: 1.2rem;
+	margin-top: 1.2rem;
+	margin-bottom: 1.2rem;
 }
 
 .form label {
-  display: block;
-  color: var(--green);
-  font-size: 1.1rem;
+	display: block;
+	color: var(--green);
+	font-size: 1.1rem;
+	margin-left: 0.1rem;
 }
 
 .form input {
-  background-color: var(--light-grey);
-  border-radius: 10px;
-  border: 1px solid #00000019;
-  width: 30vh;
-  height: 1.5rem;
+	margin-top: 0.3rem;
+	background-color: var(--light-grey);
+	border-radius: 10px;
+	border: 1px solid #00000019;
+	width: 50vh;
+	height: 2rem;
+	padding: 0.2rem 0.5rem;
+	font-size: 1.05rem;
+}
+.form input:focus {
+	outline: 2px solid var(--green);
 }
 
 @media only screen and (min-width: 800px) {
+	.list-title {
+		width: 100vh;
+	}
 
-  .list-title {
-    width: 100vh;
-  }
+	.solicitar-turno-button {
+		width: 14rem;
+	}
 
-  .solicitar-turno-button {
-    width: 14rem;
-  }
+	.section-header {
+		width: 70vw;
+		margin: auto;
+	}
 
-  .section-header {
-    width: 70vw;
-    margin: auto;
-  }
-
-  .detail-section {
+	.detail-section {
 		margin: auto;
 		width: 70vw;
 	}
 }
 
+@media only screen and (min-width: 1200px) {
+	.detail ul {
+		padding: 1.2rem;
+		font-size: 1.2rem;
+	}
+}
