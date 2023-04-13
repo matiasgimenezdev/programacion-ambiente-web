@@ -37,7 +37,7 @@
 	width: 100%;
 	text-align: right;
 	position: absolute;
-	bottom: -40px;
+	bottom: -30px;
 	right: 0;
 }
 
@@ -97,5 +97,9 @@
 	.active {
 		display: block;
 		filter: grayscale(40%);
+	}
+
+	.more-news {
+		bottom: -20px;
 	}
 }
