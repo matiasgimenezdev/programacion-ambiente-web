@@ -11,14 +11,19 @@
 	padding-top: 1.2rem;
 	padding-left: 1.2rem;
 	color: var(--green);
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 }
 
 .detail ul {
 	padding: 1.2rem;
+	font-size: 1.1rem;
 }
 
-.detail button {
+.cancelar-turno {
+	font-weight: bold;
+	border-radius: 10px;
+	font-size: 0.9rem;
+	cursor: pointer;
 	color: var(--light-grey);
 	background-color: var(--red);
 	border: none;
@@ -27,6 +32,11 @@
 	display: flex;
 	margin-left: auto;
 	margin-right: 1rem;
+	transition: transform 0.15s ease-in-out;
+}
+
+.cancelar-turno:hover {
+	transform: scale(1.03);
 }
 
 .solicitar-turno-button {
@@ -63,6 +73,12 @@
 	width: 40vh;
 }
 
+.patient-name {
+	font-style: italic;
+	font-weight: bold;
+	color: var(--green);
+}
+
 .form {
 	margin-top: 1.2rem;
 	margin-bottom: 1.2rem;
@@ -72,14 +88,21 @@
 	display: block;
 	color: var(--green);
 	font-size: 1.1rem;
+	margin-left: 0.1rem;
 }
 
 .form input {
+	margin-top: 0.3rem;
 	background-color: var(--light-grey);
 	border-radius: 10px;
 	border: 1px solid #00000019;
-	width: 30vh;
-	height: 1.5rem;
+	width: 50vh;
+	height: 2rem;
+	padding: 0.2rem 0.5rem;
+	font-size: 1.05rem;
+}
+.form input:focus {
+	outline: 2px solid var(--green);
 }
 
 @media only screen and (min-width: 800px) {
@@ -99,5 +122,12 @@
 	.detail-section {
 		margin: auto;
 		width: 70vw;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.detail ul {
+		padding: 1.2rem;
+		font-size: 1.2rem;
 	}
 }

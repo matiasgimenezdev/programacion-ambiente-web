@@ -1,19 +1,12 @@
 .detail-section {
 	width: 95vw;
 	margin: auto;
+	margin-bottom: 1rem;
 }
 
 .detail {
 	border: 1px solid var(--grey);
 	background: var(--light-grey);
-}
-
-.directorio {
-	margin-bottom: 1rem;
-}
-
-.directorio[open] {
-	border-bottom: 1px solid var(--grey);
 }
 
 .titulo-detail {
