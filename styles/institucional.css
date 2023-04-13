@@ -11,8 +11,7 @@
 .detail figure {
 	display: flex;
 	padding: 1.5rem;
-	border: 1px solid var(--green);
-	border-radius: 10px;
+	border-top: 1px solid var(--green);
 	overflow: hidden;
 }
 
@@ -55,6 +54,11 @@
 	.detail p {
 		line-height: 1.8rem;
 		font-size: 1.3rem;
+	}
+
+	.detail figure {
+		border: 1px solid var(--green);
+		border-radius: 10px;
 	}
 
 	.detail figcaption {
