@@ -120,3 +120,56 @@ input {
   color: var(--red);
   border: 2px solid var(--red);
 }
+
+@media only screen and (min-width: 800px) {
+
+
+  
+  fieldset {
+    width: 30vw;
+  }
+
+  label {
+    width: 30vw;
+  }
+
+  input {
+    width: 30vw;
+    margin-left: 0;
+  }
+
+  .fecha input{
+    width: 10vw;
+  }
+
+  .edad input {
+    width: 10vw;
+  }
+
+  .hora input {
+    width: 10vw;
+  }
+
+}
+
+@media only screen and (min-width: 1000px) {
+	.detail-section {
+		width: 100vw;
+		margin: 1rem auto;
+	}
+
+	.titulo-detail {
+		padding: 2rem;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.detail-section {
+		width: 80vw;
+		margin: 1rem auto;
+	}
+
+	.titulo-detail {
+		padding: 2rem;
+	}
+}
