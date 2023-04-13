@@ -4,8 +4,16 @@
 }
 
 .detail {
-	border: 1px solid var(--green);
+	border: 1px solid var(--grey);
 	background: var(--light-grey);
+}
+
+.directorio {
+	margin-bottom: 1rem;
+}
+
+.directorio[open] {
+	border-bottom: 1px solid var(--grey);
 }
 
 .titulo-detail {
@@ -44,7 +52,6 @@
 	padding: 1.2rem;
 	line-height: 1.2rem;
 }
-
 
 @media only screen and (min-width: 800px) {
 	.detail-section {

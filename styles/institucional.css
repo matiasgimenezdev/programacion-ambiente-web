@@ -1,5 +1,5 @@
 @import url('./global/shared.css');
-@import url('./global/shared-details-style.css');
+@import url('./global/shared-details.css');
 
 .detail h3 {
 	font-weight: bold;
@@ -10,8 +10,9 @@
 
 .detail figure {
 	display: flex;
-	padding: 0.5em;
-	border-bottom: 1px solid var(--green);
+	padding: 1.5rem;
+	border: 1px solid var(--green);
+	border-radius: 10px;
 	overflow: hidden;
 }
 
@@ -23,8 +24,8 @@
 }
 
 .detail img {
-	width: 100px;
-	height: 100px;
+	width: 130px;
+	height: 130px;
 }
 
 @media only screen and (min-width: 800px) {
@@ -43,7 +44,21 @@
 		/* border-radius: 10px; */
 	}
 
+	.detail summary {
+		font-size: 1.8rem;
+	}
+
+	.detail h3 {
+		font-size: 1.5rem;
+	}
+
+	.detail p {
+		line-height: 1.8rem;
+		font-size: 1.3rem;
+	}
+
 	.detail figcaption {
 		margin: auto 2rem;
+		font-size: 1.5rem;
 	}
 }
