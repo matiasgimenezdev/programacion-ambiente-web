@@ -50,7 +50,26 @@ header section {
 	color: var(--grey);
 	font-weight: bold;
 	padding: 1rem;
+	margin-left: 60px;
 	font-size: 2.3rem;
+	position: relative;
+	filter: drop-shadow(1px 1px 1px black);
+}
+
+.title::after {
+	position: absolute;
+	top: 0.7rem;
+	left: -35px;
+	opacity: 0.8;
+	z-index: -100;
+	content: '';
+	display: block;
+	width: 40px;
+	height: 50px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-image: url('./images/Decoration.svg');
 }
 
 .menu {
@@ -67,6 +86,7 @@ header section {
 }
 
 .header-nav {
+	display: none;
 	position: absolute;
 	background-color: var(--light-grey);
 	width: 80vw;
@@ -283,6 +303,12 @@ main {
 
 	.title {
 		font-size: 2.5rem;
+	}
+
+	.title::after {
+		width: 50px;
+		height: 60px;
+		left: -45px;
 	}
 }
 
