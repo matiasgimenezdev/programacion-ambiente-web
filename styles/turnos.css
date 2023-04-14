@@ -1,10 +1,10 @@
 @import url('./global/shared.css');
 @import url('./global/shared-details.css');
 
-/* .section-header {
+.section-controls {
 	width: 95vw;
 	margin: auto;
-} */
+}
 
 details h4 {
 	font-weight: bold;
@@ -114,7 +114,7 @@ details ul {
 		width: 14rem;
 	}
 
-	.section-header {
+	.section-controls {
 		width: 70vw;
 		margin: auto;
 	}
