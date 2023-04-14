@@ -18,6 +18,7 @@ legend {
 
 .title {
 	font-size: 3rem;
+	width: 100%;
 	color: var(--light-grey);
 	filter: drop-shadow(2px 2px 3px black);
 	font-weight: bold;
@@ -68,14 +69,14 @@ form fieldset {
 	gap: 1rem;
 }
 
-.input-container {
+form fieldset p {
 	width: 100%;
 	margin-left: 1rem;
 }
 
 .label {
 	display: block;
-	font-weight: bold;
+	font-weight: 500;
 	font-size: 1.2rem;
 	margin: 0.5rem 0;
 	color: var(--green);
@@ -96,7 +97,7 @@ form fieldset {
 	outline: 2px solid var(--grey);
 }
 
-.input[type='password'] {
+input[type='password'] {
 	display: inline-block;
 }
 

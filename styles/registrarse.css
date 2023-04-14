@@ -36,13 +36,13 @@ span {
 	font-size: 0.95rem;
 }
 
-.login-link {
+.login {
 	font-size: 1.2rem;
 	margin: 1.5rem 0;
 	color: var(--light-grey);
 }
 
-.login-link a {
+.login a {
 	color: var(--yellow);
 	filter: drop-shadow(2px 2px 5px black);
 }

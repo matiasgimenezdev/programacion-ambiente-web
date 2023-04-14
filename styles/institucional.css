@@ -1,6 +1,11 @@
 @import url('./global/shared.css');
 @import url('./global/shared-details.css');
 
+body {
+	display: flex;
+	flex-direction: column;
+}
+
 .detail h3 {
 	font-weight: bold;
 	padding-top: 1.2rem;

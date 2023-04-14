@@ -8,7 +8,7 @@ html {
 	scroll-behavior: smooth;
 }
 
-.header {
+header {
 	width: 100vw;
 	background-color: var(--green);
 	height: max(14vh, 123px);
@@ -37,7 +37,7 @@ h1 img {
 	border-radius: 15px;
 }
 
-.header section {
+header section {
 	min-width: 35vw;
 	display: flex;
 	align-items: center;
@@ -76,7 +76,7 @@ h1 img {
 	background-repeat: no-repeat;
 }
 
-.footer {
+footer {
 	margin-top: auto; /* margin-top auto para que quede en el final del body */
 	padding: 1rem;
 	background-color: var(--green);
@@ -86,21 +86,21 @@ h1 img {
 	gap: 1rem;
 }
 
-.footer address p {
+footer address p {
 	display: inline;
 }
 
-.footer address p {
+footer address p {
 	display: block;
 	margin-top: 0.4rem;
 }
 
-.footer ul li {
+footer ul li {
 	font-size: 1rem;
 	margin-top: 0.2rem;
 }
 
-.footer a {
+footer a {
 	color: var(--yellow);
 	text-decoration: none;
 }
@@ -131,11 +131,131 @@ main {
 	z-index: 1000;
 }
 
-.nav {
+.header-nav {
 	display: none;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 950px) {
+	header {
+		height: 21vh;
+		display: flex;
+		background-color: var(--light-grey);
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-end;
+		gap: 2rem;
+	}
+
+	header section {
+		min-width: 15vw;
+	}
+
+	h1 {
+		width: 19rem;
+		height: 6.5rem;
+		padding: 0.7rem 0.5rem 0rem 0.5rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	h1 img {
+		width: 100%;
+		height: 100%;
+		background-color: var(--light-grey);
+		border-radius: 15px;
+	}
+
+	.menu {
+		display: none;
+	}
+
+	.profile {
+		width: 2.8rem;
+		height: 2.8rem;
+		background-image: url('./images/ProfileDark.svg');
+		margin-right: 2vw;
+		margin-top: 2rem;
+	}
+
+	.header-nav {
+		display: initial;
+		width: 100%;
+		height: max(15vh, 60px);
+		min-width: 100vw;
+	}
+
+	.header-nav ul {
+		padding: 0.8rem;
+		width: 100vw;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		background-color: var(--green);
+		font-weight: 500;
+		font-size: 1rem;
+	}
+
+	.header-nav a {
+		text-decoration: none;
+		color: var(--light-grey);
+		margin: 0;
+		padding: 0;
+	}
+
+	.header-nav a:hover {
+		opacity: 80%;
+	}
+
+	.current a {
+		color: var(--yellow);
+	}
+
+	footer {
+		position: relative;
+	}
+
+	footer::before {
+		position: absolute;
+		bottom: 15px;
+		right: 15px;
+		content: '';
+		background-image: url('./images/ImagotipoLight.svg');
+		background-position: center;
+		background-size: cover;
+		height: 5rem;
+		width: 15rem;
+		color: red;
+	}
+
+	.turn {
+		display: none;
+	}
+
+	.title {
+		font-size: 2rem;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	.header-nav ul {
+		justify-content: space-evenly;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	.header-nav ul {
+		font-size: 1.2rem;
+	}
+
+	title {
+		font-size: 2.5rem;
+	}
+}
+
+/* @media only screen and (max-width: 800px) {
 	.nav {
 		position: absolute;
 		top: 7rem;
@@ -172,132 +292,4 @@ main {
 	.nav-item:hover > a {
 		color: var(--green);
 	}
-}
-
-@media only screen and (min-width: 800px) {
-	.header {
-		height: 21vh;
-		display: flex;
-		background-color: var(--light-grey);
-		flex-direction: column;
-		justify-content: flex-start;
-		align-items: flex-end;
-		gap: 2rem;
-	}
-
-	.header::after {
-		background-image: url('./images/ImagotipoDark.svg');
-		width: 15rem;
-		height: 5rem;
-		position: absolute;
-		top: 2vh;
-	}
-
-	.header section {
-		min-width: 15vw;
-	}
-
-	h1 {
-		width: 19rem;
-		height: 6.5rem;
-		padding: 0.7rem 0.5rem 0rem 0.5rem;
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-
-	h1 img {
-		width: 100%;
-		height: 100%;
-		background-color: var(--light-grey);
-		border-radius: 15px;
-	}
-
-	.menu {
-		display: none;
-	}
-
-	.profile {
-		width: 2.8rem;
-		height: 2.8rem;
-		background-image: url('./images/ProfileDark.svg');
-		margin-right: 2vw;
-		margin-top: 2rem;
-	}
-
-	.nav {
-		display: initial;
-		width: 100%;
-		height: max(15vh, 60px);
-		min-width: 100vw;
-	}
-
-	.nav-list {
-		padding: 0.8rem;
-		width: 100vw;
-		height: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 1.5rem;
-		background-color: var(--green);
-		font-weight: 500;
-		font-size: 1.05rem;
-	}
-
-	.nav-item a {
-		text-decoration: none;
-		color: var(--light-grey);
-		margin: 0;
-		padding: 0;
-	}
-
-	.nav-item a:hover {
-		opacity: 80%;
-	}
-
-	.current a {
-		color: var(--yellow);
-	}
-
-	.footer {
-		position: relative;
-	}
-
-	.footer::before {
-		position: absolute;
-		bottom: 15px;
-		right: 15px;
-		content: '';
-		background-image: url('./images/ImagotipoLight.svg');
-		background-position: center;
-		background-size: cover;
-		height: 5rem;
-		width: 15rem;
-		color: red;
-	}
-
-	.turn {
-		display: none;
-	}
-}
-
-@media only screen and (min-width: 800px) {
-	.title {
-		font-size: 2rem;
-	}
-}
-
-@media only screen and (min-width: 1000px) {
-	.nav-list {
-		font-size: 1.05rem;
-		justify-content: space-evenly;
-		gap: 2rem;
-	}
-}
-
-@media only screen and (min-width: 1200px) {
-	.title {
-		font-size: 2.5rem;
-	}
-}
+} */

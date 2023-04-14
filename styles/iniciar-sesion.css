@@ -11,12 +11,12 @@ body {
 	left: 0.5rem;
 }
 
-.register-link {
+.register {
 	font-size: 1.2rem;
 	color: var(--light-grey);
 }
 
-.register-link a {
+.register a {
 	text-decoration: none;
 	color: var(--yellow);
 	filter: drop-shadow(2px 2px 5px black);

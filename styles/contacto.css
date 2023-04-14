@@ -22,11 +22,11 @@ h3 {
 	margin-top: 0.5rem;
 }
 
-.contact-information {
+.contact-section address {
 	text-align: center;
 }
 
-.contact-information p {
+.contact-section address p {
 	padding: 0.2rem;
 	font-size: 0.95rem;
 }
@@ -52,11 +52,11 @@ iframe {
 		margin-top: 0.5rem;
 	}
 
-	.contact-information {
+	.contact-section address {
 		text-align: center;
 	}
 
-	.contact-information p {
+	.contact-section address p {
 		padding: 0.2rem;
 		font-size: 1.05rem;
 	}
