@@ -75,9 +75,9 @@ html {
 	background-repeat: no-repeat;
 }
 
-.nav {
+/*.nav {
 	display: none;
-}
+}*/
 
 .footer {
 	margin-top: auto; /* margin-top auto para que quede en el final del body */
@@ -143,7 +143,63 @@ main {
 	z-index: 1000;
 }
 
+.nav {
+	display: none;
+}
+
+@media only screen and (max-width: 600px) {
+	.nav a {
+		font-size: 2rem;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.nav a {
+		font-size: 4rem;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+
+	.nav {
+		position: absolute;
+		top: 7rem;
+		right: 0;
+		width: 100%;
+		z-index: 10000;
+		background-color: var(--green);
+	}
+
+	.nav a {
+		text-decoration: none;
+		color: var(--light-grey);
+		display: flex;
+		justify-content: center;
+		margin: auto;
+		padding: 1rem;
+	}
+
+	.nav-list {
+		height: 100%;
+		border-bottom: 1px solid var(--light-grey);
+	}
+
+	.nav-item {
+		border-top: 1px solid var(--light-grey);
+		text-align: center;
+	}
+
+	.nav-item:hover {
+		background-color: var(--light-grey);
+	}
+
+	.nav-item:hover > a {
+		color: var(--green);
+	}
+}
+
 @media only screen and (min-width: 800px) {
+
 	.header {
 		height: 21vh;
 		display: flex;
