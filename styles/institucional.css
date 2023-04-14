@@ -6,28 +6,32 @@ body {
 	flex-direction: column;
 }
 
-.detail h3 {
+details {
+	margin: auto;
+}
+
+details h3 {
 	font-weight: bold;
 	padding-top: 1.2rem;
 	padding-left: 1.2rem;
 	color: var(--green);
 }
 
-.detail figure {
+details figure {
 	display: flex;
 	padding: 1.5rem;
 	border-top: 1px solid var(--green);
 	overflow: hidden;
 }
 
-.detail figcaption {
+details figcaption {
 	color: var(--green);
 	font-weight: bold;
 	font-size: 1.1rem;
 	margin: auto;
 }
 
-.detail img {
+details img {
 	width: 130px;
 	height: 130px;
 }
@@ -43,30 +47,29 @@ body {
 }
 
 @media only screen and (min-width: 1200px) {
-	.detail figure {
+	.detail-section {
+		margin-top: 2rem;
+	}
+	details figure {
 		margin: 2rem;
-		/* border-radius: 10px; */
-	}
-
-	.detail summary {
-		font-size: 1.8rem;
-	}
-
-	.detail h3 {
-		font-size: 1.5rem;
-	}
-
-	.detail p {
-		line-height: 1.8rem;
-		font-size: 1.3rem;
-	}
-
-	.detail figure {
 		border: 1px solid var(--green);
 		border-radius: 10px;
 	}
 
-	.detail figcaption {
+	details summary {
+		font-size: 1.8rem;
+	}
+
+	details h3 {
+		font-size: 1.5rem;
+	}
+
+	details p {
+		line-height: 1.8rem;
+		font-size: 1.3rem;
+	}
+
+	details figcaption {
 		margin: auto 2rem;
 		font-size: 1.5rem;
 	}

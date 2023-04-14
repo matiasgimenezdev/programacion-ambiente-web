@@ -18,7 +18,7 @@ h3 {
 
 .contact-section h4 {
 	color: var(--green);
-	font-size: 1.15rem;
+	font-size: 1rem;
 	margin-top: 0.5rem;
 }
 
@@ -27,8 +27,8 @@ h3 {
 }
 
 .contact-section address p {
-	padding: 0.2rem;
-	font-size: 0.95rem;
+	padding: 0.5rem;
+	font-size: 0.9.5rem;
 }
 
 .tel {
