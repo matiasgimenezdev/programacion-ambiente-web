@@ -142,17 +142,7 @@ main {
 }
 
 .nav {
-	/*display: none;*/
-}
-
-@media only screen and (max-width: 600px) {
-	.nav a {
-		font-size: 2rem;
-	}
-}
-
-@media only screen and (min-width: 600px) {
-	
+	display: none;
 }
 
 @media only screen and (max-width: 800px) {
@@ -160,6 +150,7 @@ main {
 	.nav {
 		position: absolute;
 		top: 7rem;
+		font-size: 2rem;
 		right: 0;
 		width: 100%;
 		z-index: 10000;
