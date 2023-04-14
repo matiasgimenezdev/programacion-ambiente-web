@@ -69,10 +69,9 @@ header section {
 .header-nav {
 	position: absolute;
 	background-color: var(--light-grey);
-	width: 70vw;
+	width: 80vw;
 	top: 7.8rem;
 	right: 0;
-	height: 18rem;
 	text-align: center;
 	border: 2px solid var(--green);
 	border-radius: 5px;
@@ -89,8 +88,8 @@ header section {
 .header-nav ul a {
 	font-weight: bold;
 	display: block;
-	padding: 0.5rem;
-	font-size: 1.2rem;
+	padding: 1rem;
+	font-size: 1.5rem;
 	width: 100%;
 	color: var(--green);
 	text-decoration: none;
