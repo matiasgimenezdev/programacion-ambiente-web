@@ -142,7 +142,7 @@ main {
 }
 
 .nav {
-	display: none;
+	/*display: none;*/
 }
 
 @media only screen and (max-width: 600px) {
@@ -152,9 +152,7 @@ main {
 }
 
 @media only screen and (min-width: 600px) {
-	.nav a {
-		font-size: 4rem;
-	}
+	
 }
 
 @media only screen and (max-width: 800px) {
