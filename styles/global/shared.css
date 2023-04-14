@@ -9,7 +9,7 @@ html {
 }
 
 header {
-	width: 100vw;
+	width: 100%;
 	background-color: var(--green);
 	height: max(14vh, 123px);
 	display: flex;
@@ -19,6 +19,7 @@ header {
 	position: sticky;
 	top: 0;
 	z-index: 2000;
+	box-shadow: 0 3px 5px var(--grey);
 }
 
 h1 {
@@ -196,6 +197,7 @@ main {
 		background-color: var(--green);
 		font-weight: 500;
 		font-size: 1rem;
+		box-shadow: 0 3px 5px var(--grey);
 	}
 
 	.header-nav a {

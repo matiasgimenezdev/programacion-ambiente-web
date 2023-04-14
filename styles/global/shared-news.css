@@ -88,6 +88,7 @@
 		min-height: 45vh;
 		transition: transform 0.3s;
 		cursor: pointer;
+		transition: all 0.15s linear;
 	}
 
 	.new h3 {
@@ -102,6 +103,7 @@
 
 	.new:hover {
 		transform: scale(1.015);
+		box-shadow: 4px 5px 10px var(--grey);
 	}
 }
 

@@ -6,6 +6,7 @@
 	margin: 0;
 	width: 100vw;
 	height: 50vh;
+	box-shadow: 0 3px 3px var(--grey);
 }
 
 .carousel-list {
