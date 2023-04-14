@@ -66,6 +66,53 @@ header section {
 	background-repeat: no-repeat;
 }
 
+.header-nav {
+	position: absolute;
+	background-color: var(--light-grey);
+	width: 70vw;
+	top: 7.8rem;
+	right: 0;
+	height: 18rem;
+	text-align: center;
+	border: 2px solid var(--green);
+	border-radius: 5px;
+	overflow: hidden;
+}
+.header-nav ul {
+	height: 100%;
+	background-color: var(--light-grey);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.header-nav ul a {
+	font-weight: bold;
+	display: block;
+	padding: 0.5rem;
+	font-size: 1.2rem;
+	width: 100%;
+	color: var(--green);
+	text-decoration: none;
+	cursor: pointer;
+	transition: background 0.2s ease-in-out;
+}
+
+.header-nav ul a:hover {
+	background-color: var(--green);
+	color: var(--light-grey);
+}
+
+/* Clase que haran que el nav se oculte o se muestre.
+	Pensamos tratar esto despues desde javascript.
+	La idea seria al clickear el boton, se agrega o se quita 
+	la clase 'close' al nav.
+*/
+
+.close {
+	display: none;
+}
+
 .profile {
 	display: inline-block;
 	width: 2.5rem;
@@ -132,10 +179,6 @@ main {
 	z-index: 1000;
 }
 
-.header-nav {
-	display: none;
-}
-
 @media only screen and (min-width: 950px) {
 	header {
 		height: 21vh;
@@ -180,10 +223,12 @@ main {
 	}
 
 	.header-nav {
+		position: static;
 		display: initial;
 		width: 100%;
 		height: max(15vh, 60px);
 		min-width: 100vw;
+		border-radius: 0;
 	}
 
 	.header-nav ul {
@@ -193,6 +238,7 @@ main {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		flex-direction: row;
 		gap: 1.5rem;
 		background-color: var(--green);
 		font-weight: 500;
@@ -200,18 +246,19 @@ main {
 		box-shadow: 0 3px 5px var(--grey);
 	}
 
-	.header-nav a {
+	.header-nav ul a {
 		text-decoration: none;
 		color: var(--light-grey);
 		margin: 0;
 		padding: 0;
+		font-size: 1rem;
 	}
 
 	.header-nav a:hover {
 		opacity: 80%;
 	}
 
-	.current a {
+	ul .current a {
 		color: var(--yellow);
 	}
 
@@ -254,6 +301,12 @@ main {
 
 	title {
 		font-size: 2.5rem;
+	}
+}
+
+@media screen and (min-height: 900px) {
+	.header-nav {
+		top: 8.2rem;
 	}
 }
 
