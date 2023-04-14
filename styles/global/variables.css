@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/gotham');
 :root {
 	--green: #025255;
 	--yellow: #fcc444;
@@ -6,5 +7,6 @@
 	--light-grey: #eef1ef;
 	--grey: #3b4a5a;
 	--font-color: #000000;
-	--font-family: Calibri, sans-serif;
+	/* --font-family: Calibri, sans-serif; */
+	--font-family: 'Gotham', sans-serif;
 }

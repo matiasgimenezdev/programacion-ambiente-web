@@ -14,7 +14,7 @@
 	width: 100%;
 	background-color: var(--light-grey);
 	color: var(--grey);
-	box-shadow: -5px 5px 10px var(--grey);
+	box-shadow: 3px 3px 5px var(--grey);
 	border-radius: 10px;
 	overflow: hidden;
 	min-height: 50vh;
@@ -97,6 +97,7 @@
 	.new p {
 		text-align: left;
 		font-size: 1.2rem;
+		padding: 1rem;
 	}
 
 	.new:hover {
@@ -127,6 +128,6 @@
 		width: 30%;
 		display: flex;
 		flex-direction: column;
-		height: 400px;
+		height: 450px;
 	}
 }

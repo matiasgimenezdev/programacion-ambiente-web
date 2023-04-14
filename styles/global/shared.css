@@ -99,7 +99,7 @@ html {
 }
 
 .footer ul li {
-	font-size: 1.1rem;
+	font-size: 1rem;
 	margin-top: 0.2rem;
 }
 
@@ -116,8 +116,6 @@ html {
 		el margin-top: auto; en el .footer establece
 		el pie de página al final de la misma*/
 body {
-	display: flex;
-	flex-direction: column;
 	min-height: 100vh;
 }
 
@@ -250,8 +248,8 @@ main {
 		justify-content: center;
 		gap: 1.5rem;
 		background-color: var(--green);
-		font-weight: 600;
-		font-size: 1.07rem;
+		font-weight: 500;
+		font-size: 1.05rem;
 	}
 
 	.nav-item a {
@@ -273,7 +271,7 @@ main {
 		position: relative;
 	}
 
-	.footer::after {
+	.footer::before {
 		position: absolute;
 		bottom: 15px;
 		right: 15px;
@@ -299,7 +297,7 @@ main {
 
 @media only screen and (min-width: 1000px) {
 	.nav-list {
-		font-size: 1.2rem;
+		font-size: 1.05rem;
 		justify-content: space-evenly;
 		gap: 2rem;
 	}
