@@ -1,0 +1,49 @@
+@import url('./reset.css');
+@import url('./global/variables.css');
+
+body {
+	background-color: var(--light-grey);
+	font-family: var(--font-family);
+	padding: 1rem;
+}
+
+h1 {
+	font-size: 1.7rem;
+	color: var(--blue);
+}
+
+h2 {
+	font-size: 1.4rem;
+	color: var(--green);
+}
+
+ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+p {
+	font-size: 1rem;
+	font-weight: normal;
+	display: inline;
+	line-height: 1.8rem;
+}
+
+span {
+	color: var(--blue);
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+@media screen and (min-width: 1000px) {
+	p {
+		font-size: 1.2rem;
+		line-height: 2rem;
+	}
+}
