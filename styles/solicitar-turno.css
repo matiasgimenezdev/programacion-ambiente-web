@@ -224,3 +224,10 @@ input[type='date'] {
 		bottom: 30vh;
 	}
 }
+
+@media print {
+	.reset,
+	.submit {
+		display: none;
+	}
+}
