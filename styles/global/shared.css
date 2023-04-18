@@ -11,12 +11,13 @@ html {
 header {
 	width: 100%;
 	background-color: var(--green);
-	height: max(14vh, 123px);
+	min-height: 125px;
+	height: 20vh;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	gap: 0.5rem;
-	position: sticky;
+	position: fixed;
 	top: 0;
 	z-index: 2000;
 	box-shadow: 0 3px 5px var(--grey);
@@ -25,10 +26,10 @@ header {
 h1 {
 	width: 14rem;
 	height: 7rem;
-	padding: 0.7rem 0.5rem 0rem 0.5rem;
+	padding: 0.3rem 0;
 	position: absolute;
-	top: 0.35rem;
-	left: 0;
+	top: auto;
+	left: 0.5rem;
 }
 
 h1 img {
