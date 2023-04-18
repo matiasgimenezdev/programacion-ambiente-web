@@ -47,8 +47,13 @@ details p {
 }
 
 @media only screen and (min-width: 800px) {
+	main {
+		height: 100%;
+		top: 22vh;
+	}
+
 	.detail-section {
-		margin: auto;
+		height: auto;
 		width: 90vw;
 	}
 }
@@ -61,5 +66,11 @@ details p {
 
 	summary {
 		padding: 2rem;
+	}
+}
+
+@media print {
+	details[open] {
+		page-break-inside: avoid;
 	}
 }

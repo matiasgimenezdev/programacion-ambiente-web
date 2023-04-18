@@ -47,9 +47,6 @@ details img {
 }
 
 @media only screen and (min-width: 1200px) {
-	.detail-section {
-		margin-top: 2rem;
-	}
 	details figure {
 		margin: 2rem;
 		border: 1px solid var(--green);

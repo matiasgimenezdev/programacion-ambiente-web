@@ -195,3 +195,13 @@ button:hover {
 		width: 50%;
 	}
 }
+
+@media print {
+	.search-section {
+		display: none;
+	}
+
+	.title {
+		color: var(--green);
+	}
+}

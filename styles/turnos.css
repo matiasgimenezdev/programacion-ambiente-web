@@ -109,17 +109,12 @@ details ul {
 }
 
 @media only screen and (min-width: 800px) {
-	main {
-		height: 100%;
-		top: 22vh;
-	}
-
 	.turnos-section {
 		height: 100%;
 		padding-bottom: 2rem;
 	}
 	.turnos-section h3 {
-		width: 100vh;
+		width: 100%;
 	}
 
 	.solicitar-turno-button {
@@ -141,5 +136,19 @@ details ul {
 	details ul {
 		padding: 1.2rem;
 		font-size: 1.2rem;
+	}
+}
+
+@media print {
+	.cancelar-turno {
+		display: none;
+	}
+
+	h3 {
+		padding: 1rem;
+	}
+
+	.section-controls form {
+		display: none;
 	}
 }

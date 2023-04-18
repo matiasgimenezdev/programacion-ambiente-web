@@ -133,3 +133,11 @@
 		height: 450px;
 	}
 }
+
+@media print {
+	.new {
+		page-break-inside: avoid;
+		min-height: initial;
+		height: auto;
+	}
+}

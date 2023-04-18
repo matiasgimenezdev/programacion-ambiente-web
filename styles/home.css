@@ -61,7 +61,7 @@
 
 @media only screen and (min-width: 1000px) {
 	.carousel {
-		height: 45vh;
+		height: 65vh;
 		width: 100vw;
 		position: relative;
 	}
@@ -102,5 +102,11 @@
 
 	.more-news {
 		bottom: -20px;
+	}
+}
+
+@media print {
+	.more-news {
+		display: none;
 	}
 }

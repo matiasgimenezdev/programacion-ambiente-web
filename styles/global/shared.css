@@ -373,3 +373,23 @@ main {
 		color: var(--green);
 	}
 } */
+
+@media print {
+	header,
+	.turn,
+	footer nav {
+		display: none;
+	}
+
+	.title::after {
+		display: none;
+	}
+
+	button {
+		display: none;
+	}
+
+	@page {
+		size: 210mm 297mm; /* tamaño A4 */
+	}
+}
