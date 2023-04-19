@@ -2,17 +2,14 @@
 @import url('./global/shared-data-form.css');
 
 body {
-	height: 100vh;
 	gap: 5rem;
 }
 
-.title {
-	top: 2rem;
-	left: 0.5rem;
-}
-
 .register {
-	font-size: 1.2rem;
+	text-align: center;
+	margin: 2rem auto;
+	width: 95%;
+	font-size: 1rem;
 	color: var(--light-grey);
 }
 
@@ -24,8 +21,8 @@ body {
 }
 
 form {
-	height: 55vh;
-	width: 90vw;
+	height: 100%;
+	margin-top: 4rem;
 }
 
 span {
@@ -54,5 +51,9 @@ span {
 
 	input[type='submit'] {
 		width: 20rem;
+	}
+
+	.register {
+		font-size: 1.2rem;
 	}
 }

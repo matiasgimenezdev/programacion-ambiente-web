@@ -96,7 +96,7 @@ html {
 *,
 *::after,
 *::before {
-	box-sizing: inherit;
+	box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
