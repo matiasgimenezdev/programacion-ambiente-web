@@ -1,0 +1,62 @@
+@import url('./global/shared.css');
+
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+dt, dd {
+  display: inline-block;
+  padding: 1.2rem;
+}
+
+div {
+  border-bottom: 1px solid var(--green);
+}
+
+dt {
+  width: 40vw;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--green);
+}
+
+dd {
+  width: 50vw;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--green);
+}
+
+dl {
+  border-top: 1px solid var(--green);
+}
+
+@media only screen and (min-width: 800px) {
+	.basic-information, .contact-information {
+    width: 90vw;
+    margin: auto;
+  }
+
+  dt {
+    width: 30vw;
+  }
+
+  div {
+    border-left: 1px solid var(--green);
+    border-right: 1px solid var(--green);
+    border-radius: 4px;
+  }
+
+  dl {
+    border-radius: 4px;
+  }
+}
+
+
