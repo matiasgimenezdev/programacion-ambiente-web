@@ -109,6 +109,7 @@ input[type='date'] {
 	border-radius: 10px;
 	transition: background 0.25s ease-in-out;
 	outline: none;
+	height: 2.5rem;
 }
 
 .submit:hover {
@@ -119,6 +120,7 @@ input[type='date'] {
 
 .reset {
 	outline: none;
+	height: 2.5rem;
 	width: 30vw;
 	background-color: var(--red);
 	color: var(--light-grey);
@@ -212,6 +214,10 @@ input[type='date'] {
 		width: 25vw;
 		right: 4%;
 		gap: 0.5rem;
+	}
+	.reset,
+	.submit {
+		height: 3rem;
 	}
 }
 
