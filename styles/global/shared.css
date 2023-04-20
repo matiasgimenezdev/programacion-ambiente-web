@@ -92,11 +92,14 @@ header section {
 }
 
 .header-nav {
+	/* Comentar la propiedad 'display: none' 
+		para ver el menu desplegado en mobile	*/
+
 	display: none;
 	position: absolute;
 	background-color: var(--light-grey);
-	width: 80vw;
-	top: 10.3rem;
+	width: 80%;
+	top: 20vh;
 	right: 0;
 	text-align: center;
 	border: 2px solid var(--green);
@@ -128,14 +131,9 @@ header section {
 	color: var(--light-grey);
 }
 
-/* Clase que haran que el nav se oculte o se muestre.
-	Pensamos tratar esto despues desde javascript.
-	La idea seria al clickear el boton, se agrega o se quita 
-	la clase 'close' al nav.
-*/
-
-.close {
-	display: none;
+.header-nav ul .current a {
+	background-color: var(--yellow);
+	color: var(--green);
 }
 
 .profile {
@@ -333,51 +331,6 @@ main {
 		font-size: 2.5rem;
 	}
 }
-
-@media screen and (min-height: 900px) {
-	.header-nav {
-		top: 8.2rem;
-	}
-}
-
-/* @media only screen and (max-width: 800px) {
-	.nav {
-		position: absolute;
-		top: 7rem;
-		font-size: 2rem;
-		right: 0;
-		width: 100%;
-		z-index: 10000;
-		background-color: var(--green);
-	}
-
-	.nav a {
-		text-decoration: none;
-		color: var(--light-grey);
-		display: flex;
-		justify-content: center;
-		margin: auto;
-		padding: 1rem;
-	}
-
-	.nav-list {
-		height: 100%;
-		border-bottom: 1px solid var(--light-grey);
-	}
-
-	.nav-item {
-		border-top: 1px solid var(--light-grey);
-		text-align: center;
-	}
-
-	.nav-item:hover {
-		background-color: var(--light-grey);
-	}
-
-	.nav-item:hover > a {
-		color: var(--green);
-	}
-} */
 
 @media print {
 	header,
