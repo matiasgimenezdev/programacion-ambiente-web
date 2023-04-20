@@ -5,6 +5,10 @@ body {
 	flex-direction: column;
 }
 
+main {
+	padding-bottom: 2rem;
+}
+
 dt,
 dd {
 	display: inline-block;
@@ -54,10 +58,5 @@ dl {
 	div {
 		border-left: 1px solid var(--green);
 		border-right: 1px solid var(--green);
-		border-radius: 4px;
-	}
-
-	dl {
-		border-radius: 4px;
 	}
 }
