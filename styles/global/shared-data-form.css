@@ -130,10 +130,8 @@ input[type='submit']:hover {
 	border: 2px solid var(--green);
 }
 
-@media screen and (min-width: 1000px) {
-	html {
-		width: 100%;
-	}
+@media screen and (min-width: 600px) {
+
 	.title {
 		padding-left: 5rem;
 	}
@@ -141,4 +139,12 @@ input[type='submit']:hover {
 	.title::after {
 		left: 0.5rem;
 	}
+}
+
+
+@media screen and (min-width: 1000px) {
+	html {
+		width: 100%;
+	}
+
 }
