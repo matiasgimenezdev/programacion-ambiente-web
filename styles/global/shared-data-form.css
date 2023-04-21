@@ -84,16 +84,19 @@ form fieldset p {
 
 .label {
 	display: block;
+	width: 80%;
+	margin: auto;
+	margin-bottom: 0.5rem;
 	font-weight: 500;
 	font-size: 1.2rem;
-	margin: 0.5rem 0;
 	color: var(--green);
 }
 
 .input {
-	width: 88%;
+	display: block;
+	margin: auto;
+	width: 80%;
 	height: 2rem;
-	padding: 0.2rem 0.5rem;
 	outline: none;
 	border: none;
 	outline: 1px solid var(--grey);
@@ -107,6 +110,7 @@ form fieldset p {
 
 input[type='password'] {
 	display: inline-block;
+	margin-left: 10%;
 }
 
 input[type='submit'] {
@@ -142,9 +146,28 @@ input[type='submit']:hover {
 }
 
 
-@media screen and (min-width: 1000px) {
-	html {
-		width: 100%;
+@media screen and (prefers-color-scheme: dark) {
+	form {
+		background-color: var(--green);
 	}
 
+	form h2,
+	.label {
+		color: var(--light-grey);
+	}
+
+	.input {
+		background-color: var(--light-grey);
+	}
+
+	input[type='submit'] {
+		margin-top: 1rem;
+		background-color: var(--yellow);
+		color: var(--green);
+	}
+
+	input[type='submit']:hover {
+		color: var(--yellow);
+		border: 2px solid var(--yellow);
+	}
 }

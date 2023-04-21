@@ -18,8 +18,13 @@ input[type='number'] {
 }
 
 span {
-	margin-left: 0.5rem;
+	/*margin-left: 0.5rem;*/
 	cursor: pointer;
+	display: inline;
+}
+
+.p-terms {
+	text-align: center;
 }
 
 .terms-conditions {
@@ -45,13 +50,13 @@ a {
 	font-weight: bold;
 }
 
+a:hover {
+	border-bottom: 1px solid;
+}
+
 @media screen and (min-width: 700px) {
 	form {
 		width: 85vw;
-	}
-
-	span {
-		margin-left: 0.1rem;
 	}
 }
 
@@ -70,5 +75,11 @@ a {
 
 	.login {
 		font-size: 1.2rem;
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	a {
+		color: var(--light-grey);
 	}
 }

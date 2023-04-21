@@ -23,3 +23,9 @@
 		margin-top: 2.5rem;
 	}
 }
+
+@media screen and (prefers-color-scheme: dark) {
+	.specialty-name {
+		color: var(--yellow);
+	}
+}

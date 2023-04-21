@@ -60,3 +60,27 @@ dl {
 		border-right: 1px solid var(--green);
 	}
 }
+
+@media screen and (prefers-color-scheme: dark) {
+	dl {
+		border-top: 1px solid var(--light-grey);
+	}
+
+	dt {
+		color: var(--light-grey);
+	}
+	div {
+		border-bottom: 1px solid var(--light-grey);
+	}
+
+	h2 {
+		color: var(--yellow);
+	}
+
+	@media only screen and (min-width: 800px) {
+		div {
+			border-left: 1px solid var(--light-grey);
+			border-right: 1px solid var(--light-grey);
+		}
+	}
+}

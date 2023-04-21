@@ -29,12 +29,12 @@ header {
 }
 
 h1 {
-	width: 14rem;
-	height: 7rem;
+	width: 13rem;
+	height: 6rem;
 	padding: 0.3rem 0;
 	position: absolute;
 	top: auto;
-	left: 0.5rem;
+	left: 1rem;
 }
 
 h1 img {
@@ -78,7 +78,13 @@ header section {
 	background-image: url('./images/Decoration.svg');
 }
 
+.menu-input {
+	display: none;
+	background-image: url('./images/Menu.svg');
+}
+
 .menu {
+	display: block;
 	width: 2.5rem;
 	height: 2.5rem;
 	padding: 0;
@@ -91,11 +97,15 @@ header section {
 	background-repeat: no-repeat;
 }
 
-.header-nav {
-	/* Comentar la propiedad 'display: none' 
-		para ver el menu desplegado en mobile	*/
+.menu-input:checked ~ .header-nav {
+	opacity: 1;
+	height: auto;
+}
 
-	display: none;
+.header-nav {
+	height: 0;
+	transition: opacity 0.35s ease-out;
+	opacity: 0;
 	position: absolute;
 	background-color: var(--light-grey);
 	width: 80%;
@@ -106,6 +116,7 @@ header section {
 	border-radius: 5px;
 	overflow: hidden;
 }
+
 .header-nav ul {
 	height: 100%;
 	background-color: var(--light-grey);
@@ -128,7 +139,7 @@ header section {
 
 .header-nav ul a:hover {
 	background-color: var(--green);
-	color: var(--light-grey);
+	color: var(--yellow);
 }
 
 .header-nav ul .current a {
@@ -204,7 +215,7 @@ main {
 
 @media only screen and (min-width: 950px) {
 	header {
-		height: 21vh;
+		height: 23vh;
 		display: flex;
 		background-color: var(--light-grey);
 		flex-direction: column;
@@ -219,8 +230,8 @@ main {
 
 	h1 {
 		width: 19rem;
-		height: 6.5rem;
-		padding: 0.7rem 0.5rem 0rem 0.5rem;
+		height: 7rem;
+		padding: 0.8rem 0.5rem 0.8rem 0.5rem;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -246,6 +257,7 @@ main {
 	}
 
 	.header-nav {
+		opacity: 1;
 		position: static;
 		display: initial;
 		width: 100%;
@@ -294,12 +306,11 @@ main {
 		bottom: 15px;
 		right: 15px;
 		content: '';
-		background-image: url('./images/ImagotipoLight.svg');
+		background-image: url('./images/Imagotipo.svg');
 		background-position: center;
 		background-size: cover;
 		height: 5rem;
 		width: 15rem;
-		color: red;
 	}
 
 	.turn {
@@ -328,7 +339,7 @@ main {
 		font-size: 1.15rem;
 	}
 
-	title {
+	.title {
 		font-size: 2.5rem;
 	}
 }
@@ -350,5 +361,59 @@ main {
 
 	@page {
 		size: 210mm 297mm; /* tamaño A4 */
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	html {
+		background-color: var(--background-color);
+		color: white;
+	}
+
+	header {
+		background-color: var(--green);
+		box-shadow: none;
+		border-bottom: 2px solid var(--light-grey);
+	}
+
+	.header-nav ul {
+		background-color: var(--green);
+		border: 2px solid var(--light-grey);
+		border-top: none;
+	}
+
+	.header-nav ul a {
+		color: var(--light-grey);
+		border: none;
+	}
+
+	.header-nav ul a:hover {
+		background-color: var(--yellow);
+		color: var(--green);
+		opacity: 0.8;
+	}
+
+	.profile {
+		background-image: url('./images/ProfileLight.svg');
+	}
+
+	.title {
+		color: white;
+	}
+
+	footer {
+		border-top: 1px solid var(--light-grey);
+	}
+
+	@media screen and (min-width: 950px) {
+		header {
+			border-bottom: none;
+		}
+
+		.header-nav ul {
+			border: none;
+			border-top: 2px solid var(--light-grey);
+			border-bottom: 2px solid var(--light-grey);
+		}
 	}
 }

@@ -110,6 +110,7 @@ input[type='date'] {
 	transition: background 0.25s ease-in-out;
 	outline: none;
 	height: 2.5rem;
+	cursor: pointer;
 }
 
 .submit:hover {
@@ -128,6 +129,7 @@ input[type='date'] {
 	font-weight: bold;
 	border-radius: 10px;
 	transition: background 0.25s ease-in-out;
+	cursor: pointer;
 }
 
 .reset:hover {
@@ -231,5 +233,41 @@ input[type='date'] {
 	.reset,
 	.submit {
 		display: none;
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	input {
+		background-color: var(--light-grey);
+	}
+	legend {
+		color: var(--yellow);
+	}
+
+	label,
+	.genero label {
+		color: var(--light-grey);
+	}
+
+	.submit {
+		background-color: var(--blue);
+		transition: transform 0.1s ease-in;
+	}
+
+	.reset {
+		transition: transform 0.1s ease-in;
+	}
+
+	.submit:hover {
+		background-color: var(--blue);
+		color: var(--light-grey);
+		border: none;
+		transform: scale(1.03);
+	}
+	.reset:hover {
+		background-color: var(--red);
+		color: var(--light-grey);
+		border: none;
+		transform: scale(1.03);
 	}
 }

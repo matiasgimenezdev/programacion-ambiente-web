@@ -16,7 +16,7 @@
 	box-shadow: 3px 3px 5px var(--grey);
 	border-radius: 10px;
 	overflow: hidden;
-	min-height: 50vh;
+	height: clamp(45vh, 550px, 100vh);
 	margin-bottom: 1rem;
 }
 
@@ -84,7 +84,8 @@
 		display: flex;
 		flex-direction: column;
 		width: 45%;
-		min-height: 45vh;
+		height: clamp(45vh, 500px, 70vh);
+
 		transition: transform 0.3s;
 		cursor: pointer;
 		transition: all 0.15s linear;
@@ -138,5 +139,23 @@
 		page-break-inside: avoid;
 		min-height: initial;
 		height: auto;
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	.new {
+		background-color: var(--green);
+		color: white;
+		box-shadow: none;
+		border: 1px solid var(--light-grey);
+	}
+
+	.new h3 {
+		color: var(--yellow);
+	}
+
+	.new:hover {
+		transform: scale(1.015);
+		box-shadow: none;
 	}
 }

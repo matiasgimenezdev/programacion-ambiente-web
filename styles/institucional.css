@@ -21,7 +21,10 @@ details figure {
 	display: flex;
 	padding: 1.5rem;
 	border-top: 1px solid var(--green);
-	overflow: hidden;
+}
+
+details figure:first-of-type {
+	border-top: none;
 }
 
 details figcaption {
@@ -73,5 +76,20 @@ details img {
 	details figcaption {
 		margin: auto 2rem;
 		font-size: 1.5rem;
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	details h3 {
+		color: var(--yellow);
+	}
+
+	details figure {
+		border: 1px solid var(--light-grey);
+		border-left: none;
+		border-right: none;
+	}
+	details figcaption {
+		color: var(--light-grey);
 	}
 }

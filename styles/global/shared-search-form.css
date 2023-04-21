@@ -84,7 +84,7 @@ input[type='submit'] {
 	font-weight: bold;
 	border-radius: 5px;
 	font-size: 1.05rem;
-	transition: background 0.3s ease;
+	transition: all 0.2s ease-in;
 }
 
 input[type='submit']:hover {
@@ -136,7 +136,6 @@ button {
 
 button:hover {
 	transform: scale(1.02);
-
 	box-shadow: 4px 5px 10px var(--grey);
 }
 
@@ -202,6 +201,55 @@ button:hover {
 	}
 
 	.title {
+		color: var(--green);
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	form,
+	fieldset,
+	input {
+		background-color: var(--green);
+	}
+
+	.input {
+		background-color: var(--light-grey);
+	}
+
+	.input:focus {
+		outline: 2px solid var(--yellow);
+	}
+
+	fieldset legend,
+	.label {
+		color: var(--light-grey);
+	}
+
+	input[type='submit'] {
+		background-color: transparent;
+		color: var(--yellow);
+		border: 2px solid var(--yellow);
+	}
+
+	input[type='submit']:hover {
+		color: var(--green);
+		background-color: var(--yellow);
+	}
+
+	.search-text {
+		color: var(--yellow);
+	}
+
+	.search-result {
+		border: 1px solid var(--yellow);
+	}
+
+	button {
+		border: 1px solid var(--yellow);
+	}
+
+	button:hover {
+		background-color: var(--yellow);
 		color: var(--green);
 	}
 }

@@ -165,4 +165,19 @@ details ul li {
 	.section-controls form {
 		display: none;
 	}
+
+	.form {
+		display: none;
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	.patient-name,
+	.form label {
+		color: var(--yellow);
+	}
+
+	details h4 {
+		color: var(--yellow);
+	}
 }

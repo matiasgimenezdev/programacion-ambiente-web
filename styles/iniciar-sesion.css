@@ -26,8 +26,9 @@ form {
 }
 
 span {
-	margin-left: 0.5rem;
+	/*margin-left: 0.5rem;*/
 	cursor: pointer;
+	display: inline;
 }
 
 @media screen and (min-width: 700px) {
@@ -35,14 +36,11 @@ span {
 		width: 85vw;
 	}
 
-	span {
-		margin-left: 1rem;
-	}
 }
 
 @media screen and (min-width: 1000px) {
 	form {
-		width: 50vw;
+		width: 60vw;
 	}
 
 	span {
