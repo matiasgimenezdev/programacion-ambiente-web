@@ -113,7 +113,7 @@ header section {
 	right: 0;
 	text-align: center;
 	border: 2px solid var(--green);
-	border-radius: 5px;
+	border-radius: 0px 0px 5px 5px;
 	overflow: hidden;
 }
 
@@ -123,6 +123,8 @@ header section {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	border-radius: 0px 0px 5px 5px;
+	overflow: hidden;
 }
 
 .header-nav ul a {
@@ -288,7 +290,6 @@ main {
 		font-size: 1rem;
 	}
 
-
 	.header-nav ul .current a {
 		background-color: transparent;
 		color: var(--yellow);
@@ -368,7 +369,7 @@ main {
 	}
 
 	header {
-		background-color: var(--grey);
+		background-color: var(--green);
 		box-shadow: none;
 		border-bottom: 2px solid var(--light-grey);
 	}
@@ -406,7 +407,6 @@ main {
 		header {
 			border-bottom: none;
 		}
-
 		.header-nav ul {
 			border: none;
 			border-top: 2px solid var(--light-grey);
