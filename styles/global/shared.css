@@ -215,7 +215,7 @@ main {
 
 @media only screen and (min-width: 950px) {
 	header {
-		height: 23vh;
+		height: 200px;
 		display: flex;
 		background-color: var(--light-grey);
 		flex-direction: column;
@@ -261,7 +261,7 @@ main {
 		position: static;
 		display: initial;
 		width: 100%;
-		height: max(15vh, 60px);
+		height: 100%;
 		min-width: 100vw;
 		border-radius: 0;
 	}
@@ -284,10 +284,14 @@ main {
 		text-decoration: none;
 		color: var(--light-grey);
 		margin: 0;
-		padding: 0;
+		padding-bottom: 2rem;
+		padding-top: 2rem;
 		font-size: 1rem;
 	}
 
+	.header-nav ul a:hover {
+		border-bottom: 2px solid var(--yellow);
+	}
 
 	.header-nav ul .current a {
 		background-color: transparent;
@@ -410,7 +414,6 @@ main {
 		.header-nav ul {
 			border: none;
 			border-top: 2px solid var(--light-grey);
-			border-bottom: 2px solid var(--light-grey);
 		}
 
 		.header-nav ul a:hover {
