@@ -29,12 +29,12 @@ header {
 }
 
 h1 {
-	width: 14rem;
-	height: 7rem;
+	width: 13rem;
+	height: 6rem;
 	padding: 0.3rem 0;
 	position: absolute;
 	top: auto;
-	left: 0.5rem;
+	left: 1rem;
 }
 
 h1 img {
@@ -78,7 +78,13 @@ header section {
 	background-image: url('./images/Decoration.svg');
 }
 
+.menu-input {
+	display: none;
+	background-image: url('./images/Menu.svg');
+}
+
 .menu {
+	display: block;
 	width: 2.5rem;
 	height: 2.5rem;
 	padding: 0;
@@ -91,11 +97,15 @@ header section {
 	background-repeat: no-repeat;
 }
 
-.header-nav {
-	/* Comentar la propiedad 'display: none' 
-		para ver el menu desplegado en mobile	*/
+.menu-input:checked ~ .header-nav {
+	opacity: 1;
+	height: auto;
+}
 
-	display: none;
+.header-nav {
+	height: 0;
+	transition: opacity 0.5s ease-out;
+	opacity: 0;
 	position: absolute;
 	background-color: var(--light-grey);
 	width: 80%;
@@ -106,6 +116,7 @@ header section {
 	border-radius: 5px;
 	overflow: hidden;
 }
+
 .header-nav ul {
 	height: 100%;
 	background-color: var(--light-grey);

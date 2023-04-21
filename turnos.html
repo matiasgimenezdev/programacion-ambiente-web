@@ -1,100 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/turnos.css" />
-    <link rel="icon" type="image/svg" href="./images/Favicon.svg" />
-    <title>Turnos | UL Hospitals</title>
-  </head>
-  <body>
-    <header>
-      <h1><img src="./images/Imagotipo.svg" alt="" /></h1>
-      <section>
-        <a href="iniciar-sesion.html" class="profile"> </a>
-        <button class="menu"></button>
-      </section>
-      <nav class="header-nav">
-        <ul>
-          <li>
-            <a href="index.html">Inicio</a>
-          </li>
-          <li class="current">
-            <a href="turnos.html">Turnos</a>
-          </li>
-          <li>
-            <a href="profesionales.html">Profesionales</a>
-          </li>
-          <li>
-            <a href="especialidades.html">Especialidades</a>
-          </li>
-          <li>
-            <a href="noticias.html">Noticias</a>
-          </li>
-          <li>
-            <a href="institucional.html">Institucional</a>
-          </li>
-          <li>
-            <a href="obras-sociales.html">Obras sociales</a>
-          </li>
-          <li>
-            <a href="contacto.html">Contacto</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./styles/turnos.css" />
+		<link rel="icon" type="image/svg" href="./images/Favicon.svg" />
+		<title>Turnos | UL Hospitals</title>
+	</head>
+	<body>
+		<header>
+			<h1><img src="./images/Imagotipo.svg" alt="" /></h1>
+			<section>
+				<a href="iniciar-sesion.html" class="profile"> </a>
+				<label for="menu" class="menu"></label>
+			</section>
+			<input class="menu-input" type="checkbox" name="menu" id="menu" />
 
-    <main>
-      <h2 class="title">Turnos</h2>
-      <section class="turnos-section">
-        <section class="section-controls">
-          <button class="solicitar-turno-button">
-            <a href="solicitar-turno.html">Solicitar turno nuevo</a>
-          </button>
-          <h3>
-            Listado de turnos del paciente
-            <span class="patient-name">Apellido, Nombre</span>
-          </h3>
-          <form action="" method="GET" class="form">
-            <p>
-              <label for="filter">Filtrar</label>
-              <input
-                type="text"
-                id="filter"
-                name="filter"
-                autocomplete="off"
-                maxlength="60"
-              />
-            </p>
-          </form>
-        </section>
+			<nav class="header-nav">
+				<ul>
+					<li>
+						<a href="index.html">Inicio</a>
+					</li>
+					<li class="current">
+						<a href="turnos.html">Turnos</a>
+					</li>
+					<li>
+						<a href="profesionales.html">Profesionales</a>
+					</li>
+					<li>
+						<a href="especialidades.html">Especialidades</a>
+					</li>
+					<li>
+						<a href="noticias.html">Noticias</a>
+					</li>
+					<li>
+						<a href="institucional.html">Institucional</a>
+					</li>
+					<li>
+						<a href="obras-sociales.html">Obras sociales</a>
+					</li>
+					<li>
+						<a href="contacto.html">Contacto</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
 
-        <section class="detail-section">
-          <details>
-            <summary>Turno 1</summary>
-            <h4>Información del turno</h4>
-            <ul>
-              <li>Médico: Marcos Gutierrez</li>
-              <li>Especialidad: Odontólogo</li>
-              <li>Fecha: 22/03/2023</li>
-              <li>Hora: 19:00</li>
-            </ul>
-            <button class="cancelar-turno">Cancelar turno</button>
-          </details>
-          <details>
-            <summary>Turno 2</summary>
-            <h4>Información del turno</h4>
-            <ul>
-              <li>Fecha: 25/03/2023</li>
-              <li>Hora: 15:00</li>
-              <li>Médico: Alfredo Montes</li>
-              <li>Especialidad: Oculista</li>
-            </ul>
-            <button class="cancelar-turno">Cancelar turno</button>
-          </details>
-        </section>
-      </section>
-    </main>
-  </body>
+		<main>
+			<h2 class="title">Turnos</h2>
+			<section class="turnos-section">
+				<section class="section-controls">
+					<button class="solicitar-turno-button">
+						<a href="solicitar-turno.html">Solicitar turno nuevo</a>
+					</button>
+					<h3>
+						Listado de turnos del paciente
+						<span class="patient-name">Apellido, Nombre</span>
+					</h3>
+					<form action="" method="GET" class="form">
+						<p>
+							<label for="filter">Filtrar</label>
+							<input
+								type="text"
+								id="filter"
+								name="filter"
+								autocomplete="off"
+								maxlength="60"
+							/>
+						</p>
+					</form>
+				</section>
+
+				<section class="detail-section">
+					<details>
+						<summary>Turno 1</summary>
+						<h4>Información del turno</h4>
+						<ul>
+							<li>Médico: Marcos Gutierrez</li>
+							<li>Especialidad: Odontólogo</li>
+							<li>Fecha: 22/03/2023</li>
+							<li>Hora: 19:00</li>
+						</ul>
+						<button class="cancelar-turno">Cancelar turno</button>
+					</details>
+					<details>
+						<summary>Turno 2</summary>
+						<h4>Información del turno</h4>
+						<ul>
+							<li>Fecha: 25/03/2023</li>
+							<li>Hora: 15:00</li>
+							<li>Médico: Alfredo Montes</li>
+							<li>Especialidad: Oculista</li>
+						</ul>
+						<button class="cancelar-turno">Cancelar turno</button>
+					</details>
+				</section>
+			</section>
+		</main>
+	</body>
 </html>

@@ -21,7 +21,6 @@ details figure {
 	display: flex;
 	padding: 1.5rem;
 	border-top: 1px solid var(--green);
-	overflow: hidden;
 }
 
 details figcaption {
