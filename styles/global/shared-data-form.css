@@ -135,7 +135,6 @@ input[type='submit']:hover {
 }
 
 @media screen and (min-width: 600px) {
-
 	.title {
 		padding-left: 5rem;
 	}
@@ -145,10 +144,10 @@ input[type='submit']:hover {
 	}
 }
 
-
 @media screen and (prefers-color-scheme: dark) {
 	form {
 		background-color: var(--green);
+		box-shadow: 3px 4px 6px black;
 	}
 
 	form h2,

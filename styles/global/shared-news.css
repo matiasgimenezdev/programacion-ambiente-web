@@ -85,7 +85,6 @@
 		flex-direction: column;
 		width: 45%;
 		height: clamp(45vh, 500px, 70vh);
-
 		transition: transform 0.3s;
 		cursor: pointer;
 		transition: all 0.15s linear;
@@ -147,15 +146,18 @@
 		background-color: var(--green);
 		color: white;
 		box-shadow: none;
-		border: 1px solid var(--light-grey);
+		/* border: 1px solid var(--light-grey); */
+		box-shadow: 2px 2px 5px black;
 	}
 
 	.new h3 {
 		color: var(--yellow);
+
+		border-bottom: 1px solid var(--light-grey);
 	}
 
 	.new:hover {
 		transform: scale(1.015);
-		box-shadow: none;
+		box-shadow: 4px 5px 10px black;
 	}
 }

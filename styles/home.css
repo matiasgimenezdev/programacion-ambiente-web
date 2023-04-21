@@ -117,4 +117,7 @@
 	.more-news {
 		color: var(--light-grey);
 	}
+	.carousel {
+		box-shadow: 0px 2px 5px black;
+	}
 }
