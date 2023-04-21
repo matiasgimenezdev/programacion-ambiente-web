@@ -23,6 +23,10 @@ details figure {
 	border-top: 1px solid var(--green);
 }
 
+details figure:first-of-type {
+	border-top: none;
+}
+
 details figcaption {
 	color: var(--green);
 	font-weight: bold;
@@ -78,6 +82,8 @@ details img {
 
 	details figure {
 		border: 1px solid var(--light-grey);
+		border-left: none;
+		border-right: none;
 	}
 	details figcaption {
 		color: var(--light-grey);
