@@ -130,7 +130,7 @@ header section {
 .header-nav ul a {
 	font-weight: bold;
 	display: block;
-	padding: 1rem;
+	padding: 0.8rem;
 	font-size: 1.5rem;
 	width: 100%;
 	color: var(--green);
@@ -143,11 +143,6 @@ header section {
 	background-color: var(--green);
 	color: var(--yellow);
 }
-
-/*.header-nav ul .current a {
-	background-color: var(--yellow);
-	color: var(--green);
-}*/
 
 .profile {
 	display: inline-block;
@@ -286,8 +281,8 @@ main {
 		text-decoration: none;
 		color: var(--light-grey);
 		margin: 0;
-		padding-bottom: 2rem;
-		padding-top: 2rem;
+		padding-bottom: 1rem;
+		padding-top: 1rem;
 		font-size: 1rem;
 	}
 
@@ -295,11 +290,10 @@ main {
 		border-bottom: 2px solid var(--yellow);
 	}
 
-	/*.header-nav ul .current a {
-		background-color: transparent;
-		color: var(--yellow);
+	.header-nav ul .current a {
 		border-bottom: 2px solid var(--yellow);
-	}*/
+		color: var(--yellow);
+	}
 
 	footer {
 		position: relative;
@@ -332,15 +326,16 @@ main {
 	}
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 950px) {
 	.header-nav ul {
 		justify-content: space-evenly;
+		gap: 0rem;
 	}
 }
 
 @media only screen and (min-width: 1200px) {
 	.header-nav ul a {
-		font-size: 1.15rem;
+		font-size: 1rem;
 	}
 
 	.title {

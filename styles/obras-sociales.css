@@ -3,11 +3,12 @@
 article {
 	width: 90%;
 	margin: auto;
+	box-shadow: 2px 2px 5px var(--grey);
+	border-radius: 10px;
 }
 article figure {
 	margin: 1rem 0;
 	border-radius: 8px;
-	border: 1px solid var(--grey);
 	position: relative;
 	padding: 1rem;
 }
@@ -56,7 +57,10 @@ article figcaption {
 }
 
 @media screen and (prefers-color-scheme: dark) {
+	article {
+		box-shadow: 2px 2px 5px black;
+	}
 	article figure {
-		border: 2px solid var(--light-grey);
+		/* border: 1px solid var(--light-grey); */
 	}
 }

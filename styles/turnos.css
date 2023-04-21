@@ -180,4 +180,16 @@ details ul li {
 	details h4 {
 		color: var(--yellow);
 	}
+	.solicitar-turno-button {
+		transition: transform 0.1s ease-in-out;
+	}
+	.solicitar-turno-button:hover {
+		background-color: var(--green);
+		border: 2px solid var(--light-grey);
+		transform: scale(1.03);
+	}
+
+	.solicitar-turno-button:hover > a {
+		color: var(--light-grey);
+	}
 }

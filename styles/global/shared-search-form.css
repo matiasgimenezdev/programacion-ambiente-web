@@ -226,14 +226,16 @@ button:hover {
 	}
 
 	input[type='submit'] {
-		background-color: transparent;
-		color: var(--yellow);
-		border: 2px solid var(--yellow);
+		color: var(--light-grey);
+		background-color: var(--green);
+		border: 2px solid var(--light-grey);
 	}
 
 	input[type='submit']:hover {
-		color: var(--green);
-		background-color: var(--yellow);
+		color: var(--light-grey);
+		background-color: var(--green);
+		border: 2px solid var(--light-grey);
+		transform: scale(1.03);
 	}
 
 	.search-text {

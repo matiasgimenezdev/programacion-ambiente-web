@@ -146,7 +146,6 @@
 		background-color: var(--green);
 		color: white;
 		box-shadow: none;
-		/* border: 1px solid var(--light-grey); */
 		box-shadow: 2px 2px 5px black;
 	}
 
