@@ -108,6 +108,10 @@
 	.more-news {
 		display: none;
 	}
+
+	.carousel {
+		display: none;
+	}
 }
 @media screen and (prefers-color-scheme: dark) {
 	.more-news {
