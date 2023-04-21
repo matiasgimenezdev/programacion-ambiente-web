@@ -288,9 +288,6 @@ main {
 		font-size: 1rem;
 	}
 
-	.header-nav a:hover {
-		opacity: 80%;
-	}
 
 	.header-nav ul .current a {
 		background-color: transparent;
@@ -371,7 +368,7 @@ main {
 	}
 
 	header {
-		background-color: var(--green);
+		background-color: var(--grey);
 		box-shadow: none;
 		border-bottom: 2px solid var(--light-grey);
 	}
@@ -414,6 +411,12 @@ main {
 			border: none;
 			border-top: 2px solid var(--light-grey);
 			border-bottom: 2px solid var(--light-grey);
+		}
+
+		.header-nav ul a:hover {
+			background-color: var(--green);
+			color: var(--yellow);
+			opacity: 1;
 		}
 	}
 }
