@@ -60,7 +60,4 @@ article figcaption {
 	article {
 		box-shadow: 2px 2px 5px black;
 	}
-	article figure {
-		/* border: 1px solid var(--light-grey); */
-	}
 }
