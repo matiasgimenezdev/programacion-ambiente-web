@@ -257,6 +257,7 @@ main {
 	}
 
 	.header-nav {
+		opacity: 1;
 		position: static;
 		display: initial;
 		width: 100%;
