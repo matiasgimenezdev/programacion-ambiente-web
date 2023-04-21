@@ -73,3 +73,25 @@ details p {
 		page-break-inside: avoid;
 	}
 }
+
+@media screen and (prefers-color-scheme: dark) {
+	details {
+		background-color: var(--green);
+		border: 2px solid var(--light-grey);
+		border-top: none;
+	}
+
+	.detail-section details:first-of-type {
+		border-top: 2px solid var(--light-grey);
+	}
+
+	details summary {
+		border: none;
+	}
+
+	details[open] > summary {
+		color: var(--yellow);
+		border-bottom: 2px solid var(--light-grey);
+		background-color: var(--green);
+	}
+}

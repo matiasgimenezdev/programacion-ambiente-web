@@ -70,3 +70,16 @@ details img {
 		font-size: 1.5rem;
 	}
 }
+
+@media screen and (prefers-color-scheme: dark) {
+	details h3 {
+		color: var(--yellow);
+	}
+
+	details figure {
+		border: 1px solid var(--light-grey);
+	}
+	details figcaption {
+		color: var(--light-grey);
+	}
+}

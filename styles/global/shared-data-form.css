@@ -142,3 +142,29 @@ input[type='submit']:hover {
 		left: 0.5rem;
 	}
 }
+
+@media screen and (prefers-color-scheme: dark) {
+	form {
+		background-color: var(--green);
+	}
+
+	form h2,
+	.label {
+		color: var(--light-grey);
+	}
+
+	.input {
+		background-color: var(--light-grey);
+	}
+
+	input[type='submit'] {
+		margin-top: 1rem;
+		background-color: var(--yellow);
+		color: var(--green);
+	}
+
+	input[type='submit']:hover {
+		color: var(--yellow);
+		border: 2px solid var(--yellow);
+	}
+}

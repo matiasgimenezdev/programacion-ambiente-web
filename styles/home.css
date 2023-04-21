@@ -109,3 +109,8 @@
 		display: none;
 	}
 }
+@media screen and (prefers-color-scheme: dark) {
+	.more-news {
+		color: var(--light-grey);
+	}
+}

@@ -61,3 +61,13 @@ iframe {
 		font-size: 1.05rem;
 	}
 }
+
+@media screen and (prefers-color-scheme: dark) {
+	h3 {
+		color: var(--blue);
+	}
+
+	.contact-section h4 {
+		color: var(--yellow);
+	}
+}
