@@ -1,5 +1,4 @@
 <?php 
-
-    require __DIR__ . "/../src/App/views/home.view.php";
-    $router -> route($)
+    require __DIR__ . "/../src/bootstrap.php";
+    $router -> direct($request);
 ?>
