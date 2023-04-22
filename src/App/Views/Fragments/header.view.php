@@ -1,6 +1,6 @@
-<h1><img src="/assets/images/Imagotipo.svg" alt="" /></h1>
+<h1><img src="/assets/images/Imagotipo.svg" alt="UL Hospitals logo" /></h1>
 <section>
-    <a href="iniciar-sesion.html" class="profile"> </a>
+    <a href="/login" class="profile"></a>
 	<label for="menu" class="menu"></label>
 </section>
 <input class="menu-input" type="checkbox" name="menu" id="menu" />
