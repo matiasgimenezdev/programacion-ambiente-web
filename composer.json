@@ -1,0 +1,9 @@
+{
+    "name": "paw/hospital",
+    "autoload": {
+        "psr-4": {
+            "Paw\\Hospital\\": "src/"
+        }
+    },
+    "require": {}
+}
