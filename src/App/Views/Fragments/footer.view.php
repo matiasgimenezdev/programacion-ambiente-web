@@ -4,13 +4,11 @@
 </address>
 <nav>
 	<ul>
-		<li><a href="index.html">Volver al inicio</a></li>
-		<li>
-			<a href="/contacto.html">Más información de contacto</a>
-		</li>
-		<li>
-			<a href="/terminos.html">Términos y condiciones</a>
-		</li>
+		<?php foreach($this -> footerMenu as $item): ?>  
+            <li>
+		        <a href=<?= $item["href"] ?>><?= $item["content"] ?></a>
+		    </li>
+        <?php endforeach; ?> 
 	</ul>
 </nav>
 <p>

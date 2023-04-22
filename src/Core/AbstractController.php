@@ -3,11 +3,12 @@
 
     class AbstractController {
         public $viewsDirectory;
-        public $menu;
+        public $headerMenu;
+        public $footerMenu;
 
         public function __construct() {
             $this -> viewsDirectory = __DIR__ . "/../App/Views/";
-            $this -> menu = [
+            $this -> headerMenu = [
                 [
                     "href" => "/",
                     "name" => "Inicio",
@@ -42,6 +43,21 @@
                 ],
 
             ]; 
+
+            $this -> footerMenu = [
+                [
+                    "href" => "/",
+                    "content" => "Volver al inicio",
+                ],
+                [
+                    "href" => "/contacto",
+                    "content" => "Más información de contacto",
+                ],
+                [
+                    "href" => "/terminos",
+                    "content" => "Términos y condiciones",
+                ],
+            ];
         }
     }
 
