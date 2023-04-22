@@ -7,7 +7,7 @@
 <nav class="header-nav">
 	<ul>
         <?php foreach($this -> menu as $item): ?>  
-            <?php if(!strcasecmp($item["name"] , $title) ): ?>  
+            <?php if(strcasecmp($item["name"] , $title) === 0): ?>  
                 <li class="current">
 		            <a href=<?= $item["href"] ?>><?= $item["name"] ?></a>
                 </li>
