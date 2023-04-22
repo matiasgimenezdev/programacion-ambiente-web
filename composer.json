@@ -1,9 +1,21 @@
 {
     "name": "paw/hospital",
+    "description": "UL Hospitals Backend",
+    "keywords": [
+        "php",
+        "mvc"
+    ],
+    "license": "MIT",
+    "authors": [
+        {"name": "Matias Gimenez", "role":"Creator / Main developer"},
+        {"name": "Simon Di Leo", "role":"Creator / Main developer"}
+    ],
     "autoload": {
         "psr-4": {
-            "Paw\\Hospital\\": "src/"
+            "PAW\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "php": ">= 7.4.0"
+    }
 }
