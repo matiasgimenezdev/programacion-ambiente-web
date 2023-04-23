@@ -8,7 +8,7 @@
         <?php require "/../Fragments/header.view.php"?>
 	</header>
     <main>
-        <h2><?= $title ?></h2>
+        <h2 class="title"><?= $title ?></h2>
     </main>
 </body>
 </html>
