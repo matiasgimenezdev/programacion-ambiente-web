@@ -13,7 +13,7 @@
 			<section class="turnos-section">
 				<section class="section-controls">
 					<button class="solicitar-turno-button">
-						<a href="solicitar-turno.html">Solicitar turno nuevo</a>
+						<a href="/solicitar-turno">Solicitar turno nuevo</a>
 					</button>
 					<h3>
 						Listado de turnos del paciente

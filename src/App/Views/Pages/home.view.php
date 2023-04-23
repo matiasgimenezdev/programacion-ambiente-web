@@ -90,11 +90,11 @@
 					</p>
 				</article>
 				<a
-					href="/solicitar-turno.html"
+					href="/solicitar-turno"
 					title="Solicitar turno"
 					class="turn"
 				></a>
-				<a class="more-news" href="noticias.html">Ver más noticias</a>
+				<a class="more-news" href="/noticias">Ver más noticias</a>
 			</section>
 		</main>
 
