@@ -11,6 +11,7 @@
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
     $whoops->register();
 
-    // $router -> get("/", "PageController", "home");
+    $router -> get("/", "PageController", "home");
+    $router -> get("/turnos", "PageController", "turnos");
 ?>
 
