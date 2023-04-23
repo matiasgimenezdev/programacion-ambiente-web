@@ -7,7 +7,7 @@
         public $footerMenu;
 
         public function __construct() {
-            $this -> viewsDirectory = __DIR__ . "/../App/Views/";
+            $this -> viewsDirectory = __DIR__ . "/../App/Views/Pages/";
             $this -> headerMenu = [
                 [
                     "href" => "/",

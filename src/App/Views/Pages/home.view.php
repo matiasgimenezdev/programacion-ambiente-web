@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-        <?php require "Fragments/head.view.php"?>
+        <?php require __DIR__ . "/../Fragments/head.view.php"?>
 	</head>
 	<body>
 		<header>
-            <?php require "Fragments/header.view.php"?>
+            <?php require __DIR__ . "/../Fragments/header.view.php"?>
 		</header>
 
 		<main>
@@ -99,7 +99,7 @@
 		</main>
 
 		<footer>
-			<?php require "Fragments/footer.view.php" ?>
+			<?php require __DIR__ . "/../Fragments/footer.view.php" ?>
 		</footer>
 	</body>
 </html>

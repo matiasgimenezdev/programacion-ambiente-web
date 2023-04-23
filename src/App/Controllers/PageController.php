@@ -7,13 +7,13 @@
         public function home() {
             $style = "home";
             $title = "Inicio";
-            require $this -> viewsDirectory."Pages/home.view.php";
+            require $this -> viewsDirectory."home.view.php";
         }
 
         public function turnos() {
             $style = "turnos";
             $title = "Turnos";
-            require $this -> viewsDirectory."Pages/turnos.view.php";
+            require $this -> viewsDirectory."turnos.view.php";
 
         }
     }

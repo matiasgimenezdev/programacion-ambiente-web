@@ -1,0 +1,6 @@
+@import url('./global/shared.css');
+
+h2 {
+	padding: 2rem 1rem;
+	font-size: 3rem;
+}
