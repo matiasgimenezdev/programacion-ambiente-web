@@ -1,20 +1,20 @@
-<?php 
-    require __DIR__."/../vendor/autoload.php";
+<?php
+require __DIR__ . "/../vendor/autoload.php";
 
-    use PAW\Core\Request;
-    use PAW\Core\Router;
+use PAW\Core\Request;
+use PAW\Core\Router;
 
-    $request = Request::getInstance();
-    $router = Router::getInstance();
+$request = Request::getInstance();
+$router = Router::getInstance();
 
-    $whoops = new \Whoops\Run;
-    $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
-    $whoops->register();
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
 
-    $router -> get("/", "PageController", "home");
-    $router -> get("/turnos", "PageController", "turnos");
-    $router -> get("/especialidades", "EspecialidadesController", "especialidades");
-    $router -> get("/especialidad-search", "EspecialidadesController", "search");
-    // $router -> get("/profesionales", "PageController", "profesionales");
+$router->get("/", "PageController", "home");
+$router->get("/turnos", "PageController", "turnos");
+$router->get("/especialidades", "EspecialidadesController", "especialidades");
+$router->get("/especialidad-search", "EspecialidadesController", "search");
+// $router -> get("/profesionales", "PageController", "profesionales");
+$router->get("/institucional", "PageController", "institucional");
 ?>
-
