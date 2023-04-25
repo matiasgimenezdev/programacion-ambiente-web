@@ -21,4 +21,6 @@ $router->get("/institucional", "PageController", "institucional");
 $router->get("/noticias", "PageController", "noticias");
 $router->get("/obras-sociales", "PageController", "obrasSociales");
 $router->get("/contacto", "PageController", "contacto");
+$router->get("/login", "PageController", "iniciarSesion");
+$router->get("/register", "PageController", "registrarse");
 ?>
