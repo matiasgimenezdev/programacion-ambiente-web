@@ -16,12 +16,6 @@ class PageController extends AbstractController
         $this->requireView("Turnos", "turnos", "turnos");
     }
 
-    public function profesionales()
-    {
-        $results = null;
-        $this->requireView("Profesionales", "profesionales", "profesionales");
-    }
-
     public function institucional()
     {
         $this->requireView("Institucional", "institucional", "institucional");
