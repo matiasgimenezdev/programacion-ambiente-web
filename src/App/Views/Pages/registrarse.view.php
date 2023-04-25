@@ -63,7 +63,7 @@
   </form>
   <p class="login">
     ¿Ya tiene una Cuenta?
-    <a href="iniciar-sesion.html">Iniciar sesión.</a>
+    <a href="/login">Iniciar sesión.</a>
   </p>
 </body>
 
