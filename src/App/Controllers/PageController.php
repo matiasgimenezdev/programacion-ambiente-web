@@ -27,6 +27,16 @@ class PageController extends AbstractController
         $this->requireView("Institucional", "institucional", "institucional");
     }
 
+    public function noticias()
+    {
+        $this->requireView("Noticias", "noticias", "noticias");
+    }
+
+    public function obrasSociales()
+    {
+        $this->requireView("Obras Sociales", "obras-sociales", "obras-sociales");
+    }
+
     private function requireView($title, $view, $style)
     {
         require $this->viewsDirectory . "{$view}.view.php";
