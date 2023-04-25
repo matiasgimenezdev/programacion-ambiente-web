@@ -13,5 +13,8 @@
 
     $router -> get("/", "PageController", "home");
     $router -> get("/turnos", "PageController", "turnos");
+    $router -> get("/especialidades", "EspecialidadesController", "especialidades");
+    $router -> get("/especialidad-search", "EspecialidadesController", "search");
+    // $router -> get("/profesionales", "PageController", "profesionales");
 ?>
 

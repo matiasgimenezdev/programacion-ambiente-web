@@ -5,16 +5,20 @@
     class PageController extends AbstractController{
 
         public function home() {
-            $style = "home";
-            $title = "Inicio";
-            require $this -> viewsDirectory."home.view.php";
+            $this -> requireView("Inicio", "home", "home");
         }
 
         public function turnos() {
-            $style = "turnos";
-            $title = "Turnos";
-            require $this -> viewsDirectory."turnos.view.php";
+            $this -> requireView("Turnos", "turnos", "turnos");
+        }
 
+        public function profesionales() {
+            $results = null;
+            $this -> requireView("Profesionales", "profesionales", "profesionales");
+        }
+
+        private function requireView($title, $view, $style) {
+            require $this -> viewsDirectory."{$view}.view.php";
         }
     }
 
