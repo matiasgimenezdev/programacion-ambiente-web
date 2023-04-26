@@ -1,0 +1,88 @@
+@import url('./global/shared.css');
+
+main {
+    min-height: 60vh;
+}
+
+article {
+    width: 100%;
+}
+
+figcaption{
+    display: none;
+}
+
+img {
+    width: 100%;
+    margin: auto;
+    padding: 0rem 0.5rem;
+    border-radius: 25px;
+}
+
+
+article p {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+}
+
+@media only screen and (min-width: 700px) {
+    img {
+        height: 500px;
+    }
+}
+
+@media only screen and (min-width: 950px) {
+    article {
+        text-align: center;
+    }
+
+    .title {
+        text-align: left;
+    }
+
+    img {
+        width: 90%;
+    }
+
+    article p {
+        text-align: left;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+
+    article {
+        text-align: left;
+    }
+
+    img {
+        width: 40%;
+        height: 400px;
+    }
+
+    figure {
+        position: relative;
+    }
+
+    figcaption {
+        display: inline;
+        position: absolute;
+        top: 50%;
+        margin-left: .3rem;
+        font-size: 1.05rem;
+        text-align: left;
+        line-height: 1.2rem;
+        font-weight: bold;
+        color: var(--grey);
+        padding: 0 1rem;
+    }
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+    figcaption {
+        color: white;
+    }
+}

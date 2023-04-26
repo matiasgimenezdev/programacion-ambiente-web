@@ -15,10 +15,12 @@
         }
 
         public function noticia() {
-            // Mostrar pagina de noticia individual
             $request = Request::getInstance();
             $id = $request -> getKey("id");
             $noticia = $this -> model -> getOne($id);
+            $title = "Noticia";
+            $style = "noticia";
+            require $this -> viewsDirectory . "noticia.view.php";
         }
         
     }

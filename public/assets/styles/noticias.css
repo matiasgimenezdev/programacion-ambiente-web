@@ -1,7 +1,5 @@
-@import url('./global/reset.css');
-@import url('./global/variables.css');
 @import url('./global/shared.css');
-@import url(./global/shared-news.css);
+@import url('./global/shared-news.css');
 
 .head h3 {
 	padding: 1.5rem;
