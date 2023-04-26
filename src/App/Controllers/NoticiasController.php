@@ -1,29 +1,33 @@
 <?php
-    namespace PAW\App\Controllers;
-    use PAW\Core\AbstractController;
-    use PAW\Core\Request;
-    use PAW\App\Models\Noticia\NoticiasCollection;
+namespace PAW\App\Controllers;
 
-    class NoticiasController extends AbstractController {
-        public ?string $modelName = NoticiasCollection::class;
+use PAW\Core\AbstractController;
+use PAW\Core\Request;
+use PAW\App\Models\Noticia\NoticiasCollection;
 
-        public function noticias () {
-            $title = "Noticias";
-            $style = "noticias";
-            $noticias = $this-> model-> getAll();
-            require $this -> viewsDirectory . "noticias.view.php"; 
-        }
+class NoticiasController extends AbstractController
+{
+    public ?string $modelName = NoticiasCollection::class;
 
-        public function noticia() {
-            $request = Request::getInstance();
-            $id = $request -> getKey("id");
-            $noticia = $this -> model -> getOne($id);
-            $title = "Noticia";
-            $style = "noticia";
-            require $this -> viewsDirectory . "noticia.view.php";
-        }
-        
+    public function noticias()
+    {
+        $title = "Noticias";
+        $style = "noticias";
+        $noticias = $this->model->getAll();
+        require $this->viewsDirectory . "noticias.view.php";
     }
+
+    public function noticia()
+    {
+        $request = Request::getInstance();
+        $id = $request->getKey("id");
+        $noticia = $this->model->getOne($id);
+        $title = "Noticia";
+        $style = "noticia";
+        require $this->viewsDirectory . "noticia.view.php";
+    }
+
+}
 
 
 ?>

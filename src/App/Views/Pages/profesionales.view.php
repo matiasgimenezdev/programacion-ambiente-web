@@ -35,7 +35,7 @@
 					</span>
 				</h3>
 			<?php endif; ?>
-			<?php require __DIR__ . "/../Fragments/profesionales-list.php" ?>
+			<?php require __DIR__ . "/../Fragments/profesionales-list.view.php" ?>
 		</section>
 	</main>
 	<footer>

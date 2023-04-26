@@ -8,7 +8,7 @@ use PAW\Core\Config;
 
 $request = Request::getInstance();
 $router = Router::getInstance();
-$router -> setLogger();
+$router->setLogger();
 $config = Config::getInstance();
 
 $whoops = new \Whoops\Run;
@@ -18,7 +18,7 @@ $whoops->register();
 
 
 $router->get("/", "PageController", "home");
-$router->get("/turnos", "PageController", "turnos");
+$router->get("/turnos", "TurnosController", "turnos");
 $router->get("/especialidades", "EspecialidadesController", "especialidades");
 $router->get("/especialidad-search", "EspecialidadesController", "search");
 $router->get("/profesionales", "ProfesionalesController", "profesionales");
