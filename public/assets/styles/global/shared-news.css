@@ -26,6 +26,10 @@
 	border-radius: 10px 10px 0 0;
 }
 
+.new a {
+	text-decoration: none;
+}
+
 .new h3 {
 	color: var(--green);
 	font-weight: bold;
@@ -86,7 +90,6 @@
 		width: 45%;
 		height: clamp(45vh, 500px, 70vh);
 		transition: transform 0.3s;
-		cursor: pointer;
 		transition: all 0.15s linear;
 	}
 
