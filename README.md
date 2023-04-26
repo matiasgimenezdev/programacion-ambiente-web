@@ -13,3 +13,5 @@ Realice la maquetación de todos los wireframes. Refleje en cada sección los ta
 Tomando de base las maquetaciones presentadas, el ejercicio consiste en agregar el contenido CSS necesario para lograr que el maquetado se vea tal como se diseñaron los Wireframes. En caso de ser necesario, ajustar las características de los mismos para que se adapten al manual de identidad corporativa.
 Tener en cuenta, asimismo, generar el código necesario para que las pantallas se adapten a las versiones mobile, desktop y de impresión.
 
+### Trabajo Práctico Nº 3: Programación Backend (1)
+El proyecto a partir de este TP debe ser MVC: Vista genera el código de salida al cliente, Controlador procesa peticiones, llama a modelos e invoca la Vista que corresponda, Modelo impacta en el medio de persistencia elegido. No es necesario en este TP que el proyecto haga persistencia real (eso será parte de un TP posterior). Esto no impide que el modelo sea construido, solo que no se generen las sentencias ni se conecte ningún motor.
