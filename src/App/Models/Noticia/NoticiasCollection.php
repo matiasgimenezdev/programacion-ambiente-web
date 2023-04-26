@@ -68,7 +68,9 @@
 
         public function getOne($id) {
             $noticiaInstance = new Noticia;
-            $noticiaInstance->set($this -> noticias[$id]);
+            $ids = array_column($this -> noticias, 'id');
+            $index = array_search($id, $ids);
+            $noticiaInstance-> set($this -> noticias[$index]);
             return $noticiaInstance;
         }
 
