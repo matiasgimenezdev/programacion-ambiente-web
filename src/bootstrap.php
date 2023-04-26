@@ -31,4 +31,5 @@ $router->get("/obras-sociales", "ObrasSocialesController", "obrasSociales");
 $router->get("/contacto", "PageController", "contacto");
 $router->get("/login", "PageController", "iniciarSesion");
 $router->get("/register", "PageController", "registrarse");
+$router->get("/perfil", "PacienteController", "perfil");
 ?>
