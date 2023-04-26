@@ -14,5 +14,5 @@
 		</article>
 	<?php endforeach; ?>
 <?php else: ?>
-	<h4 class="profesional-name"> No se encontraron profecionales que coincidan con la busqueda</h4>
+	<h4 class="profesional-name"> No se encontraron profesionales que coincidan con la busqueda</h4>
 <?php endif; ?>

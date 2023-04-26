@@ -6,8 +6,7 @@ use PAW\App\Models\Especialidad\Especialidad;
 class EspecialidadesCollection
 {
 
-    public function getAll()
-    {
+    public function getAll() {
         $especialidades = [
             [
                 "id" => 1,

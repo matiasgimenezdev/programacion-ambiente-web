@@ -1,8 +1,7 @@
 <?php
 namespace PAW\App\Models\Profesional;
 
-class Profesional
-{
+class Profesional {
   private $fields = [
     "id" => null,
     "name" => null,
