@@ -27,7 +27,7 @@ class ProfesionalesController extends AbstractController
     $style = "profesionales";
     if (strlen($searchText) > 0) {
       $profesionales = $this->model->getAll();
-      // $especialidades = $this -> model -> get($searchText);
+      // $profesionales = $this -> model -> get($searchText);
     } else {
       $profesionales = $this->model->getAll();
     }

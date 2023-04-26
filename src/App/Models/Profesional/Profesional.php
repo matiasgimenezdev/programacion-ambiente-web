@@ -45,8 +45,7 @@ class Profesional {
     return $this->fields["description"];
   }
 
-  public function set(array $values)
-  {
+  public function set(array $values) {
     foreach (array_keys($this->fields) as $field) {
       if (!isset($values[$field])) {
         continue;
