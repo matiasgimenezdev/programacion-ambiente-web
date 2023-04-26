@@ -38,57 +38,7 @@
 				</ul>
 			</article>
 			<section class="latest-news">
-				<article class="new">
-					<img
-						src="/assets/images/inicio/noticias/medicacion.jpg"
-						alt="Persona con medicamentos en su mano"
-						width="300"
-						height="200"
-					/>
-					<h3>Los riesgos de la automedicación</h3>
-					<p>
-						Múltiples factores confluyen en este hábito peligroso y
-						que puede tener consecuencias negativas. Cada vez son
-						más las personas que recurren, por sus propios medios, a
-						la toma de un medicamento con el objetivo de tratar un
-						dolor o contrarrestar una molestia.
-					</p>
-				</article>
-				<article class="new">
-					<img
-						src="/assets/images/inicio/noticias/lactancia.jpg"
-						alt="Madre amamantando a su bebe"
-						width="300"
-						height="200"
-					/>
-					<h3>Lactancia y vínculo afectivo</h3>
-					<p>
-						La leche materna proporciona los nutrientes necesarios
-						para el bebé, pero cuando decimos “Fundamento de vida”
-						nos referimos a que ayuda a desarrollar la inteligencia
-						y las capacidades de lenguaje, de conocimiento, además
-						de protegerlo de enfermedades infecciosas y crónicas.
-					</p>
-				</article>
-				<article class="new">
-					<img
-						src="/assets/images/inicio/noticias/covid.jpg"
-						alt="Medica con barbijo levantando la mano"
-						width="300"
-						height="200"
-					/>
-					<h3>
-						Consejos útiles para pacientes con enfermedad
-						respiratoria en épocas del COVID-19
-					</h3>
-					<p>
-						El equipo de Neumonología de la clínica Universitaria
-						responde las preguntas más frecuentes a su especialidad
-						respecto del Covid-19. Además, brindan consejos y
-						medidas de prevención para implementar en nuestro día a
-						día.
-					</p>
-				</article>
+				<?php require __DIR__ . "/../Fragments/noticias-list.view.php" ?>
 				<a
 					href="/solicitar-turno"
 					title="Solicitar turno"

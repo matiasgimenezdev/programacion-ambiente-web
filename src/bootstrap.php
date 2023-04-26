@@ -17,7 +17,7 @@ $whoops->register();
 
 
 
-$router->get("/", "PageController", "home");
+$router->get("/", "HomeController", "home");
 $router->get("/turnos", "TurnosController", "turnos");
 $router->get("/turno-search", "TurnosController", "search");
 $router->get("/especialidades", "EspecialidadesController", "especialidades");

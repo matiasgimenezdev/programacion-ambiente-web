@@ -14,7 +14,7 @@ class NoticiasController extends AbstractController
         $title = "Noticias";
         $style = "noticias";
         $noticias = $this->model->getAll();
-        require $this->viewsDirectory . "noticias.view.php";
+        require $this-> viewsDirectory . "noticias.view.php";
     }
 
     public function noticia()
@@ -25,6 +25,11 @@ class NoticiasController extends AbstractController
         $title = "Noticia";
         $style = "noticia";
         require $this->viewsDirectory . "noticia.view.php";
+    }
+
+    public function ultimasNoticias($amount)
+    {
+        return $this -> model -> getLatest($amount);
     }
 
 }

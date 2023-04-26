@@ -5,12 +5,6 @@ use PAW\Core\AbstractController;
 
 class PageController extends AbstractController
 {
-
-    public function home()
-    {
-        $this->requireView("Inicio", "home", "home");
-    }
-
     public function turnos()
     {
         $this->requireView("Turnos", "turnos", "turnos");
@@ -19,11 +13,6 @@ class PageController extends AbstractController
     public function institucional()
     {
         $this->requireView("Institucional", "institucional", "institucional");
-    }
-
-    public function noticias()
-    {
-        $this->requireView("Noticias", "noticias", "noticias");
     }
 
     public function obrasSociales()

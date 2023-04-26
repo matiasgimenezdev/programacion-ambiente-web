@@ -1,6 +1,6 @@
-<?php if($title === "Noticias"): ?>
+<?php if(sizeof($noticias) > 0):?>
     <?php foreach($noticias as $index => $noticia): ?>
-        <article class="<?php echo ($index == 0 ? "new head" : "new")?>"> 
+        <article class="<?php echo (($index == 0 && $title === "Noticias") ? "new head" : "new")?>"> 
             <a href="<?= "/noticia?id=". $noticia -> getId() ?>">
                 <img src="<?= $noticia -> getImg() ?>" alt="<?= $noticia -> getImgAlt() ?>" width="300" height="200" />
             </a>
@@ -13,4 +13,3 @@
         </article>
     <?php endforeach;?>
 <?php endif;?>
-
