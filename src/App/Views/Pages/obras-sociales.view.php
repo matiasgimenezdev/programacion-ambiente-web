@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 	<?php require __DIR__ . "/../Fragments/head.view.php" ?>
 </head>
@@ -10,7 +9,7 @@
 		<?php require __DIR__ . "/../Fragments/header.view.php" ?>
 	</header>
 	<main>
-		<h2 class="title">Obras sociales</h2>
+		<h2 class="title"><?= $title ?></h2>
 		<section>
 			<?php require __DIR__ . "/../Fragments/obras-sociales-list.view.php" ?>
 		</section>

@@ -14,8 +14,8 @@ class ObrasSocialesController extends AbstractController
     $title = "Obras Sociales";
     $style = "obras-sociales";
     $searchText = "";
-    $obrasSociales = $this->model->getAll();
-    require $this->viewsDirectory . "obras-sociales.view.php";
+    $obrasSociales = $this-> model-> getAll();
+    require $this-> viewsDirectory . "obras-sociales.view.php";
   }
 
   public function search()
