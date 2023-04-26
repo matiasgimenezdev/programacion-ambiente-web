@@ -1,6 +1,11 @@
 @import url('./global/shared.css');
 @import url('./global/shared-details.css');
 
+body {
+	display: flex;
+	flex-direction: column;
+}
+
 .section-controls {
 	width: 95vw;
 	margin: 2rem auto;
