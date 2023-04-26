@@ -35,6 +35,11 @@ class PageController extends AbstractController
         $this->requireView("Registrarse", "registrarse", "registrarse");
     }
 
+    public function terminos()
+    {
+        $this->requireView("Términos y condiciones", "terminos", "terminos");
+    }
+
     private function requireView($title, $view, $style)
     {
         require $this->viewsDirectory . "{$view}.view.php";
