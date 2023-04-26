@@ -1,10 +1,8 @@
 <?php
 namespace PAW\App\Models\Especialidad;
-
 use PAW\App\Models\Especialidad\Especialidad;
 
-class EspecialidadesCollection
-{
+class EspecialidadesCollection {
 
     public function getAll() {
         $especialidades = [
