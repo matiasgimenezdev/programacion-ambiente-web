@@ -25,6 +25,7 @@ $router->get("/profesionales", "ProfesionalesController", "profesionales");
 $router->get("/profesional-search", "ProfesionalesController", "search");
 $router->get("/institucional", "PageController", "institucional");
 $router->get("/noticias", "NoticiasController", "noticias");
+$router->get("/noticia", "NoticiasController", "noticia");
 $router->get("/obras-sociales", "PageController", "obrasSociales");
 $router->get("/contacto", "PageController", "contacto");
 $router->get("/login", "PageController", "iniciarSesion");

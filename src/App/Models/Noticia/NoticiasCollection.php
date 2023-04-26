@@ -66,9 +66,7 @@
             return $noticiasCollection;
         }
 
-        public function getOne($id) {
-
-        }
+        // public function getOne($id) {}
 
         public function getLatest() {
 

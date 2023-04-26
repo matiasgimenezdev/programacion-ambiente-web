@@ -1,6 +1,7 @@
 <?php
     namespace PAW\App\Controllers;
     use PAW\Core\AbstractController;
+    use PAW\Core\Request;
     use PAW\App\Models\Noticia\NoticiasCollection;
 
     class NoticiasController extends AbstractController {
@@ -12,6 +13,14 @@
             $noticias = $this-> model-> getAll();
             require $this -> viewsDirectory . "noticias.view.php"; 
         }
+
+        public function noticia() {
+            // Mostrar pagina de noticia individual
+            $request = Request::getInstance();
+            $id = $request -> getKey("id");
+            $noticia = $this -> model -> getOne($id);
+        }
+        
     }
 
 

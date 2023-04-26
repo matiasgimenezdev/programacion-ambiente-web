@@ -35,6 +35,10 @@
             $this -> fields["imgAlt"] = $alt;
         }
 
+        public function getId() {
+            return $this -> fields["id"];
+        }
+
         public function getTitle() {
             return $this -> fields["title"];
         }
