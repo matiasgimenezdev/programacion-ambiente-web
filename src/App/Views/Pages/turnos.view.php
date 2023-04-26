@@ -26,7 +26,7 @@
 				<form action="" method="GET" class="form">
 					<p>
 						<label for="filter">Filtrar</label>
-						<input type="text" id="filter" name="filter" autocomplete="off" maxlength="60" />
+						<input type="search" id="filter" name="filter" autocomplete="off" maxlength="60" />
 					</p>
 				</form>
 			</section>
