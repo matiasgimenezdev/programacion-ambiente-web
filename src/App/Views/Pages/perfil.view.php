@@ -30,7 +30,7 @@
 
 					<div>
 						<dt>Fecha de nacimiento</dt>
-						<dd><?= $paciente -> getDateOfBirth()?></dd>
+						<dd><?= $paciente -> getBirthdate()?></dd>
 					</div>
 
 					<div>

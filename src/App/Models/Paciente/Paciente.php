@@ -1,6 +1,6 @@
 <?php
 namespace PAW\App\Models\Paciente;
-use PAW\App\Models\Paciente\RegisterStatus;
+use PAW\App\Models\Paciente\SubmitStatus;
 
 class Paciente {
     private $fields = [
@@ -11,7 +11,7 @@ class Paciente {
         "email" => null,
         "password" => null,
         "gender" => null,
-        "dateOfBirth" => null,
+        "birthdate" => null,
         "phone" => null
     ];
 
@@ -20,106 +20,157 @@ class Paciente {
     }
 
     public function setDni($dni) {
+        $status = null;
         $dni = trim($dni);
-        if(strlen($dni) >= 7 && strlen($dni) <= 8 && is_numeric($dni)) {
-            $this -> fields["dni"] = $dni;
-            return null;
-        } else {
-            return RegisterStatus::NOT_VALID_DNI;
+        if(strlen($dni) < 7 || strlen($dni) > 8 || !is_numeric($dni)) {
+            return SubmitStatus::NOT_VALID_DNI;
         }
+        
+        $this -> fields["dni"] = $dni;
+        return $status;
+        
     }
 
     public function setName($name) {
+        $status = null;
         $name = strtolower(trim($name));
-        if(strlen($name) > 0 && strlen($name) <= 50) {
-            $name = array_map('trim', explode(' ', $name));
-            $name = array_map(function($word) {
-                return ucfirst(strtolower($word));
-            }, $name);
-            $name = implode(' ', $name);
-            $this -> fields["name"] = $name;
-            return null;
-        } else {
-            return RegisterStatus::NOT_VALID_NAME;
+        if(strlen($name) === 0 || strlen($name) > 50) {
+            return SubmitStatus::NOT_VALID_NAME;
         }
+
+        $name = array_map('trim', explode(' ', $name));
+        $name = array_map(function($word) {
+            return ucfirst(strtolower($word));
+        }, $name);
+        $name = implode(' ', $name);
+        $this -> fields["name"] = $name;
+        return $status;
     }
 
     public function setLastname($lastname) {
+        $status = null;
         $lastname = strtolower(trim($lastname));
-        if(strlen($lastname) > 0 && strlen($lastname) <= 50) {
-            $lastname = array_map('trim', explode(' ', $lastname));
-            $lastname = array_map(function($word) {
-                return ucfirst(strtolower($word));
-            }, $lastname);
-            $lastname = implode(' ', $lastname);
-            $this -> fields["lastname"] = $lastname;
-            return null;
-        } else {
-            return RegisterStatus::NOT_VALID_NAME;
-        }
+        if(strlen($lastname) === 0 || strlen($lastname) > 50) {
+            return SubmitStatus::NOT_VALID_NAME;
+        } 
+
+        $lastname = array_map('trim', explode(' ', $lastname));
+        $lastname = array_map(function($word) {
+            return ucfirst(strtolower($word));
+        }, $lastname);
+        $lastname = implode(' ', $lastname);
+        $this -> fields["lastname"] = $lastname;
+        return $status;
     }
 
     public function setEmail($email, $emailConfirmation = false) {
-        // El email de confirmacion solo se pasa al momento de registrarse. Por lo tanto, en el resto de usos del metodo setEmail, no se tiene en cuenta este segundo parametro
-        if($emailConfirmation) {
-            $email = strtolower(trim($email));
-            $emailConfirmation = strtolower(trim($emailConfirmation));
-            if(strlen($email) === 0 || strlen($email) > 128) {
-                return RegisterStatus::NOT_VALID_EMAIL;
-                
-            }
-    
-            if($email !== $emailConfirmation) {
-                return RegisterStatus::NOT_VALID_EMAIL;
-            }
-    
-            if(!preg_match('/^[^\s@]+@[^\s@]+\.[^\s@]+$/', $email)){
-                return RegisterStatus::NOT_VALID_EMAIL;
-            }
-    
-            $this -> fields["email"] = $email;
-            return null;
-        } else {
-            $this -> fields["email"] = $email;
+        $status = null;
+        $email = strtolower(trim($email));
+        if(strlen($email) === 0 || strlen($email) > 128) {
+            return SubmitStatus::NOT_VALID_EMAIL;            
         }
+        
+        if(!preg_match('/^[^\s@]+@[^\s@]+\.[^\s@]+$/', $email)){
+            return SubmitStatus::NOT_VALID_EMAIL;
+        }
+        
+        // El email de confirmacion solo se pasa al momento de registrarse. En el resto de usos del metodo setEmail, no se tiene en cuenta este segundo parametro.
+        if($emailConfirmation) {
+            $emailConfirmation = strtolower(trim($emailConfirmation));
+            if($email !== $emailConfirmation) {
+                return SubmitStatus::NOT_VALID_EMAIL;
+            }
+
+            // exists($email) funcion que verifica si el email ya esta siendo utilizado por otro paciente.
+            // No deja crear una cuenta con un mail ya utilizado
+            // if(exists($email)){
+            //     return SubmitStatus::IS_USED_EMAIL;
+            // }
+
+        } else {
+            // exists($email) funcion que verifica si el email ya esta siendo utilizado por otro paciente.
+            // No deja loguear en una cuenta cuyo email no existe.
+            // if(!exists($email)){
+            //     return SubmitStatus::NOT_VALID_EMAIL;
+            // }
+        }
+        
+        $this -> fields["email"] = $email;
+        return $status;
+        
     }
 
-    public function setPassword($password, $passwordConfirmation) {
+    public function setPassword($password, $passwordConfirmation = false) {
+        $status = null;
         if (strlen($password) < 8) {
-            return RegisterStatus::NOT_VALID_PASSWORD;
+            return SubmitStatus::NOT_VALID_PASSWORD;
         }
         
         if (!preg_match("#[0-9]+#", $password)) {
             // Verifica que la contraseña tenga al menos un numero
-            return RegisterStatus::NOT_VALID_PASSWORD;
+            return SubmitStatus::NOT_VALID_PASSWORD;
         } 
         
         if (!preg_match("#[a-zA-Z]+#", $password)) {
             // Verifica que el password tenga al menos una letra
-            return RegisterStatus::NOT_VALID_PASSWORD;
+            return SubmitStatus::NOT_VALID_PASSWORD;
         }
 
-        if($password !== $passwordConfirmation){
-            return RegisterStatus::NOT_VALID_PASSWORD;
+        // El password de confirmacion solo se pasa al momento de registrarse. En el resto de usos del metodo setPassword, no se tiene en cuenta este segundo parametro.
+        if($passwordConfirmation) {
+            if($password !== $passwordConfirmation){
+                return SubmitStatus::NOT_VALID_PASSWORD;
+            }
+
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);      
+            $this -> fields["password"] = $hashed_password;
+        } else {
+            // $hashed_password = obtiene el hash del password asociado al email ingresado
+            // if(!password_verify($password, $hashed_password)){
+            //     return SubmitStatus::NOT_VALID_PASSWORD;
+            // }
+            // $this -> fields["password"] = $hashed_password;
         }
-
-        // Calcula un hash del password. El hash se puede comparar con la contraseña que el usuario 
-        // ingrese en el formulario de inicio de sesion con password_verify($password, $hashed_password))
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);      
-        $this -> fields["password"] = $hashed_password;
-        return null;
-
+        return $status;
     }
+
     public function setGender($gender) {
+        $status = null;
+        if($gender !== "masculino" && $gender !== "femenino") {
+            return SubmitStatus::NOT_VALID_GENDER;
+        }
+
         $this -> fields["gender"] = $gender;
+        return $status;
     }
 
-    public function setDateOfBirth($date) {
-        $this -> fields["dateOfBirth"] = $date;
+    public function setBirthdate($birthdate) {
+        $status = null;
+        if (!(date_create($birthdate))) {
+            return SubmitStatus::NOT_VALID_DATE;
+        }
+        
+        list($year, $month, $day) = explode('-', $birthdate);
+        if (!checkdate($month, $day, $year)) {
+            return SubmitStatus::NOT_VALID_DATE;
+        } 
+
+        $this -> fields["birthdate"] = $birthdate;
+        return $status;
     }
 
     public function setPhone($phone) {
+        $status = null;
+        $phone = preg_replace( '/\D+/', '', $phone);
+        if(!preg_match('/^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/D', $phone)) {
+            echo "<pre>";
+            var_dump($phone);
+            die;
+            return SubmitStatus::NOT_VALID_PHONE;
+        }
+
         $this -> fields["phone"] = $phone;
+        return $status;
     }
 
     public function getDni(){
@@ -146,8 +197,8 @@ class Paciente {
         return $this -> fields["gender"];
     }
 
-    public function getDateOfBirth(){
-        return $this -> fields["dateOfBirth"];
+    public function getBirthdate(){
+        return $this -> fields["birthdate"];
     }
     public function getPhone(){
         return $this -> fields["phone"];
@@ -165,12 +216,19 @@ class Paciente {
     }
 
     public function register(array $registerData){
-        $status = RegisterStatus::REGISTER_OK;
+        $status = SubmitStatus::REGISTER_OK;
         $status = $this -> setName($registerData["name"]) ?? $status;
         $status = $this -> setLastname($registerData["lastname"]) ?? $status;
         $status = $this -> setDni($registerData["dni"]) ?? $status;
         $status = $this -> setEmail($registerData["email"], $registerData["emailConfirmation"]) ?? $status;
         $status = $this -> setPassword($registerData["password"], $registerData["passwordConfirmation"]) ?? $status;
+        return $status;
+    }
+
+    public function login(array $loginData){
+        $status = SubmitStatus::LOGIN_OK;
+        $status = $this -> setEmail($loginData["email"]) ?? $status;
+        $status = $this -> setPassword($loginData["password"]) ?? $status;
         return $status;
     }
 }

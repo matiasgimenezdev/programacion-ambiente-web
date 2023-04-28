@@ -25,9 +25,9 @@ class PageController extends AbstractController
         $this->requireView("Contacto", "contacto", "contacto");
     }
 
-    public function iniciarSesion()
+    public function login()
     {
-        $this->requireView("Iniciar Sesión", "iniciar-sesion", "iniciar-sesion");
+        $this->requireView("Iniciar sesión", "iniciar-sesion", "iniciar-sesion");
     }
 
     public function register()

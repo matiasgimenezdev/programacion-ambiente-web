@@ -1,7 +1,7 @@
 <?php
 namespace PAW\App\Models\Paciente;
 use PAW\App\Models\Paciente\Paciente;
-use PAW\App\Models\Paciente\RegisterStatus;
+use PAW\App\Models\Paciente\SubmitStatus;
 
   class PacienteCollection {
 
@@ -14,8 +14,8 @@ use PAW\App\Models\Paciente\RegisterStatus;
                   "lastname" => "Ramírez",
                   "email" => "joseh87@gmail.com",
                   "gender" => "M",
-                  "dateOfBirth" => "16/02/1987",
-                  "phone" => "02324-457825"
+                  "birthdate" => "1978-08-16",
+                  "phone" => "02324-15457825"
               ],
               [
                   "id" => 2, 
@@ -24,7 +24,7 @@ use PAW\App\Models\Paciente\RegisterStatus;
                   "lastname" => "Paredes",
                   "email" => "armandop@gmail.com",
                   "gender" => "M",
-                  "dateOfBirth" => "16/08/1978",
+                  "birthdate" => "1978-08-16",
                   "phone" => "02323-353591"
               ]
           ];
@@ -42,9 +42,15 @@ use PAW\App\Models\Paciente\RegisterStatus;
 			$status = $pacienteInstance -> register($registerData);
             return $status;
 		} else {
-			return RegisterStatus::NOT_CONFIRMED_TERMS;
+			return SubmitStatus::NOT_CONFIRMED_TERMS;
 		}
 	}
+
+    public function login($loginData){
+        $pacienteInstance = new Paciente;
+        $status = $pacienteInstance -> login($loginData);
+        return $status;
+    }
 
 
   }

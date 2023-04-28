@@ -24,7 +24,7 @@ class RegisterController extends AbstractController {
 
         if($status-> value === "REGISTER_OK") {
             // $id = $this -> model -> getId($email);
-            // Obtendría el ID a partir del email y lo redirige a la pagina de su perfil
+            // Obtendría el ID a partir del email y lo redirige a la pagina de su perfil por si desea seguir cargando mas datos personales.
             header('Location: /perfil?id=' . "1");
 
         } else {
@@ -32,7 +32,6 @@ class RegisterController extends AbstractController {
             $style = "registrarse";
             require $this -> viewsDirectory . "registrarse.view.php";
         }
-        
     }   
 
 }
