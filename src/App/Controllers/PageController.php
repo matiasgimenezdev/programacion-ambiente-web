@@ -30,7 +30,7 @@ class PageController extends AbstractController
         $this->requireView("Iniciar Sesión", "iniciar-sesion", "iniciar-sesion");
     }
 
-    public function registrarse()
+    public function register()
     {
         $this->requireView("Registrarse", "registrarse", "registrarse");
     }
