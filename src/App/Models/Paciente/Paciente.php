@@ -136,7 +136,7 @@ class Paciente {
 
     public function setGender($gender) {
         $status = null;
-        if($gender !== "masculino" && $gender !== "femenino") {
+        if($gender !== "M" && $gender !== "F") {
             return SubmitStatus::NOT_VALID_GENDER;
         }
 

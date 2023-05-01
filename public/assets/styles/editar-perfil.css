@@ -1,0 +1,191 @@
+@import url('./global/shared.css');
+
+main{
+	min-height: 60vh;
+	margin-bottom: 2rem;
+}
+
+form{
+	width: 100%;
+}
+
+fieldset{
+	width: 100%;
+}
+
+main p { 
+	margin: 0 1rem;
+	padding: 1rem 0;
+}
+
+label {
+	display: inline-block;
+	margin-left: .5rem;
+	padding: .5rem 0;
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: var(--grey);
+	width: 7rem;
+
+}
+
+label[for="genero"], label[for="birthdate"]{
+	display: block;
+	margin-bottom: .3rem;
+}
+
+label[for="masculino"],
+label[for="femenino"]{
+	width: auto;
+	margin: 0;
+	font-weight: initial;
+}
+
+input{
+	border: 1px solid var(--green);
+	padding: .5rem;
+	height: 2.5rem;
+	font-size: 1.1rem;
+	border-radius: 5px;
+	outline: none;
+	font-family: var(--font-family);
+}
+input:focus{
+	border: 2px solid var(--grey);
+}
+
+input[type="text"], input[type="email"], input[type="tel"]{
+	width: 60%;
+}
+
+input[disabled]{
+	opacity: .8;
+	border-color: var(--red);
+}
+
+input[type='date']{
+	margin-left: .5rem;
+}
+
+
+input[type='reset']{
+	background-color: var(--red);
+	color: var(--light-grey);
+	width: 30%;
+}
+input[type='submit']{
+	background-color: var(--green);
+	color: var(--light-grey);
+	width: 50%;
+
+}
+
+input[type='radio']{
+	margin: .5rem;
+	background-color: var(--green);
+	color: var(--light-grey);
+	height: auto;
+	margin-right: 0;
+
+}
+
+input[type='submit'], input[type='reset'] {
+	margin-top: 1rem;
+	margin-left: 1.3rem;
+	display: inline;
+	border: none;
+	outline: none;
+	height: 2.5rem;
+	cursor: pointer;
+	font-weight: bold;
+	border-radius: 5px;
+	font-size: 1.05rem;
+	transition: background 0.3s ease;
+	box-shadow: 3px 3px 3px var(--grey);
+
+}
+
+input[type='reset']:hover, input[type='submit']:hover {
+	transform: scale(1.02);
+	box-shadow: 4px 5px 10px var(--grey);
+}
+
+
+h2 {
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+	margin-left: 0.5rem;
+	font-size: 1.5rem;
+	color: var(--green);
+	font-weight: bold;
+}
+
+@media screen and (min-width: 950px){
+	input[type='reset']{
+		width: 15%;
+	}
+
+	input[type='submit']{
+		width: 25%;
+		background-color: var(--yellow);
+		color: var(--green);
+	
+	}
+
+	input[type="text"], input[type="email"], input[type="tel"]{
+		width: 80%;
+	}
+
+	label{
+		font-size: 1rem;
+	}
+
+	input{
+		font-size: 1rem;
+
+	}
+
+	label[for="genero"], label[for="birthdate"]{
+		display: initial;
+	}
+
+	input[type='submit'], input[type='reset'] {
+		display: block;
+		margin: 1rem auto;
+	}
+	
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	h2 {
+		color: var(--yellow);
+	}
+
+	label {
+		color: white;
+	}
+
+	input{
+		background-color: var(--green);
+		color: white;
+		border: 1px solid white
+	}
+
+	input:focus{
+		border: 2px solid white;
+	}
+
+	input[type='submit'], input[type='reset'] {
+		box-shadow: 3px 3px 3px black;	
+	}
+	
+	input[type='reset']:hover, input[type='submit']:hover {
+		transform: scale(1.02);
+		box-shadow: 4px 5px 10px black;
+	}
+	
+	input[disabled]{
+		background-color: var(--green);
+		border-color: var(--grey);
+	}
+}

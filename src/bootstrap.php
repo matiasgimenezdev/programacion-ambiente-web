@@ -35,4 +35,6 @@ $router->get("/register", "PageController", "register");
 $router->post("/register", "RegisterController", "register");
 $router->get("/terminos", "PageController", "terminos");
 $router->get("/perfil", "PacienteController", "perfil");
+$router->get("/perfil/editar", "PacienteController", "editarPerfil");
+$router->post("/perfil/actualizar", "PacienteController", "actualizarPerfil");
 ?>

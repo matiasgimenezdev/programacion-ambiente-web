@@ -16,6 +16,18 @@ class PacienteController extends AbstractController {
     require $this -> viewsDirectory . "perfil.view.php";
   }
 
+  public function editarPerfil(){
+    $request = Request::getInstance();
+    $id = $request -> getKey("id");
+    $title = "Editar datos";
+    $style = "editar-perfil";
+    $paciente = $this -> model -> getOne($id);
+    require $this -> viewsDirectory . "editar-perfil.view.php";
+  }
+
+  public function actualizarPerfil(){
+    //TODO Implementar comunicacion con el modelo + validacion de los datos.
+  }
 }
 
 ?>
