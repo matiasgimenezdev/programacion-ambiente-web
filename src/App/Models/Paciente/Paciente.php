@@ -150,6 +150,7 @@ class Paciente {
             return SubmitStatus::NOT_VALID_DATE;
         }
         
+
         list($year, $month, $day) = explode('-', $birthdate);
         if (!checkdate($month, $day, $year)) {
             return SubmitStatus::NOT_VALID_DATE;
@@ -163,9 +164,6 @@ class Paciente {
         $status = null;
         $phone = preg_replace( '/\D+/', '', $phone);
         if(!preg_match('/^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/D', $phone)) {
-            echo "<pre>";
-            var_dump($phone);
-            die;
             return SubmitStatus::NOT_VALID_PHONE;
         }
 
@@ -222,6 +220,7 @@ class Paciente {
         $status = $this -> setDni($registerData["dni"]) ?? $status;
         $status = $this -> setEmail($registerData["email"], $registerData["emailConfirmation"]) ?? $status;
         $status = $this -> setPassword($registerData["password"], $registerData["passwordConfirmation"]) ?? $status;
+        // Almacena el registro en la BDD
         return $status;
     }
 
@@ -229,6 +228,19 @@ class Paciente {
         $status = SubmitStatus::LOGIN_OK;
         $status = $this -> setEmail($loginData["email"]) ?? $status;
         $status = $this -> setPassword($loginData["password"]) ?? $status;
+        return $status;
+    }
+
+    public function update(array $updatedData) {
+
+        $status = SubmitStatus::UPDATE_OK;
+        $status = $this -> setName($updatedData["name"]) ?? $status;
+        $status = $this -> setLastname($updatedData["lastname"]) ?? $status;
+        $status = $this -> setBirthdate($updatedData["birthdate"]) ?? $status;
+        $status = $this -> setGender($updatedData["gender"]) ?? $status;
+        $status = $this -> setPhone($updatedData["phone"]) ?? $status;
+        // Almacena el registro en la BDD
+
         return $status;
     }
 }

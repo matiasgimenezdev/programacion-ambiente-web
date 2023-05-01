@@ -23,8 +23,8 @@ class RegisterController extends AbstractController {
         $status = $this -> model -> register($registerData);
 
         if($status-> value === "REGISTER_OK") {
-            // $id = $this -> model -> getId($email);
-            // Obtendría el ID a partir del email y lo redirige a la pagina de su perfil por si desea seguir cargando mas datos personales.
+            // $id = $this -> model -> getId($dni);
+            // Obtendría el ID a partir del dni y lo redirige a la pagina de su perfil por si desea seguir cargando mas datos personales.
             header('Location: /perfil/editar?id=' . "1");
 
         } else {

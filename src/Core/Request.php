@@ -25,7 +25,7 @@
         }
         
         public function getKey(string $key) {
-            return $_POST[$key] ?? $_GET[$key] ?? null;
+            return $_POST[$key] ?? $_GET[$key] ?? $_SERVER[$key] ?? null;
 
         }
     }

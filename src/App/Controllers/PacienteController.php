@@ -26,7 +26,23 @@ class PacienteController extends AbstractController {
   }
 
   public function actualizarPerfil(){
-    //TODO Implementar comunicacion con el modelo + validacion de los datos.
+    $request = Request::getInstance();
+    $updatedData = [
+      "dni" => $request -> getKey("dni"),
+      "name" => $request -> getKey("nombre"),
+      "lastname" => $request -> getKey("apellido"),
+      "birthdate" => $request -> getKey("nacimiento"),
+      "gender" => $request -> getKey("genero"),
+      "email" => $request -> getKey("email"),
+      "phone" => $request -> getKey("telefono"),
+    ];
+
+    $status = $this -> model -> update($updatedData);
+    if($status-> value === "UPDATE_OK") {
+      header('Location: /');
+    } else {
+      header("Location: {$request -> getKey('HTTP_REFERER')}");
+    }
   }
 }
 

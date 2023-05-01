@@ -19,19 +19,19 @@
 						</p>
 
 						<p>
-							<label for="name">Nombre</label>
-							<input name="name" required type="text" value="<?= $paciente -> getName()?>"/>
+							<label for="nombre">Nombre</label>
+							<input name="nombre" required type="text" value="<?= $paciente -> getName()?>"/>
 						</p>
 
 						<p>
-							<label for="lastname">Apellido</label>
-							<input name="lastname" required type="text" value="<?= $paciente -> getLastname()?>"/>
+							<label for="apellido">Apellido</label>
+							<input name="apellido" required type="text" value="<?= $paciente -> getLastname()?>"/>
 
 						</p>
 
 						<p>
-							<label for="birthdate">Fecha de nacimiento</label>
-							<input name="birthdate" required type="date" value="<?= $paciente -> getBirthdate()?>"/>
+							<label for="nacimiento">Fecha de nacimiento</label>
+							<input name="nacimiento" required type="date" value="<?= $paciente -> getBirthdate()?>"/>
 						</p>
 
 						<p>
@@ -58,12 +58,12 @@
 					<h2>Informacion de contacto</h2>
 					<p>
 						<label for="email">Correo electrónico</label>
-						<input type="email" disabled value="<?= $paciente -> getEmail()?>"/>
+						<input name="email" type="email" disabled value="<?= $paciente -> getEmail()?>"/>
 					</p>
 
 					<p>
-						<label for="phone">Teléfono</label>
-						<input name="phone" required type="tel" value="<?= $paciente -> getPhone()?>"/>
+						<label for="telefono">Teléfono</label>
+						<input name="telefono" required type="tel" value="<?= $paciente -> getPhone()?>"/>
 
 					</p>
 				</fieldset>

@@ -10,7 +10,9 @@ enum SubmitStatus: string {
     case NOT_CONFIRMED_TERMS = 'NOT_CONFIRMED_TERMS';
     case NOT_VALID_GENDER = 'NOT_VALID_GENDER';
     case NOT_VALID_DATE = 'NOT_VALID_DATE';
+    case NOT_VALID_PHONE = 'NOT_VALID_PHONE';
     case REGISTER_OK = 'REGISTER_OK';
     case LOGIN_OK = 'LOGIN_OK';
+    case UPDATE_OK = 'UPDATE_OK';
 }
 ?>

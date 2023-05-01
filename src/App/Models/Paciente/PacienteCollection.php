@@ -2,37 +2,36 @@
 namespace PAW\App\Models\Paciente;
 use PAW\App\Models\Paciente\Paciente;
 use PAW\App\Models\Paciente\SubmitStatus;
-
-  class PacienteCollection {
-
-      public function getOne($id) {
-          $pacientes = [ 
-              [
-                  "id" => 1, 
-                  "dni" => "12345678",
-                  "name" => "José",
-                  "lastname" => "Ramírez",
-                  "email" => "joseh87@gmail.com",
-                  "gender" => "M",
-                  "birthdate" => "1978-08-16",
-                  "phone" => "02324-15457825"
-              ],
-              [
-                  "id" => 2, 
-                  "dni" => "87654321",
-                  "name" => "Armando",
-                  "lastname" => "Paredes",
-                  "email" => "armandop@gmail.com",
-                  "gender" => "M",
-                  "birthdate" => "1978-08-16",
-                  "phone" => "02323-353591"
-              ]
-          ];
-
+  
+class PacienteCollection {
+    private $pacientes =  [ 
+        [
+            "id" => 1, 
+            "dni" => "12345678",
+            "name" => "José",
+            "lastname" => "Ramírez",
+            "email" => "joseh87@gmail.com",
+            "gender" => "M",
+            "birthdate" => "1978-08-16",
+            "phone" => "02324-15457825"
+        ],
+        [
+            "id" => 2, 
+            "dni" => "87654321",
+            "name" => "Armando",
+            "lastname" => "Paredes",
+            "email" => "armandop@gmail.com",
+            "gender" => "M",
+            "birthdate" => "1978-08-16",
+            "phone" => "02323-353591"
+        ]
+    ];
+    
+    public function getOne($id) {
         $pacienteInstance = new Paciente;
-        $ids = array_column($pacientes, 'id');
+        $ids = array_column($this -> pacientes, 'id');
         $index = array_search($id, $ids);
-        $pacienteInstance->set($pacientes[$index]);
+        $pacienteInstance->set($this -> pacientes[$index]);
         return $pacienteInstance;
     }
 
@@ -51,6 +50,20 @@ use PAW\App\Models\Paciente\SubmitStatus;
         $status = $pacienteInstance -> login($loginData);
         return $status;
     }
+
+    public function update($updatedData){
+        // Obtiene el paciente de la BDD
+        $pacienteInstance = $this -> getByDni($updatedData["dni"]);
+        $status = $pacienteInstance -> update($updatedData);
+        return $status;
+    }
+
+    private function getByDni($dni) {
+        $pacienteInstance = new Paciente;
+        $pacienteInstance->set($this -> pacientes[0]);
+        return $pacienteInstance;
+    }
+
 
 
   }
