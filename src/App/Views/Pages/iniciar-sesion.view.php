@@ -24,8 +24,9 @@
         <input class="input" type="password" name="password" id="password" required tabindex="2" maxlength="30" />
         <span>👁‍🗨</span>
       </p>
-      <input type="submit" value="Iniciar sesión" />
     </fieldset>
+    <?php echo (isset($status)&& $status -> value !== 'LOGIN_OK') ? '<p class="msg">'.$messages[$status->value].'</p>' : '' ?>
+    <input type="submit" value="Iniciar sesión" />
   </form>
   <p class="register">
     ¿No tiene cuenta?

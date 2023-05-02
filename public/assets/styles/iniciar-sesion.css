@@ -26,16 +26,24 @@ form {
 }
 
 span {
-	/*margin-left: 0.5rem;*/
 	cursor: pointer;
 	display: inline;
+}
+
+.msg {
+	width: 100%;
+	padding: 1rem 0;
+	background-color: var(--red);
+	color: white;
+	text-align: center;
+	font-size: 1.1rem;
+	font-weight: bold;
 }
 
 @media screen and (min-width: 700px) {
 	form {
 		width: 85vw;
 	}
-
 }
 
 @media screen and (min-width: 1000px) {

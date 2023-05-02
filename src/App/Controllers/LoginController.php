@@ -15,6 +15,11 @@ class LoginController extends AbstractController {
         ];
 
         $status = $this -> model -> login($loginData);
+        $messages = [
+            'NOT_VALID_EMAIL' => 'Ingrese un e-mail válido',
+            'NOT_VALID_PASSWORD' => 'La contraseña es invalida',
+        ];
+
 
         if($status-> value === "LOGIN_OK") {
             header('Location: /');
