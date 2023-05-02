@@ -48,7 +48,7 @@ legend {
 
 form {
 	width: 95%;
-	padding: 2rem 0.5rem;
+	padding: 2rem 0rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -99,7 +99,7 @@ form fieldset p {
 	height: 2rem;
 	outline: none;
 	border: none;
-	padding: .5rem;
+	padding: 0.5rem;
 	font-size: 1.1rem;
 	outline: 1px solid var(--grey);
 	border-radius: 5px;
@@ -117,7 +117,7 @@ input[type='password'] {
 }
 
 input[type='submit'] {
-	margin-top: 1rem;
+	margin-top: 0.5rem;
 	background-color: var(--green);
 	color: var(--light-grey);
 	border: none;
@@ -163,7 +163,6 @@ input[type='submit']:hover {
 	}
 
 	input[type='submit'] {
-		margin-top: 1rem;
 		background-color: var(--yellow);
 		color: var(--green);
 	}

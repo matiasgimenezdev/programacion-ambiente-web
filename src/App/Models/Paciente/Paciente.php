@@ -78,7 +78,7 @@ class Paciente {
         if($emailConfirmation) {
             $emailConfirmation = strtolower(trim($emailConfirmation));
             if($email !== $emailConfirmation) {
-                return SubmitStatus::NOT_VALID_EMAIL;
+                return SubmitStatus::EMAIL_DONT_MATCH;
             }
 
             // exists($email) funcion que verifica si el email ya esta siendo utilizado por otro paciente.
@@ -119,7 +119,7 @@ class Paciente {
         // El password de confirmacion solo se pasa al momento de registrarse. En el resto de usos del metodo setPassword, no se tiene en cuenta este segundo parametro.
         if($passwordConfirmation) {
             if($password !== $passwordConfirmation){
-                return SubmitStatus::NOT_VALID_PASSWORD;
+                return SubmitStatus::PASSWORD_DONT_MATCH;
             }
 
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);      

@@ -53,14 +53,14 @@
         <input type="checkbox" name="terminos-condiciones" id="terminos-condiciones" value="true" />
         <label for="terminos-condiciones" class="terms-conditions">
           He leído y acepto los
-          <a href="terminos.html" target="_blank">
+          <a href="/terminos" target="_blank">
             términos y condiciones de uso
           </a>
         </label>
-      </p>
-      
-      <input type="submit" id="boton-submit" value="Registrarme" />
+      </p> 
     </fieldset>
+    <?php echo (isset($status)&& $status -> value !== 'REGISTER_OK') ? '<p class="msg">'.$messages[$status->value].'</p>' : '' ?>
+    <input type="submit" id="boton-submit" value="Registrarme" />
   </form>
   <p class="login">
     ¿Ya tiene una Cuenta?
