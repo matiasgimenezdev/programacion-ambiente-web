@@ -8,18 +8,18 @@ class Turno
   private $fields = [
     "id" => null,
     "dni" => null,
-    "name-paciente" => null,
-    "lastname-paciente" => null,
+    "name" => null,
+    "lastname" => null,
     "genero" => null,
-    "fecha-nacimiento" => null,
+    "nacimiento" => null,
     "edad" => null,
     "email" => null,
     "telefono" => null,
     "especialidad" => null,
     "profesional" => null,
-    "obra-social" => null,
-    "fecha-turno" => null,
-    "hora-turno" => null,
+    "obraSocial" => null,
+    "fecha" => null,
+    "hora" => null,
     "pendiente" => true,
   ];
 
@@ -58,7 +58,7 @@ class Turno
       return ucfirst(strtolower($word));
     }, $name);
     $name = implode(' ', $name);
-    $this->fields["name-paciente"] = $name;
+    $this->fields["name"] = $name;
     return $status;
   }
 
@@ -79,7 +79,7 @@ class Turno
       return ucfirst(strtolower($word));
     }, $lastname);
     $lastname = implode(' ', $lastname);
-    $this->fields["lastname-paciente"] = $lastname;
+    $this->fields["lastname"] = $lastname;
     return $status;
   }
 
@@ -101,7 +101,7 @@ class Turno
 
   }
 
-  public function setGender($gender)
+  public function setGenero($gender)
   {
     $status = null;
     if ($gender !== "M" && $gender !== "F") {
@@ -112,7 +112,7 @@ class Turno
     return $status;
   }
 
-  public function setBirthdate($birthdate)
+  public function setNacimiento($birthdate)
   {
     $status = null;
     if (!(date_create($birthdate))) {
@@ -130,7 +130,7 @@ class Turno
       return RequestStatus::NOT_VALID_BIRTHDATE;
     }
 
-    $this->fields["fecha-nacimiento"] = $birthdate;
+    $this->fields["nacimiento"] = $birthdate;
     return $status;
   }
 
@@ -141,7 +141,7 @@ class Turno
     }
   }
 
-  public function setPhone($phone)
+  public function setTelefono($phone)
   {
     $status = null;
     $phone = preg_replace('/\D+/', '', $phone);
@@ -183,7 +183,7 @@ class Turno
   }
 
 
-  public function setFechaTurno($date)
+  public function setFecha($date)
   {
     $status = null;
     if (!(date_create($date))) {
@@ -201,27 +201,27 @@ class Turno
       return RequestStatus::NOT_VALID_SHIFTDATE;
     }
 
-    $this->fields["fecha-turno"] = $date;
+    $this->fields["fecha"] = $date;
     return $status;
   }
 
-  public function setHoraTurno($hora)
+  public function setHora($hora)
   {
     $status = null;
     if (!(DateTime::createFromFormat('H:i', $hora))) {
       return RequestStatus::NOT_VALID_SHIFTTIME;
     }
 
-    $this->fields["hora-turno"] = $hora;
+    $this->fields["hora"] = $hora;
     return $status;
   }
 
-  public function setObraSocial($os)
+  public function setObrasocial($os)
   {
     if (!preg_match('/^[a-zA-Záéíóú\s]+$/', $os)) {
       return RequestStatus::NOT_VALID_SOCIALWORK;
     }
-    $this->fields["obra-social"] = $os;
+    $this->fields["obraSocial"] = $os;
   }
 
   public function getId()
@@ -234,14 +234,14 @@ class Turno
     return $this->fields["dni"];
   }
 
-  public function getNamePaciente()
+  public function getName()
   {
-    return $this->fields["name-paciente"];
+    return $this->fields["name"];
   }
 
-  public function getLastNamePaciente()
+  public function getLastname()
   {
-    return $this->fields["lastname-paciente"];
+    return $this->fields["lastname"];
   }
 
   public function getProfesional()
@@ -250,14 +250,14 @@ class Turno
   }
 
 
-  public function getGender()
+  public function getGenero()
   {
     return $this->fields["genero"];
   }
 
-  public function getBirthdate()
+  public function getNacimiento()
   {
-    return $this->fields["fecha-nacimiento"];
+    return $this->fields["nacimiento"];
   }
 
   public function getEdad()
@@ -280,19 +280,19 @@ class Turno
     return $this->fields["email"];
   }
 
-  public function getFechaTurno()
+  public function getFecha()
   {
-    return $this->fields["fecha-turno"];
+    return $this->fields["fecha"];
   }
 
-  public function getObraSocial()
+  public function getObrasocial()
   {
-    return $this->fields["obra-social"];
+    return $this->fields["obra"];
   }
 
-  public function getHoraTurno()
+  public function getHora()
   {
-    return $this->fields["hora-turno"];
+    return $this->fields["hora"];
   }
 
   public function set(array $values)

@@ -25,6 +25,17 @@ class TurnosCollection
     ]
   ];
 
+  public function getAll()
+  {
+    $turnosCollection = [];
+    foreach ($this->turnos as $turno) {
+      $turnoInstance = new Turno;
+      $turnoInstance->set($turno);
+      $turnosCollection[] = $turnoInstance;
+    }
+    return $turnosCollection;
+  }
+
   public function getOne($id)
   {
     $turnoInstance = new Turno;
