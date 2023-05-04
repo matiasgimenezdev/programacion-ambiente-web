@@ -10,6 +10,9 @@
 
     <main>
         <h2 class="title"><?= $title ?></h2>
+        <p>
+            <a href="/"> &larr; Volver al inicio</a>
+        </p>
     </main>
 </body>
 </html>
