@@ -47,7 +47,7 @@ class SolicitarTurnoController extends AbstractController
     if ($status->value === "REGISTER_OK") {
       // $id = $this -> model -> getId($dni);
       // Obtendría el ID que le fue asignado y lo redirige a la pagina de su perfil por si desea seguir cargando mas datos personales.
-      header('Location: /turnos?id=' . "1");
+      header('Location: /turnos');
 
     } else {
       $title = "Solicitar Turno";

@@ -80,6 +80,7 @@
 					<input type="time" name="hora-turno" id="hora-turno" required tabindex="12" />
 				</p>
 			</fieldset>
+			<?php echo (isset($status) && $status->value !== 'REGISTER_OK') ? '<p class="msg">' . $messages[$status->value] . '</p>' : '' ?>
 			<section class="button-container">
 				<input class="submit" type="submit" value="Solicitar turno" />
 				<input class="reset" type="reset" value="Limpiar" />

@@ -138,6 +138,19 @@ input[type='date'] {
 	border: 2px solid var(--red);
 }
 
+.msg {
+	width: 70%;
+	margin: auto;
+	grid-column: 2;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	border: 1px solid var(--red);
+	border-radius: 10px;
+	color: var(--grey);
+	text-align: center;
+	font-size: 1.0rem;
+}
+
 @media screen and (min-width: 600px) {
 	form {
 		width: 75vw;
@@ -211,9 +224,8 @@ input[type='date'] {
 	}
 
 	.button-container {
-		grid-column: 3/4;
+		grid-column: 2;
 		width: 100%;
-		width: 25vw;
 		right: 4%;
 		gap: 0.5rem;
 	}
@@ -270,5 +282,9 @@ input[type='date'] {
 		color: var(--light-grey);
 		border: none;
 		transform: scale(1.03);
+	}
+
+	.msg {
+		color: var(--light-grey);
 	}
 }
