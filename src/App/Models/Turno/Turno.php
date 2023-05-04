@@ -190,7 +190,7 @@ class Turno
       return RequestStatus::NOT_VALID_SHIFTDATE;
     }
 
-    list($year, $month, $day) = explode('/', $date);
+    list($year, $month, $day) = explode('-', $date);
     if (!checkdate($month, $day, $year)) {
       return RequestStatus::NOT_VALID_SHIFTDATE;
     }

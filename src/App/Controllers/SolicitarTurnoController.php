@@ -17,15 +17,15 @@ class SolicitarTurnoController extends AbstractController
       "name" => $request->getKey("nombre"),
       "lastname" => $request->getKey("apellido"),
       "genero" => $request->getKey("sexo"),
-      "fecha-nacimiento" => $request->getKey("nacimiento"),
+      "nacimiento" => $request->getKey("nacimiento"),
       "edad" => $request->getKey("edad"),
       "email" => $request->getKey("email"),
       "telefono" => $request->getKey("telefono"),
       "especialidad" => $request->getKey("especialidad"),
       "profesional" => $request->getKey("medico"),
-      "obra-social" => $request->getKey("obra-social"),
-      "fecha-turno" => $request->getKey("fecha-turno"),
-      "hora-turno" => $request->getKey("hora-turno"),
+      "obraSocial" => $request->getKey("obra-social"),
+      "fecha" => $request->getKey("fecha-turno"),
+      "hora" => $request->getKey("hora-turno"),
     ];
 
     $status = $this->model->solicitarTurno($registerData);
