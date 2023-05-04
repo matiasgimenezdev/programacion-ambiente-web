@@ -4,3 +4,22 @@ h2 {
 	padding: 2rem 1rem;
 	font-size: 3rem;
 }
+
+p {
+	width: 50%;
+}
+
+p a {
+	color: var(--yellow);
+	padding: 1rem;
+	margin-left: 2rem;
+	font-size: 1.3rem;
+	text-decoration: none;
+	display: inline-block;
+	width: 100%;
+	transition: transform 0.2s ease-in-out;
+}
+
+p a:hover {
+	transform: translateX(-20px);
+}
