@@ -120,6 +120,24 @@ h2 {
 	font-weight: bold;
 }
 
+.msg {
+	width: 100%;
+	margin: 0;
+	color: white;
+	text-align: center;
+	font-size: 1.1rem;
+	font-weight: bold;
+	padding: 1.3rem 0 ;
+}
+
+.error {
+	background-color: var(--red);
+}
+
+.success {
+	background-color: var(--blue);
+}
+
 @media screen and (min-width: 950px){
 	input[type='reset']{
 		width: 15%;
@@ -127,9 +145,6 @@ h2 {
 
 	input[type='submit']{
 		width: 25%;
-		background-color: var(--yellow);
-		color: var(--green);
-	
 	}
 
 	input[type="text"], input[type="email"], input[type="tel"]{
@@ -187,5 +202,11 @@ h2 {
 	input[disabled]{
 		background-color: var(--green);
 		border-color: var(--grey);
+	}
+
+	input[type='submit']{
+		background-color: var(--yellow);
+		color: var(--green);
+	
 	}
 }

@@ -17,7 +17,7 @@ class LoginController extends AbstractController {
         $status = $this -> model -> login($loginData);
         $messages = [
             'NOT_VALID_EMAIL' => 'Ingrese un e-mail válido',
-            'NOT_VALID_PASSWORD' => 'La contraseña es invalida',
+            'NOT_VALID_PASSWORD' => 'La contraseña es incorrecta',
         ];
 
 
@@ -29,7 +29,6 @@ class LoginController extends AbstractController {
             $style = "iniciar-sesion";
             require $this -> viewsDirectory . "iniciar-sesion.view.php";
         }
-        
     }   
 
 }

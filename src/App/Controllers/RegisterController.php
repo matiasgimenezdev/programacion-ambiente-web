@@ -27,14 +27,14 @@ class RegisterController extends AbstractController {
             'NOT_VALID_EMAIL' => 'Ingrese un e-mail válido',
             'EMAIL_DONT_MATCH' => 'Los e-mails no coinciden',
             'IS_USED_EMAIL' => 'El email ya se encuentra en uso',
-            'NOT_VALID_PASSWORD' => 'La contraseña es invalida',
+            'NOT_VALID_PASSWORD' => 'La contraseña debe contener letras y números',
             'PASSWORD_DONT_MATCH' => 'Las contraseñas no coinciden',
             'NOT_CONFIRMED_TERMS' => '¿Esta de acuerdo con los términos y condicones?',
         ];
 
         if($status-> value === "REGISTER_OK") {
             // $id = $this -> model -> getId($dni);
-            // Obtendría el ID a partir del dni y lo redirige a la pagina de su perfil por si desea seguir cargando mas datos personales.
+            // Obtendría el ID que le fue asignado y lo redirige a la pagina de su perfil por si desea seguir cargando mas datos personales.
             header('Location: /perfil/editar?id=' . "1");
 
         } else {

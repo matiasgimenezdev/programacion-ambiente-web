@@ -10,28 +10,29 @@
 		    <?php require __DIR__ . "/../Fragments/header.view.php" ?>
 		</header>
 		<main>
+				<?php echo (isset($status)) ? '<p class="msg'.(($status -> value !== "UPDATE_OK") ? ' error' : ' success').'">'.$messages[$status->value].'</p>' : '' ?>
 				<form method="POST" action="/perfil/actualizar">
 					<fieldset>
 						<h2>Informacion básica</h2>
+						<input name="id" type="hidden" value="<?= $paciente -> getId()?>">
 						<p>
 							<label for="dni">DNI</label>
 							<input name="dni" required type="text" disabled value="<?= $paciente -> getDni()?>"/>
 						</p>
-
 						<p>
 							<label for="nombre">Nombre</label>
-							<input name="nombre" required type="text" value="<?= $paciente -> getName()?>"/>
+							<input name="nombre" required type="text" value="<?= isset($updatedData) ? $updatedData["name"]: $paciente -> getName()?>" autocomplete=off/>
 						</p>
 
 						<p>
 							<label for="apellido">Apellido</label>
-							<input name="apellido" required type="text" value="<?= $paciente -> getLastname()?>"/>
+							<input name="apellido" required type="text" value="<?= isset($updatedData) ? $updatedData["lastname"] : $paciente -> getLastname()?>" autocomplete=off/>
 
 						</p>
 
 						<p>
 							<label for="nacimiento">Fecha de nacimiento</label>
-							<input name="nacimiento" required type="date" value="<?= $paciente -> getBirthdate()?>"/>
+							<input name="nacimiento" required type="date" value="<?= isset($updatedData) ? $updatedData["birthdate"] : $paciente -> getBirthdate()?>"/>
 						</p>
 
 						<p>
@@ -63,7 +64,7 @@
 
 					<p>
 						<label for="telefono">Teléfono</label>
-						<input name="telefono" required type="tel" value="<?= $paciente -> getPhone()?>"/>
+						<input name="telefono" required type="tel" value="<?= isset($updatedData) ? $updatedData["phone"] : $paciente -> getPhone()?>" autocomplete=off/>
 
 					</p>
 				</fieldset>

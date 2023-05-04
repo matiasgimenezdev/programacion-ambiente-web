@@ -1,6 +1,7 @@
 <?php
 namespace PAW\App\Models\Paciente;
 use PAW\App\Models\Paciente\SubmitStatus;
+use DateTime;
 
 class Paciente {
     private $fields = [
@@ -38,6 +39,10 @@ class Paciente {
             return SubmitStatus::NOT_VALID_NAME;
         }
 
+        if(!preg_match('/^[a-zA-Z]+$/', $name)){
+            return SubmitStatus::NOT_VALID_NAME;
+        }
+
         $name = array_map('trim', explode(' ', $name));
         $name = array_map(function($word) {
             return ucfirst(strtolower($word));
@@ -52,7 +57,11 @@ class Paciente {
         $lastname = strtolower(trim($lastname));
         if(strlen($lastname) === 0 || strlen($lastname) > 50) {
             return SubmitStatus::NOT_VALID_NAME;
-        } 
+        }
+
+        if(!preg_match('/^[a-zA-Z]+$/', $lastname)){
+            return SubmitStatus::NOT_VALID_NAME;
+        }
 
         $lastname = array_map('trim', explode(' ', $lastname));
         $lastname = array_map(function($word) {
@@ -154,7 +163,12 @@ class Paciente {
         list($year, $month, $day) = explode('-', $birthdate);
         if (!checkdate($month, $day, $year)) {
             return SubmitStatus::NOT_VALID_DATE;
-        } 
+        }
+
+        $currentDate = new DateTime();
+        if ($birthdate > $currentDate -> format('yy-m-d')) {
+            return SubmitStatus::NOT_VALID_DATE;
+        }
 
         $this -> fields["birthdate"] = $birthdate;
         return $status;
@@ -169,6 +183,10 @@ class Paciente {
 
         $this -> fields["phone"] = $phone;
         return $status;
+    }
+
+    public function getId(){
+        return $this -> fields["id"];
     }
 
     public function getDni(){

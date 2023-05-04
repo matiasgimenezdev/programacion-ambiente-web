@@ -17,7 +17,7 @@
       <p>
         <label class="label" for="email">Correo electronico</label>
         <input class="input" autocomplete="off" type="email" name="email" id="email" required tabindex="1"
-          maxlength="50" />
+          maxlength="50" value="<?= $loginData["email"] ?? ""?>"/>
       </p>
       <p>
         <label class="label" for="password">Contraseña</label>
@@ -25,7 +25,7 @@
         <span>👁‍🗨</span>
       </p>
     </fieldset>
-    <?php echo (isset($status)&& $status -> value !== 'LOGIN_OK') ? '<p class="msg">'.$messages[$status->value].'</p>' : '' ?>
+    <?php echo (isset($status) && $status -> value !== 'LOGIN_OK') ? '<p class="msg">'.$messages[$status->value].'</p>' : '' ?>
     <input type="submit" value="Iniciar sesión" />
   </form>
   <p class="register">
