@@ -11,12 +11,10 @@ class TurnosController extends AbstractController
 
   public function turnos()
   {
-    $request = Request::getInstance();
-    $id = $request->getKey("id");
     $title = "Turnos";
     $style = "turnos";
     $searchText = "";
-    $turnos = $this->model->getOne($id);
+    $turnos = $this->model->getAll();
     require $this->viewsDirectory . "turnos.view.php";
   }
 
