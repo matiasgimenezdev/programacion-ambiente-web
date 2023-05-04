@@ -85,11 +85,16 @@ details img {
 	}
 
 	details figure {
-		border: 1px solid var(--light-grey);
+		border-radius: 0;
+		border-top: 2px solid var(--light-grey);
 		border-left: none;
 		border-right: none;
 	}
+
+	details figure img {
+		border-radius: 5px;
+	}
 	details figcaption {
-		color: var(--light-grey);
+		color: var(--yellow);
 	}
 }
