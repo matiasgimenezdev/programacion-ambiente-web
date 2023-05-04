@@ -139,6 +139,12 @@ h2 {
 }
 
 @media screen and (min-width: 950px){
+	
+	form {
+		width: 80%;
+		margin: auto;
+	}
+
 	input[type='reset']{
 		width: 15%;
 	}
@@ -170,6 +176,16 @@ h2 {
 	}
 	
 }
+
+@media screen and (min-width: 1200px){
+	
+	form {
+		width: 70%;
+		margin: auto;
+	}
+}
+
+
 
 @media screen and (prefers-color-scheme: dark) {
 	h2 {
