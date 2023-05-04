@@ -1,0 +1,54 @@
+<?php
+namespace PAW\App\Controllers;
+
+use PAW\App\Models\Turno\TurnosCollection;
+use PAW\Core\AbstractController;
+use PAW\Core\Request;
+
+class SolicitarTurnoController extends AbstractController
+{
+  public ?string $modelName = TurnosCollection::class;
+
+  public function solicitarTurno()
+  {
+    $request = Request::getInstance();
+    $registerData = [
+      "dni" => $request->getKey("dni"),
+      "name" => $request->getKey("nombre"),
+      "lastname" => $request->getKey("apellido"),
+      "genero" => $request->getKey("sexo"),
+      "fecha-nacimiento" => $request->getKey("nacimiento"),
+      "edad" => $request->getKey("edad"),
+      "email" => $request->getKey("email"),
+      "telefono" => $request->getKey("telefono"),
+      "especialidad" => $request->getKey("especialidad"),
+      "profesional" => $request->getKey("medico"),
+      "obra-social" => $request->getKey("obra-social"),
+      "fecha-turno" => $request->getKey("fecha-turno"),
+      "hora-turno" => $request->getKey("hora-turno"),
+    ];
+
+    $status = $this->model->solicitarTurno($registerData);
+    $messages = [
+      'NOT_VALID_DNI' => 'Ingrese un DNI válido',
+      'NOT_VALID_NAME' => 'Ingrese un nombre y apellido válidos',
+      'NOT_VALID_EMAIL' => 'Ingrese un e-mail válido',
+
+    ];
+
+    if ($status->value === "REGISTER_OK") {
+      // $id = $this -> model -> getId($dni);
+      // Obtendría el ID que le fue asignado y lo redirige a la pagina de su perfil por si desea seguir cargando mas datos personales.
+      /*header('Location: /perfil/editar?id=' . "1");*/
+
+    } else {
+      $title = "Solicitar Turno";
+      $style = "solicitar-turno";
+      require $this->viewsDirectory . "solicitar-turno.view.php";
+    }
+  }
+
+}
+
+
+?>

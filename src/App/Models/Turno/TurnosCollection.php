@@ -6,34 +6,41 @@ use PAW\App\Models\Turno\Turno;
 class TurnosCollection
 {
 
-  public function getAll()
+  private $turnos = [
+    [
+      "id" => 1,
+      "paciente" => "",
+      "profesional" => "Marcos Gutierrez",
+      "especialidad" => "Odontología",
+      "fecha" => "22/03/2023",
+      "hora" => "19:00",
+    ],
+    [
+      "id" => 2,
+      "paciente" => "",
+      "profesional" => "Alfredo Montes",
+      "especialidad" => "Oculista",
+      "fecha" => "25/03/2023",
+      "hora" => "15:00",
+    ]
+  ];
+
+  public function getOne($id)
   {
-    $turnos = [
-      [
-        "id" => 1,
-        "paciente" => "",
-        "profesional" => "Marcos Gutierrez",
-        "especialidad" => "Odontología",
-        "fecha" => "22/03/2023",
-        "hora" => "19:00",
-      ],
-      [
-        "id" => 2,
-        "paciente" => "",
-        "profesional" => "Alfredo Montes",
-        "especialidad" => "Oculista",
-        "fecha" => "25/03/2023",
-        "hora" => "15:00",
-      ]
-    ];
-    $turnosCollection = [];
-    foreach ($turnos as $turno) {
-      $turnoInstance = new Turno;
-      $turnoInstance->set($turno);
-      $turnosCollection[] = $turnoInstance;
-    }
-    return $turnosCollection;
+    $turnoInstance = new Turno;
+    $ids = array_column($this->turnos, 'id');
+    $index = array_search($id, $ids);
+    $turnoInstance->set($this->turnos[$index]);
+    return $turnoInstance;
   }
+
+  public function solicitarTurno($requestData)
+  {
+    $turnoInstance = new Turno;
+    $status = $turnoInstance->nuevoTurno($requestData);
+    return $status;
+  }
+
 }
 
 ?>

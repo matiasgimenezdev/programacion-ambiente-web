@@ -31,7 +31,7 @@
 					<input type="text" name="apellido" id="apellido" required tabindex="3" maxlength="30" />
 				</p>
 				<p class="genero">
-					<label for="sexo" class="sexo-label">Género</label>
+					<label for="sexo">Género</label>
 					<input type="radio" name="sexo" id="femenino" value="F" checked />
 					<label for="femenino">Femenino</label>
 					<input type="radio" name="sexo" id="masculino" value="M" />
@@ -60,16 +60,16 @@
 			<fieldset class="turn-data">
 				<legend>Datos del turno</legend>
 				<p>
-					<label for="especialidades">Especialidad</label>
-					<input type="text" name="especialidades" id="especialidades" required tabindex="8" maxlength="30" />
+					<label for="especialidad">Especialidad</label>
+					<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" />
 				</p>
 				<p>
 					<label for="medico">Médico</label>
 					<input type="text" name="medico" id="medico" required tabindex="9" maxlength="30" />
 				</p>
 				<p>
-					<label for="obras-sociales">Obra social</label>
-					<input type="text" name="obras-sociales" id="obras-sociales" required tabindex="10" maxlength="30" />
+					<label for="obra-social">Obra social</label>
+					<input type="text" name="obra-social" id="obras-sociales" required tabindex="10" maxlength="30" />
 				</p>
 				<p class="fecha">
 					<label for="fecha-turno">Fecha del turno</label>

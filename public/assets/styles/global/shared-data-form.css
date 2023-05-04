@@ -153,8 +153,7 @@ input[type='submit']:hover {
 		box-shadow: 3px 4px 6px black;
 	}
 
-	form h2,
-	.label {
+	form h2 label {
 		color: var(--light-grey);
 	}
 
