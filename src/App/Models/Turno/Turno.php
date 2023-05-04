@@ -312,15 +312,15 @@ class Turno
     $status = $this->setLastname($turnoData["lastname"]) ?? $status;
     $status = $this->setDni($turnoData["dni"]) ?? $status;
     $status = $this->setEmail($turnoData["email"]) ?? $status;
-    $status = $this->setGender($turnoData["genero"]) ?? $status;
-    $status = $this->setBirthdate($turnoData["fecha-nacimiento"]) ?? $status;
+    $status = $this->setGenero($turnoData["genero"]) ?? $status;
+    $status = $this->setNacimiento($turnoData["nacimiento"]) ?? $status;
     $status = $this->setEdad($turnoData["edad"]) ?? $status;
-    $status = $this->setPhone($turnoData["telefono"]) ?? $status;
+    $status = $this->setTelefono($turnoData["telefono"]) ?? $status;
     $status = $this->setEspecialidad($turnoData["especialidad"]) ?? $status;
     $status = $this->setProfesional($turnoData["profesional"]) ?? $status;
-    $status = $this->setObraSocial($turnoData["obra-social"]) ?? $status;
-    $status = $this->setFechaTurno($turnoData["fecha-turno"]) ?? $status;
-    $status = $this->setHoraTurno($turnoData["hora-turno"]) ?? $status;
+    $status = $this->setObrasocial($turnoData["obraSocial"]) ?? $status;
+    $status = $this->setFecha($turnoData["fecha"]) ?? $status;
+    $status = $this->setHora($turnoData["hora"]) ?? $status;
 
     // Almacena el turno en la BDD
     return $status;
