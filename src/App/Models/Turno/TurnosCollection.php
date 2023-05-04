@@ -12,7 +12,7 @@ class TurnosCollection
       "paciente" => "",
       "profesional" => "Marcos Gutierrez",
       "especialidad" => "Odontología",
-      "fecha" => "22/03/2023",
+      "fecha" => "2024/03/22",
       "hora" => "19:00",
     ],
     [
@@ -20,7 +20,7 @@ class TurnosCollection
       "paciente" => "",
       "profesional" => "Alfredo Montes",
       "especialidad" => "Oculista",
-      "fecha" => "25/03/2023",
+      "fecha" => "2024/03/22",
       "hora" => "15:00",
     ]
   ];
