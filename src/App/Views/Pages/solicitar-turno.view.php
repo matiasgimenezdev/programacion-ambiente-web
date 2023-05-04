@@ -79,6 +79,12 @@
 					<label for="hora-turno">Horario del turno</label>
 					<input type="time" name="hora-turno" id="hora-turno" required tabindex="12" />
 				</p>
+				<p>
+					<input type="file">
+					<!-- TODO: Agregue al formulario un campo de tipo “archivo” que ofrezca la posibilidad de adjuntar una imagen 
+					que sea de un estudio clínico en particular. Solo importa que se pueda enviar el archivo y ser recibido de forma adecuada en 
+					el Backend, además de validar el formato en ambos lados. -->
+				</p>
 			</fieldset>
 			<?php echo (isset($status) && $status->value !== 'REGISTER_OK') ? '<p class="msg">' . $messages[$status->value] . '</p>' : '' ?>
 			<section class="button-container">
