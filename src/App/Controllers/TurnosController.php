@@ -23,6 +23,10 @@ class TurnosController extends AbstractController
     $title = "Solicitar Turno";
     $style = "solicitar-turno";
     $shiftData = [];
+    $p = new ProfesionalesController;
+    $profesionales = $p->model->getAll();
+    $e = new EspecialidadesController;
+    $especialidades = $e->model->getAll();
     require $this->viewsDirectory . "solicitar-turno.view.php";
   }
 

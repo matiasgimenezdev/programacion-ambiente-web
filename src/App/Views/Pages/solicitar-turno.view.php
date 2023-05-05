@@ -72,17 +72,26 @@
 					<label for="especialidad">Especialidad</label>
 					<!--<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" autocomplete="off" value="<?= $shiftData["especialidad"] ?? "" ?>"/>-->
 					<select id="opcion" name="especialidades">
-						<option value="1">Odontología</option>
-						<option value="2">Traumatología</option>
-						<option value="3">Cardiología</option>
+					<?php if (sizeof($especialidades) > 0): ?>
+							<?php $i = 1?>
+							<?php foreach ($especialidades as $especialidad): ?>
+								<option value="<?php $i?>"><?= $especialidad->getName() ?></option>
+								<?php $i++ ?>
+							<?php endforeach; ?>
+						<?php endif; ?>
 					</select>
 				</p>
 				<p>
 					<label for="medico">Médico</label>
 					<!--<input type="text" name="medico" id="medico" required tabindex="9" maxlength="30" autocomplete="off" value="<?= $shiftData["profesional"] ?? "" ?>"/>-->
-					<select id="opcion" name="profecionales">
-						<option value="1">Matías Montecarlo</option>
-						<option value="2">Javier Gutierrez</option>
+					<select id="opcion" name="profesionales">
+						<?php if (sizeof($profesionales) > 0): ?>
+							<?php $i = 1?>
+							<?php foreach ($profesionales as $profesional): ?>
+								<option value="<?php $i?>"><?= $profesional->getName() ?></option>
+								<?php $i++ ?>
+							<?php endforeach; ?>
+						<?php endif; ?>
 					</select>
 				</p>
 				<p>
