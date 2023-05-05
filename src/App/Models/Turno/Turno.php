@@ -1,5 +1,6 @@
 <?php
 namespace PAW\App\Models\Turno;
+
 use PAW\Core\Traits\Messenger;
 use PAW\Core\SubmitStatus;
 use finfo;
@@ -229,7 +230,9 @@ class Turno
     $this->fields["obraSocial"] = $os;
   }
 
-  public function setEstudio($estudio){
+  public function setEstudio($estudio)
+  {
+    if (empty($estudio)) {
       $maxSize = 20 * 1024 * 1024;
       if ($estudio["size"] > $maxSize) {
         return SubmitStatus::EXCEEDED_FILE_SIZE;
@@ -237,20 +240,21 @@ class Turno
 
       if ($estudio['type'] !== "application/pdf" && $estudio['type'] !== "image/png" && $estudio['type'] !== "image/jpeg" && $estudio['type'] !== "image/jpg") {
         return SubmitStatus::NOT_ALLOWED_FILE_TYPE;
-      } 
+      }
 
       $tempName = $estudio['tmp_name'];
       $finfo = new finfo(FILEINFO_MIME_TYPE);
-      $type = $finfo -> file($tempName);
-      
-      if($type !== "application/pdf" && $type !== "image/jpeg" && $type !== "image/jpg" && $type !== "image/png") {
+      $type = $finfo->file($tempName);
+
+      if ($type !== "application/pdf" && $type !== "image/jpeg" && $type !== "image/jpg" && $type !== "image/png") {
         return SubmitStatus::NOT_ALLOWED_FILE_TYPE;
       }
-      
+
       $fileName = $estudio['name'];
       $path = __DIR__ . '/../../Uploads/' . $fileName;
       move_uploaded_file($tempName, $path);
       $this->fields["estudio"] = $path;
+    }
   }
 
   public function getId()
@@ -326,7 +330,7 @@ class Turno
 
   public function getEstudio()
   {
-    return $this -> fields["estudio"];
+    return $this->fields["estudio"];
   }
 
   public function set(array $values)
@@ -359,17 +363,17 @@ class Turno
     $status = $this->setEstudio($shiftData["estudio"]) ?? $status;
 
     // Almacena el turno en la BDD
-    return ["status" => $status, "message" => $this -> getMessage($status)];
+    return ["status" => $status, "message" => $this->getMessage($status)];
   }
 
-  // /**
-  //  * @param mixed $fields 
-  //  * @return self
-  //  */
-  // public function setFields($fields): self
-  // {
-  //   $this->fields = $fields;
-  //   return $this;
-  // }
+// /**
+//  * @param mixed $fields 
+//  * @return self
+//  */
+// public function setFields($fields): self
+// {
+//   $this->fields = $fields;
+//   return $this;
+// }
 }
 ?>
