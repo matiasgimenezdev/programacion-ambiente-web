@@ -23,6 +23,7 @@ class Turno
     "obraSocial" => null,
     "fecha" => null,
     "hora" => null,
+    "estudio" => null,
     "pendiente" => true,
   ];
 
@@ -226,6 +227,24 @@ class Turno
     $this->fields["obraSocial"] = $os;
   }
 
+  public function setEstudio($estudio){
+      // Tamaño máximo 20MB
+      $maxSize = 20 * 1024 * 1024;
+      if ($estudio["size"] > $maxSize) {
+        return SubmitStatus::EXCEEDED_FILE_SIZE;
+      }
+
+      if ($estudio['type'] !== "application/pdf" && $estudio['type'] !== "image/png" && $estudio['type'] !== "image/jpeg" && $estudio['type'] !== "image/jpg") {
+        return SubmitStatus::NOT_ALLOWED_FILE_TYPE;
+      } 
+
+    $fileName = $estudio['name'];
+    $tempName = $estudio['tmp_name'];
+    $path = __DIR__ . '/../../Uploads/' . $fileName;
+    move_uploaded_file($tempName, $path);
+    $this->fields["estudio"] = $path;
+  }
+
   public function getId()
   {
     return $this->fields["id"];
@@ -297,6 +316,11 @@ class Turno
     return $this->fields["hora"];
   }
 
+  public function getEstudio()
+  {
+    return $this -> fields["estudio"];
+  }
+
   public function set(array $values)
   {
     foreach (array_keys($this->fields) as $field) {
@@ -324,6 +348,7 @@ class Turno
     $status = $this->setObrasocial($shiftData["obraSocial"]) ?? $status;
     $status = $this->setFecha($shiftData["fecha"]) ?? $status;
     $status = $this->setHora($shiftData["hora"]) ?? $status;
+    $status = $this->setEstudio($shiftData["estudio"]) ?? $status;
 
     // Almacena el turno en la BDD
     return ["status" => $status, "message" => $this -> getMessage($status)];

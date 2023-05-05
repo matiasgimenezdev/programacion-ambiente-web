@@ -25,7 +25,7 @@
         }
         
         public function getKey(string $key) {
-            return $_POST[$key] ?? $_GET[$key] ?? $_SERVER[$key] ?? null;
+            return $_POST[$key] ?? $_GET[$key] ?? $_SERVER[$key] ?? $_FILES[$key] ?? null;
 
         }
 
@@ -77,6 +77,7 @@
                 "obraSocial" => $this->getKey("obra-social"),
                 "fecha" => $this->getKey("fecha-turno"),
                 "hora" => $this->getKey("hora-turno"),
+                "estudio" => $this -> getKey("estudio")
               ];
         }
 

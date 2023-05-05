@@ -13,7 +13,7 @@
 	<main>
 		<h2 class="title"><?= $title ?></h2>
 		<?php echo (isset($register["status"]) && $register["status"]->value !== 'REGISTER_OK') ? '<p class="msg">' . $register["message"]. '</p>' : '' ?>
-		<form action="" method="POST" class="form">
+		<form action="" method="POST" class="form" enctype="multipart/form-data">
 			<fieldset class="patient-data">
 				<legend>Datos personales</legend>
 				<p>

@@ -22,6 +22,8 @@
             'NOT_VALID_SHIFTDATE' => 'Ingrese una fecha de turno válida',
             'NOT_VALID_SHIFTTIME' => 'Ingrese una hora válida para el turno',
             'NOT_VALID_SOCIALWORK' => 'Ingrese una obra social váida',
+            'EXCEEDED_FILE_SIZE' => 'El tamaño maximo de archivo es de 20MB',
+            'NOT_ALLOWED_FILE_TYPE' => 'Tipo de archivo incorrecto (Solo validos archivos JPG, PDF, JPEG O PNG)',
         ];
 
 

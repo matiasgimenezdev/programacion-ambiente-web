@@ -28,6 +28,7 @@ class TurnosController extends AbstractController
 
   public function registrarTurno() {
     $request = Request::getInstance();
+
     $shiftData = $request -> getTurnData();
     $register = $this->model->solicitarTurno($shiftData);
 
