@@ -178,7 +178,7 @@ class Paciente {
         }
 
         $currentDate = new DateTime();
-        if ($birthdate>= $currentDate->format('y-m-d')) {
+        if ($birthdate>= $currentDate->format('Y-m-d')) {
             return SubmitStatus::NOT_VALID_BIRTHDATE;
         }
 
