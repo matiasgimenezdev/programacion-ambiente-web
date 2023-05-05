@@ -14,21 +14,21 @@
 		<h2 class="title">
 			<?= $title ?>
 		</h2>
-
+		<?php echo (isset($status) && $status->value !== 'REGISTER_OK') ? '<p class="msg">' . $messages[$status->value] . '</p>' : '' ?>
 		<form action="" method="POST" class="form">
 			<fieldset class="patient-data">
 				<legend>Datos personales</legend>
 				<p>
 					<label for="dni">DNI</label>
-					<input type="number" name="dni" id="dni" required tabindex="1" maxlength="8" />
+					<input type="number" name="dni" id="dni" required tabindex="1" maxlength="8" autocomplete="off" />
 				</p>
 				<p>
 					<label for="nombre">Nombre</label>
-					<input type="text" name="nombre" id="nombre" required tabindex="2" maxlength="30" />
+					<input type="text" name="nombre" id="nombre" required tabindex="2" maxlength="30" autocomplete="off" />
 				</p>
 				<p>
 					<label for="apellido">Apellido</label>
-					<input type="text" name="apellido" id="apellido" required tabindex="3" maxlength="30" />
+					<input type="text" name="apellido" id="apellido" required tabindex="3" maxlength="30" autocomplete="off"/>
 				</p>
 				<p class="genero">
 					<label for="sexo">Género</label>
@@ -61,15 +61,15 @@
 				<legend>Datos del turno</legend>
 				<p>
 					<label for="especialidad">Especialidad</label>
-					<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" />
+					<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" autocomplete="off"/>
 				</p>
 				<p>
 					<label for="medico">Médico</label>
-					<input type="text" name="medico" id="medico" required tabindex="9" maxlength="30" />
+					<input type="text" name="medico" id="medico" required tabindex="9" maxlength="30" autocomplete="off"/>
 				</p>
 				<p>
 					<label for="obra-social">Obra social</label>
-					<input type="text" name="obra-social" id="obras-sociales" required tabindex="10" maxlength="30" />
+					<input type="text" name="obra-social" id="obras-sociales" required tabindex="10" maxlength="30" autocomplete="off"/>
 				</p>
 				<p class="fecha">
 					<label for="fecha-turno">Fecha del turno</label>
@@ -86,7 +86,6 @@
 					el Backend, además de validar el formato en ambos lados. -->
 				</p>
 			</fieldset>
-			<?php echo (isset($status) && $status->value !== 'REGISTER_OK') ? '<p class="msg">' . $messages[$status->value] . '</p>' : '' ?>
 			<section class="button-container">
 				<input class="submit" type="submit" value="Solicitar turno" />
 				<input class="reset" type="reset" value="Limpiar" />

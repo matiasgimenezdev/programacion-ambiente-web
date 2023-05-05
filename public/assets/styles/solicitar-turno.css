@@ -32,14 +32,16 @@ label {
 
 input {
 	width: 90vw;
-	height: 2rem;
+	height: 2.3rem;
 	margin: 0;
-	padding: 0.2rem 0.5rem;
+	padding: 0.5rem 0.5rem;
 	background-color: transparent;
 	border-radius: 5px;
 	outline: none;
 	border: none;
 	outline: 1px solid var(--grey);
+	font-family: var(--font-family);
+	font-size: 1.1rem;
 }
 
 input:focus {
@@ -69,7 +71,6 @@ input[type='radio'] {
 .genero label:nth-child(1) {
 	display: block;
 	padding: 0.3rem 0;
-	color: var(--green);
 }
 
 .genero input {
@@ -139,16 +140,16 @@ input[type='date'] {
 }
 
 .msg {
-	width: 70%;
-	margin: auto;
-	grid-column: 2;
-	margin-bottom: 1rem;
+	width: 100%;
 	padding: 1rem;
-	border: 1px solid var(--red);
-	border-radius: 10px;
-	color: var(--grey);
+	background-color: var(--red);
+	color: white;
 	text-align: center;
-	font-size: 1.0rem;
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin: 1rem 0;
+	border: 1px solid var(--red);
+	text-align: center;
 }
 
 @media screen and (min-width: 600px) {
@@ -262,18 +263,18 @@ input[type='date'] {
 	}
 
 	.submit {
-		background-color: var(--blue);
+		background-color: var(--yellow);
+		color: var(--green);
 		transition: transform 0.1s ease-in;
 	}
-
 
 	.reset {
 		transition: transform 0.1s ease-in;
 	}
 
 	.submit:hover {
-		background-color: var(--blue);
-		color: var(--light-grey);
+		background-color: var(--yellow);
+		color: var(--green);
 		border: none;
 		transform: scale(1.03);
 	}
