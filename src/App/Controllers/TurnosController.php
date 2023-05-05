@@ -18,6 +18,14 @@ class TurnosController extends AbstractController
     require $this->viewsDirectory . "turnos.view.php";
   }
 
+  public function solicitarTurno()
+  {
+    $title = "Solicitar Turno";
+    $style = "solicitar-turno";
+    $shiftData = [];
+    require $this->viewsDirectory . "solicitar-turno.view.php";
+  }
+
   public function registrarTurno() {
     $request = Request::getInstance();
     $shiftData = $request -> getTurnData();

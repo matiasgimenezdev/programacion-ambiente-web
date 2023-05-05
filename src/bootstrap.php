@@ -18,7 +18,7 @@ $whoops->register();
 
 
 $router->get("/", "HomeController", "home");
-$router->get("/solicitar-turno", "PageController", "solicitarTurno");
+$router->get("/solicitar-turno", "TurnosController", "solicitarTurno");
 $router->post("/solicitar-turno", "TurnosController", "registrarTurno");
 $router->get("/turnos", "TurnosController", "turnos");
 $router->get("/turno-search", "TurnosController", "search");
