@@ -232,7 +232,7 @@ class Turno
 
   public function setEstudio($estudio)
   {
-    if (empty($estudio)) {
+    if (isset($estudio) && $estudio === UPLOAD_ERR_OK) {
       $maxSize = 20 * 1024 * 1024;
       if ($estudio["size"] > $maxSize) {
         return SubmitStatus::EXCEEDED_FILE_SIZE;
