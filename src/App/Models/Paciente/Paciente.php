@@ -168,18 +168,18 @@ class Paciente {
     {
         $status = null;
         if (!(date_create($birthdate))) {
-            return SubmitStatus::NOT_VALID_DATE;
+            return SubmitStatus::NOT_VALID_BIRTHDATE;
         }
 
 
         list($year, $month, $day) = explode('-', $birthdate);
         if (!checkdate($month, $day, $year)) {
-            return SubmitStatus::NOT_VALID_DATE;
+            return SubmitStatus::NOT_VALID_BIRTHDATE;
         }
 
         $currentDate = new DateTime();
         if ($birthdate > $currentDate->format('yy-m-d')) {
-            return SubmitStatus::NOT_VALID_DATE;
+            return SubmitStatus::NOT_VALID_BIRTHDATE;
         }
 
         $this->fields["birthdate"] = $birthdate;

@@ -62,6 +62,24 @@
             ];
         }
 
+        public function getTurnData(){
+            return [
+                "dni" => $this->getKey("dni"),
+                "name" => $this->getKey("nombre"),
+                "lastname" => $this->getKey("apellido"),
+                "genero" => $this->getKey("genero"),
+                "nacimiento" => $this->getKey("nacimiento"),
+                "edad" => $this->getKey("edad"),
+                "email" => $this->getKey("email"),
+                "telefono" => $this->getKey("telefono"),
+                "especialidad" => $this->getKey("especialidad"),
+                "profesional" => $this->getKey("medico"),
+                "obraSocial" => $this->getKey("obra-social"),
+                "fecha" => $this->getKey("fecha-turno"),
+                "hora" => $this->getKey("hora-turno"),
+              ];
+        }
+
     }
 
 

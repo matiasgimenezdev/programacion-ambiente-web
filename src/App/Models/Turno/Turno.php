@@ -1,10 +1,13 @@
 <?php
 namespace PAW\App\Models\Turno;
+use PAW\Core\Traits\Messenger;
+use PAW\Core\SubmitStatus;
 
 use DateTime;
 
 class Turno
 {
+  use Messenger;
   private $fields = [
     "id" => null,
     "dni" => null,
@@ -33,7 +36,7 @@ class Turno
     $status = null;
     $dni = trim($dni);
     if (strlen($dni) < 7 || strlen($dni) > 8 || !is_numeric($dni)) {
-      return RequestStatus::NOT_VALID_DNI;
+      return SubmitStatus::NOT_VALID_DNI;
     }
 
     $this->fields["dni"] = $dni;
@@ -46,11 +49,11 @@ class Turno
     $status = null;
     $name = strtolower(trim($name));
     if (strlen($name) === 0 || strlen($name) > 50) {
-      return RequestStatus::NOT_VALID_NAME;
+      return SubmitStatus::NOT_VALID_NAME;
     }
 
     if (!preg_match('/^[a-zA-Záéíóú\s]+$/', $name)) {
-      return RequestStatus::NOT_VALID_NAME;
+      return SubmitStatus::NOT_VALID_NAME;
     }
 
     $name = array_map('trim', explode(' ', $name));
@@ -67,11 +70,11 @@ class Turno
     $status = null;
     $lastname = strtolower(trim($lastname));
     if (strlen($lastname) === 0 || strlen($lastname) > 50) {
-      return RequestStatus::NOT_VALID_NAME;
+      return SubmitStatus::NOT_VALID_NAME;
     }
 
     if (!preg_match('/^[a-zA-Záéíóú\s]+$/', $lastname)) {
-      return RequestStatus::NOT_VALID_NAME;
+      return SubmitStatus::NOT_VALID_NAME;
     }
 
     $lastname = array_map('trim', explode(' ', $lastname));
@@ -89,11 +92,11 @@ class Turno
     $status = null;
     $email = strtolower(trim($email));
     if (strlen($email) === 0 || strlen($email) > 128) {
-      return RequestStatus::NOT_VALID_EMAIL;
+      return SubmitStatus::NOT_VALID_EMAIL;
     }
 
     if (!preg_match('/^[^\s@]+@[^\s@]+\.[^\s@]+$/', $email)) {
-      return RequestStatus::NOT_VALID_EMAIL;
+      return SubmitStatus::NOT_VALID_EMAIL;
     }
 
     $this->fields["email"] = $email;
@@ -105,7 +108,7 @@ class Turno
   {
     $status = null;
     if ($gender !== "M" && $gender !== "F") {
-      return RequestStatus::NOT_VALID_GENDER;
+      return SubmitStatus::NOT_VALID_GENDER;
     }
 
     $this->fields["genero"] = $gender;
@@ -116,18 +119,18 @@ class Turno
   {
     $status = null;
     if (!(date_create($birthdate))) {
-      return RequestStatus::NOT_VALID_BIRTHDATE;
+      return SubmitStatus::NOT_VALID_BIRTHDATE;
     }
 
 
     list($year, $month, $day) = explode('-', $birthdate);
     if (!checkdate($month, $day, $year)) {
-      return RequestStatus::NOT_VALID_BIRTHDATE;
+      return SubmitStatus::NOT_VALID_BIRTHDATE;
     }
 
     $currentDate = new DateTime();
     if ($birthdate > $currentDate->format('yy-m-d')) {
-      return RequestStatus::NOT_VALID_BIRTHDATE;
+      return SubmitStatus::NOT_VALID_BIRTHDATE;
     }
 
     $this->fields["nacimiento"] = $birthdate;
@@ -137,7 +140,7 @@ class Turno
   public function setEdad($edad)
   {
     if ($edad < 0 || $edad > 120) {
-      return RequestStatus::NOT_VALID_AGE;
+      return SubmitStatus::NOT_VALID_AGE;
     }
   }
 
@@ -146,7 +149,7 @@ class Turno
     $status = null;
     $phone = preg_replace('/\D+/', '', $phone);
     if (!preg_match('/^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/D', $phone)) {
-      return RequestStatus::NOT_VALID_PHONE;
+      return SubmitStatus::NOT_VALID_PHONE;
     }
 
     $this->fields["teléfono"] = $phone;
@@ -156,7 +159,7 @@ class Turno
   public function setEspecialidad($especialidad)
   {
     if (!preg_match('/^[a-zA-Záéíóú\s]+$/', $especialidad)) {
-      return RequestStatus::NOT_VALID_SPECIALTY;
+      return SubmitStatus::NOT_VALID_SPECIALTY;
     }
     $this->fields["especialidad"] = $especialidad;
   }
@@ -166,11 +169,11 @@ class Turno
     $status = null;
     $name = strtolower(trim($name));
     if (strlen($name) === 0 || strlen($name) > 50) {
-      return RequestStatus::NOT_VALID_PROFESIONAL;
+      return SubmitStatus::NOT_VALID_PROFESIONAL;
     }
 
     if (!preg_match('/^[a-zA-Záéíóú\s]+$/', $name)) {
-      return RequestStatus::NOT_VALID_PROFESIONAL;
+      return SubmitStatus::NOT_VALID_PROFESIONAL;
     }
 
     $name = array_map('trim', explode(' ', $name));
@@ -187,17 +190,17 @@ class Turno
   {
     $status = null;
     if (!(date_create($date))) {
-      return RequestStatus::NOT_VALID_SHIFTDATE;
+      return SubmitStatus::NOT_VALID_SHIFTDATE;
     }
 
     list($year, $month, $day) = explode('-', $date);
     if (!checkdate($month, $day, $year)) {
-      return RequestStatus::NOT_VALID_SHIFTDATE;
+      return SubmitStatus::NOT_VALID_SHIFTDATE;
     }
 
     $currentDate = new DateTime();
     if ($date < $currentDate->format('Y-m-d')) {
-      return RequestStatus::NOT_VALID_SHIFTDATE;
+      return SubmitStatus::NOT_VALID_SHIFTDATE;
     }
 
     $this->fields["fecha"] = $date;
@@ -208,7 +211,7 @@ class Turno
   {
     $status = null;
     if (!(DateTime::createFromFormat('H:i', $hora))) {
-      return RequestStatus::NOT_VALID_SHIFTTIME;
+      return SubmitStatus::NOT_VALID_SHIFTTIME;
     }
 
     $this->fields["hora"] = $hora;
@@ -218,7 +221,7 @@ class Turno
   public function setObrasocial($os)
   {
     if (!preg_match('/^[a-zA-Záéíóú\s]+$/', $os)) {
-      return RequestStatus::NOT_VALID_SOCIALWORK;
+      return SubmitStatus::NOT_VALID_SOCIALWORK;
     }
     $this->fields["obraSocial"] = $os;
   }
@@ -305,35 +308,35 @@ class Turno
     }
   }
 
-  public function nuevoTurno(array $turnoData)
+  public function registrarTurno(array $shiftData)
   {
-    $status = RequestStatus::REGISTER_OK;
-    $status = $this->setName($turnoData["name"]) ?? $status;
-    $status = $this->setLastname($turnoData["lastname"]) ?? $status;
-    $status = $this->setDni($turnoData["dni"]) ?? $status;
-    $status = $this->setEmail($turnoData["email"]) ?? $status;
-    $status = $this->setGenero($turnoData["genero"]) ?? $status;
-    $status = $this->setNacimiento($turnoData["nacimiento"]) ?? $status;
-    $status = $this->setEdad($turnoData["edad"]) ?? $status;
-    $status = $this->setTelefono($turnoData["telefono"]) ?? $status;
-    $status = $this->setEspecialidad($turnoData["especialidad"]) ?? $status;
-    $status = $this->setProfesional($turnoData["profesional"]) ?? $status;
-    $status = $this->setObrasocial($turnoData["obraSocial"]) ?? $status;
-    $status = $this->setFecha($turnoData["fecha"]) ?? $status;
-    $status = $this->setHora($turnoData["hora"]) ?? $status;
+    $status = SubmitStatus::REGISTER_OK;
+    $status = $this->setName($shiftData["name"]) ?? $status;
+    $status = $this->setLastname($shiftData["lastname"]) ?? $status;
+    $status = $this->setDni($shiftData["dni"]) ?? $status;
+    $status = $this->setEmail($shiftData["email"]) ?? $status;
+    $status = $this->setGenero($shiftData["genero"]) ?? $status;
+    $status = $this->setNacimiento($shiftData["nacimiento"]) ?? $status;
+    $status = $this->setEdad($shiftData["edad"]) ?? $status;
+    $status = $this->setTelefono($shiftData["telefono"]) ?? $status;
+    $status = $this->setEspecialidad($shiftData["especialidad"]) ?? $status;
+    $status = $this->setProfesional($shiftData["profesional"]) ?? $status;
+    $status = $this->setObrasocial($shiftData["obraSocial"]) ?? $status;
+    $status = $this->setFecha($shiftData["fecha"]) ?? $status;
+    $status = $this->setHora($shiftData["hora"]) ?? $status;
 
     // Almacena el turno en la BDD
-    return $status;
+    return ["status" => $status, "message" => $this -> getMessage($status)];
   }
 
-  /**
-   * @param mixed $fields 
-   * @return self
-   */
-  public function setFields($fields): self
-  {
-    $this->fields = $fields;
-    return $this;
-  }
+  // /**
+  //  * @param mixed $fields 
+  //  * @return self
+  //  */
+  // public function setFields($fields): self
+  // {
+  //   $this->fields = $fields;
+  //   return $this;
+  // }
 }
 ?>

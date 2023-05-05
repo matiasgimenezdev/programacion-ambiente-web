@@ -45,11 +45,11 @@ class TurnosCollection
     return $turnoInstance;
   }
 
-  public function solicitarTurno($requestData)
+  public function solicitarTurno($shiftData)
   {
     $turnoInstance = new Turno;
-    $status = $turnoInstance->nuevoTurno($requestData);
-    return $status;
+    $registerStatus = $turnoInstance->registrarTurno($shiftData);
+    return $registerStatus;
   }
 
 }

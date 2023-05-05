@@ -11,73 +11,73 @@
 	</header>
 
 	<main>
-		<h2 class="title">
-			<?= $title ?>
-		</h2>
-		<?php echo (isset($status) && $status->value !== 'REGISTER_OK') ? '<p class="msg">' . $messages[$status->value] . '</p>' : '' ?>
+		<h2 class="title"><?= $title ?></h2>
+		<?php echo (isset($register["status"]) && $register["status"]->value !== 'REGISTER_OK') ? '<p class="msg">' . $register["message"]. '</p>' : '' ?>
 		<form action="" method="POST" class="form">
 			<fieldset class="patient-data">
 				<legend>Datos personales</legend>
 				<p>
 					<label for="dni">DNI</label>
-					<input type="number" name="dni" id="dni" required tabindex="1" maxlength="8" autocomplete="off" />
+					<input type="number" name="dni" id="dni" required tabindex="1" maxlength="8" autocomplete="off" value="<?= $shiftData["dni"] ?? "" ?>" />
 				</p>
 				<p>
 					<label for="nombre">Nombre</label>
-					<input type="text" name="nombre" id="nombre" required tabindex="2" maxlength="30" autocomplete="off" />
+					<input type="text" name="nombre" id="nombre" required tabindex="2" maxlength="30" autocomplete="off" value="<?= $shiftData["name"] ?? "" ?>"/>
 				</p>
 				<p>
 					<label for="apellido">Apellido</label>
-					<input type="text" name="apellido" id="apellido" required tabindex="3" maxlength="30" autocomplete="off"/>
+					<input type="text" name="apellido" id="apellido" required tabindex="3" maxlength="30" autocomplete="off" value="<?= $shiftData["lastname"] ?? "" ?>"/>
 				</p>
 				<p class="genero">
-					<label for="sexo">Género</label>
-					<input type="radio" name="sexo" id="femenino" value="F" checked />
-					<label for="femenino">Femenino</label>
-					<input type="radio" name="sexo" id="masculino" value="M" />
+					<label for="genero">Género</label>
+					<input type="radio" name="genero" id="masculino" value="M" <?php echo ($shiftData["genero"] !== "F") ? "checked" : "" ?> />
 					<label for="masculino">Masculino</label>
+					<input type="radio" name="genero" id="femenino" value="F" <?php echo ($shiftData["genero"] === "F") ? "checked" : "" ?> />
+					<label for="femenino">Femenino</label>
+					<p>
+				</p>
 				</p>
 				<p class="fecha">
 					<label for="nacimiento">Fecha de Nacimiento</label>
-					<input type="date" name="nacimiento" id="nacimiento" required tabindex="4" />
+					<input type="date" name="nacimiento" id="nacimiento" required tabindex="4" value="<?= $shiftData["nacimiento"] ?? "" ?>"/>
 				</p>
 				<p class="edad">
 					<label for="edad">Edad</label>
-					<input type="number" name="edad" id="edad" required tabindex="5" maxlength="3" />
+					<input type="number" name="edad" id="edad" required tabindex="5" maxlength="3" value="<?= $shiftData["edad"] ?? "" ?>">
 				</p>
 			</fieldset>
 			<fieldset class="contact-data">
 				<legend>Datos de contacto</legend>
 				<p>
 					<label for="email">Correo Electrónico</label>
-					<input type="email" name="email" id="email" required tabindex="6" maxlength="50" autocomplete="off" />
+					<input type="email" name="email" id="email" required tabindex="6" maxlength="50" autocomplete="off" value="<?= $shiftData["email"] ?? "" ?>"/>
 				</p>
 				<p>
 					<label for="telefono">Teléfono Celular</label>
-					<input type="tel" name="telefono" id="telefono" required tabindex="7" maxlength="50" autocomplete="off" />
+					<input type="tel" name="telefono" id="telefono" required tabindex="7" maxlength="50" autocomplete="off" value="<?= $shiftData["telefono"] ?? "" ?>"/>
 				</p>
 			</fieldset>
 			<fieldset class="turn-data">
 				<legend>Datos del turno</legend>
 				<p>
 					<label for="especialidad">Especialidad</label>
-					<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" autocomplete="off"/>
+					<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" autocomplete="off" value="<?= $shiftData["especialidad"] ?? "" ?>"/>
 				</p>
 				<p>
 					<label for="medico">Médico</label>
-					<input type="text" name="medico" id="medico" required tabindex="9" maxlength="30" autocomplete="off"/>
+					<input type="text" name="medico" id="medico" required tabindex="9" maxlength="30" autocomplete="off" value="<?= $shiftData["profesional"] ?? "" ?>"/>
 				</p>
 				<p>
 					<label for="obra-social">Obra social</label>
-					<input type="text" name="obra-social" id="obras-sociales" required tabindex="10" maxlength="30" autocomplete="off"/>
+					<input type="text" name="obra-social" id="obras-sociales" required tabindex="10" maxlength="30" autocomplete="off" value="<?= $shiftData["obraSocial"] ?? "" ?>"/>
 				</p>
 				<p class="fecha">
 					<label for="fecha-turno">Fecha del turno</label>
-					<input type="date" name="fecha-turno" id="fecha-turno" required tabindex="11" />
+					<input type="date" name="fecha-turno" id="fecha-turno" required tabindex="11" value="<?= $shiftData["fecha"] ?? "" ?>"/>
 				</p>
 				<p class="hora">
 					<label for="hora-turno">Horario del turno</label>
-					<input type="time" name="hora-turno" id="hora-turno" required tabindex="12" />
+					<input type="time" name="hora-turno" id="hora-turno" required tabindex="12" value="<?= $shiftData["hora"] ?? "" ?>"/>
 				</p>
 				<p>
 					<input type="file">

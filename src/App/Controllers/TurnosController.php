@@ -18,6 +18,31 @@ class TurnosController extends AbstractController
     require $this->viewsDirectory . "turnos.view.php";
   }
 
+  public function registrarTurno() {
+    $request = Request::getInstance();
+    $shiftData = $request -> getTurnData();
+    $register = $this->model->solicitarTurno($shiftData);
+
+    if ($register["status"]->value === "REGISTER_OK") {
+      // $id = $this -> model -> getId($dni);
+      // Obtendría el ID que le fue asignado y lo redirige a la pagina de su perfil por si desea seguir cargando mas datos personales.
+      header('Location: /turnos');
+
+    } else {
+      // $shiftData = $shiftData;
+      $title = "Solicitar Turno";
+      $style = "solicitar-turno";
+      require $this->viewsDirectory . "solicitar-turno.view.php";
+    }
+  }
+
+  public function cancelarTurno() {
+    //TODO
+    //TODO
+    //TODO
+    //TODO
+  }
+
 }
 
 ?>

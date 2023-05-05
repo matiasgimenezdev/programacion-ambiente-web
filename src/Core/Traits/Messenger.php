@@ -13,10 +13,17 @@
             'PASSWORD_DONT_MATCH' => 'Las contraseñas no coinciden',
             'NOT_CONFIRMED_TERMS' => '¿Esta de acuerdo con los términos y condicones?',
             'NOT_VALID_GENDER' => 'Seleccione un genero válido.',
-            'NOT_VALID_DATE' => 'Seleccione una fecha de nacimiento válida.',
             'NOT_VALID_PHONE' => 'Ingrese teléfono válido.',   
             'UPDATE_OK' => 'Los cambios han sido realizados con éxito.',
+            'NOT_VALID_BIRTHDATE' => 'Seleccione una fecha de nacimiento válida',
+            'NOT_VALID_AGE' => 'Ingrese una edad válida',
+            'NOT_VALID_SPECIALTY' => 'Ingrese una especialidad válida',
+            'NOT_VALID_PROFESIONAL' => 'Ingrese un profecional válido',
+            'NOT_VALID_SHIFTDATE' => 'Ingrese una fecha de turno válida',
+            'NOT_VALID_SHIFTTIME' => 'Ingrese una hora válida para el turno',
+            'NOT_VALID_SOCIALWORK' => 'Ingrese una obra social váida',
         ];
+
 
         public function getMessage ($status): string {
             return $this -> messages[$status -> value] ?? "";
