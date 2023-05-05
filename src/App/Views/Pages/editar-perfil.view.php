@@ -40,9 +40,20 @@
 
 				<p>
 					<label for="genero">Género</label>
-					<input type="radio" name="genero" id="masculino" value="M" <?php echo ($shiftData["genero"] !== "F") ? "checked" : "" ?> />
+					<input type="radio" name="genero" id="masculino" value="M" 
+						<?php if($paciente -> getGender()): ?>
+							<?php if($paciente -> getGender() !== "F"): echo "checked"; else: echo ""; ?>
+							<?php endif;?>
+						<?php else: echo "checked" ?>
+						<?php endif; ?>
+					/>
 					<label for="masculino">Masculino</label>
-					<input type="radio" name="genero" id="femenino" value="F" <?php echo ($paciente->getGender() === "F") ? "checked" : "" ?> />
+					<input type="radio" name="genero" id="femenino" value="F" 
+						<?php if($paciente -> getGender()): ?>
+							<?php if($paciente -> getGender() === "F"): echo "checked"; else: echo ""; ?>
+							<?php endif;?>
+						<?php endif; ?>
+					/>
 					<label for="femenino">Femenino</label>
 				</p>
 			</fieldset>

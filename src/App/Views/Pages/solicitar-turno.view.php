@@ -30,12 +30,21 @@
 				</p>
 				<p class="genero">
 					<label for="genero">Género</label>
-					<input type="radio" name="genero" id="masculino" value="M" <?php echo ($shiftData["genero"] !== "F") ? "checked" : "" ?> />
+					<input type="radio" name="genero" id="masculino" value="M" 
+						<?php if(isset($shiftData["genero"])): ?>
+							<?php if($shiftData["genero"] !== "F"): echo "checked"; else: echo ""; ?>
+							<?php endif;?>
+						<?php else: echo "checked" ?>
+						<?php endif; ?>
+					/>
 					<label for="masculino">Masculino</label>
-					<input type="radio" name="genero" id="femenino" value="F" <?php echo ($shiftData["genero"] === "F") ? "checked" : "" ?> />
+					<input type="radio" name="genero" id="femenino" value="F" 
+						<?php if(isset($shiftData["genero"])): ?>
+							<?php if($shiftData["genero"] === "F"): echo "checked"; else: echo ""; ?>
+							<?php endif;?>
+						<?php endif; ?>
+					/>
 					<label for="femenino">Femenino</label>
-					<p>
-				</p>
 				</p>
 				<p class="fecha">
 					<label for="nacimiento">Fecha de Nacimiento</label>
@@ -80,10 +89,9 @@
 					<input type="time" name="hora-turno" id="hora-turno" required tabindex="12" value="<?= $shiftData["hora"] ?? "" ?>"/>
 				</p>
 				<p>
-					<input type="file">
-					<!-- TODO: Agregue al formulario un campo de tipo “archivo” que ofrezca la posibilidad de adjuntar una imagen 
-					que sea de un estudio clínico en particular. Solo importa que se pueda enviar el archivo y ser recibido de forma adecuada en 
-					el Backend, además de validar el formato en ambos lados. -->
+					<label for="estudio">Estudio clínico</label>
+					<input name="estudio" id="estudio" type="file" accept="image/png, image/jpg, image/jpeg, application/pdf">
+					<!-- TODO: Enviar el archivo y ser recibido de forma adecuada en el Backend + validar el formato -->
 				</p>
 			</fieldset>
 			<section class="button-container">
