@@ -129,7 +129,7 @@ class Turno
     }
 
     $currentDate = new DateTime();
-    if ($birthdate > $currentDate->format('yy-m-d')) {
+    if ($birthdate >= $currentDate->format('yy-m-d')) {
       return SubmitStatus::NOT_VALID_BIRTHDATE;
     }
 
