@@ -30,7 +30,7 @@ label {
 	margin: 0.7rem 0 0.5rem 0;
 }
 
-input {
+input , select[id="opcion"]{
 	width: 90vw;
 	height: 2.3rem;
 	margin: 0;
@@ -42,6 +42,10 @@ input {
 	outline: 1px solid var(--grey);
 	font-family: var(--font-family);
 	font-size: 1.1rem;
+}
+
+select[id="opcion"]{
+
 }
 
 input:focus {
@@ -163,7 +167,7 @@ input[type='file'] {
 		margin: auto;
 	}
 
-	input {
+	input , select[id="opcion"]{
 		width: 75vw;
 	}
 }
@@ -174,7 +178,7 @@ input[type='file'] {
 		margin: auto;
 	}
 
-	input {
+	input , select[id="opcion"]{
 		width: 70vw;
 	}
 }
@@ -216,7 +220,7 @@ input[type='file'] {
 		margin-bottom: 0.8rem;
 	}
 
-	input {
+	input , select[id="opcion"]{
 		width: 90%;
 	}
 
@@ -255,7 +259,7 @@ input[type='file'] {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-	input {
+	input , select[id="opcion"]{
 		background-color: var(--light-grey);
 	}
 	legend {
