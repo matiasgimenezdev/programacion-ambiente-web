@@ -152,6 +152,11 @@ input[type='date'] {
 	text-align: center;
 }
 
+input[type='file'] {
+	background-color: transparent;
+	padding-left: 0;
+}
+
 @media screen and (min-width: 600px) {
 	form {
 		width: 75vw;
