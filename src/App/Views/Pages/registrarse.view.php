@@ -59,7 +59,7 @@
         </label>
       </p> 
     </fieldset>
-    <?php echo (isset($status)&& $status -> value !== 'REGISTER_OK') ? '<p class="msg">'.$messages[$status->value].'</p>' : '' ?>
+    <?php echo (isset($register["status"])&& $register["status"] -> value !== 'REGISTER_OK') ? '<p class="msg">'.$register["message"].'</p>' : '' ?>
     <input type="submit" id="boton-submit" value="Registrarme" />
   </form>
   <p class="login">

@@ -1,5 +1,5 @@
 <?php
-namespace PAW\App\Models\Paciente;
+namespace PAW\Core;
 
 enum SubmitStatus: string {
     case NOT_VALID_DNI = 'NOT_VALID_DNI'; 
@@ -9,6 +9,7 @@ enum SubmitStatus: string {
     case IS_USED_EMAIL = 'IS_USED_EMAIL'; 
     case NOT_VALID_PASSWORD = 'NOT_VALID_PASSWORD'; 
     case PASSWORD_DONT_MATCH = 'PASSWORD_DONT_MATCH'; 
+    case WRONG_PASSWORD = 'WRONG_PASSWORD';
     case NOT_CONFIRMED_TERMS = 'NOT_CONFIRMED_TERMS';
     case NOT_VALID_GENDER = 'NOT_VALID_GENDER';
     case NOT_VALID_DATE = 'NOT_VALID_DATE';

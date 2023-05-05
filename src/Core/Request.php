@@ -28,6 +28,40 @@
             return $_POST[$key] ?? $_GET[$key] ?? $_SERVER[$key] ?? null;
 
         }
+
+        public function getUpdateData() {
+            return [
+                "id" => $this -> getKey("id"),
+                "dni" => $this -> getKey("dni"),
+                "name" => $this -> getKey("nombre"),
+                "lastname" => $this -> getKey("apellido"),
+                "birthdate" => $this -> getKey("nacimiento"),
+                "gender" => $this -> getKey("genero"),
+                "email" => $this -> getKey("email"),
+                "phone" => $this -> getKey("telefono"),
+            ];
+        }
+
+        public function getRegisterData() {
+            return [
+                "dni" => $this -> getKey("dni"),
+                "name" => $this -> getKey("nombre"),
+                "lastname" => $this -> getKey("apellido"),
+                "email" => $this -> getKey("email"),
+                "emailConfirmation" => $this -> getKey("email2"),
+                "password" => $this -> getKey("password"),
+                "passwordConfirmation" => $this -> getKey("password2"),
+                "terms-conditions" => $this -> getKey("terminos-condiciones"),
+            ];
+        }
+
+        public function getLoginData(){
+            return [
+                "email" => $this->getKey("email"),
+                "password" => $this->getKey("password"),
+            ];
+        }
+
     }
 
 

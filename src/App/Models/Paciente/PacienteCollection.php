@@ -2,10 +2,12 @@
 namespace PAW\App\Models\Paciente;
 
 use PAW\App\Models\Paciente\Paciente;
-use PAW\App\Models\Paciente\SubmitStatus;
+use PAW\Core\SubmitStatus;
+use PAW\Core\Traits\Messenger;
 
 class PacienteCollection
 {
+    use Messenger;
     private $pacientes = [
         [
             "id" => 1,
@@ -42,26 +44,27 @@ class PacienteCollection
     {
         if ($registerData["terms-conditions"] === "true") {
             $pacienteInstance = new Paciente;
-            $status = $pacienteInstance->register($registerData);
-            return $status;
+            $registerStatus = $pacienteInstance -> register($registerData);
+            return $registerStatus;
         } else {
-            return SubmitStatus::NOT_CONFIRMED_TERMS;
+            $status = SubmitStatus::NOT_CONFIRMED_TERMS;
+            return ["status" => $status, "message" => $this -> getMessage($status)];
         }
     }
 
     public function login($loginData)
     {
         $pacienteInstance = new Paciente;
-        $status = $pacienteInstance->login($loginData);
-        return $status;
+        $loginStatus = $pacienteInstance->login($loginData);
+        return $loginStatus;
     }
 
     public function update($updatedData)
     {
         // Obtiene el paciente de la BDD
         $pacienteInstance = $this->getByDni($updatedData["dni"]);
-        $status = $pacienteInstance->update($updatedData);
-        return $status;
+        $updateStatus = $pacienteInstance->update($updatedData);
+        return $updateStatus;
     }
 
     private function getByDni($dni)

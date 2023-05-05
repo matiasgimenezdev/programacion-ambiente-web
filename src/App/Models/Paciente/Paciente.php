@@ -1,11 +1,13 @@
 <?php
 namespace PAW\App\Models\Paciente;
 
-use PAW\App\Models\Paciente\SubmitStatus;
+use PAW\Core\Traits\Messenger;
+use PAW\Core\SubmitStatus;
 use DateTime;
 
-class Paciente
-{
+class Paciente {
+    use Messenger;
+
     private $fields = [
         "id" => null,
         "dni" => null,
@@ -144,7 +146,7 @@ class Paciente
         } else {
             // $hashed_password = obtiene el hash del password asociado al email ingresado
             // if(!password_verify($password, $hashed_password)){
-            //     return SubmitStatus::NOT_VALID_PASSWORD;
+            //     return SubmitStatus::WRONG_PASSWORD;
             // }
             // $this -> fields["password"] = $hashed_password;
         }
@@ -260,7 +262,7 @@ class Paciente
         $status = $this->setEmail($registerData["email"], $registerData["emailConfirmation"]) ?? $status;
         $status = $this->setPassword($registerData["password"], $registerData["passwordConfirmation"]) ?? $status;
         // Almacena el registro en la BDD
-        return $status;
+        return ["status" => $status, "message" => $this -> getMessage($status)];
     }
 
     public function login(array $loginData)
@@ -268,12 +270,11 @@ class Paciente
         $status = SubmitStatus::LOGIN_OK;
         $status = $this->setEmail($loginData["email"]) ?? $status;
         $status = $this->setPassword($loginData["password"]) ?? $status;
-        return $status;
+        return ["status" => $status, "message" => $this -> getMessage($status)];
     }
 
     public function update(array $updatedData)
     {
-
         $status = SubmitStatus::UPDATE_OK;
         $status = $this->setName($updatedData["name"]) ?? $status;
         $status = $this->setLastname($updatedData["lastname"]) ?? $status;
@@ -281,8 +282,7 @@ class Paciente
         $status = $this->setGender($updatedData["gender"]) ?? $status;
         $status = $this->setPhone($updatedData["phone"]) ?? $status;
         // Almacena el registro en la BDD
-
-        return $status;
+        return ["status" => $status, "message" => $this -> getMessage($status)];
     }
 }
 

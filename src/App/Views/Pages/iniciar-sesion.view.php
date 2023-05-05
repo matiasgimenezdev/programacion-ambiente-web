@@ -25,7 +25,7 @@
         <span>👁‍🗨</span>
       </p>
     </fieldset>
-    <?php echo (isset($status) && $status -> value !== 'LOGIN_OK') ? '<p class="msg">'.$messages[$status->value].'</p>' : '' ?>
+    <?php echo (isset($login["status"]) && $login["status"] -> value !== 'LOGIN_OK') ? '<p class="msg">'.$login["message"].'</p>' : '' ?>
     <input type="submit" value="Iniciar sesión" />
   </form>
   <p class="register">

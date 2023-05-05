@@ -10,7 +10,7 @@
 		<?php require __DIR__ . "/../Fragments/header.view.php" ?>
 	</header>
 	<main>
-		<?php echo (isset($status)) ? '<p class="msg' . (($status->value !== "UPDATE_OK") ? ' error' : ' success') . '">' . $messages[$status->value] . '</p>' : '' ?>
+		<?php echo (isset($update["status"])) ? '<p class="msg' . (($update["status"]->value !== "UPDATE_OK") ? ' error' : ' success') . '">' . $update["message"] . '</p>' : '' ?>
 		<form method="POST" action="/perfil/actualizar">
 			<fieldset>
 				<h2>Informacion básica</h2>

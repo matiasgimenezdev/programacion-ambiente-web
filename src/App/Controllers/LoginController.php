@@ -12,21 +12,11 @@ class LoginController extends AbstractController
     public function login()
     {
         $request = Request::getInstance();
-        $loginData = [
-            "email" => $request->getKey("email"),
-            "password" => $request->getKey("password"),
-        ];
+        $loginData = $request -> getLoginData();
+        $login = $this->model->login($loginData);
 
-        $status = $this->model->login($loginData);
-        $messages = [
-            'NOT_VALID_EMAIL' => 'Ingrese un e-mail válido',
-            'NOT_VALID_PASSWORD' => 'La contraseña o el email son incorrectos',
-        ];
-
-
-        if ($status->value === "LOGIN_OK") {
+        if ($login["status"]->value === "LOGIN_OK") {
             header('Location: /');
-
         } else {
             $title = "Iniciar sesión";
             $style = "iniciar-sesion";
