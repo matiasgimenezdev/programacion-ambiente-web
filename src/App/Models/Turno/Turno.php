@@ -203,7 +203,7 @@ class Turno
     }
 
     $currentDate = new DateTime();
-    if ($date < $currentDate->format('Y-m-d')) {
+    if ($date < $currentDate->format('y-m-d')) {
       return SubmitStatus::NOT_VALID_SHIFTDATE;
     }
 
