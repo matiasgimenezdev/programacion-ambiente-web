@@ -70,11 +70,20 @@
 				<legend>Datos del turno</legend>
 				<p>
 					<label for="especialidad">Especialidad</label>
-					<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" autocomplete="off" value="<?= $shiftData["especialidad"] ?? "" ?>"/>
+					<!--<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" autocomplete="off" value="<?= $shiftData["especialidad"] ?? "" ?>"/>-->
+					<select id="opcion" name="especialidades">
+						<option value="1">Odontología</option>
+						<option value="2">Traumatología</option>
+						<option value="3">Cardiología</option>
+					</select>
 				</p>
 				<p>
 					<label for="medico">Médico</label>
-					<input type="text" name="medico" id="medico" required tabindex="9" maxlength="30" autocomplete="off" value="<?= $shiftData["profesional"] ?? "" ?>"/>
+					<!--<input type="text" name="medico" id="medico" required tabindex="9" maxlength="30" autocomplete="off" value="<?= $shiftData["profesional"] ?? "" ?>"/>-->
+					<select id="opcion" name="profecionales">
+						<option value="1">Matías Montecarlo</option>
+						<option value="2">Javier Gutierrez</option>
+					</select>
 				</p>
 				<p>
 					<label for="obra-social">Obra social</label>
