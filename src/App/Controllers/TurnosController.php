@@ -27,6 +27,8 @@ class TurnosController extends AbstractController
     $profesionales = $p->model->getAll();
     $e = new EspecialidadesController;
     $especialidades = $e->model->getAll();
+    $os = new ObrasSocialesController;
+    $obrasSociales = $os->model->getAll();
     require $this->viewsDirectory . "solicitar-turno.view.php";
   }
 
@@ -45,6 +47,12 @@ class TurnosController extends AbstractController
       // $shiftData = $shiftData;
       $title = "Solicitar Turno";
       $style = "solicitar-turno";
+      $p = new ProfesionalesController;
+      $profesionales = $p->model->getAll();
+      $e = new EspecialidadesController;
+      $especialidades = $e->model->getAll();
+      $os = new ObrasSocialesController;
+      $obrasSociales = $os->model->getAll();
       require $this->viewsDirectory . "solicitar-turno.view.php";
     }
   }

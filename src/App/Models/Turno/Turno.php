@@ -146,6 +146,14 @@ class Turno
     if ($edad < 0 || $edad > 120) {
       return SubmitStatus::NOT_VALID_AGE;
     }
+    $currentDate = new DateTime();
+    $currentYear = intval(date('Y', strtotime($currentDate->format('Y-m-d'))));
+    $birthdate = intval(date('Y', strtotime($this->fields["nacimiento"])));
+    $edadEstimada = $currentYear - $birthdate - 1;
+    if($edad != $edadEstimada){
+      return SubmitStatus::NOT_VALID_AGE_OR_BIRTHDATE;
+    }
+    $this->field["edad"] = $edad;
   }
 
   public function setTelefono($phone)
@@ -156,37 +164,18 @@ class Turno
       return SubmitStatus::NOT_VALID_PHONE;
     }
 
-    $this->fields["teléfono"] = $phone;
+    $this->fields["telefono"] = $phone;
     return $status;
   }
 
   public function setEspecialidad($especialidad)
   {
-    if (!preg_match('/^[a-zA-Záéíóú\s]+$/', $especialidad)) {
-      return SubmitStatus::NOT_VALID_SPECIALTY;
-    }
     $this->fields["especialidad"] = $especialidad;
   }
 
   public function setProfesional($name)
   {
-    $status = null;
-    $name = strtolower(trim($name));
-    if (strlen($name) === 0 || strlen($name) > 50) {
-      return SubmitStatus::NOT_VALID_PROFESIONAL;
-    }
-
-    if (!preg_match('/^[a-zA-Záéíóú\s]+$/', $name)) {
-      return SubmitStatus::NOT_VALID_PROFESIONAL;
-    }
-
-    $name = array_map('trim', explode(' ', $name));
-    $name = array_map(function ($word) {
-      return ucfirst(strtolower($word));
-    }, $name);
-    $name = implode(' ', $name);
     $this->fields["profesional"] = $name;
-    return $status;
   }
 
 
@@ -218,15 +207,18 @@ class Turno
       return SubmitStatus::NOT_VALID_SHIFTTIME;
     }
 
+    $currentDate = new DateTime();
+    $currentTime = date('h:i');
+    if ($this->fields["fecha"] == $currentDate->format('Y-m-d') && $hora <= $currentTime) {
+      return SubmitStatus::NOT_VALID_SHIFTDATE;
+    }
+
     $this->fields["hora"] = $hora;
     return $status;
   }
 
   public function setObrasocial($os)
   {
-    if (!preg_match('/^[a-zA-Záéíóú\s]+$/', $os)) {
-      return SubmitStatus::NOT_VALID_SOCIALWORK;
-    }
     $this->fields["obraSocial"] = $os;
   }
 

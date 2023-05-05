@@ -96,7 +96,16 @@
 				</p>
 				<p>
 					<label for="obra-social">Obra social</label>
-					<input type="text" name="obra-social" id="obras-sociales" required tabindex="10" maxlength="30" autocomplete="off" value="<?= $shiftData["obraSocial"] ?? "" ?>"/>
+					<!--<input type="text" name="obra-social" id="obras-sociales" required tabindex="10" maxlength="30" autocomplete="off" value="<?= $shiftData["obraSocial"] ?? "" ?>"/>-->
+					<select id="opcion" name="profesionales">
+						<?php if (sizeof($obrasSociales) > 0): ?>
+							<?php $i = 1?>
+							<?php foreach ($obrasSociales as $obraSocial): ?>
+								<option value="<?php $i?>"><?= $obraSocial->getName() ?></option>
+								<?php $i++ ?>
+							<?php endforeach; ?>
+						<?php endif; ?>
+					</select>
 				</p>
 				<p class="fecha">
 					<label for="fecha-turno">Fecha del turno</label>
