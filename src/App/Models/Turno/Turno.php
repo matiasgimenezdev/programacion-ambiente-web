@@ -2,6 +2,8 @@
 namespace PAW\App\Models\Turno;
 use PAW\Core\Traits\Messenger;
 use PAW\Core\SubmitStatus;
+use finfo;
+use const FILEINFO_MIME_TYPE;
 
 use DateTime;
 
@@ -228,7 +230,6 @@ class Turno
   }
 
   public function setEstudio($estudio){
-      // Tamaño máximo 20MB
       $maxSize = 20 * 1024 * 1024;
       if ($estudio["size"] > $maxSize) {
         return SubmitStatus::EXCEEDED_FILE_SIZE;
@@ -238,11 +239,18 @@ class Turno
         return SubmitStatus::NOT_ALLOWED_FILE_TYPE;
       } 
 
-    $fileName = $estudio['name'];
-    $tempName = $estudio['tmp_name'];
-    $path = __DIR__ . '/../../Uploads/' . $fileName;
-    move_uploaded_file($tempName, $path);
-    $this->fields["estudio"] = $path;
+      $tempName = $estudio['tmp_name'];
+      $finfo = new finfo(FILEINFO_MIME_TYPE);
+      $type = $finfo -> file($tempName);
+      
+      if($type !== "application/pdf" && $type !== "image/jpeg" && $type !== "image/jpg" && $type !== "image/png") {
+        return SubmitStatus::NOT_ALLOWED_FILE_TYPE;
+      }
+      
+      $fileName = $estudio['name'];
+      $path = __DIR__ . '/../../Uploads/' . $fileName;
+      move_uploaded_file($tempName, $path);
+      $this->fields["estudio"] = $path;
   }
 
   public function getId()
