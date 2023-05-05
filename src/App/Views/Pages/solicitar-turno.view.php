@@ -91,7 +91,6 @@
 				<p>
 					<label for="estudio">Estudio clínico</label>
 					<input name="estudio" id="estudio" type="file" accept="image/png, image/jpg, image/jpeg, application/pdf">
-					<!-- TODO: Enviar el archivo y ser recibido de forma adecuada en el Backend + validar el formato -->
 				</p>
 			</fieldset>
 			<section class="button-container">
