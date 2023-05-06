@@ -30,7 +30,8 @@ label {
 	margin: 0.7rem 0 0.5rem 0;
 }
 
-input , select[id="opcion"]{
+input,
+select[id='opcion'] {
 	width: 90vw;
 	height: 2.3rem;
 	margin: 0;
@@ -44,8 +45,7 @@ input , select[id="opcion"]{
 	font-size: 1.1rem;
 }
 
-select[id="opcion"]{
-
+select[id='opcion'] {
 }
 
 input:focus {
@@ -159,6 +159,7 @@ input[type='date'] {
 input[type='file'] {
 	background-color: transparent;
 	padding-left: 0;
+	outline: none;
 }
 
 @media screen and (min-width: 600px) {
@@ -167,7 +168,8 @@ input[type='file'] {
 		margin: auto;
 	}
 
-	input , select[id="opcion"]{
+	input,
+	select[id='opcion'] {
 		width: 75vw;
 	}
 }
@@ -178,7 +180,8 @@ input[type='file'] {
 		margin: auto;
 	}
 
-	input , select[id="opcion"]{
+	input,
+	select[id='opcion'] {
 		width: 70vw;
 	}
 }
@@ -220,7 +223,8 @@ input[type='file'] {
 		margin-bottom: 0.8rem;
 	}
 
-	input , select[id="opcion"]{
+	input,
+	select[id='opcion'] {
 		width: 90%;
 	}
 
@@ -259,7 +263,8 @@ input[type='file'] {
 }
 
 @media screen and (prefers-color-scheme: dark) {
-	input , select[id="opcion"]{
+	input,
+	select[id='opcion'] {
 		background-color: var(--light-grey);
 	}
 	legend {
