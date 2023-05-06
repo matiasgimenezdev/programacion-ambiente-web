@@ -25,5 +25,7 @@ El proyecto a partir de este TP debe ser MVC: Vista genera el código de salida 
 -   Parado en el directorio raiz del proyecto, ejecutar:
 
 ```
-php -S localhost:8080 -t public
+$ composer install
+$ cp .env.example .env
+$ php -S localhost:8080 -t public
 ```
