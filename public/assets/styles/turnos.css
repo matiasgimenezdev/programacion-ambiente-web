@@ -117,6 +117,20 @@ details ul li {
 	outline: 2px solid var(--green);
 }
 
+.msg {
+	width: 100%;
+	margin: 0;
+	color: white;
+	text-align: center;
+	font-size: 1.1rem;
+	font-weight: bold;
+	padding: 1.3rem 0;
+}
+
+.success {
+	background-color: var(--blue);
+}
+
 @media only screen and (min-width: 800px) {
 	.form input {
 		width: 40vh;

@@ -20,6 +20,7 @@ $whoops->register();
 $router->get("/", "HomeController", "home");
 $router->get("/solicitar-turno", "TurnosController", "solicitarTurno");
 $router->post("/solicitar-turno", "TurnosController", "registrarTurno");
+$router->get("/cancelar-turno", "TurnosController", "cancelarTurno");
 $router->get("/turnos", "TurnosController", "turnos");
 $router->get("/turno-search", "TurnosController", "search");
 $router->get("/especialidades", "EspecialidadesController", "especialidades");

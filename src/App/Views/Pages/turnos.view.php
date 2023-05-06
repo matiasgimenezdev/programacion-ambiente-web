@@ -14,6 +14,7 @@
 		<h2 class="title">
 			<?= $title ?>
 		</h2>
+		<?php echo (isset($cancel["status"])) ? (($cancel["status"]->value === "CANCEL_OK") ? '<p class="msg success"' . $cancel["message"] . '</p>' : '') : "" ?>
 		<section class="turnos-section">
 			<section class="section-controls">
 				<button class="solicitar-turno-button">

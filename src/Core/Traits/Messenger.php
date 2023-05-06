@@ -15,6 +15,7 @@
             'NOT_VALID_GENDER' => 'Seleccione un genero válido.',
             'NOT_VALID_PHONE' => 'Ingrese teléfono válido.',   
             'UPDATE_OK' => 'Los cambios han sido realizados con éxito.',
+            'CANCEL_OK' => 'El turno fue cancelado con exito',
             'NOT_VALID_BIRTHDATE' => 'Seleccione una fecha de nacimiento válida',
             'NOT_VALID_AGE' => 'Ingrese una edad válida',
             'NOT_VALID_AGE_OR_BIRTHDATE' => 'La fecha de nacimiento y edad ingresados no coinciden',

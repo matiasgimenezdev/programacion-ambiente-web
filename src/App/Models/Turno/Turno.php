@@ -358,14 +358,12 @@ class Turno
     return ["status" => $status, "message" => $this->getMessage($status)];
   }
 
-// /**
-//  * @param mixed $fields 
-//  * @return self
-//  */
-// public function setFields($fields): self
-// {
-//   $this->fields = $fields;
-//   return $this;
-// }
+  public function cancelarTurno(array $id)
+  {
+    $status = SubmitStatus::CANCEL_OK;
+    // Elimina el registro de la BDD
+    return ["status" => $status, "message" => $this->getMessage($status)];
+  }
+  
 }
 ?>

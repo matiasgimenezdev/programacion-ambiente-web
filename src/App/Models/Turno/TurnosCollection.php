@@ -52,6 +52,13 @@ class TurnosCollection
     return $registerStatus;
   }
 
+  public function cancelarTurno($id)
+  {
+    $turnoInstance = $this -> getOne($id);
+    $cancelStatus = $turnoInstance -> cancelarTurno();
+    return $cancelStatus;
+  }
+
 }
 
 ?>

@@ -26,5 +26,6 @@ enum SubmitStatus: string {
     case REGISTER_OK = 'REGISTER_OK';
     case LOGIN_OK = 'LOGIN_OK';
     case UPDATE_OK = 'UPDATE_OK';
+    case CANCEL_OK = 'CANCEL_OK';
 }
 ?>
