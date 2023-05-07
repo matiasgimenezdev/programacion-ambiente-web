@@ -1,7 +1,7 @@
 <?php if (sizeof($turnos) > 0): ?>
   <?php foreach ($turnos as $turno): ?>
     <details>
-      <summary id="<?= $turno->getId() ?>">Turno
+      <summary data-id="<?= $turno->getId() ?>">Turno
         <?= $turno->getId() ?>
       </summary>
       <h4>Información del turno</h4>
