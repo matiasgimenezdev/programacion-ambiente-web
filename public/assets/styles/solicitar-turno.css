@@ -45,9 +45,6 @@ select[id='opcion'] {
 	font-size: 1.1rem;
 }
 
-select[id='opcion'] {
-}
-
 input:focus {
 	outline: 2px solid var(--green);
 }
@@ -97,6 +94,11 @@ input[type='date'] {
 	color: var(--grey);
 	margin-left: 0.4rem;
 	display: inline;
+}
+
+p.estudio {
+	box-sizing: border-box;
+	padding: 1rem 0;
 }
 
 .button-container {
@@ -156,7 +158,12 @@ input[type='date'] {
 	text-align: center;
 }
 
+.estudio label {
+	height: 50%;
+}
+
 input[type='file'] {
+	height: 50%;
 	background-color: transparent;
 	padding-left: 0;
 	outline: none;
