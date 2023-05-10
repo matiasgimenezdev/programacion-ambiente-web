@@ -19,26 +19,34 @@ export class DragAndDrop {
 
 	addEvents($area, $container) {
 		$area.addEventListener('dragenter', (event) => {
-			event.stopPropagation();
+			event.preventDefault();
 			$container.classList.add('drop-area');
 		});
 
 		$area.addEventListener('dragover', (event) => {
-			event.stopPropagation();
+			event.preventDefault();
 			$container.classList.add('drop-area');
 		});
 
 		$area.addEventListener('dragleave', (event) => {
-			event.stopPropagation();
+			event.preventDefault();
 			$container.classList.remove('drop-area');
 		});
 
-		$area.addEventListener('dragcancel', () => {
+		$area.addEventListener('dragcancel', (event) => {
+			event.preventDefault();
 			$container.classList.remove('drop-area');
 		});
 
-		$area.addEventListener('drop', () => {
+		$area.addEventListener('drop', (event) => {
+			event.preventDefault();
 			$container.classList.remove('drop-area');
+			const file = event.dataTransfer.files[0];
+			const $input = document.querySelector('input[type=file]');
+			const fileList = $input.files;
+			console.log($input.files);
+			// fileList.append(file);
+			// $input.files = fileList;
 		});
 	}
 }

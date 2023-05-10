@@ -1,6 +1,10 @@
 .drop-area {
-	background-color: #eef1ef;
-	border: 3px solid #d0244a;
+	background-color: #025255;
+	background-image: url('../../../assets/styles/global/images/Drop.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	border: 3px dashed #fcc444;
 	position: relative;
 	z-index: 1000;
 }
@@ -10,8 +14,5 @@
 }
 
 .drop-area label {
-	text-align: center;
-	color: #d0244a;
-	font-size: 1.5rem;
-	font-weight: bold;
+	visibility: hidden;
 }
