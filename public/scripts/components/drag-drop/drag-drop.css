@@ -1,10 +1,22 @@
+p.estudio {
+	margin-top: 0.5rem;
+	padding: 1rem 1rem;
+	background-color: var(--green);
+	border: 1px solid var(--yellow);
+}
+
+.estudio label {
+	text-align: center;
+}
+
 .drop-area {
 	background-color: #025255;
+	background-color: transparent;
 	background-image: url('../../../assets/styles/global/images/Drop.png');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
-	border: 3px dashed #fcc444;
+	border: 4px dashed #fcc444;
 	position: relative;
 	z-index: 1000;
 }

@@ -97,8 +97,11 @@ input[type='date'] {
 }
 
 p.estudio {
+	margin-top: 0.5rem;
 	box-sizing: border-box;
-	padding: 1rem 0;
+	padding: 1rem 1rem;
+	background-color: var(--green);
+	border: 1px solid var(--yellow);
 }
 
 .button-container {
@@ -160,6 +163,8 @@ p.estudio {
 
 .estudio label {
 	height: 50%;
+	text-align: center;
+	font-weight: bold;
 }
 
 input[type='file'] {

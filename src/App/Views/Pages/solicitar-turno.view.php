@@ -116,7 +116,7 @@
 					<input type="time" name="hora-turno" id="hora-turno" required tabindex="12" value="<?= $shiftData["hora"] ?? "" ?>"/>
 				</p>
 				<p class="estudio">
-					<label class="" for="estudio">Estudio clínico</label>
+					<label class="" for="estudio">Estudio clínico - Suelte su archivo aquí</label>
 					<input name="estudio" id="estudio" type="file" accept="image/png, image/jpg, image/jpeg, application/pdf"/>
 				</p>
 			</fieldset>
