@@ -172,6 +172,7 @@ input[type='file'] {
 	background-color: transparent;
 	padding-left: 0;
 	outline: none;
+	opacity: 0;
 }
 
 @media screen and (min-width: 600px) {

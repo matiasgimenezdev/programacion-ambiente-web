@@ -42,13 +42,31 @@ export class DragAndDrop {
 		});
 
 		$area.addEventListener('drop', (event) => {
+			const loadFile = (file) => {
+				const $input = document.querySelector('input[type=file]');
+				const dataTransfer = new DataTransfer();
+				dataTransfer.items.add(file);
+				$input.files = dataTransfer.files;
+				const $label = document.querySelector('label[for="estudio"]');
+				$label.textContent = file.name;
+			};
+
+			const imagePreview = () => {
+				let reader = new FileReader();
+				reader.readAsDataURL(file);
+				reader.onloadend = () => {
+					const img = ElementBuilder.createElement('img', '', {
+						src: reader.result,
+					});
+					document.querySelector('p.estudio').appendChild(img);
+				};
+			};
+
 			event.preventDefault();
 			$container.classList.remove('drop-area');
 			const file = event.dataTransfer.files[0];
-			const $input = document.querySelector('input[type=file]');
-			const dataTransfer = new DataTransfer();
-			dataTransfer.items.add(file);
-			$input.files = dataTransfer.files;
+			loadFile(file);
+			imagePreview(file);
 		});
 	}
 }

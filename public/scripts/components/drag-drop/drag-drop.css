@@ -3,6 +3,7 @@ p.estudio {
 	padding: 1rem 1rem;
 	background-color: var(--green);
 	border: 1px solid var(--yellow);
+	width: 70vw;
 }
 
 .estudio label {
@@ -17,12 +18,12 @@ p.estudio {
 	background-repeat: no-repeat;
 	background-size: contain;
 	border: 4px dashed #fcc444;
-	position: relative;
-	z-index: 1000;
 }
 
-.drop-area input[type='file'] {
+input[type='file'] {
 	visibility: hidden;
+	width: 50%;
+	display: inline;
 }
 
 .drop-area label {
