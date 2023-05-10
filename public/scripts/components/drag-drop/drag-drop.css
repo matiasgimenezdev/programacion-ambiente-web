@@ -1,0 +1,17 @@
+.drop-area {
+	background-color: #eef1ef;
+	border: 3px solid #d0244a;
+	position: relative;
+	z-index: 1000;
+}
+
+.drop-area input[type='file'] {
+	visibility: hidden;
+}
+
+.drop-area label {
+	text-align: center;
+	color: #d0244a;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
