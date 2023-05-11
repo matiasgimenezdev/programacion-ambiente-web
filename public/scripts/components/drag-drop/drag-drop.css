@@ -3,11 +3,13 @@ p.estudio {
 	padding: 1rem 1rem;
 	background-color: #025255;
 	border: 1px solid #fcc444;
+	cursor: pointer;
 }
 
 .estudio label {
 	text-align: center;
 	color: #fcc444;
+	cursor: pointer;
 }
 
 .estudio label span {
@@ -15,6 +17,7 @@ p.estudio {
 	font-weight: bold;
 	display: inline-block;
 	margin-bottom: 0.3rem;
+	cursor: pointer;
 }
 
 p.drop-area {
