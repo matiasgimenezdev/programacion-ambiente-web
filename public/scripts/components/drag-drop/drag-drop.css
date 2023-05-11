@@ -40,3 +40,8 @@ input[type='file'] {
 	height: 120px;
 	margin: auto;
 }
+
+.drop-area .preview,
+.drop-area .no-preview {
+	visibility: hidden;
+}

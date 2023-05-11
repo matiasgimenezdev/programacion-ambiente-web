@@ -75,6 +75,15 @@ export class DragAndDrop {
 	}
 
 	loadPreview(file) {
+		const previewError = () => {
+			const $message = ElementBuilder.createElement(
+				'p',
+				'No se puede mostrar una vista previa del archivo',
+				{ class: 'no-preview' }
+			);
+			this.$container.appendChild($message);
+		};
+
 		this.removePreview();
 		if (file.type.match('image.*')) {
 			let reader = new FileReader();
@@ -84,15 +93,17 @@ export class DragAndDrop {
 					src: reader.result,
 					class: 'preview',
 				});
-				this.$container.appendChild($img);
+
+				$img.onload = () => {
+					this.$container.appendChild($img);
+				};
+
+				$img.onerror = () => {
+					previewError();
+				};
 			};
 		} else {
-			const $message = ElementBuilder.createElement(
-				'p',
-				'No se puede mostrar una vista previa del archivo',
-				{ class: 'no-preview' }
-			);
-			this.$container.appendChild($message);
+			previewError();
 		}
 	}
 
