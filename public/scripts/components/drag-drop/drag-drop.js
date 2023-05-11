@@ -10,14 +10,21 @@ export class DragAndDrop {
 		this.$container = document.querySelector('p.estudio');
 		this.$input = document.querySelector('input[type=file]');
 		this.$label = document.querySelector('label[for="estudio"]');
+		this.$label.innerHTML = `
+			<span>Estudio clínico</span> <br>
+			Suelte su archivo aqui o haga click para buscarlo
+		`;
 
 		this.addDragAndDropEvents(this.$container, this.$container);
 		const $reset = document.querySelector('.reset');
 
 		$reset.addEventListener('click', () => {
 			this.removePreview();
-			this.$label.textContent =
-				'Estudio clínico - Suelte su archivo aquí';
+			this.$label.innerHTML = `
+				<span>Estudio clínico</span> <br>
+				Suelte su archivo aqui o haga click para buscarlo
+			`;
+
 			this.$input.value = '';
 		});
 
@@ -28,6 +35,10 @@ export class DragAndDrop {
 	}
 
 	addDragAndDropEvents($area, $container) {
+		$area.addEventListener('click', (event) => {
+			event.stopPropagation();
+			this.$input.click();
+		});
 		$area.addEventListener('dragenter', (event) => {
 			event.preventDefault();
 			event.stopPropagation();
@@ -111,6 +122,6 @@ export class DragAndDrop {
 		const dataTransfer = new DataTransfer();
 		dataTransfer.items.add(file);
 		this.$input.files = dataTransfer.files;
-		this.$label.textContent = file.name;
+		this.$label.innerHTML = `<span>${file.name}</span>`;
 	}
 }
