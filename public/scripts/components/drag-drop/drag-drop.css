@@ -3,29 +3,40 @@ p.estudio {
 	padding: 1rem 1rem;
 	background-color: var(--green);
 	border: 1px solid var(--yellow);
-	width: 70vw;
 }
 
 .estudio label {
 	text-align: center;
 }
 
-.drop-area {
+p.drop-area {
 	background-color: #025255;
-	background-color: transparent;
 	background-image: url('../../../assets/styles/global/images/Drop.png');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
-	border: 4px dashed #fcc444;
+	border: 2px dashed #fcc444;
 }
 
 input[type='file'] {
 	visibility: hidden;
-	width: 50%;
+	width: 1px;
 	display: inline;
 }
 
 .drop-area label {
 	visibility: hidden;
+}
+
+.no-preview {
+	width: 100%;
+	text-align: center;
+	color: #fcc444;
+}
+
+.preview {
+	margin-top: 0.3rem;
+	width: 95%;
+	height: 120px;
+	margin: auto;
 }

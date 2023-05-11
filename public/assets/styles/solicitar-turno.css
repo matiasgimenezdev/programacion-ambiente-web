@@ -102,6 +102,7 @@ p.estudio {
 	padding: 1rem 1rem;
 	background-color: var(--green);
 	border: 1px solid var(--yellow);
+	width: 90%;
 }
 
 .button-container {
@@ -164,7 +165,7 @@ p.estudio {
 .estudio label {
 	height: 50%;
 	text-align: center;
-	font-weight: bold;
+	font-size: 0.9rem;
 }
 
 input[type='file'] {

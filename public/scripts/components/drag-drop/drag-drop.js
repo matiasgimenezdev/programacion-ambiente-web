@@ -7,16 +7,27 @@ export class DragAndDrop {
 		});
 		document.head.appendChild($link);
 
-		const $container = document.querySelector('p.estudio');
-		this.addEvents($container, $container);
+		this.$container = document.querySelector('p.estudio');
+		this.$input = document.querySelector('input[type=file]');
+		this.$label = document.querySelector('label[for="estudio"]');
 
-		const $children = $container.childNodes;
+		this.addDragAndDropEvents(this.$container, this.$container);
+		const $reset = document.querySelector('.reset');
+
+		$reset.addEventListener('click', () => {
+			this.removePreview();
+			this.$label.textContent =
+				'Estudio clínico - Suelte su archivo aquí';
+			this.$input.value = '';
+		});
+
+		const $children = this.$container.childNodes;
 		$children.forEach(($element) => {
-			this.addEvents($element, $container);
+			this.addDragAndDropEvents($element, this.$container);
 		});
 	}
 
-	addEvents($area, $container) {
+	addDragAndDropEvents($area, $container) {
 		$area.addEventListener('dragenter', (event) => {
 			event.preventDefault();
 			event.stopPropagation();
@@ -42,31 +53,53 @@ export class DragAndDrop {
 		});
 
 		$area.addEventListener('drop', (event) => {
-			const loadFile = (file) => {
-				const $input = document.querySelector('input[type=file]');
-				const dataTransfer = new DataTransfer();
-				dataTransfer.items.add(file);
-				$input.files = dataTransfer.files;
-				const $label = document.querySelector('label[for="estudio"]');
-				$label.textContent = file.name;
-			};
-
-			const imagePreview = () => {
-				let reader = new FileReader();
-				reader.readAsDataURL(file);
-				reader.onloadend = () => {
-					const img = ElementBuilder.createElement('img', '', {
-						src: reader.result,
-					});
-					document.querySelector('p.estudio').appendChild(img);
-				};
-			};
-
 			event.preventDefault();
+			event.stopPropagation();
 			$container.classList.remove('drop-area');
 			const file = event.dataTransfer.files[0];
-			loadFile(file);
-			imagePreview(file);
+			this.loadFile(file);
+			this.loadPreview(file);
 		});
+	}
+
+	removePreview() {
+		const $oldPreviewImage = document.querySelector('p.estudio img');
+		if ($oldPreviewImage) {
+			this.$container.removeChild($oldPreviewImage);
+		} else {
+			const $oldPreviewMessage = document.querySelector('p.estudio p');
+			if ($oldPreviewMessage) {
+				this.$container.removeChild($oldPreviewMessage);
+			}
+		}
+	}
+
+	loadPreview(file) {
+		this.removePreview();
+		if (file.type.match('image.*')) {
+			let reader = new FileReader();
+			reader.readAsDataURL(file);
+			reader.onloadend = () => {
+				const $img = ElementBuilder.createElement('img', '', {
+					src: reader.result,
+					class: 'preview',
+				});
+				this.$container.appendChild($img);
+			};
+		} else {
+			const $message = ElementBuilder.createElement(
+				'p',
+				'No se puede mostrar una vista previa del archivo',
+				{ class: 'no-preview' }
+			);
+			this.$container.appendChild($message);
+		}
+	}
+
+	loadFile(file) {
+		const dataTransfer = new DataTransfer();
+		dataTransfer.items.add(file);
+		this.$input.files = dataTransfer.files;
+		this.$label.textContent = file.name;
 	}
 }
