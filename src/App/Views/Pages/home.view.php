@@ -11,7 +11,7 @@
 		<main>
 			<article class="carousel">
 				<ul class="carousel-list">
-					<li class="carousel-item active">
+					<li class="carousel-item">
 						<img
 							src="/assets/images/inicio/carousel/clinica.webp"
 							alt="Vista del frente de la clínica"

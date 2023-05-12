@@ -9,10 +9,10 @@ export class Carousel {
 
 		this.$imagesContainer = $imagesContainer;
 		this.$imagesContainer.classList.add('images-container');
+		this.$imagesItems = document.querySelectorAll('.images-container li');
 		this.$images = document.querySelectorAll('.images-container img');
 
 		const $loader = this.addLoader();
-
 		for (const $image of this.$images) {
 			$image.addEventListener('load', () => {
 				const loadCount = this.checkAllImagesLoaded();
@@ -24,10 +24,10 @@ export class Carousel {
 	}
 
 	addLoader() {
-		const $loaderContainer = ElementBuilder.createElement('span', '', {
+		const $loaderContainer = ElementBuilder.createElement('div', '', {
 			class: 'loader-container',
 		});
-		const $loader = ElementBuilder.createElement('span', '', {
+		const $loader = ElementBuilder.createElement('div', '', {
 			class: 'loader',
 		});
 		$loaderContainer.appendChild($loader);
@@ -54,15 +54,116 @@ export class Carousel {
 		}
 
 		if (allImagesLoaded) {
+			this.$imagesItems[0].classList.add('active');
 			this.removeLoader();
 			this.animateCarousel();
-			this.$images[0].classList.add('active');
 		}
 		return loadedCount;
 	}
 
+	activeImage() {
+		let position = -1;
+		this.$imagesItems.forEach(($item, index) => {
+			if ($item.classList.contains('active')) {
+				position = index;
+			}
+		});
+		return position;
+	}
+
 	animateCarousel() {
-		// Aqui agregar la posibilidad de interactuar con el Carousel.
-		// Este metodo solo se ejecuta cuando todas las imagenes estan cargadas.
+		const addButtons = ($leftButton, $rightButton) => {
+			this.$imagesContainer.appendChild($rightButton);
+			this.$imagesContainer.appendChild($leftButton);
+
+			if (this.currentImage === 0) {
+				$leftButton.style.display = 'none';
+			}
+
+			if (this.currentImage === this.$images.length - 1) {
+				$rightButton.style.display = 'none';
+			}
+			$leftButton.addEventListener('click', previousImageChange);
+			$rightButton.addEventListener('click', nextImageChange);
+		};
+
+		const nextImageChange = () => {
+			if (this.currentImage < this.$images.length - 1) {
+				this.$imagesItems[this.currentImage].classList.remove('active');
+				document
+					.getElementById(this.currentImage)
+					.classList.remove('active-thumb');
+				this.currentImage++;
+				this.$imagesItems[this.currentImage].classList.add('active');
+				document
+					.getElementById(this.currentImage)
+					.classList.add('active-thumb');
+				if (this.currentImage === this.$images.length - 1) {
+					$rightButton.style.display = 'none';
+				} else {
+					$leftButton.style.display = 'block';
+				}
+			}
+		};
+
+		const previousImageChange = () => {
+			if (this.currentImage > 0) {
+				this.$imagesItems[this.currentImage].classList.remove('active');
+				document
+					.getElementById(this.currentImage)
+					.classList.remove('active-thumb');
+				this.currentImage--;
+				this.$imagesItems[this.currentImage].classList.add('active');
+				document
+					.getElementById(this.currentImage)
+					.classList.add('active-thumb');
+				if (this.currentImage === 0) {
+					$leftButton.style.display = 'none';
+				} else {
+					$rightButton.style.display = 'block';
+				}
+			}
+		};
+
+		const addThumbs = () => {
+			const $thumbsContainer = ElementBuilder.createElement('div', '', {
+				class: 'thumbs-container',
+			});
+
+			this.$images.forEach(($image, index) => {
+				const $thumb = ElementBuilder.createElement('button', '', {
+					class: 'thumb',
+					id: index,
+				});
+
+				$thumbsContainer.appendChild($thumb);
+			});
+
+			this.$imagesContainer.appendChild($thumbsContainer);
+			document
+				.getElementById(this.currentImage)
+				.classList.add('active-thumb');
+		};
+
+		const $leftButton = ElementBuilder.createElement('button', '', {
+			class: 'left carousel-button',
+		});
+		const $rightButton = ElementBuilder.createElement('button', '', {
+			class: 'right carousel-button',
+		});
+
+		this.currentImage = this.activeImage();
+		addThumbs();
+		addButtons($leftButton, $rightButton);
+
+		document.addEventListener('keydown', (event) => {
+			if (event.code === 'ArrowLeft') {
+				previousImageChange();
+			}
+
+			if (event.code === 'ArrowRight') {
+				nextImageChange();
+			}
+		});
 	}
 }

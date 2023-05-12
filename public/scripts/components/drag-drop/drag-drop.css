@@ -22,7 +22,7 @@ p.estudio {
 
 p.drop-area {
 	background-color: #025255;
-	background-image: url('../../../assets/styles/global/images/Drop.png');
+	background-image: url('assets/Drop.png');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
