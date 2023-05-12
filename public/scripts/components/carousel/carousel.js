@@ -16,9 +16,10 @@ export class Carousel {
 		for (const $image of this.$images) {
 			$image.addEventListener('load', () => {
 				const loadCount = this.checkAllImagesLoaded();
+				console.log((100 / this.$images.length) * loadCount);
 				$loader.style.width = `${
 					(100 / this.$images.length) * loadCount
-				}%;`;
+				}%`;
 			});
 		}
 	}
