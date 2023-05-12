@@ -1,3 +1,10 @@
+:root {
+	--grey: #3b4a5a;
+	--yellow: #fcc444;
+	--light-grey: #eef1ef;
+	--blue: #009dda;
+}
+
 .images-container {
 	position: relative;
 }
@@ -17,7 +24,7 @@
 	position: absolute;
 	width: 0%;
 	height: 100%;
-	background-color: #009dda;
+	background-color: var(--blue);
 }
 
 .active {
@@ -33,7 +40,7 @@
 	outline: none;
 	background-color: transparent;
 	background-image: url('assets/arrow.svg');
-	color: #fcc444;
+	color: var(--yellow);
 	background-position: center;
 	background-size: cover;
 }
@@ -61,16 +68,21 @@
 }
 
 .thumb {
-	background-color: #eef1ef;
+	background-color: var(--light-grey);
 	height: 15px;
 	width: 10px;
 	border-radius: 100%;
-	border: 1px solid black;
+	border: 1px solid var(--grey);
 	outline: none;
 }
 
+.thumb:hover {
+	background-color: var(--yellow);
+	opacity: 0.5;
+}
+
 .active-thumb {
-	background-color: #fcc444;
+	background-color: var(--yellow);
 }
 
 @media screen and (min-width: 1100px) {
