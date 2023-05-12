@@ -34,8 +34,8 @@
 .carousel-button {
 	position: absolute;
 	top: calc(50% - 30px);
-	height: 30px;
-	width: 30px;
+	height: 35px;
+	width: 35px;
 	border: none;
 	outline: none;
 	background-color: transparent;
@@ -59,8 +59,8 @@
 
 .thumbs-container {
 	position: absolute;
-	bottom: 5px;
-	left: calc(50% - 100px);
+	bottom: 10px;
+	left: calc(40% - 15px);
 	width: 100px;
 	display: flex;
 	align-items: center;
@@ -76,6 +76,7 @@
 	border: 1px solid var(--grey);
 	outline: none;
 	cursor: pointer;
+	opacity: 1;
 }
 
 .thumb:hover {
@@ -101,5 +102,9 @@
 	.right:hover {
 		right: 5px;
 		transition: right 0.25s ease-in-out;
+	}
+
+	.thumbs-container {
+		left: calc(50% - 100px);
 	}
 }
