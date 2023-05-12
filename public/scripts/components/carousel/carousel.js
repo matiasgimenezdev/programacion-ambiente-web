@@ -37,7 +37,7 @@ export class Carousel {
 
 	removeLoader() {
 		const $loaderContainer = document.querySelector('.loader-container');
-		$loaderContainer.style.display = 'none';
+		this.$imagesContainer.removeChild($loaderContainer);
 	}
 
 	checkAllImagesLoaded() {
@@ -61,36 +61,47 @@ export class Carousel {
 		return loadedCount;
 	}
 
+	activeImage() {
+		let position = -1;
+		this.$imagesItems.forEach(($item, index) => {
+			if ($item.classList.contains('active')) {
+				position = index;
+			}
+		});
+		return position;
+	}
+
 	animateCarousel() {
-		const activeImage = () => {
-			let position = -1;
-			this.$imagesItems.forEach(($item, index) => {
-				if ($item.classList.contains('active')) {
-					position = index;
-				}
-			});
-			return position;
+		const addButtons = ($leftButton, $rightButton) => {
+			this.$imagesContainer.appendChild($rightButton);
+			this.$imagesContainer.appendChild($leftButton);
+
+			this.currentImage = this.activeImage();
+			if (this.currentImage === 0) {
+				$leftButton.style.display = 'none';
+			}
+
+			if (this.currentImage === this.$images.length - 1) {
+				$rightButton.style.display = 'none';
+			}
+			$leftButton.addEventListener('click', previousImageChange);
+			$rightButton.addEventListener('click', nextImageChange);
 		};
 
-		const $leftButton = ElementBuilder.createElement('button', '', {
-			class: 'left carousel-button',
-		});
-		const $rightButton = ElementBuilder.createElement('button', '', {
-			class: 'right carousel-button',
-		});
-		this.$imagesContainer.appendChild($rightButton);
-		this.$imagesContainer.appendChild($leftButton);
+		const nextImageChange = () => {
+			if (this.currentImage < this.$images.length - 1) {
+				this.$imagesItems[this.currentImage].classList.remove('active');
+				this.currentImage++;
+				this.$imagesItems[this.currentImage].classList.add('active');
+				if (this.currentImage === this.$images.length - 1) {
+					$rightButton.style.display = 'none';
+				} else {
+					$leftButton.style.display = 'block';
+				}
+			}
+		};
 
-		this.currentImage = activeImage();
-		if (this.currentImage === 0) {
-			$leftButton.style.display = 'none';
-		}
-
-		if (this.currentImage === this.$images.length - 1) {
-			$rightButton.style.display = 'none';
-		}
-
-		$leftButton.addEventListener('click', () => {
+		const previousImageChange = () => {
 			if (this.currentImage > 0) {
 				this.$imagesItems[this.currentImage].classList.remove('active');
 				this.currentImage--;
@@ -101,18 +112,24 @@ export class Carousel {
 					$rightButton.style.display = 'block';
 				}
 			}
+		};
+
+		const $leftButton = ElementBuilder.createElement('button', '', {
+			class: 'left carousel-button',
+		});
+		const $rightButton = ElementBuilder.createElement('button', '', {
+			class: 'right carousel-button',
 		});
 
-		$rightButton.addEventListener('click', () => {
-			if (this.currentImage < this.$images.length - 1) {
-				this.$imagesItems[this.currentImage].classList.remove('active');
-				this.currentImage++;
-				this.$imagesItems[this.currentImage].classList.add('active');
-				if (this.currentImage === this.$images.length - 1) {
-					$rightButton.style.display = 'none';
-				} else {
-					$leftButton.style.display = 'block';
-				}
+		addButtons($leftButton, $rightButton);
+
+		document.addEventListener('keydown', (event) => {
+			if (event.code === 'ArrowLeft') {
+				previousImageChange();
+			}
+
+			if (event.code === 'ArrowRight') {
+				nextImageChange();
 			}
 		});
 	}
