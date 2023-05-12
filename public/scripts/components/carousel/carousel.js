@@ -10,7 +10,7 @@ export class Carousel {
 		this.$imagesContainer = $imagesContainer;
 		this.$imagesContainer.classList.add('images-container');
 		this.$imagesItems = document.querySelectorAll('.images-container li');
-		this.$images = document.querySelectorAll('.images-container img');
+		this.$images = document.querySelectorAll('.images-container li img');
 
 		const $loader = this.addLoader();
 		for (const $image of this.$images) {
@@ -37,7 +37,7 @@ export class Carousel {
 
 	removeLoader() {
 		const $loaderContainer = document.querySelector('.loader-container');
-		this.$imagesContainer.removeChild($loaderContainer);
+		$loaderContainer.style.display = 'none';
 	}
 
 	checkAllImagesLoaded() {
@@ -83,44 +83,48 @@ export class Carousel {
 			if (this.currentImage === this.$images.length - 1) {
 				$rightButton.style.display = 'none';
 			}
-			$leftButton.addEventListener('click', previousImageChange);
-			$rightButton.addEventListener('click', nextImageChange);
+			$leftButton.addEventListener('click', () => previousImageChange());
+			$rightButton.addEventListener('click', () => nextImageChange());
 		};
 
-		const nextImageChange = () => {
+		const nextImageChange = (count = 1) => {
 			if (this.currentImage < this.$images.length - 1) {
 				this.$imagesItems[this.currentImage].classList.remove('active');
 				document
 					.getElementById(this.currentImage)
 					.classList.remove('active-thumb');
-				this.currentImage++;
+				this.currentImage = this.currentImage + count;
+
 				this.$imagesItems[this.currentImage].classList.add('active');
 				document
 					.getElementById(this.currentImage)
 					.classList.add('active-thumb');
+				$leftButton.style.display = 'block';
+
 				if (this.currentImage === this.$images.length - 1) {
 					$rightButton.style.display = 'none';
 				} else {
-					$leftButton.style.display = 'block';
+					$rightButton.style.display = 'block';
 				}
 			}
 		};
 
-		const previousImageChange = () => {
+		const previousImageChange = (count = 1) => {
 			if (this.currentImage > 0) {
 				this.$imagesItems[this.currentImage].classList.remove('active');
 				document
 					.getElementById(this.currentImage)
 					.classList.remove('active-thumb');
-				this.currentImage--;
+				this.currentImage = this.currentImage - count;
 				this.$imagesItems[this.currentImage].classList.add('active');
 				document
 					.getElementById(this.currentImage)
 					.classList.add('active-thumb');
+				$rightButton.style.display = 'block';
 				if (this.currentImage === 0) {
 					$leftButton.style.display = 'none';
 				} else {
-					$rightButton.style.display = 'block';
+					$leftButton.style.display = 'block';
 				}
 			}
 		};
@@ -134,6 +138,15 @@ export class Carousel {
 				const $thumb = ElementBuilder.createElement('button', '', {
 					class: 'thumb',
 					id: index,
+				});
+
+				$thumb.addEventListener('click', (event) => {
+					const id = event.target.getAttribute('id');
+					if (this.currentImage <= id) {
+						nextImageChange(id - this.currentImage);
+					} else if (this.currentImage > id) {
+						previousImageChange(this.currentImage - id);
+					}
 				});
 
 				$thumbsContainer.appendChild($thumb);

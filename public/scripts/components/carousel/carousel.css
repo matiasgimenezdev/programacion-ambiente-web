@@ -43,6 +43,7 @@
 	color: var(--yellow);
 	background-position: center;
 	background-size: cover;
+	cursor: pointer;
 }
 
 .left {
@@ -58,7 +59,7 @@
 
 .thumbs-container {
 	position: absolute;
-	bottom: 5%;
+	bottom: 5px;
 	left: calc(50% - 100px);
 	width: 100px;
 	display: flex;
@@ -74,6 +75,7 @@
 	border-radius: 100%;
 	border: 1px solid var(--grey);
 	outline: none;
+	cursor: pointer;
 }
 
 .thumb:hover {

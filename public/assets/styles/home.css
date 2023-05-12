@@ -69,7 +69,7 @@
 	.carousel::after {
 		content: 'El cuidado que necesitas de los médicos en los que confías';
 		position: absolute;
-		bottom: 30px;
+		bottom: 45px;
 		left: 30px;
 		color: var(--light-grey);
 		font-size: 2.5rem;
