@@ -71,11 +71,11 @@
 				<p>
 					<label for="especialidad">Especialidad</label>
 					<!--<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" autocomplete="off" value="<?= $shiftData["especialidad"] ?? "" ?>"/>-->
-					<select id="opcion" name="especialidades">
+					<select class="especialidad" id="opcion" name="especialidades">
 					<?php if (sizeof($especialidades) > 0): ?>
 							<?php $i = 1?>
 							<?php foreach ($especialidades as $especialidad): ?>
-								<option value="<?php $i?>"><?= $especialidad->getName() ?></option>
+								<option value="<?= $i?>"><?= $especialidad->getName() ?></option>
 								<?php $i++ ?>
 							<?php endforeach; ?>
 						<?php endif; ?>
@@ -84,11 +84,11 @@
 				<p>
 					<label for="medico">Médico</label>
 					<!--<input type="text" name="medico" id="medico" required tabindex="9" maxlength="30" autocomplete="off" value="<?= $shiftData["profesional"] ?? "" ?>"/>-->
-					<select id="opcion" name="profesionales">
+					<select class="medico" id="opcion" name="profesionales">
 						<?php if (sizeof($profesionales) > 0): ?>
 							<?php $i = 1?>
 							<?php foreach ($profesionales as $profesional): ?>
-								<option value="<?php $i?>"><?= $profesional->getName() ?></option>
+								<option value="<?= $i?>"><?= $profesional->getName() ?></option>
 								<?php $i++ ?>
 							<?php endforeach; ?>
 						<?php endif; ?>
@@ -101,7 +101,7 @@
 						<?php if (sizeof($obrasSociales) > 0): ?>
 							<?php $i = 1?>
 							<?php foreach ($obrasSociales as $obraSocial): ?>
-								<option value="<?php $i?>"><?= $obraSocial->getName() ?></option>
+								<option value="<?= $i?>"><?= $obraSocial->getName() ?></option>
 								<?php $i++ ?>
 							<?php endforeach; ?>
 						<?php endif; ?>
