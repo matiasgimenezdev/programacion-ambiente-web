@@ -27,6 +27,10 @@
 	background-color: var(--blue);
 }
 
+.blur {
+	filter: blur(50px);
+}
+
 .active {
 	display: initial;
 }

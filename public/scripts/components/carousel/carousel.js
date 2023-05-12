@@ -49,12 +49,14 @@ export class Carousel {
 				allImagesLoaded = false;
 				break;
 			} else {
+				this.$imagesItems[0].classList.add('active');
+				this.$images[0].classList.add('blur');
 				loadedCount++;
 			}
 		}
 
 		if (allImagesLoaded) {
-			this.$imagesItems[0].classList.add('active');
+			this.$images[0].classList.remove('blur');
 			this.removeLoader();
 			this.animateCarousel();
 		}
