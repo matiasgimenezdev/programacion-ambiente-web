@@ -81,15 +81,13 @@
 						<?php endif; ?>
 					</select>
 				</p>
-				<p>
+				<p class="medicos">
 					<label for="medico">Médico</label>
 					<!--<input type="text" name="medico" id="medico" required tabindex="9" maxlength="30" autocomplete="off" value="<?= $shiftData["profesional"] ?? "" ?>"/>-->
 					<select class="medico" id="opcion" name="profesionales">
 						<?php if (sizeof($profesionales) > 0): ?>
-							<?php $i = 1?>
 							<?php foreach ($profesionales as $profesional): ?>
-								<option value="<?= $i?>"><?= $profesional->getName() ?></option>
-								<?php $i++ ?>
+								<option value="<?= $profesional->getId()?>"><?= $profesional->getName() . " " . $profesional->getLastName()?></option>
 							<?php endforeach; ?>
 						<?php endif; ?>
 					</select>

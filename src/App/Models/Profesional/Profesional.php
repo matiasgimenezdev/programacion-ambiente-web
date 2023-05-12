@@ -6,6 +6,7 @@ class Profesional {
   private $fields = [
     "id" => null,
     "name" => null,
+    "lastname" => null,
     "especialidad" => null,
     "description" => null,
   ];
@@ -20,6 +21,11 @@ class Profesional {
     $this->fields["name"] = $name;
   }
 
+  public function setLastname($lastname)
+  {
+    $this->fields["lastname"] = $lastname;
+  }
+
   public function setEspecialidad($especialidad)
   {
     $this->fields["especialidad"] = $especialidad;
@@ -30,9 +36,19 @@ class Profesional {
     $this->fields["description"] = $description;
   }
 
+  public function getId()
+  {
+    return $this->fields["id"];
+  }
+
   public function getName()
   {
     return $this->fields["name"];
+  }
+
+  public function getLastname()
+  {
+    return $this->fields["lastname"];
   }
 
   public function getEspecialidad()
