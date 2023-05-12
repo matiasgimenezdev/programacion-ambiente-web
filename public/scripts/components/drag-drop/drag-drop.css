@@ -14,8 +14,8 @@ p.estudio {
 
 .estudio label span {
 	color: white;
-	font-weight: bold;
 	display: inline-block;
+	font-weight: 0.8rem;
 	margin-bottom: 0.3rem;
 	cursor: pointer;
 }

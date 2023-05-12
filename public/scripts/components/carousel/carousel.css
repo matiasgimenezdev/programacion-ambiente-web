@@ -1,0 +1,30 @@
+.images-container {
+	position: relative;
+}
+
+.loader-container {
+	top: 50%;
+	left: 38%;
+	height: 15px;
+	width: 20%;
+	position: absolute;
+	display: block;
+	background-color: white;
+}
+
+.loader {
+	display: block;
+	position: absolute;
+	z-index: 1000;
+	width: 0%;
+	height: 100%;
+	background-color: yellowgreen;
+}
+
+.active {
+	display: initial;
+}
+
+/* .active {
+	opacity: 1;
+} */

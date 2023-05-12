@@ -13,9 +13,7 @@ export class DragAndDrop {
 		this.$label.innerHTML = `
 			<span>Estudio clínico</span> <br>
 			Suelte su archivo aqui o haga click para buscarlo
-		`;
-
-		this.addDragAndDropEvents(this.$container, this.$container);
+			`;
 		const $reset = document.querySelector('.reset');
 
 		$reset.addEventListener('click', () => {
@@ -27,6 +25,18 @@ export class DragAndDrop {
 
 			this.$input.value = '';
 		});
+
+		this.$input.addEventListener('change', (event) => {
+			if (this.$input.value) {
+				const file = event.target.files[0];
+				this.loadPreview(file);
+				this.loadFile(file);
+			} else {
+				this.removePreview();
+			}
+		});
+
+		this.addDragAndDropEvents(this.$container, this.$container);
 
 		const $children = this.$container.childNodes;
 		$children.forEach(($element) => {
