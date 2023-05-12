@@ -12,6 +12,9 @@ export class Carousel {
 		this.$imagesItems = document.querySelectorAll('.images-container li');
 		this.$images = document.querySelectorAll('.images-container li img');
 
+		this.$imagesItems[0].classList.add('active');
+		this.$images[0].classList.add('blur');
+
 		const $loader = this.addLoader();
 		for (const $image of this.$images) {
 			$image.addEventListener('load', () => {
@@ -50,8 +53,6 @@ export class Carousel {
 				allImagesLoaded = false;
 				break;
 			} else {
-				this.$imagesItems[0].classList.add('active');
-				this.$images[0].classList.add('blur');
 				loadedCount++;
 			}
 		}
