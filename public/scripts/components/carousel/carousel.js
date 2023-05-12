@@ -9,10 +9,10 @@ export class Carousel {
 
 		this.$imagesContainer = $imagesContainer;
 		this.$imagesContainer.classList.add('images-container');
+		this.$imagesItems = document.querySelectorAll('.images-container li');
 		this.$images = document.querySelectorAll('.images-container img');
 
 		const $loader = this.addLoader();
-
 		for (const $image of this.$images) {
 			$image.addEventListener('load', () => {
 				const loadCount = this.checkAllImagesLoaded();
@@ -24,10 +24,10 @@ export class Carousel {
 	}
 
 	addLoader() {
-		const $loaderContainer = ElementBuilder.createElement('span', '', {
+		const $loaderContainer = ElementBuilder.createElement('div', '', {
 			class: 'loader-container',
 		});
-		const $loader = ElementBuilder.createElement('span', '', {
+		const $loader = ElementBuilder.createElement('div', '', {
 			class: 'loader',
 		});
 		$loaderContainer.appendChild($loader);
@@ -37,7 +37,7 @@ export class Carousel {
 
 	removeLoader() {
 		const $loaderContainer = document.querySelector('.loader-container');
-		this.$imagesContainer.removeChild($loaderContainer);
+		$loaderContainer.style.display = 'none';
 	}
 
 	checkAllImagesLoaded() {
@@ -54,15 +54,66 @@ export class Carousel {
 		}
 
 		if (allImagesLoaded) {
+			this.$imagesItems[0].classList.add('active');
 			this.removeLoader();
 			this.animateCarousel();
-			this.$images[0].classList.add('active');
 		}
 		return loadedCount;
 	}
 
 	animateCarousel() {
-		// Aqui agregar la posibilidad de interactuar con el Carousel.
-		// Este metodo solo se ejecuta cuando todas las imagenes estan cargadas.
+		const activeImage = () => {
+			let position = -1;
+			this.$imagesItems.forEach(($item, index) => {
+				if ($item.classList.contains('active')) {
+					position = index;
+				}
+			});
+			return position;
+		};
+
+		const $leftButton = ElementBuilder.createElement('button', '', {
+			class: 'left carousel-button',
+		});
+		const $rightButton = ElementBuilder.createElement('button', '', {
+			class: 'right carousel-button',
+		});
+		this.$imagesContainer.appendChild($rightButton);
+		this.$imagesContainer.appendChild($leftButton);
+
+		this.currentImage = activeImage();
+		if (this.currentImage === 0) {
+			$leftButton.style.display = 'none';
+		}
+
+		if (this.currentImage === this.$images.length - 1) {
+			$rightButton.style.display = 'none';
+		}
+
+		$leftButton.addEventListener('click', () => {
+			if (this.currentImage > 0) {
+				this.$imagesItems[this.currentImage].classList.remove('active');
+				this.currentImage--;
+				this.$imagesItems[this.currentImage].classList.add('active');
+				if (this.currentImage === 0) {
+					$leftButton.style.display = 'none';
+				} else {
+					$rightButton.style.display = 'block';
+				}
+			}
+		});
+
+		$rightButton.addEventListener('click', () => {
+			if (this.currentImage < this.$images.length - 1) {
+				this.$imagesItems[this.currentImage].classList.remove('active');
+				this.currentImage++;
+				this.$imagesItems[this.currentImage].classList.add('active');
+				if (this.currentImage === this.$images.length - 1) {
+					$rightButton.style.display = 'none';
+				} else {
+					$leftButton.style.display = 'block';
+				}
+			}
+		});
 	}
 }

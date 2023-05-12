@@ -3,28 +3,65 @@
 }
 
 .loader-container {
+	border: none;
+	outline: none;
 	top: 50%;
 	left: 38%;
 	height: 15px;
 	width: 20%;
 	position: absolute;
-	display: block;
 	background-color: white;
 }
 
 .loader {
-	display: block;
 	position: absolute;
-	z-index: 1000;
 	width: 0%;
 	height: 100%;
-	background-color: yellowgreen;
+	background-color: #009dda;
 }
 
 .active {
 	display: initial;
 }
 
-/* .active {
-	opacity: 1;
-} */
+.carousel-button {
+	position: absolute;
+	top: calc(50% - 30px);
+	height: 30px;
+	width: 30px;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	background-image: url('assets/arrow.svg');
+	color: #fcc444;
+	background-position: center;
+	background-size: cover;
+}
+
+.left {
+	left: 15px;
+	transition: left 0.2s ease-in-out;
+}
+
+.right {
+	right: 15px;
+	transition: right 0.2s ease-in-out;
+	transform: rotate(180deg);
+}
+
+@media screen and (min-width: 1100px) {
+	.carousel-button {
+		height: 45px;
+		width: 45px;
+	}
+
+	.left:hover {
+		left: 5px;
+		transition: left 0.25s ease-in-out;
+	}
+
+	.right:hover {
+		right: 5px;
+		transition: right 0.25s ease-in-out;
+	}
+}
