@@ -181,5 +181,26 @@ export class Carousel {
 				nextImageChange();
 			}
 		});
+
+		// document.addEventListener('touchstart', (event) => {
+		// 	if (event.target === this.$images[this.currentImage]) {
+		// 		this.swipeX = 0;
+		// 	}
+		// });
+
+		// document.addEventListener('touchend', (event) => {
+		// 	if (event.target === this.$images[this.currentImage]) {
+		// 		if (this.swipeX) {
+		// 			const swipeX = event.changedTouches[0].clientX;
+		// 			const xDiff = this.swipeX - swipeX;
+
+		// 			if (xDiff > 0) {
+		// 				this.nextImageChange();
+		// 			} else if (xDiff < 0) {
+		// 				this.previousImageChange();
+		// 			}
+		// 		}
+		// 	}
+		// });
 	}
 }
