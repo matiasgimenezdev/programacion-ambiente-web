@@ -53,18 +53,29 @@ export class TurnosWidget {
 
   setHoras($tabla, $medico) {
     let horaInicio = $medico.horarioInicio.horas;
+    let minutoInicio = $medico.horarioInicio.minutos;
     let horaFin = $medico.horarioFinalizacion.horas;
-    let hora = horaInicio;
-    while (hora <= horaFin) 
+    let minutoFin = $medico.horarioFinalizacion.minutos;
+    let duracionTurno = $medico.duracionTurno;
+    
+    let timeIni = new Date();
+    timeIni.setHours(horaInicio, minutoInicio);
+
+    let timeEnd = new Date();
+    timeEnd.setHours(horaFin, minutoFin);
+
+    while (timeIni <= timeEnd) 
     {
       let fila = $tabla.insertRow();
       let i = 0;
       while (i < 7) {
           let celda = fila.insertCell();
-          celda.innerText = hora;
+          let botonHora = document.createElement('button');
+          botonHora.innerText = timeIni.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });;
+          celda.appendChild(botonHora);
           i++;
       }
-      hora++;
+      timeIni.setMinutes(timeIni.getMinutes() + duracionTurno);
     }
   }
 
