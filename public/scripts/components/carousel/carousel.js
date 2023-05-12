@@ -76,7 +76,6 @@ export class Carousel {
 			this.$imagesContainer.appendChild($rightButton);
 			this.$imagesContainer.appendChild($leftButton);
 
-			this.currentImage = this.activeImage();
 			if (this.currentImage === 0) {
 				$leftButton.style.display = 'none';
 			}
@@ -91,8 +90,14 @@ export class Carousel {
 		const nextImageChange = () => {
 			if (this.currentImage < this.$images.length - 1) {
 				this.$imagesItems[this.currentImage].classList.remove('active');
+				document
+					.getElementById(this.currentImage)
+					.classList.remove('active-thumb');
 				this.currentImage++;
 				this.$imagesItems[this.currentImage].classList.add('active');
+				document
+					.getElementById(this.currentImage)
+					.classList.add('active-thumb');
 				if (this.currentImage === this.$images.length - 1) {
 					$rightButton.style.display = 'none';
 				} else {
@@ -104,14 +109,40 @@ export class Carousel {
 		const previousImageChange = () => {
 			if (this.currentImage > 0) {
 				this.$imagesItems[this.currentImage].classList.remove('active');
+				document
+					.getElementById(this.currentImage)
+					.classList.remove('active-thumb');
 				this.currentImage--;
 				this.$imagesItems[this.currentImage].classList.add('active');
+				document
+					.getElementById(this.currentImage)
+					.classList.add('active-thumb');
 				if (this.currentImage === 0) {
 					$leftButton.style.display = 'none';
 				} else {
 					$rightButton.style.display = 'block';
 				}
 			}
+		};
+
+		const addThumbs = () => {
+			const $thumbsContainer = ElementBuilder.createElement('div', '', {
+				class: 'thumbs-container',
+			});
+
+			this.$images.forEach(($image, index) => {
+				const $thumb = ElementBuilder.createElement('button', '', {
+					class: 'thumb',
+					id: index,
+				});
+
+				$thumbsContainer.appendChild($thumb);
+			});
+
+			this.$imagesContainer.appendChild($thumbsContainer);
+			document
+				.getElementById(this.currentImage)
+				.classList.add('active-thumb');
 		};
 
 		const $leftButton = ElementBuilder.createElement('button', '', {
@@ -121,6 +152,8 @@ export class Carousel {
 			class: 'right carousel-button',
 		});
 
+		this.currentImage = this.activeImage();
+		addThumbs();
 		addButtons($leftButton, $rightButton);
 
 		document.addEventListener('keydown', (event) => {
