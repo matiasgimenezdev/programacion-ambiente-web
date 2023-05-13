@@ -12,18 +12,29 @@ export class Carousel {
 		this.$imagesItems = document.querySelectorAll('.images-container li');
 		this.$images = document.querySelectorAll('.images-container li img');
 
-		this.$imagesItems[0].classList.add('active');
-		this.$images[0].classList.add('blur');
-
+		console.log(this.$images);
+		console.log(this.$imagesItems);
 		const $loader = this.addLoader();
+
 		for (const $image of this.$images) {
 			$image.addEventListener('load', () => {
 				const loadCount = this.checkAllImagesLoaded();
 				$loader.style.width = `${
 					(100 / this.$images.length) * loadCount
 				}%`;
+
+				console.log(loadCount);
+				if (loadCount === this.$images.length) {
+					console.log('Entré');
+					this.animateCarousel();
+					this.removeLoader();
+					this.$images[0].classList.remove('blur');
+				}
 			});
 		}
+
+		this.$images[0].classList.add('blur');
+		this.$imagesItems[0].classList.add('active');
 	}
 
 	addLoader() {
@@ -44,28 +55,20 @@ export class Carousel {
 	}
 
 	checkAllImagesLoaded() {
-		let allImagesLoaded = true;
 		let loadedCount = 0;
 
 		for (let i = 0; i < this.$images.length; i++) {
-			if (!this.$images[i].complete) {
-				allImagesLoaded = false;
-				break;
-			} else {
+			if (this.$images[i].complete) {
 				loadedCount++;
+				console.log('Imagen ' + i);
 			}
 		}
 
-		if (allImagesLoaded) {
-			this.$images[0].classList.remove('blur');
-			this.removeLoader();
-			this.animateCarousel();
-		}
 		return loadedCount;
 	}
 
 	activeImage() {
-		let position = -1;
+		let position = 0;
 		this.$imagesItems.forEach(($item, index) => {
 			if ($item.classList.contains('active')) {
 				position = index;
