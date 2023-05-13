@@ -18,12 +18,6 @@ export class DragAndDrop {
 
 		$reset.addEventListener('click', () => {
 			this.removePreview();
-			this.$label.innerHTML = `
-				<span>Estudio clínico</span> <br>
-				Suelte su archivo aqui o haga click para buscarlo
-			`;
-
-			this.$input.value = '';
 		});
 
 		this.$input.addEventListener('change', (event) => {
@@ -49,6 +43,7 @@ export class DragAndDrop {
 			event.stopPropagation();
 			this.$input.click();
 		});
+
 		$area.addEventListener('dragenter', (event) => {
 			event.preventDefault();
 			event.stopPropagation();
@@ -93,9 +88,15 @@ export class DragAndDrop {
 				this.$container.removeChild($oldPreviewMessage);
 			}
 		}
+		this.$input.value = '';
+		this.$label.innerHTML = `
+			<span>Estudio clínico</span> <br>
+			Suelte su archivo aqui o haga click para buscarlo
+		`;
 	}
 
 	loadPreview(file) {
+		console.log(file);
 		const previewError = () => {
 			const $message = ElementBuilder.createElement(
 				'p',

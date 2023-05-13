@@ -102,7 +102,7 @@ p.estudio {
 	padding: 1rem 1rem;
 	background-color: var(--green);
 	border: 1px solid var(--yellow);
-	width: 90%;
+	width: 70vw;
 }
 
 .estudio label {
@@ -260,6 +260,10 @@ input[type='file'] {
 	.reset,
 	.submit {
 		height: 3rem;
+	}
+
+	p.estudio {
+		width: 90%;
 	}
 }
 
