@@ -93,6 +93,82 @@
 	background-color: var(--yellow);
 }
 
+.images-container li:nth-child(1) img {
+	animation-name: blur-animation;
+	animation-duration: 0.9s;
+	animation-delay: -0.1s;
+	animation-timing-function: ease-in;
+}
+.images-container li:nth-child(2) img {
+	animation-name: translate-animation;
+	animation-duration: 1s;
+	animation-delay: 0.1s;
+	animation-timing-function: ease;
+}
+.images-container li:nth-child(3) img {
+	animation-name: opacity-animation;
+	animation-duration: 0.7s;
+	animation-delay: 0.1s;
+	animation-timing-function: ease-in;
+}
+.images-container li:nth-child(4) img {
+	animation-name: zoom-animation;
+	animation-duration: 0.3s;
+	animation-timing-function: ease-out;
+}
+
+@keyframes opacity-animation {
+	0% {
+		opacity: 0%;
+	}
+
+	100% {
+		opacity: 100%;
+	}
+}
+
+@keyframes blur-animation {
+	0% {
+		filter: blur(100px);
+	}
+
+	50% {
+		filter: blur(50px);
+	}
+
+	75% {
+		filter: blur(25px);
+	}
+
+	90% {
+		filter: blur(10px);
+	}
+
+	100% {
+		filter: blur(0);
+	}
+}
+
+@keyframes translate-animation {
+	0% {
+		transform: translateY(-100%);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes zoom-animation {
+	0% {
+		transform: scale(0.8, 0.8);
+	}
+
+	100% {
+		transform: scale(1, 1);
+	}
+}
+
 @media screen and (min-width: 1100px) {
 	.carousel-button {
 		height: 45px;

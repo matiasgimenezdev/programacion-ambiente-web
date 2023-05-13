@@ -12,11 +12,13 @@ export class Carousel {
 		this.$imagesItems = document.querySelectorAll('.images-container li');
 		this.$images = document.querySelectorAll('.images-container li img');
 
+		this.$imagesItems[0].classList.add('active');
+		this.$images[0].classList.add('blur');
+
 		const $loader = this.addLoader();
 		for (const $image of this.$images) {
 			$image.addEventListener('load', () => {
 				const loadCount = this.checkAllImagesLoaded();
-				console.log((100 / this.$images.length) * loadCount);
 				$loader.style.width = `${
 					(100 / this.$images.length) * loadCount
 				}%`;
@@ -50,8 +52,6 @@ export class Carousel {
 				allImagesLoaded = false;
 				break;
 			} else {
-				this.$imagesItems[0].classList.add('active');
-				this.$images[0].classList.add('blur');
 				loadedCount++;
 			}
 		}
@@ -181,26 +181,5 @@ export class Carousel {
 				nextImageChange();
 			}
 		});
-
-		// document.addEventListener('touchstart', (event) => {
-		// 	if (event.target === this.$images[this.currentImage]) {
-		// 		this.swipeX = 0;
-		// 	}
-		// });
-
-		// document.addEventListener('touchend', (event) => {
-		// 	if (event.target === this.$images[this.currentImage]) {
-		// 		if (this.swipeX) {
-		// 			const swipeX = event.changedTouches[0].clientX;
-		// 			const xDiff = this.swipeX - swipeX;
-
-		// 			if (xDiff > 0) {
-		// 				this.nextImageChange();
-		// 			} else if (xDiff < 0) {
-		// 				this.previousImageChange();
-		// 			}
-		// 		}
-		// 	}
-		// });
 	}
 }
