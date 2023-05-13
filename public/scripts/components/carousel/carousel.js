@@ -28,11 +28,12 @@ export class Carousel {
 			}
 		}
 
-		if (this.checkAllImagesLoaded()) {
-			this.animateCarousel();
-			this.removeLoader();
-			this.$images[0].classList.remove('blur');
-		}
+		const interval = setInterval(() => {
+			if (this.checkAllImagesLoaded()) {
+				this.animateCarousel();
+				clearInterval(interval);
+			}
+		}, 100);
 	}
 
 	addLoader() {
@@ -168,7 +169,8 @@ export class Carousel {
 			class: 'right carousel-button',
 		});
 
-		console.log('Carousel animado');
+		this.removeLoader();
+		this.$images[0].classList.remove('blur');
 		this.currentImage = this.activeImage();
 		addThumbs();
 		addButtons($leftButton, $rightButton);

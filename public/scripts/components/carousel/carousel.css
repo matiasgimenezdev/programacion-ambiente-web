@@ -184,8 +184,4 @@
 		right: 5px;
 		transition: right 0.25s ease-in-out;
 	}
-
-	.blur {
-		filter: opacity(0.8) blur(50px);
-	}
 }
