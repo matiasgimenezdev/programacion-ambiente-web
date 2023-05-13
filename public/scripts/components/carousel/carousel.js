@@ -12,29 +12,27 @@ export class Carousel {
 		this.$imagesItems = document.querySelectorAll('.images-container li');
 		this.$images = document.querySelectorAll('.images-container li img');
 
-		console.log(this.$images);
-		console.log(this.$imagesItems);
 		const $loader = this.addLoader();
-
-		for (const $image of this.$images) {
-			$image.addEventListener('load', () => {
-				const loadCount = this.checkAllImagesLoaded();
-				$loader.style.width = `${
-					(100 / this.$images.length) * loadCount
-				}%`;
-
-				console.log(loadCount);
-				if (loadCount === this.$images.length) {
-					console.log('Entré');
-					this.animateCarousel();
-					this.removeLoader();
-					this.$images[0].classList.remove('blur');
-				}
-			});
-		}
-
 		this.$images[0].classList.add('blur');
 		this.$imagesItems[0].classList.add('active');
+		this.loadCount = 0;
+
+		for (const $image of this.$images) {
+			if ($image.complete) {
+			} else {
+				$image.addEventListener('load', () => {
+					$loader.style.width = `${
+						(100 / this.$images.length) * this.loadCount
+					}%`;
+				});
+			}
+		}
+
+		if (this.checkAllImagesLoaded()) {
+			this.animateCarousel();
+			this.removeLoader();
+			this.$images[0].classList.remove('blur');
+		}
 	}
 
 	addLoader() {
@@ -44,6 +42,7 @@ export class Carousel {
 		const $loader = ElementBuilder.createElement('div', '', {
 			class: 'loader',
 		});
+		$loader.style.width = '0%';
 		$loaderContainer.appendChild($loader);
 		this.$imagesContainer.appendChild($loaderContainer);
 		return $loader;
@@ -54,19 +53,6 @@ export class Carousel {
 		$loaderContainer.style.display = 'none';
 	}
 
-	checkAllImagesLoaded() {
-		let loadedCount = 0;
-
-		for (let i = 0; i < this.$images.length; i++) {
-			if (this.$images[i].complete) {
-				loadedCount++;
-				console.log('Imagen ' + i);
-			}
-		}
-
-		return loadedCount;
-	}
-
 	activeImage() {
 		let position = 0;
 		this.$imagesItems.forEach(($item, index) => {
@@ -75,6 +61,19 @@ export class Carousel {
 			}
 		});
 		return position;
+	}
+
+	checkAllImagesLoaded() {
+		let allLoaded = true;
+		for (let i = 0; i < this.$images.length; i++) {
+			if (!this.$images[i].complete) {
+				allLoaded = false;
+				return allLoaded;
+			}
+			this.loadCount++;
+		}
+
+		return allLoaded;
 	}
 
 	animateCarousel() {
@@ -159,9 +158,7 @@ export class Carousel {
 			});
 
 			this.$imagesContainer.appendChild($thumbsContainer);
-			document
-				.getElementById(this.currentImage)
-				.classList.add('active-thumb');
+			document.getElementById('0').classList.add('active-thumb');
 		};
 
 		const $leftButton = ElementBuilder.createElement('button', '', {
@@ -171,6 +168,7 @@ export class Carousel {
 			class: 'right carousel-button',
 		});
 
+		console.log('Carousel animado');
 		this.currentImage = this.activeImage();
 		addThumbs();
 		addButtons($leftButton, $rightButton);

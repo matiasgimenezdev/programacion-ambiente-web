@@ -112,7 +112,7 @@
 }
 .images-container li:nth-child(4) img {
 	animation-name: translate-side-animation;
-	animation-duration: 0.8s;
+	animation-duration: 1s;
 	animation-delay: 0.1s;
 	animation-timing-function: ease;
 }
@@ -183,5 +183,9 @@
 	.right:hover {
 		right: 5px;
 		transition: right 0.25s ease-in-out;
+	}
+
+	.blur {
+		filter: opacity(0.8) blur(50px);
 	}
 }
