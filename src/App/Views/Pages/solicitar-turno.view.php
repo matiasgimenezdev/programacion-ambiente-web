@@ -69,6 +69,19 @@
 			<fieldset class="turn-data">
 				<legend>Datos del turno</legend>
 				<p>
+					<label for="obra-social">Obra social</label>
+					<!--<input type="text" name="obra-social" id="obras-sociales" required tabindex="10" maxlength="30" autocomplete="off" value="<?= $shiftData["obraSocial"] ?? "" ?>"/>-->
+					<select id="opcion" name="profesionales">
+						<?php if (sizeof($obrasSociales) > 0): ?>
+							<?php $i = 1?>
+							<?php foreach ($obrasSociales as $obraSocial): ?>
+								<option value="<?= $i?>"><?= $obraSocial->getName() ?></option>
+								<?php $i++ ?>
+							<?php endforeach; ?>
+						<?php endif; ?>
+					</select>
+				</p>
+				<p>
 					<label for="especialidad">Especialidad</label>
 					<!--<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" autocomplete="off" value="<?= $shiftData["especialidad"] ?? "" ?>"/>-->
 					<select class="especialidad" id="opcion" name="especialidades">
@@ -93,26 +106,13 @@
 						<?php endif; ?>
 					</select>
 				</p>
-				<p>
-					<label for="obra-social">Obra social</label>
-					<!--<input type="text" name="obra-social" id="obras-sociales" required tabindex="10" maxlength="30" autocomplete="off" value="<?= $shiftData["obraSocial"] ?? "" ?>"/>-->
-					<select id="opcion" name="profesionales">
-						<?php if (sizeof($obrasSociales) > 0): ?>
-							<?php $i = 1?>
-							<?php foreach ($obrasSociales as $obraSocial): ?>
-								<option value="<?= $i?>"><?= $obraSocial->getName() ?></option>
-								<?php $i++ ?>
-							<?php endforeach; ?>
-						<?php endif; ?>
-					</select>
-				</p>
 				<p class="fecha">
 					<label for="fecha-turno">Fecha del turno</label>
-					<input class="fecha-turno" type="date" name="fecha-turno" id="fecha-turno" required tabindex="11" value="<?= $shiftData["fecha"] ?? "" ?>"/>
+					<input class="fecha-turno" type="date" name="fecha-turno" id="fecha-turno" required tabindex="11" readonly value="<?= $shiftData["fecha"] ?? "" ?>"/>
 				</p>
 				<p class="hora">
 					<label for="hora-turno">Horario del turno</label>
-					<input class="hora-turno" type="time" name="hora-turno" id="hora-turno" required tabindex="12" value="<?= $shiftData["hora"] ?? "" ?>"/>
+					<input class="hora-turno" type="time" name="hora-turno" id="hora-turno" required tabindex="12" readonly value="<?= $shiftData["hora"] ?? "" ?>"/>
 				</p>
 				<p class="estudio">
 					<label for="estudio">Estudio clínico</label>
