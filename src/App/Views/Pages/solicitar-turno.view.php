@@ -108,11 +108,11 @@
 				</p>
 				<p class="fecha">
 					<label for="fecha-turno">Fecha del turno</label>
-					<input type="date" name="fecha-turno" id="fecha-turno" required tabindex="11" value="<?= $shiftData["fecha"] ?? "" ?>"/>
+					<input class="fecha-turno" type="date" name="fecha-turno" id="fecha-turno" required tabindex="11" value="<?= $shiftData["fecha"] ?? "" ?>"/>
 				</p>
 				<p class="hora">
 					<label for="hora-turno">Horario del turno</label>
-					<input type="time" name="hora-turno" id="hora-turno" required tabindex="12" value="<?= $shiftData["hora"] ?? "" ?>"/>
+					<input class="hora-turno" type="time" name="hora-turno" id="hora-turno" required tabindex="12" value="<?= $shiftData["hora"] ?? "" ?>"/>
 				</p>
 				<p class="estudio">
 					<label for="estudio">Estudio clínico</label>
