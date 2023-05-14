@@ -33,7 +33,7 @@ export class Carousel {
 				this.animateCarousel();
 				clearInterval(interval);
 			}
-		}, 100);
+		}, 50);
 	}
 
 	addLoader() {

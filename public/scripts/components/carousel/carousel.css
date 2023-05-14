@@ -99,10 +99,9 @@
 	animation-timing-function: ease-in-out;
 }
 .images-container li:nth-child(2) img {
-	animation-name: translate-up-animation;
-	animation-duration: 1s;
-	animation-delay: 0.1s;
-	animation-timing-function: ease;
+	animation-name: translate-animation;
+	animation-duration: 0.8s;
+	animation-timing-function: ease-in-out;
 }
 .images-container li:nth-child(3) img {
 	animation-name: opacity-animation;
@@ -111,10 +110,9 @@
 	animation-timing-function: ease-in;
 }
 .images-container li:nth-child(4) img {
-	animation-name: translate-side-animation;
-	animation-duration: 1s;
-	animation-delay: 0.1s;
-	animation-timing-function: ease;
+	animation-name: rotate-animation;
+	animation-duration: 0.4s;
+	animation-timing-function: ease-in-out;
 }
 
 @keyframes opacity-animation {
@@ -149,23 +147,23 @@
 	}
 }
 
-@keyframes translate-up-animation {
+@keyframes translate-animation {
 	0% {
-		transform: translateY(-100%);
+		transform: translateX(100%);
 	}
 
 	100% {
-		transform: translateY(0);
+		transform: translateX(0%);
 	}
 }
 
-@keyframes translate-side-animation {
+@keyframes rotate-animation {
 	0% {
-		transform: translateX(-100%);
+		transform: rotateX(90deg);
 	}
 
 	100% {
-		transform: translateY(0);
+		transform: rotateX(0deg);
 	}
 }
 
