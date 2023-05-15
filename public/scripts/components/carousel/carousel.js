@@ -194,11 +194,11 @@ export class Carousel {
 		this.touchstartX = 0;
 		this.touchendX = 0;
 
-		document.addEventListener('touchstart', (e) => {
+		this.$imagesContainer.addEventListener('touchstart', (e) => {
 			this.touchstartX = e.changedTouches[0].screenX;
 		});
 
-		document.addEventListener('touchend', (e) => {
+		this.$imagesContainer.addEventListener('touchend', (e) => {
 			const checkDirection = () => {
 				if (this.touchendX < this.touchstartX) {
 					nextImageChange();
