@@ -1,7 +1,8 @@
 import { Carousel } from './components/carousel/carousel.js';
 import { DragAndDrop } from './components/drag-drop/drag-drop.js';
 import { ScriptLoader } from './utils/ScriptLoader.js';
-import { TurnosWidget } from './components/turnos-widget/TurnosWidget.js'
+import { TurnosWidget } from './components/turnos-widget/TurnosWidget.js';
+import { TableFilter } from './components/table-filter/table-filter.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	if (window.location.pathname === '/solicitar-turno') {
@@ -28,6 +29,21 @@ document.addEventListener('DOMContentLoaded', () => {
 			() => {
 				const $container = document.querySelector('.carousel-list');
 				new Carousel($container);
+			}
+		);
+	}
+
+	if (
+		window.location.pathname === '/especialidades' ||
+		window.location.pathname.includes('especialidad-search') ||
+		window.location.pathname === '/profesionales' ||
+		window.location.pathname.includes('profesional-search')
+	) {
+		ScriptLoader.loadScript(
+			'table-filter',
+			'scripts/components/table-filter/table-filter.js',
+			() => {
+				new TableFilter();
 			}
 		);
 	}
