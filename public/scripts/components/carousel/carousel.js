@@ -172,9 +172,14 @@ export class Carousel {
 		this.removeLoader();
 		this.$images[0].classList.remove('blur');
 		this.currentImage = this.activeImage();
+
+		// Interaccion mediante thumbs
 		addThumbs();
+
+		// Interaccion mediante botones
 		addButtons($leftButton, $rightButton);
 
+		// Interaccion mediante teclado
 		document.addEventListener('keydown', (event) => {
 			if (event.code === 'ArrowLeft') {
 				previousImageChange();
@@ -183,6 +188,29 @@ export class Carousel {
 			if (event.code === 'ArrowRight') {
 				nextImageChange();
 			}
+		});
+
+		// Interaccion mediante swipe
+		this.touchstartX = 0;
+		this.touchendX = 0;
+
+		document.addEventListener('touchstart', (e) => {
+			this.touchstartX = e.changedTouches[0].screenX;
+		});
+
+		document.addEventListener('touchend', (e) => {
+			const checkDirection = () => {
+				if (this.touchendX < this.touchstartX) {
+					nextImageChange();
+				}
+
+				if (this.touchendX > this.touchstartX) {
+					previousImageChange();
+				}
+			};
+
+			this.touchendX = e.changedTouches[0].screenX;
+			checkDirection();
 		});
 	}
 }
