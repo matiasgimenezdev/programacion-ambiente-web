@@ -105,8 +105,7 @@
 }
 .images-container li:nth-child(3) img {
 	animation-name: opacity-animation;
-	animation-duration: 0.7s;
-	animation-delay: 0.1s;
+	animation-duration: 0.5s;
 	animation-timing-function: ease-in;
 }
 .images-container li:nth-child(4) img {
