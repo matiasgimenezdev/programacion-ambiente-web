@@ -1,10 +1,19 @@
+import { ElementBuilder } from '../../utils/ElementBuilder.js';
+
 export class TurnosWidget {
 
   constructor() {
 
+    const $link = ElementBuilder.createElement('link', '', {
+			rel: 'stylesheet',
+			href: 'scripts/components/turnos-widget/TurnosWidget.css',
+		});
+		document.head.appendChild($link);
+
     const $url = 'scripts/components/turnos-widget/turnos.json';
 
     this.$tabla = document.createElement('table');
+    this.$tabla.classList.add('turnero');
 
     this.$diasHabiles = this.getDiasHabiles();
     
@@ -18,7 +27,7 @@ export class TurnosWidget {
 
     this.$medicoSelect = document.querySelector(".medico");
 
-    this.$medicoSelect.addEventListener("change", () => {
+    this.$medicoSelect.addEventListener("click", () => {
         this.$medico = this.$profesionales.find(
           (profesional => 
             profesional.matricula == this.$medicoSelect.value)
@@ -58,14 +67,19 @@ export class TurnosWidget {
 
 
   setDias($tabla, $diasHabiles) {
-    let encabezado = $tabla.createTHead();
-    let fila = encabezado.insertRow();
+    let fila = document.createElement('tr');
     let i = 0;
     while (i < 7) {
-      let celda = fila.insertCell();
-      celda.innerText = $diasHabiles[i];
+      let diaActual = $diasHabiles[i];
+      let partes = diaActual.split(" ");
+      let dia = partes[0];
+      let numDia = partes[1];
+      let celda = document.createElement('th');
+      celda.innerText = dia[0] + dia[1] + dia[2] + " " + numDia;
+      fila.appendChild(celda);
       i++;
     }
+    $tabla.appendChild(fila);
   }
 
   setHoras($tabla, $medico, $diasHabiles, $fechaContainer, $horaContainer) {
@@ -94,47 +108,57 @@ export class TurnosWidget {
           let dia = partes[0];
           let numDia = partes[1];
 
+          let atiende = false;
           for(let d of diasQueAtiende){
-            if(d == dia){
-              let turnoTomado = false;
-
-              for(let turno of turnosTomados){
-                if(turno.dia == dia && turno.horas == timeIni.getHours() && turno.minutos == timeIni.getMinutes()){
-                  turnoTomado = true;
-                  break;
-                }
-              }
-
-              let botonHora = document.createElement('button');
-              const fechaFormateada = timeIni.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-              botonHora.innerText = fechaFormateada;
-              this.addEvent(botonHora, numDia, fechaFormateada, $fechaContainer, $horaContainer);
-              celda.appendChild(botonHora);
-
-              if(turnoTomado) {
-                botonHora.classList.add("turno-tomado");
-              }
-
+            if(dia == d){
+              atiende = true;
               break;
             }
           }
+
+          let turnoTomado = false;
+          if(atiende){
+            for(let turno of turnosTomados){
+              if(turno.dia == dia && turno.horas == timeIni.getHours() && turno.minutos == timeIni.getMinutes()){
+                turnoTomado = true;
+                break;
+              }
+            }
+          }
+
+          let botonHora = document.createElement('button');
+          const fechaFormateada = timeIni.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          botonHora.innerText = fechaFormateada;
+
+          if(atiende && !turnoTomado) {
+            botonHora.classList.add("presionable");
+          } else {
+            botonHora.classList.add("no-presionable");
+          }
+          
+          this.addEvent(botonHora, numDia, fechaFormateada, $tabla, $fechaContainer, $horaContainer, atiende && !turnoTomado);
+
+          celda.appendChild(botonHora);
           i++;
       }
       timeIni.setMinutes(timeIni.getMinutes() + duracionTurno);
     }
   }
 
-  addEvent(boton, dia, hora, $fechaContainer, $horaContainer) {
+  addEvent(boton, dia, hora, $tabla, $fechaContainer, $horaContainer, presionable) {
     boton.addEventListener("click", function(event) {
       event.preventDefault();
-      let fecha = new Date();
-      fecha.setDate(dia);
-      const fechaISO = fecha.toISOString();
-      const fechaFormateada = fechaISO.substring(0, 10);
-      $fechaContainer.value = fechaFormateada;
+      if(presionable){
+        let fecha = new Date();
+        fecha.setDate(dia);
+        const fechaISO = fecha.toISOString();
+        const fechaFormateada = fechaISO.substring(0, 10);
+        $fechaContainer.value = fechaFormateada;
+        console.log(hora);
+        $horaContainer.value = hora;
 
-      console.log(hora);
-      $horaContainer.value = hora;
+        $tabla.innerHTML = '';
+      }
     });
   }
 

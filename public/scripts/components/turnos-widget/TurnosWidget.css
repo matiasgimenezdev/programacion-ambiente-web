@@ -1,0 +1,50 @@
+@import url("../../../assets/styles/global/variables.css");
+
+.turnero {
+  width: 100%;
+  margin: auto;
+  margin-top: 1rem;
+}
+
+th {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--green);
+  background-color: var(--light-grey);
+  border-bottom: 1px solid var(--green);
+  padding: 1px;
+}
+
+
+
+.turnero button {
+  border-radius: 4px;
+  height: 2rem;
+  width: 100%;
+  border: 1px solid var(--light-grey);
+}
+
+.presionable {
+  font-weight: bold;
+  background-color: var(--green);
+  color: var(--light-grey);
+  cursor: pointer;
+}
+
+.no-presionable {
+  background-color: var(--light-grey);
+  color: var(--grey);
+  cursor: not-allowed;
+}
+
+.presionable:hover {
+  background-color: var(--light-grey);
+  color: var(--green);
+  border-color: var(--green);
+}
+
+
+
+
+
+
