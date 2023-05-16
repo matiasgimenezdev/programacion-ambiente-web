@@ -24,6 +24,7 @@ export class Carousel {
 					$loader.style.width = `${
 						(100 / this.$images.length) * this.loadCount
 					}%`;
+					console.log($loader.style.width);
 				});
 			}
 		}
@@ -71,7 +72,7 @@ export class Carousel {
 				allLoaded = false;
 				return allLoaded;
 			}
-			this.loadCount++;
+			if (this.loadCount < this.$images.length) this.loadCount++;
 		}
 
 		return allLoaded;
