@@ -30,6 +30,7 @@ $router->get("/profesional-search", "ProfesionalesController", "search");
 $router->get("/institucional", "PageController", "institucional");
 $router->get("/turneroClinica", "PageController", "turneroClinica");
 $router->get("/turneroUser", "PageController", "turneroUser");
+$router->get("/turneroMedico", "PageController", "turneroMedico");
 $router->get("/noticias", "NoticiasController", "noticias");
 $router->get("/noticia", "NoticiasController", "noticia");
 $router->get("/obras-sociales", "ObrasSocialesController", "obrasSociales");

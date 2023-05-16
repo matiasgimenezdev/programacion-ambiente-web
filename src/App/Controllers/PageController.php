@@ -48,6 +48,10 @@ class PageController extends AbstractController
         $this->requireView("Turnos", "turneroUser", "turneroUser");
     }
 
+    public function turneroMedico(){
+        $this->requireView("Turnos", "turneroMedico", "turneroMedico");
+    }
+
     private function requireView($title, $view, $style)
     {
         require $this->viewsDirectory . "{$view}.view.php";
