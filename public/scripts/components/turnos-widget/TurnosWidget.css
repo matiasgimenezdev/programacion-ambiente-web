@@ -6,16 +6,16 @@
 	margin-top: 1rem;
 	display: none;
 	transition: display 2s ease-in;
-	border: 1px solid var(--yellow);
+	border: 1px solid var(--green);
 }
 
 th {
 	font-size: 1rem;
 	font-weight: bold;
 	color: var(--green);
-	background-color: var(--yellow);
-	padding: 5px 0px;
-	border: none;
+	background-color: var(--light-grey);
+	padding: 8px 0px;
+	border-bottom: 2px solid var(--green);
 }
 
 .turnero button {
@@ -48,5 +48,15 @@ th {
 	.turnero {
 		width: 90%;
 		margin-left: 0;
+	}
+}
+
+@media screen and (prefers-color-scheme: dark) {
+	.turnero {
+		border: none;
+	}
+
+	th {
+		background-color: var(--yellow);
 	}
 }
