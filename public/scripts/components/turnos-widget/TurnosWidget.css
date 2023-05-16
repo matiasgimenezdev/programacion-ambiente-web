@@ -1,60 +1,52 @@
-@import url("../../../assets/styles/global/variables.css");
+@import url('../../../assets/styles/global/variables.css');
 
 .turnero {
-  width: 100%;
-  margin: auto;
-  margin-top: 1rem;
-  display: none;
-  transition: display 2s ease-in;
+	width: 100%;
+	margin: auto;
+	margin-top: 1rem;
+	display: none;
+	transition: display 2s ease-in;
+	border: 1px solid var(--yellow);
 }
 
 th {
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--green);
-  background-color: var(--light-grey);
-  border-bottom: 1px solid var(--green);
-  padding: 1px;
+	font-size: 1rem;
+	font-weight: bold;
+	color: var(--green);
+	background-color: var(--yellow);
+	padding: 5px 0px;
+	border: none;
 }
 
-
-
 .turnero button {
-  border-radius: 4px;
-  height: 2rem;
-  width: 100%;
-  border: 1px solid var(--light-grey);
+	height: 2rem;
+	width: 100%;
+	border: none;
 }
 
 .presionable {
-  font-weight: bold;
-  background-color: var(--green);
-  color: var(--light-grey);
-  cursor: pointer;
+	font-weight: bold;
+	background-color: var(--green);
+	color: var(--light-grey);
+	cursor: pointer;
 }
 
 .no-presionable {
-  background-color: var(--light-grey);
-  color: var(--grey);
-  cursor: not-allowed;
+	background-color: var(--light-grey);
+	color: var(--grey);
+	cursor: not-allowed;
+	opacity: 0.7;
 }
 
 .presionable:hover {
-  background-color: var(--light-grey);
-  color: var(--green);
-  border-color: var(--green);
+	background-color: var(--light-grey);
+	color: var(--green);
+	border-color: var(--green);
 }
 
-@media screen and (min-width: 1100px){
-  .turnero {
-    width: 90%;
-    margin-left: 0;
-  }
+@media screen and (min-width: 1100px) {
+	.turnero {
+		width: 90%;
+		margin-left: 0;
+	}
 }
-
-
-
-
-
-
-
