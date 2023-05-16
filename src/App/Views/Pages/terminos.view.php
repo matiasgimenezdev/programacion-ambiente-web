@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
         <?php require __DIR__ . "/../Fragments/head.view.php" ?>
 	</head>
