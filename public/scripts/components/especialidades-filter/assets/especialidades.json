@@ -1,0 +1,62 @@
+[
+	{
+		"name": "Odontologia",
+		"description": "Descripcion Odontologia"
+	},
+	{
+		"name": "Cardiología",
+		"description": "Descripcion Cardiología"
+	},
+	{
+		"name": "Dermatología",
+		"description": "Descripcion Dermatología"
+	},
+	{
+		"name": "Pediatría",
+		"description": "Descripcion Pediatría"
+	},
+	{
+		"name": "Neurología",
+		"description": "Descripcion Neurología"
+	},
+	{
+		"name": "Endocrinología",
+		"description": "Descripcion Endocrinología"
+	},
+	{
+		"name": "Gastroenterología",
+		"description": "Descripcion Gastroenterología"
+	},
+	{
+		"name": "Infectología",
+		"description": "Descripcion Infectología"
+	},
+	{
+		"name": "Neumología",
+		"description": "Descripcion Neumología"
+	},
+	{
+		"name": "Psiquiatría",
+		"description": "Descripcion Psiquiatría"
+	},
+	{
+		"name": "Toxicología",
+		"description": "Descripcion Toxicología"
+	},
+	{
+		"name": "Nefrología",
+		"description": "Descripcion Nefrología"
+	},
+	{
+		"name": "Oncología",
+		"description": "Descripcion Oncología"
+	},
+	{
+		"name": "Infectología",
+		"description": "Descripcion Infectología"
+	},
+	{
+		"name": "Hepatología",
+		"description": "Descripcion Hepatología"
+	}
+]

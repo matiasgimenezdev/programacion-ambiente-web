@@ -1,0 +1,104 @@
+:root {
+	--grey: #3b4a5a;
+	--yellow: #fcc444;
+	--light-grey: #eef1ef;
+	--blue: #009dda;
+	--green: #025255;
+}
+
+.result-filter-container {
+	margin: 0.8rem 25%;
+	width: 100%;
+	text-align: center;
+	padding: 0.5rem;
+	position: absolute;
+	top: 0;
+	background-color: var(--yellow);
+	border-radius: 15px;
+}
+
+.result-filter {
+	padding: 0;
+	background-color: transparent;
+	flex-direction: row;
+	align-items: center;
+	gap: 1.4rem;
+}
+
+.filter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.filter input {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+.filter label {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background-position: center;
+	background-size: cover;
+	color: var(--grey);
+	margin-left: 0.1rem;
+	font-size: 0.8rem;
+}
+
+.index {
+	margin-top: 1rem;
+	width: 100%;
+	text-align: center;
+}
+
+.index-number {
+	width: 40px;
+	height: 40px;
+	margin: 0.4rem;
+	color: var(--yellow);
+	background-color: var(--green);
+	border: 1px solid var(--yellow);
+	padding: 0.2rem;
+	border-radius: 100%;
+	transition: background 0.5s ease;
+}
+
+.current-index,
+.index-number:hover {
+	color: var(--green);
+	background-color: var(--yellow);
+	border: 1px solid var(--green);
+}
+
+.up {
+	background-image: url('./assets/up.png');
+}
+
+.down {
+	background-image: url('./assets/down.png');
+}
+
+label[id='amount'] {
+	margin-left: 0.5rem;
+	min-width: 50px;
+	width: auto;
+}
+
+@media screen and (min-width: 500px) {
+	.result-filter-container {
+		width: 80%;
+	}
+
+	.result-filter {
+		gap: 2.5rem;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.result-filter-container {
+		width: 50%;
+	}
+}
