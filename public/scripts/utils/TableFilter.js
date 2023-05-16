@@ -10,18 +10,18 @@ export class TableFilter {
 		$filter.innerHTML = `
             <fieldset class="result-filter">
                 <p class="filter">
+					<label for="ascendente" class="up"></label>
                     <input type="radio" id="ascendente" name="order">
-                    <label for="ascendente" class="up"></label>
                 </p>
             
                 <p class="filter">
+					<label for="descendente" class="down"></label>
                     <input type="radio" id="descendente" name="order">
-                    <label for="descendente" class="down"></label>
                 </p>
 
                 <p class="filter">
-                    <input type="range" name="amount" id="amount" min="2" value="6" max="12" step="2">
-                    <label for="amount" id="amount"> </label>
+					<input type="range" name="amount" id="amount" min="2" value="6" max="12" step="2">
+					<label for="amount" id="amount"> </label>
                 </p>
             </fieldset>
         `;
