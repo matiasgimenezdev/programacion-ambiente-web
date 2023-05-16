@@ -73,8 +73,7 @@ export class TableFilter {
 
 			$indexNumber.addEventListener('click', (event) => {
 				const id = event.target.getAttribute('id');
-				console.log(id);
-				console.log(pages);
+
 				const currentIndex = document.querySelector(
 					'button.current-index'
 				);

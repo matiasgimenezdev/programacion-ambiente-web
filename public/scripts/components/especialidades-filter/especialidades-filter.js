@@ -48,8 +48,6 @@ export class EspecialidadesFilter {
 	loadPage(pages, indexNumber, index) {
 		const $container = document.querySelector('section.result-section');
 		console.log('Page ' + `${parseInt(indexNumber) + 1}` + ' loaded.');
-		console.log(pages);
-		//TODO: Implementar que se cargue la pagina indicada.
 		const $filter = document.querySelector('.result-filter-container');
 		$container.innerHTML = '';
 		$container.appendChild($filter);
