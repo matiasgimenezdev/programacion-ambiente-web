@@ -4,6 +4,8 @@
   width: 100%;
   margin: auto;
   margin-top: 1rem;
+  display: none;
+  transition: display 2s ease-in;
 }
 
 th {

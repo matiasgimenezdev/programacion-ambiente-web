@@ -1,0 +1,44 @@
+@import url('./global/shared.css');
+@import url('./global/shared-details.css');
+
+h3 {
+  font-size: 2rem;
+  margin: auto;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+
+header {
+  height: auto;
+}
+
+article {
+  height: 50vw;
+}
+
+.actual, .cola {
+  display: inline-block;
+  text-align: center;
+}
+
+.actual {
+  width: 60%;
+}
+
+.cola {
+  float: right;
+  width: 40%;
+}
+
+.actual p {
+  font-size: 10rem;
+  padding-top: 20%;
+  margin: 0;
+}
+
+.cola p {
+  font-size: 2rem;
+  padding-top: 2.14rem;
+  padding-bottom: 2.14rem;
+}
+

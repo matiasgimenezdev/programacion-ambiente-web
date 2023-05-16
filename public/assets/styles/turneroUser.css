@@ -1,0 +1,56 @@
+@import url('./global/shared.css');
+@import url('./global/shared-details.css');
+
+h3 {
+  font-size: 2rem;
+  margin: auto;
+  width: 100%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  background-color: var(--green);
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+}
+
+.actual, .cola {
+  text-align: center;
+}
+
+.actual p, .cola p {
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+}
+
+.actual p {
+  font-size: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.cola p {
+  font-size: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.turno-user {
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: var(--yellow);
+  color: var(--green);
+  border: 2px solid var(--green);
+  margin: auto;
+  text-align: center;
+  width: 70%;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 4px;
+}
+
+.su-turno {
+  background-color: var(--yellow);
+  color: var(--green);
+  border: 2px solid var(--green);
+  font-weight: bold;
+}
