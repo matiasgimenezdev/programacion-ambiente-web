@@ -17,12 +17,25 @@ export class EspecialidadesFilter {
 
 		this.createPages();
 		this.addEvents();
+		this.sort = false;
 	}
 
 	addEvents() {
 		document.addEventListener('change', (event) => {
 			if (event.target === this.filter.$range) {
 				this.createPages();
+			}
+		});
+
+		document.addEventListener('change', (event) => {
+			if (event.target.name === 'order') {
+				if (event.target.value === 'up') {
+					this.createPages('up');
+					this.sort = 'up';
+				} else {
+					this.createPages('down');
+					this.sort = 'down';
+				}
 			}
 		});
 	}
@@ -34,7 +47,11 @@ export class EspecialidadesFilter {
 	}
 
 	async createPages() {
-		const data = await this.getData();
+		let data = await this.getData();
+		if (this.sort) {
+			data = this.filter.sort(data, this.sort);
+		}
+		console.log(data);
 		this.pages = this.filter.setPages(data, this.filter.$range.value);
 		const $index = this.filter.createIndex(
 			this.pages.length,

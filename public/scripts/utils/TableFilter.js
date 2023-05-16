@@ -11,12 +11,12 @@ export class TableFilter {
             <fieldset class="result-filter">
                 <p class="filter">
 					<label for="ascendente" class="up"></label>
-                    <input type="radio" id="ascendente" name="order">
+                    <input type="radio" id="ascendente" name="order" value="up">
                 </p>
             
                 <p class="filter">
 					<label for="descendente" class="down"></label>
-                    <input type="radio" id="descendente" name="order">
+                    <input type="radio" id="descendente" name="order" value="down">
                 </p>
 
                 <p class="filter">
@@ -86,7 +86,17 @@ export class TableFilter {
 		return $index;
 	}
 
-	sort(data, upDown = false) {}
+	sort(data, order) {
+		if (order === 'up') {
+			console.log('Ordenando los datos en orden ascendente');
+			//TODO: Implementar ordenamiento hacia arriba
+		} else {
+			console.log('Ordenando los datos en orden descendente');
+			//TODO: Implementar ordenamiento hacia abajo
+		}
+
+		return data;
+	}
 }
 
 // Implementar un componente que agregue funcionalidades de filtros a las tablas (o la forma en que hayan implementado sus
