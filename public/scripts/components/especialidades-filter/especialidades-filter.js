@@ -60,7 +60,6 @@ export class EspecialidadesFilter {
 		if (this.sort) {
 			data = this.filter.sort(data, this.sort, 'name');
 		}
-		console.log(data);
 		this.pages = this.filter.setPages(data, this.filter.$range.value);
 		const $index = this.filter.createIndex(
 			this.pages.length,
@@ -74,7 +73,6 @@ export class EspecialidadesFilter {
 
 	loadPage(pages, indexNumber, index) {
 		const $container = document.querySelector('section.result-section');
-		console.log('Page ' + `${parseInt(indexNumber) + 1}` + ' loaded.');
 		const $filter = document.querySelector('.result-filter-container');
 		$container.innerHTML = '';
 		$container.appendChild($filter);

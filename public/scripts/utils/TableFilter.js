@@ -103,12 +103,10 @@ export class TableFilter {
 	sort(data, order, fieldName) {
 		let sortedData = [];
 		if (order === 'up') {
-			console.log('Ordenando los datos en orden ascendente');
 			sortedData = data.sort((a, b) =>
 				a[fieldName].localeCompare(b[fieldName])
 			);
 		} else {
-			console.log('Ordenando los datos en orden descendente');
 			sortedData = data.sort((a, b) =>
 				b[fieldName].localeCompare(a[fieldName])
 			);
