@@ -82,7 +82,7 @@ export class ProfesionalesFilter {
 					class: 'search-result',
 				});
 				$article.innerHTML = `
-		        	<h4 class="specialty-name"> ${profesional.name} </h4>
+		        	<h4 class="profesional-name"> ${profesional.name} </h4>
 					<p class="profesional-area">
 						${profesional.area}
 					</p>
