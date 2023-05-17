@@ -1,14 +1,25 @@
+:root {
+	--grey: #3b4a5a;
+	--yellow: #fcc444;
+	--light-grey: #eef1ef;
+	--blue: #009dda;
+	--green: #025255;
+	--font-family: 'Gotham', sans-serif;
+}
+
 p.estudio {
 	margin-top: 0.5rem;
 	padding: 1rem 1rem;
-	background-color: #025255;
-	border: 1px solid #fcc444;
+	background-color: var(--green);
+	border: 1px solid var(--yellow);
 	cursor: pointer;
+	width: 100%;
+	position: relative;
 }
 
 .estudio label {
 	text-align: center;
-	color: #fcc444;
+	color: var(--yellow);
 	cursor: pointer;
 }
 
@@ -26,7 +37,7 @@ p.drop-area {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
-	border: 2px dashed #fcc444;
+	border: 2px dashed var(--yellow);
 }
 
 input[type='file'] {
@@ -42,7 +53,7 @@ input[type='file'] {
 .no-preview {
 	width: 100%;
 	text-align: center;
-	color: #fcc444;
+	color: var(--yellow);
 }
 
 .preview {
@@ -55,4 +66,24 @@ input[type='file'] {
 .drop-area .preview,
 .drop-area .no-preview {
 	visibility: hidden;
+}
+
+.cancel-button {
+	width: 30px;
+	height: 30px;
+	border-radius: 100%;
+	border: none;
+	outline: none;
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	background-color: var(--red);
+	color: var(--light-grey);
+	cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+	p.estudio {
+		width: 90%;
+	}
 }
