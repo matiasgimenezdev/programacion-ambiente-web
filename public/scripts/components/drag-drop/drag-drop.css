@@ -58,8 +58,10 @@ input[type='file'] {
 
 .preview {
 	margin-top: 0.3rem;
-	width: 95%;
+	width: 50%;
 	height: 110px;
+	position: relative;
+	left: 25%;
 	margin: auto;
 }
 
