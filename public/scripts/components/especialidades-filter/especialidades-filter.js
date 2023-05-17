@@ -55,7 +55,7 @@ export class EspecialidadesFilter {
 
 	async createPages() {
 		let data = await this.getData();
-		data = this.filter.dataFilter(data, this.textFilter, 'name');
+		data = this.filter.dataFilter(data, this.textFilter, ['name']);
 
 		if (this.sort) {
 			data = this.filter.sort(data, this.sort, 'name');

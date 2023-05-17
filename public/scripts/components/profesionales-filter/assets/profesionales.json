@@ -1,82 +1,82 @@
 [
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Dermatología",
+		"name": "Quito Esteban",
+		"area": "Dermatología",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Pediatría",
+		"name": "Marquez Román",
+		"area": "Pediatría",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Endocrinología",
+		"name": "Diaz Roberto",
+		"area": "Endocrinología",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Infectología",
+		"name": "Favaloro Tomás",
+		"area": "Infectología",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Neumología",
+		"name": "Ramirez Juan",
+		"area": "Neumología",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Psiquiatría",
+		"name": "Vazquez Marcos",
+		"area": "Psiquiatría",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Toxicología",
+		"name": "Perez Ramiro",
+		"area": "Toxicología",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Odontologia",
+		"name": "Quito Simon",
+		"area": "Odontologia",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Psiquiatría",
+		"name": "Dematei Juan",
+		"area": "Psiquiatría",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Nefrología",
+		"name": "Oberti Faustino",
+		"area": "Nefrología",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Odontologia",
+		"name": "Repetto Nicolas",
+		"area": "Odontologia",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Oncología",
+		"name": "Herrero Martin",
+		"area": "Oncología",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Hepatología",
+		"name": "Laplaca Alejo",
+		"area": "Hepatología",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Cardiología",
+		"name": "Cirulli Simon",
+		"area": "Cardiología",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Infectología",
+		"name": "De Luque Samuel",
+		"area": "Infectología",
 		"description": "Descripcion del profesional"
 	},
 	{
-		"name": "Esteban Quito",
-		"especialidad": "Hepatología",
+		"name": "Douglas Rubén",
+		"area": "Hepatología",
 		"description": "Descripcion del profesional"
 	}
 ]

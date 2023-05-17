@@ -119,15 +119,20 @@ export class TableFilter {
 			return data;
 		}
 
-		return data.filter((item) =>
-			item[fieldName].toLowerCase().includes(filter.toLowerCase())
-		);
+		if (fieldName.length === 1)
+			return data.filter((item) =>
+				item[fieldName[0]].toLowerCase().includes(filter.toLowerCase())
+			);
+		else {
+			return data.filter(
+				(item) =>
+					item[fieldName[0]]
+						.toLowerCase()
+						.includes(filter.toLowerCase()) ||
+					item[fieldName[1]]
+						.toLowerCase()
+						.includes(filter.toLowerCase())
+			);
+		}
 	}
 }
-
-// Implementar un componente que agregue funcionalidades de filtros a las tablas (o la forma en que hayan implementado sus
-// listados de especialidades, turnos, etc.) que permitan ordenar los datos (en forma ascendente y descendente), filtrarlos
-// por valores (especialidad, dr. fecha, etc.), seleccionar filas o columnas para resaltarlas y que agregue la capacidad de
-// paginar el contenido según la cantidad de elementos que desea ver el usuario.
-// En esta primera etapa se cargarán todos los datos sin procesar desde el backend (la cantidad esperada es
-// manejable de esta manera),  y las funcionalidades serán 100% implementadas en JS.
