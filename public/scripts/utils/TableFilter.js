@@ -9,7 +9,11 @@ export class TableFilter {
 
 		$filter.innerHTML = `
             <fieldset class="result-filter">
-                <p class="filter">
+				<p class="filter text-filter-container">
+					<input type="text" name="filter-text" id="filter-text" placeholder="Filtrar...">
+				</p>
+                
+				<p class="filter">
 					<label for="ascendente" class="up"></label>
                     <input type="radio" id="ascendente" name="order" value="up">
                 </p>
@@ -59,6 +63,16 @@ export class TableFilter {
 			class: 'index',
 		});
 
+		if (length === 0) {
+			return ElementBuilder.createElement(
+				'p',
+				'No se encontraron especialidades',
+				{
+					class: 'msg',
+				}
+			);
+		}
+
 		for (let i = 0; i < length; i++) {
 			let className = 'index-number';
 			if (i === 0) className += ' current-index';
@@ -86,16 +100,30 @@ export class TableFilter {
 		return $index;
 	}
 
-	sort(data, order) {
+	sort(data, order, fieldName) {
+		let sortedData = [];
 		if (order === 'up') {
 			console.log('Ordenando los datos en orden ascendente');
-			//TODO: Implementar ordenamiento hacia arriba
+			sortedData = data.sort((a, b) =>
+				a[fieldName].localeCompare(b[fieldName])
+			);
 		} else {
 			console.log('Ordenando los datos en orden descendente');
-			//TODO: Implementar ordenamiento hacia abajo
+			sortedData = data.sort((a, b) =>
+				b[fieldName].localeCompare(a[fieldName])
+			);
+		}
+		return sortedData;
+	}
+
+	dataFilter(data, filter, fieldName) {
+		if (!filter) {
+			return data;
 		}
 
-		return data;
+		return data.filter((item) =>
+			item[fieldName].toLowerCase().includes(filter.toLowerCase())
+		);
 	}
 }
 

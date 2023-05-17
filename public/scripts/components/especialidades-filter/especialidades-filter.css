@@ -1,9 +1,12 @@
+@import url('https://fonts.cdnfonts.com/css/gotham');
+
 :root {
 	--grey: #3b4a5a;
 	--yellow: #fcc444;
 	--light-grey: #eef1ef;
 	--blue: #009dda;
 	--green: #025255;
+	--font-family: 'Gotham', sans-serif;
 }
 
 .result-filter-container {
@@ -47,8 +50,11 @@
 	background-position: center;
 	background-size: cover;
 	color: var(--grey);
-	margin-left: 0.1rem;
+	margin-right: 0.2rem;
 	font-size: 0.8rem;
+}
+.filter input[type='text'] {
+	display: none;
 }
 
 .index {
@@ -90,38 +96,75 @@ label[id='amount'] {
 	width: auto;
 }
 
-@media screen and (min-width: 600px) {
-	.result-filter-container {
-		width: 95%;
-		margin: 0.8rem auto;
-	}
-
-	.result-filter {
-		gap: 9rem;
-	}
-
-	.filter {
+@media screen and (min-width: 1000px) {
+	.up,
+	.down {
 		position: relative;
 	}
-
 	.up::after {
 		content: 'Ascendente';
+		font-family: var(--font-family);
+
 		font-size: 0.8rem;
 		position: absolute;
-		left: 30px;
+		top: 1px;
+		left: 37px;
 	}
 
 	.down::after {
 		content: 'Descendente';
-		font-size: 0.9rem;
-		margin-left: 0.2rem;
-		position: absolute;
-		left: 30px;
-	}
-}
+		font-family: var(--font-family);
 
-@media screen and (min-width: 900px) {
+		font-size: 0.9rem;
+		position: absolute;
+		top: 1px;
+		left: 37px;
+	}
 	.result-filter-container {
 		width: 90%;
+		margin: 0.8rem auto;
+		justify-content: flex-start;
+	}
+
+	.result-filter {
+		width: 90%;
+		gap: 0rem;
+		justify-content: flex-start;
+	}
+
+	.filter {
+		position: relative;
+		align-items: center;
+		flex-basis: 25%;
+	}
+
+	.text-filter-container {
+		margin-left: 1rem;
+		min-width: 200px;
+	}
+
+	.filter input[type='text'] {
+		border-radius: 5px;
+		display: inline-block;
+		width: 100%;
+		outline: 1px solid var(--green);
+		background-color: var(--light-grey);
+		border: none;
+		height: 1.5rem;
+		padding: 0.2rem 0.4rem;
+		font-size: 0.85rem;
+		font-family: var(--font-family);
+	}
+
+	.filter input[type='text']:focus {
+		outline: 2px solid var(--green);
+	}
+
+	.msg {
+		color: var(--blue);
+		font-size: 1.5rem;
+		margin-top: 4rem;
+		font-weight: bold;
+		font-style: italic;
 	}
 }

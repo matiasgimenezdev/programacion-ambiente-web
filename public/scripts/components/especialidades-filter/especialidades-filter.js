@@ -18,6 +18,7 @@ export class EspecialidadesFilter {
 		this.createPages();
 		this.addEvents();
 		this.sort = false;
+		this.textFilter = '';
 	}
 
 	addEvents() {
@@ -30,13 +31,19 @@ export class EspecialidadesFilter {
 		document.addEventListener('change', (event) => {
 			if (event.target.name === 'order') {
 				if (event.target.value === 'up') {
-					this.createPages('up');
+					this.createPages();
 					this.sort = 'up';
 				} else {
-					this.createPages('down');
+					this.createPages();
 					this.sort = 'down';
 				}
 			}
+		});
+
+		const $filterInput = document.getElementById('filter-text');
+		$filterInput.addEventListener('input', (event) => {
+			this.textFilter = event.target.value.toLowerCase();
+			this.createPages();
 		});
 	}
 
@@ -48,8 +55,10 @@ export class EspecialidadesFilter {
 
 	async createPages() {
 		let data = await this.getData();
+		data = this.filter.dataFilter(data, this.textFilter, 'name');
+
 		if (this.sort) {
-			data = this.filter.sort(data, this.sort);
+			data = this.filter.sort(data, this.sort, 'name');
 		}
 		console.log(data);
 		this.pages = this.filter.setPages(data, this.filter.$range.value);
@@ -60,6 +69,7 @@ export class EspecialidadesFilter {
 		);
 		this.$container.appendChild($index);
 		this.loadPage(this.pages, 0, $index);
+		document.getElementById('filter-text').focus();
 	}
 
 	loadPage(pages, indexNumber, index) {
@@ -68,20 +78,23 @@ export class EspecialidadesFilter {
 		const $filter = document.querySelector('.result-filter-container');
 		$container.innerHTML = '';
 		$container.appendChild($filter);
-		for (let especialidad of pages[indexNumber]) {
-			const $article = ElementBuilder.createElement('article', '', {
-				class: 'search-result',
-			});
+		if (pages.length > 0) {
+			for (let especialidad of pages[indexNumber]) {
+				const $article = ElementBuilder.createElement('article', '', {
+					class: 'search-result',
+				});
 
-			$article.innerHTML = `
+				$article.innerHTML = `
 		        <h4 class="specialty-name"> ${especialidad.name} </h4>
 		        <p class="specialty-description">
 		            ${especialidad.description}
 		        </p>
 		        <a href="/profesional-search?profesional=${especialidad.name}"><button>Ver profesionales</button></a>
 		    `;
-			$container.appendChild($article);
+				$container.appendChild($article);
+			}
 		}
+
 		$container.appendChild(index);
 	}
 }
