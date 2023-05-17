@@ -4,6 +4,7 @@ import { ScriptLoader } from './utils/ScriptLoader.js';
 import { TurnosWidget } from './components/turnos-widget/TurnosWidget.js';
 import { Turnero } from './components/turnero/Turnero.js';
 import { EspecialidadesFilter } from './components/especialidades-filter/especialidades-filter.js';
+import { ProfesionalesFilter } from './components/profesionales-filter/profesionales-filter.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 	if (window.location.pathname === '/solicitar-turno') {
@@ -47,18 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		);
 	}
 
-	// if (
-	// 	window.location.pathname === '/profesionales' ||
-	// 	window.location.pathname.includes('profesional-search')
-	// ) {
-	// 	ScriptLoader.loadScript(
-	// 		'profesionales-filter',
-	// 		'scripts/components/profesionales-filter/profesionales-filter.js',
-	// 		() => {
-	// 			new ProfesionalesFilter();
-	// 		}
-	// 	);
-	// }
 	if (window.location.pathname === '/turnero')
 	{
 		ScriptLoader.loadScript(
@@ -70,5 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		);
 	}
 
-
+	if (
+		window.location.pathname === '/profesionales' ||
+		window.location.pathname.includes('profesional-search')
+	) {
+		ScriptLoader.loadScript(
+			'profesionales-filter',
+			'scripts/components/profesionales-filter/profesionales-filter.js',
+			() => {
+				new ProfesionalesFilter();
+			}
+		);
+	}
 });

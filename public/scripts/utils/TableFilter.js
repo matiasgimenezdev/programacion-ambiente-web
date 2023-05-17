@@ -9,7 +9,11 @@ export class TableFilter {
 
 		$filter.innerHTML = `
             <fieldset class="result-filter">
-                <p class="filter">
+				<p class="filter text-filter-container">
+					<input type="text" name="filter-text" id="filter-text" placeholder="Filtrar...">
+				</p>
+                
+				<p class="filter">
 					<label for="ascendente" class="up"></label>
                     <input type="radio" id="ascendente" name="order" value="up">
                 </p>
@@ -59,6 +63,16 @@ export class TableFilter {
 			class: 'index',
 		});
 
+		if (length === 0) {
+			return ElementBuilder.createElement(
+				'p',
+				'No se encontraron especialidades',
+				{
+					class: 'msg',
+				}
+			);
+		}
+
 		for (let i = 0; i < length; i++) {
 			let className = 'index-number';
 			if (i === 0) className += ' current-index';
@@ -86,22 +100,39 @@ export class TableFilter {
 		return $index;
 	}
 
-	sort(data, order) {
+	sort(data, order, fieldName) {
+		let sortedData = [];
 		if (order === 'up') {
-			console.log('Ordenando los datos en orden ascendente');
-			//TODO: Implementar ordenamiento hacia arriba
+			sortedData = data.sort((a, b) =>
+				a[fieldName].localeCompare(b[fieldName])
+			);
 		} else {
-			console.log('Ordenando los datos en orden descendente');
-			//TODO: Implementar ordenamiento hacia abajo
+			sortedData = data.sort((a, b) =>
+				b[fieldName].localeCompare(a[fieldName])
+			);
+		}
+		return sortedData;
+	}
+
+	dataFilter(data, filter, fieldName) {
+		if (!filter) {
+			return data;
 		}
 
-		return data;
+		if (fieldName.length === 1)
+			return data.filter((item) =>
+				item[fieldName[0]].toLowerCase().includes(filter.toLowerCase())
+			);
+		else {
+			return data.filter(
+				(item) =>
+					item[fieldName[0]]
+						.toLowerCase()
+						.includes(filter.toLowerCase()) ||
+					item[fieldName[1]]
+						.toLowerCase()
+						.includes(filter.toLowerCase())
+			);
+		}
 	}
 }
-
-// Implementar un componente que agregue funcionalidades de filtros a las tablas (o la forma en que hayan implementado sus
-// listados de especialidades, turnos, etc.) que permitan ordenar los datos (en forma ascendente y descendente), filtrarlos
-// por valores (especialidad, dr. fecha, etc.), seleccionar filas o columnas para resaltarlas y que agregue la capacidad de
-// paginar el contenido según la cantidad de elementos que desea ver el usuario.
-// En esta primera etapa se cargarán todos los datos sin procesar desde el backend (la cantidad esperada es
-// manejable de esta manera),  y las funcionalidades serán 100% implementadas en JS.
