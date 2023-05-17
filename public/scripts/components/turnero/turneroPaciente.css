@@ -1,5 +1,4 @@
-@import url('./global/shared.css');
-@import url('./global/shared-details.css');
+@import url('../../../assets/styles/turnero.css');
 
 h3 {
   font-size: 2rem;

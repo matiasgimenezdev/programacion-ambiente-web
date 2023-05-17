@@ -2,6 +2,7 @@ import { Carousel } from './components/carousel/carousel.js';
 import { DragAndDrop } from './components/drag-drop/drag-drop.js';
 import { ScriptLoader } from './utils/ScriptLoader.js';
 import { TurnosWidget } from './components/turnos-widget/TurnosWidget.js';
+import { Turnero } from './components/turnero/Turnero.js';
 import { EspecialidadesFilter } from './components/especialidades-filter/especialidades-filter.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -58,4 +59,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	// 		}
 	// 	);
 	// }
+	if (window.location.pathname === '/turnero')
+	{
+		ScriptLoader.loadScript(
+			'Turnero',
+			'scripts/components/turnero/Turnero.js',
+			() => {
+				new Turnero("");
+			}
+		);
+	}
+
+
 });

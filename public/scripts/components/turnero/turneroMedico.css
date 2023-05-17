@@ -1,7 +1,6 @@
-@import url('./global/shared.css');
-@import url('./global/shared-details.css');
+@import url('../../../assets/styles/turnero.css');
 
-button {
+.boton-siguiente {
   background-color: var(--yellow);
   color: var(--green);
   border: 2px solid var(--green);
@@ -17,6 +16,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.boton-siguiente:hover {
   transform: scale(1.03);
 }
