@@ -26,6 +26,9 @@ export class TurnosWidget {
       })
 
     this.$medicoSelect = document.querySelector(".medico");
+    this.$container = document.querySelector(".medicos");
+    this.$container.appendChild(this.$tabla);
+    this.$tabla.style.display = "none"
 
     this.$medicoSelect.addEventListener("click", () => {
         this.$medico = this.$profesionales.find(
@@ -33,11 +36,9 @@ export class TurnosWidget {
             profesional.matricula == this.$medicoSelect.value)
           );
         
-        this.$tabla.style.display = "none";
-        if(this.$medicoSelect.value != 0){
+        this.$tabla.innerHTML = '';
 
-          const container = document.querySelector(".medicos");
-          container.appendChild(this.$tabla);
+        if(this.$medicoSelect.value != 0){
 
           this.setDias(this.$tabla, this.$diasHabiles);
 
@@ -47,6 +48,9 @@ export class TurnosWidget {
           this.setHoras(this.$tabla, this.$medico, this.$diasHabiles,
             this.$fechaContainer, this.$horaContainer);
 
+          console.log(this.$tabla.style.display == "none");
+          
+          if(this.$tabla.style.display == "none")
             this.$tabla.style.display = "table";
         }
     });
