@@ -3,32 +3,46 @@ export class Turnero {
 
   constructor($user) {
 
+    // Si es medico...
     if($user == "medico"){
       const $link = ElementBuilder.createElement('link', '', {
         rel: 'stylesheet',
         href: 'scripts/components/turnero/turneroMedico.css',
       });
       document.head.appendChild($link);
-      this.setViewMedico();
 
+      
+      const container = document.querySelector("main");
+      fetch('scripts/components/turnero/medico-view.html')
+        .then((response) => response.text())
+        .then((view) => {
+          this.$view = view;
+          const tempElement = document.createElement('div');
+          tempElement.innerHTML = this.$view;
+          container.appendChild(tempElement.firstChild);
+        }
+      );
+      
       // Solicita turnero.json
       const $url = 'scripts/components/turnero/turnero.json';
       fetch($url)
         .then((response) => response.json())
         .then((turnos) => {
           this.$turnos = turnos.turnos;
+          this.addListaTurnos(this.$turnos);
+        
+
+          const botonSiguiente = document.querySelector(".boton-siguiente");
+          // Evento botón siguiente
+          botonSiguiente.addEventListener('click', () => {
+            this.siguienteTurno(this.$turnos[0]);
+            this.$turnos.shift();
+          });
         }
       );
-      
-      const botonSiguiente = document.querySelector(".boton-siguiente");
-      // Evento botón siguiente
-      botonSiguiente.addEventListener('click', () => {
-        this.siguienteTurno(this.$turnos[0]);
-        this.$turnos.shift();
-      });
-
     }
 
+    // Si es paciente...
     if($user == "paciente"){
       const $link = ElementBuilder.createElement('link', '', {
         rel: 'stylesheet',
@@ -38,6 +52,7 @@ export class Turnero {
       this.setViewPaciente();
     }
 
+    // Si es clinica...
     if($user == ""){
       const $link = ElementBuilder.createElement('link', '', {
         rel: 'stylesheet',
@@ -45,88 +60,71 @@ export class Turnero {
       });
       document.head.appendChild($link);
       this.setViewClinica();
+
+      // Consulta cada 10 segundos turno actual
+      setInterval(() => {
+        fetch('ruta_al_archivo.json')
+          .then(response => response.json())
+          .then(data => {
+            const valor = data.variable;
+            console.log(valor); 
+          })
+          .catch(error => {
+            console.log('Error al obtener el JSON:', error);
+          });
+      }, 10000);
     }
 
   }
 
 
-  // Métodos Médico View
+  // Lista de turnos para Médico
+  addListaTurnos($turnos) {
+    const container = document.querySelector(".lista-turnos")
 
-  //Setea Elementos de Médico view
-  setViewMedico(){
-    const container = document.querySelector("main");
-    
-    // Add paciente section
-    const infoPaciente = document.createElement("section");
-    
-    // Header -> Nombre del Paciente
-    const headerSection = document.createElement("header");
-    const nombrePaciente = document.createElement("h3");
-    nombrePaciente.classList.add("nombre-paciente");
+    for(let turno of $turnos){
+      const detail = document.createElement("details");
+      const summary = document.createElement("summary");
+      summary.textContent = turno.nombre + ' ' + turno.apellido;
+      const pacienteData = document.createElement("dl");
+      
+      const dni = document.createElement("dt");
+      dni.textContent = 'DNI:';
+      const dniValue = document.createElement("dd");
+      dniValue.textContent = turno.dni;
 
-    headerSection.appendChild(nombrePaciente);
-    infoPaciente.appendChild(headerSection);
+      pacienteData.appendChild(dni);
+      pacienteData.appendChild(dniValue);
 
-    // Más datos del paciente
-    const datosPaciente = document.createElement("dl");
-    
-    // DNI
-    const dniData = document.createElement("div");
-    dniData.classList.add("dni-data");
-    const dni = document.createElement("dt");
-    dni.textContent = 'DNI:';
-    const dniValue = document.createElement("dd");
-    dniValue.classList.add("dni-value");
+      const edad = document.createElement("dt");
+      edad.textContent = 'Edad:';
+      const edadValue = document.createElement("dd");
+      edadValue.textContent = turno.edad;
 
-    dniData.appendChild(dni);
-    dniData.appendChild(dniValue);
-    datosPaciente.appendChild(dniData);
+      pacienteData.appendChild(edad);
+      pacienteData.appendChild(edadValue);
 
-    // Edad
-    const edadData = document.createElement("div");
-    edadData.classList.add("edad-data");
-    const edad = document.createElement("dt");
-    edad.textContent = 'Edad:';
-    const edadValue = document.createElement("dd");
-    edadValue.classList.add("edad-value");
+      const nacimiento = document.createElement("dt");
+      nacimiento.textContent = 'Nacimiento:';
+      const nacimientoValue = document.createElement("dd");
+      nacimientoValue.textContent = turno.nacimiento;
 
-    edadData.appendChild(edad);
-    edadData.appendChild(edadValue);
-    datosPaciente.appendChild(edadData);
+      pacienteData.appendChild(nacimiento);
+      pacienteData.appendChild(nacimientoValue);
 
-    // Nacimiento
-    const nacimientoData = document.createElement("div");
-    nacimientoData.classList.add("nacimiento-data");
-    const nacimiento = document.createElement("dt");
-    nacimiento.textContent = 'Nacimiento:';
-    const nacimientoValue = document.createElement("dd");
-    nacimientoValue.classList.add("nacimiento-value");
+      const genero = document.createElement("dt");
+      genero.textContent = 'Genero:';
+      const generoValue = document.createElement("dd");
+      generoValue.textContent = turno.genero;
 
-    nacimientoData.appendChild(nacimiento);
-    nacimientoData.appendChild(nacimientoValue);
-    datosPaciente.appendChild(nacimientoData);
+      pacienteData.appendChild(genero);
+      pacienteData.appendChild(generoValue);
 
-    // Genero
-    const generoData = document.createElement("div");
-    generoData.classList.add("genero-data");
-    const genero = document.createElement("dt");
-    genero.textContent = 'Genero:';
-    const generoValue = document.createElement("dd");
-    generoValue.classList.add("genero-value");
-
-    generoData.appendChild(genero);
-    generoData.appendChild(generoValue);
-    datosPaciente.appendChild(generoData);
-
-    infoPaciente.appendChild(datosPaciente);
-    container.appendChild(infoPaciente);
-
-
-    // Botón Siguiente
-    const botonSiguiente = document.createElement("button");
-    botonSiguiente.classList.add("boton-siguiente");
-    botonSiguiente.textContent = "Siguiente";
-    container.appendChild(botonSiguiente);
+      detail.appendChild(summary);
+      detail.appendChild(pacienteData);
+      
+      container.appendChild(detail);
+    }
   }
 
   // Muestra Siguiente Turno
@@ -151,6 +149,10 @@ export class Turnero {
     generoValue.textContent = $turno.genero;
   }
 
+
+  // Métodos Paciente View
+
+  // Set Elementos de Paciente view
   setViewPaciente(){
     const container = document.querySelector("main");
     const turnoUser = document.createElement("p");
@@ -161,10 +163,14 @@ export class Turnero {
     this.setTurnos();
   }
 
+  // Métodos Clínica View
+
+  // Set Elementos de Clínica view
   setViewClinica(){
     this.setTurnos();
   }
 
+  // Set elementos Clínica y Paciente
   setTurnos(){
     const container = document.querySelector("main");
     const turnos = document.createElement("section");

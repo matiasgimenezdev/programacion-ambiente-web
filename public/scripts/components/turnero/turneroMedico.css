@@ -1,5 +1,25 @@
 @import url('../../../assets/styles/turnero.css');
 
+
+header {
+  
+}
+
+.lista-turnos, .turno-actual {
+  display: inline-block;
+}
+
+.lista-turnos {
+  width: 20%;
+  margin: 0;
+  border: 1px solid;
+}
+
+.turno-actual {
+  float: right;
+  width: 80%;
+}
+
 .boton-siguiente {
   background-color: var(--yellow);
   color: var(--green);
