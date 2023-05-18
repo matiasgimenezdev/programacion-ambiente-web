@@ -41,7 +41,7 @@ const routes = {
 	'/turnero': {
 		scriptName: 'Turnero',
 		scriptPath: 'scripts/components/turnero/Turnero.js',
-		initFunction: () => new Turnero(''),
+		initFunction: () => new Turnero('medico'),
 	},
 
 	'/profesionales': {
