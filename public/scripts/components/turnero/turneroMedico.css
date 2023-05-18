@@ -2,7 +2,17 @@
 
 
 header {
-  
+  position: relative;
+  height: auto;
+  box-shadow: none;
+}
+
+h3 {
+  margin: auto;
+  margin-left: 1rem;
+  margin-top: 2.5rem;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .lista-turnos, .turno-actual {
@@ -19,6 +29,28 @@ header {
   float: right;
   width: 80%;
 }
+
+dt,
+dd {
+	display: inline-block;
+	padding: 1.2rem;
+}
+
+div {
+	border-bottom: 1px solid;
+}
+
+dt {
+	width: 30%;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+dd {
+	width: 40%;
+	text-align: center;
+}
+
 
 .boton-siguiente {
   background-color: var(--yellow);
