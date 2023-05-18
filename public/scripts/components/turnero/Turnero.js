@@ -84,41 +84,50 @@ export class Turnero {
 
     for(let turno of $turnos){
       const detail = document.createElement("details");
+      
       const summary = document.createElement("summary");
       summary.textContent = turno.nombre + ' ' + turno.apellido;
       const pacienteData = document.createElement("dl");
-      
+
+      const dniDiv = document.createElement("div");
       const dni = document.createElement("dt");
       dni.textContent = 'DNI:';
       const dniValue = document.createElement("dd");
       dniValue.textContent = turno.dni;
 
-      pacienteData.appendChild(dni);
-      pacienteData.appendChild(dniValue);
+      dniDiv.appendChild(dni);
+      dniDiv.appendChild(dniValue);
+      pacienteData.appendChild(dniDiv);
 
+      const edadDiv = document.createElement("div");
       const edad = document.createElement("dt");
       edad.textContent = 'Edad:';
       const edadValue = document.createElement("dd");
       edadValue.textContent = turno.edad;
 
-      pacienteData.appendChild(edad);
-      pacienteData.appendChild(edadValue);
+      edadDiv.appendChild(edad);
+      edadDiv.appendChild(edadValue);
+      pacienteData.appendChild(edadDiv);
 
+      const nacimientoDiv = document.createElement("div");
       const nacimiento = document.createElement("dt");
       nacimiento.textContent = 'Nacimiento:';
       const nacimientoValue = document.createElement("dd");
       nacimientoValue.textContent = turno.nacimiento;
 
-      pacienteData.appendChild(nacimiento);
-      pacienteData.appendChild(nacimientoValue);
+      nacimientoDiv.appendChild(nacimiento);
+      nacimientoDiv.appendChild(nacimientoValue);
+      pacienteData.appendChild(nacimientoDiv);
 
+      const generoDiv = document.createElement("div");
       const genero = document.createElement("dt");
       genero.textContent = 'Genero:';
       const generoValue = document.createElement("dd");
       generoValue.textContent = turno.genero;
 
-      pacienteData.appendChild(genero);
-      pacienteData.appendChild(generoValue);
+      generoDiv.appendChild(genero);
+      generoDiv.appendChild(generoValue);
+      pacienteData.appendChild(generoDiv);
 
       detail.appendChild(summary);
       detail.appendChild(pacienteData);
