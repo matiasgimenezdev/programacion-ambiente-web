@@ -14,17 +14,17 @@
 	align-items: center;
 	justify-content: center;
 	margin: 0.8rem 0;
-	width: 90%;
+	width: 95%;
 	left: 5%;
 	text-align: center;
 	padding: 0.5rem;
-	position: absolute;
-	top: 0;
+	top: -4.5rem;
 	background-color: var(--yellow);
 	border-radius: 15px;
 }
 
 .result-filter {
+	display: flex;
 	padding: 0;
 	background-color: transparent;
 	flex-direction: row;
@@ -73,6 +73,9 @@
 	border: 1px solid var(--yellow);
 	padding: 0.2rem;
 	border-radius: 100%;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 1rem;
 	transition: background 0.5s ease;
 }
 
@@ -101,7 +104,8 @@ label[id='amount'] {
 	.result-filter-container {
 		width: 90%;
 		margin: 0.8rem auto;
-		justify-content: flex-start;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.result-filter {
@@ -153,7 +157,7 @@ label[id='amount'] {
 		position: relative;
 	}
 	.up::after {
-		content: 'Ascendente';
+		content: 'Fecha';
 		font-family: var(--font-family);
 		font-size: 0.8rem;
 		position: absolute;
@@ -162,7 +166,7 @@ label[id='amount'] {
 	}
 
 	.down::after {
-		content: 'Descendente';
+		content: 'Fecha';
 		font-family: var(--font-family);
 		font-size: 0.9rem;
 		position: absolute;
