@@ -24,7 +24,6 @@ export class Carousel {
 					$loader.style.width = `${
 						(100 / this.$images.length) * this.loadCount
 					}%`;
-					console.log($loader.style.width);
 				});
 			}
 		}
@@ -149,7 +148,7 @@ export class Carousel {
 
 				$thumb.addEventListener('click', (event) => {
 					const id = event.target.getAttribute('id');
-					if (this.currentImage <= id) {
+					if (this.currentImage < id) {
 						nextImageChange(id - this.currentImage);
 					} else if (this.currentImage > id) {
 						previousImageChange(this.currentImage - id);
