@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			'Turnero',
 			'scripts/components/turnero/Turnero.js',
 			() => {
-				new Turnero("");
+				new Turnero("medico");
 			}
 		);
 	}

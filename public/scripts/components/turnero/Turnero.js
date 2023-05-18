@@ -8,7 +8,25 @@ export class Turnero {
         rel: 'stylesheet',
         href: 'scripts/components/turnero/turneroMedico.css',
       });
+      document.head.appendChild($link);
       this.setViewMedico();
+
+      // Solicita turnero.json
+      const $url = 'scripts/components/turnero/turnero.json';
+      fetch($url)
+        .then((response) => response.json())
+        .then((turnos) => {
+          this.$turnos = turnos.turnos;
+        }
+      );
+      
+      const botonSiguiente = document.querySelector(".boton-siguiente");
+      // Evento botón siguiente
+      botonSiguiente.addEventListener('click', () => {
+        this.siguienteTurno(this.$turnos[0]);
+        this.$turnos.shift();
+      });
+
     }
 
     if($user == "paciente"){
@@ -31,12 +49,106 @@ export class Turnero {
 
   }
 
+
+  // Métodos Médico View
+
+  //Setea Elementos de Médico view
   setViewMedico(){
     const container = document.querySelector("main");
+    
+    // Add paciente section
+    const infoPaciente = document.createElement("section");
+    
+    // Header -> Nombre del Paciente
+    const headerSection = document.createElement("header");
+    const nombrePaciente = document.createElement("h3");
+    nombrePaciente.classList.add("nombre-paciente");
+
+    headerSection.appendChild(nombrePaciente);
+    infoPaciente.appendChild(headerSection);
+
+    // Más datos del paciente
+    const datosPaciente = document.createElement("dl");
+    
+    // DNI
+    const dniData = document.createElement("div");
+    dniData.classList.add("dni-data");
+    const dni = document.createElement("dt");
+    dni.textContent = 'DNI:';
+    const dniValue = document.createElement("dd");
+    dniValue.classList.add("dni-value");
+
+    dniData.appendChild(dni);
+    dniData.appendChild(dniValue);
+    datosPaciente.appendChild(dniData);
+
+    // Edad
+    const edadData = document.createElement("div");
+    edadData.classList.add("edad-data");
+    const edad = document.createElement("dt");
+    edad.textContent = 'Edad:';
+    const edadValue = document.createElement("dd");
+    edadValue.classList.add("edad-value");
+
+    edadData.appendChild(edad);
+    edadData.appendChild(edadValue);
+    datosPaciente.appendChild(edadData);
+
+    // Nacimiento
+    const nacimientoData = document.createElement("div");
+    nacimientoData.classList.add("nacimiento-data");
+    const nacimiento = document.createElement("dt");
+    nacimiento.textContent = 'Nacimiento:';
+    const nacimientoValue = document.createElement("dd");
+    nacimientoValue.classList.add("nacimiento-value");
+
+    nacimientoData.appendChild(nacimiento);
+    nacimientoData.appendChild(nacimientoValue);
+    datosPaciente.appendChild(nacimientoData);
+
+    // Genero
+    const generoData = document.createElement("div");
+    generoData.classList.add("genero-data");
+    const genero = document.createElement("dt");
+    genero.textContent = 'Genero:';
+    const generoValue = document.createElement("dd");
+    generoValue.classList.add("genero-value");
+
+    generoData.appendChild(genero);
+    generoData.appendChild(generoValue);
+    datosPaciente.appendChild(generoData);
+
+    infoPaciente.appendChild(datosPaciente);
+    container.appendChild(infoPaciente);
+
+
+    // Botón Siguiente
     const botonSiguiente = document.createElement("button");
     botonSiguiente.classList.add("boton-siguiente");
     botonSiguiente.textContent = "Siguiente";
     container.appendChild(botonSiguiente);
+  }
+
+  // Muestra Siguiente Turno
+  siguienteTurno($turno){
+    const nombrePaciente = document.querySelector(".nombre-paciente");
+    nombrePaciente.textContent = $turno.nombre + " " + $turno.apellido;
+
+    // Set dni value
+    const dniValue = document.querySelector(".dni-value");
+    dniValue.textContent = $turno.dni;
+
+    // Set edad value
+    const edadValue = document.querySelector(".edad-value");
+    edadValue.textContent = $turno.edad;
+
+    // Set nacimiento value
+    const nacimientoValue = document.querySelector(".nacimiento-value");
+    nacimientoValue.textContent = $turno.nacimiento;
+
+    // Set genero value
+    const generoValue = document.querySelector(".genero-value");
+    generoValue.textContent = $turno.genero;
   }
 
   setViewPaciente(){
