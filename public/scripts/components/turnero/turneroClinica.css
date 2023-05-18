@@ -1,0 +1,40 @@
+@import url('../../../assets/styles/turnero.css');
+
+body, html, .turnos {
+  height: 100%;
+  margin: 0;
+}
+
+h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 2rem 0;
+  width: 100%;
+  background-color: var(--green);
+}
+
+
+article {
+  height: auto;
+  display: inline-block;
+  text-align: center;
+}
+
+.turno-actual {
+  width: 60%;
+}
+
+.cola-turnos {
+  float: right;
+  width: 40%;
+}
+
+.turno-actual p {
+  font-size: 10rem;
+  padding-top: 25%;
+}
+
+.cola p {
+  font-size: 2rem;
+  padding: 10.5% 0;
+}

@@ -1,0 +1,101 @@
+{
+  "turnos": [
+    {
+      "id": "D11",
+      "dni": "42488654",
+      "nombre": "Javier",
+      "apellido": "Javiero",
+      "genero": "Masculino",
+      "nacimiento": "02/03/2000",
+      "edad": 23,
+      "profesional": "Tekito Lakarie",
+      "fecha": "",
+      "hora": ""
+    },
+    {
+      "id": "D12",
+      "dni": "30265988",
+      "nombre": "Ana",
+      "apellido": "Anita",
+      "genero": "Femenino",
+      "nacimiento": "24/07/1985",
+      "edad": 34,
+      "profesional": "Tekito Lakarie",
+      "fecha": "",
+      "hora": ""
+    },
+    {
+      "id": "D13",
+      "dni": "40123456",
+      "nombre": "Micaela",
+      "apellido": "Aleamic",
+      "genero": "Femenino",
+      "nacimiento": "16/09/1999",
+      "edad": 24,
+      "profesional": "Tarayado Tukoko",
+      "fecha": "",
+      "hora": ""
+    },
+    {
+      "id": "D14",
+      "dni": "34562244",
+      "nombre": "Hernán",
+      "apellido": "Pérez",
+      "genero": "Masculino",
+      "nacimiento": "02/03/2000",
+      "edad": 27,
+      "profesional": "Tarayado Tukoko",
+      "fecha": "",
+      "hora": ""
+    },
+    {
+      "id": "D15",
+      "dni": "40165998",
+      "nombre": "Fabián",
+      "apellido": "Fabianero",
+      "genero": "Masculino",
+      "nacimiento": "02/03/2000",
+      "edad": 23,
+      "profesional": "Isee Deadpeople",
+      "fecha": "",
+      "hora": ""
+    },
+    {
+      "id": "D16",
+      "dni": "39456555",
+      "nombre": "Martín",
+      "apellido": "Martinero",
+      "genero": "Masculino",
+      "nacimiento": "24/04/1998",
+      "edad": 26,
+      "profesional": "Tekito Lakarie",
+      "fecha": "",
+      "hora": ""
+    },
+    {
+      "id": "D17",
+      "dni": "32456456",
+      "nombre": "Gabriela",
+      "apellido": "Gabi",
+      "genero": "Femenino",
+      "nacimiento": "04/20/1990",
+      "edad": 30,
+      "profesional": "Tekito Lakarie",
+      "fecha": "",
+      "hora": ""
+    },
+    {
+      "id": "D18",
+      "dni": "43044986",
+      "nombre": "Pablo",
+      "apellido": "Pablón",
+      "genero": "Masculino",
+      "nacimiento": "27/01/2001",
+      "edad": 20,
+      "profesional": "Isee Deadpeople",
+      "fecha": "",
+      "hora": ""
+    }
+  ]
+}
+

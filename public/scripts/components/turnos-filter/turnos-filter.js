@@ -1,19 +1,19 @@
 import { TableFilter } from '../../utils/TableFilter.js';
 import { ElementBuilder } from '../../utils/ElementBuilder.js';
 
-export class EspecialidadesFilter {
+export class TurnosFilter {
 	constructor() {
 		const $link = ElementBuilder.createElement('link', '', {
 			rel: 'stylesheet',
-			href: 'scripts/components/especialidades-filter/especialidades-filter.css',
+			href: 'scripts/components/turnos-filter/turnos-filter.css',
 		});
+
 		document.head.appendChild($link);
-		this.$container = document.querySelector('section.result-section');
+		this.$container = document.querySelector('section.detail-section');
 		this.$container.innerHTML = '';
 		this.filter = new TableFilter(this.$container);
 
-		this.url =
-			'scripts/components/especialidades-filter/assets/especialidades.json';
+		this.url = 'scripts/components/turnos-filter/assets/turnos.json';
 
 		this.createPages();
 		this.addEvents();
@@ -42,7 +42,7 @@ export class EspecialidadesFilter {
 
 		const $filterInput = document.getElementById('filter-text');
 		$filterInput.addEventListener('input', (event) => {
-			this.textFilter = event.target.value.toLowerCase();
+			this.textFilter = event.target.value;
 			this.createPages();
 		});
 	}
@@ -55,11 +55,15 @@ export class EspecialidadesFilter {
 
 	async createPages() {
 		let data = await this.getData();
-		data = this.filter.dataFilter(data, this.textFilter, ['name']);
+		data = this.filter.dataFilter(data, this.textFilter, [
+			'profesional',
+			'especialidad',
+		]);
 
 		if (this.sort) {
-			data = this.filter.sort(data, this.sort, 'name');
+			data = this.filter.sort(data, this.sort, 'date');
 		}
+
 		this.pages = this.filter.setPages(data, this.filter.$range.value);
 		const $index = this.filter.createIndex(
 			this.pages.length,
@@ -72,27 +76,40 @@ export class EspecialidadesFilter {
 	}
 
 	loadPage(pages, indexNumber, index) {
-		const $container = document.querySelector('section.result-section');
+		const $container = document.querySelector('section.detail-section');
 		const $filter = document.querySelector('.result-filter-container');
 		$container.innerHTML = '';
 		$container.appendChild($filter);
 		if (pages.length > 0) {
-			for (let especialidad of pages[indexNumber]) {
-				const $article = ElementBuilder.createElement('article', '', {
+			for (let turno of pages[indexNumber]) {
+				const $details = ElementBuilder.createElement('details', '', {
 					class: 'search-result',
 				});
+				$details.innerHTML = `
+                    <summary data-id="<?= $turno->getId() ?>">Turno
+                        ${turno.id}
+                    </summary>
+                    <h4>Información del turno</h4>
+                    <ul>
+                        <li>Médico:
+                            ${turno.profesional}
+                        </li>
+                        <li>Especialidad:
+                            ${turno.especialidad}
+                        </li>
+                        <li>Fecha:
+                            ${turno.date}
+                        </li>
+                        <li>Hora:
+                            ${turno.time}
+                        </li>
+                    </ul>
+                    <button class='cancelar-turno'>Cancelar turno</button>;
+		    	`;
 
-				$article.innerHTML = `
-		        <h4 class="specialty-name"> ${especialidad.name} </h4>
-		        <p class="specialty-description">
-		            ${especialidad.description}
-		        </p>
-		        <a href="/profesional-search?profesional=${especialidad.name}"><button>Ver profesionales</button></a>
-		    `;
-				$container.appendChild($article);
+				$container.appendChild($details);
 			}
 		}
-
 		$container.appendChild(index);
 	}
 }

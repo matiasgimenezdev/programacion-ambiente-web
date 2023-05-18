@@ -1,5 +1,4 @@
-@import url('./global/shared.css');
-@import url('./global/shared-details.css');
+@import url('../../../assets/styles/turnero.css');
 
 h3 {
   font-size: 2rem;
@@ -12,22 +11,22 @@ h3 {
   border-radius: 4px;
 }
 
-.actual, .cola {
+article {
   text-align: center;
 }
 
-.actual p, .cola p {
+.turno-actual p, .cola-turnos p {
   border: 1px solid var(--light-grey);
   border-radius: 4px;
 }
 
-.actual p {
+.turno-actual p {
   font-size: 4rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-.cola p {
+.cola-turnos p {
   font-size: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;

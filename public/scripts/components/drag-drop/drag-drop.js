@@ -93,6 +93,10 @@ export class DragAndDrop {
 			<span>Estudio clínico</span> <br>
 			Suelte su archivo aqui o haga click para buscarlo
 		`;
+		const $cancel = document.querySelector('.cancel-button');
+		if ($cancel) {
+			this.$container.removeChild($cancel);
+		}
 	}
 
 	loadPreview(file) {
@@ -127,6 +131,16 @@ export class DragAndDrop {
 		} else {
 			previewError();
 		}
+
+		const $cancel = ElementBuilder.createElement('button', 'x', {
+			class: 'cancel-button',
+		});
+
+		$cancel.addEventListener('click', () => {
+			this.removePreview();
+		});
+
+		this.$container.appendChild($cancel);
 	}
 
 	loadFile(file) {

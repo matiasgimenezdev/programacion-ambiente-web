@@ -1,0 +1,102 @@
+@import url('../../../assets/styles/turnero.css');
+
+
+header {
+  position: relative;
+  height: auto;
+  box-shadow: none;
+}
+
+h3 {
+  margin: auto;
+  margin-left: 1rem;
+  margin-top: 2.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.turnero {
+  width: 90%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.turno-actual {
+  display: inline-block;
+
+}
+
+.lista-turnos {
+  width: 20%;
+  float: left;
+  border-top: 1px solid;
+  margin: 0 1rem;
+}
+
+summary {
+  padding: 1rem 0;
+}
+
+.turno-actual {
+  width: 75%;
+  border: 1px solid;
+}
+
+dt, dd {
+  display: inline-block;
+}
+
+.turno-actual dt,
+.turno-actual dd {
+	padding: 1.2rem;
+}
+
+.turno-actual div {
+	border-bottom: 1px solid;
+}
+
+.turno-actual dd {
+	width: 40%;
+  text-align: center;
+}
+
+.turno-actual dt {
+  width: 30%;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+
+.lista-turnos div {
+  margin: 1rem 0;
+}
+
+.lista-turnos dd {
+  margin-left: 3rem;
+}
+
+.lista-turnos dt {
+  font-weight: bold;
+  width: 30%;
+
+}
+
+.boton-siguiente {
+  background-color: var(--yellow);
+  color: var(--green);
+  border: 2px solid var(--green);
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 12rem;
+  margin-top: 2rem;
+  transition: transform 0.1s ease-in;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+.boton-siguiente:hover {
+  transform: scale(1.03);
+}
