@@ -1,5 +1,9 @@
 @import url('../../../assets/styles/turnero.css');
 
+.turnos {
+  margin: 1rem;
+}
+
 h3 {
   font-size: 2rem;
   margin: auto;
