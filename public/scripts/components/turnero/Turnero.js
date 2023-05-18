@@ -30,7 +30,6 @@ export class Turnero {
         .then((turnos) => {
           this.$turnos = turnos.turnos;
           this.addListaTurnos(this.$turnos);
-        
 
           const botonSiguiente = document.querySelector(".boton-siguiente");
           // Evento botón siguiente
@@ -38,6 +37,7 @@ export class Turnero {
             this.siguienteTurno(this.$turnos[0]);
             this.$turnos.shift();
           });
+
         }
       );
     }
@@ -49,7 +49,29 @@ export class Turnero {
         href: 'scripts/components/turnero/turneroPaciente.css',
       });
       document.head.appendChild($link);
-      this.setViewPaciente();
+      
+      const container = document.querySelector("main");
+      fetch('scripts/components/turnero/paciente-view.html')
+        .then((response) => response.text())
+        .then((view) => {
+          this.$view = view;
+          const tempElement = document.createElement('div');
+          tempElement.innerHTML = this.$view;
+          container.appendChild(tempElement.firstChild);
+        }
+      );
+
+      setInterval(() => {
+        const $url = 'scripts/components/turnero/turnero.json';
+        fetch($url)
+          .then((response) => response.json())
+          .then((turnos) => {
+            this.$turnosRequest = turnos.turnos;
+            this.$turnos = this.$turnosRequest;
+            this.setTurnos(this.$turnos);
+          }
+        );
+      }, 10000);
     }
 
     // Si es clinica...
@@ -59,19 +81,29 @@ export class Turnero {
         href: 'scripts/components/turnero/turneroClinica.css',
       });
       document.head.appendChild($link);
-      this.setViewClinica();
+      
+      const container = document.querySelector("main");
+      fetch('scripts/components/turnero/clinica-view.html')
+        .then((response) => response.text())
+        .then((view) => {
+          this.$view = view;
+          const tempElement = document.createElement('div');
+          tempElement.innerHTML = this.$view;
+          container.appendChild(tempElement.firstChild);
+        }
+      );
 
       // Consulta cada 10 segundos turno actual
       setInterval(() => {
-        fetch('ruta_al_archivo.json')
-          .then(response => response.json())
-          .then(data => {
-            const valor = data.variable;
-            console.log(valor); 
-          })
-          .catch(error => {
-            console.log('Error al obtener el JSON:', error);
-          });
+        const $url = 'scripts/components/turnero/turnero.json';
+        fetch($url)
+          .then((response) => response.json())
+          .then((turnos) => {
+            this.$turnosRequest = turnos.turnos;
+            this.$turnos = this.$turnosRequest;
+            this.setTurnos(this.$turnos);
+          }
+        );
       }, 10000);
     }
 
@@ -136,7 +168,7 @@ export class Turnero {
     }
   }
 
-  // Muestra Siguiente Turno
+  // Muestra Siguiente Turno a Medico
   siguienteTurno($turno){
     const nombrePaciente = document.querySelector(".nombre-paciente");
     nombrePaciente.textContent = $turno.nombre + " " + $turno.apellido;
@@ -159,48 +191,27 @@ export class Turnero {
   }
 
 
-  // Métodos Paciente View
+  setTurnos($turnos){
 
-  // Set Elementos de Paciente view
-  setViewPaciente(){
-    const container = document.querySelector("main");
-    const turnoUser = document.createElement("p");
-    turnoUser.classList.add("turno-user");
-    turnoUser.textContent = "Su turno: ";
-    container.appendChild(turnoUser);
+    const turnoActual = document.querySelector(".actual");
 
-    this.setTurnos();
+    turnoActual.textContent = $turnos[0].id;
+
+    const colaContainer = document.querySelector(".cola");
+    colaContainer.innerHTML = '';
+
+    let limit = 5;
+    if($turnos.length < 5){
+      limit = $turnos.length;
+    }
+
+    for(let i = 1; i <= limit; i++){
+      const turno = document.createElement("p");
+      turno.textContent = $turnos[i].id;
+      colaContainer.appendChild(turno);
+    }
+
   }
 
-  // Métodos Clínica View
-
-  // Set Elementos de Clínica view
-  setViewClinica(){
-    this.setTurnos();
-  }
-
-  // Set elementos Clínica y Paciente
-  setTurnos(){
-    const container = document.querySelector("main");
-    const turnos = document.createElement("section");
-    turnos.classList.add("turnos");
-    container.appendChild(turnos);
-
-    const turnoActual = document.createElement("article");
-    turnoActual.classList.add("actual");
-    turnos.appendChild(turnoActual);
-
-    const turnoActualH3 = document.createElement("h3");
-    turnoActualH3.textContent = "Turno Actual";
-    turnoActual.appendChild(turnoActualH3);
-
-    const colaTurnos = document.createElement("article");
-    colaTurnos.classList.add("cola");
-    turnos.appendChild(colaTurnos);
-
-    const colaTurnosH3 = document.createElement("h3");
-    colaTurnosH3.textContent = "Siguientes";
-    colaTurnos.appendChild(colaTurnosH3);
-  }
 
 }

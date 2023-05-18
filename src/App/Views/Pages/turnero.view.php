@@ -5,8 +5,6 @@
 </head>
 
 <body>
-  <h2 class="title"><?= $title ?></h2>
 	<main>
-    
   </main>
 </body>
