@@ -93,6 +93,16 @@ export class ProfesionalesFilter {
 		    	`;
 				$container.appendChild($article);
 			}
+
+			const $buttons = document.querySelectorAll(
+				'article.search-result button'
+			);
+
+			for (const $button of $buttons) {
+				$button.addEventListener('click', () => {
+					window.location.href = '/solicitar-turno';
+				});
+			}
 		}
 		$container.appendChild(index);
 	}
