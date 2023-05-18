@@ -66,7 +66,7 @@ export class TableFilter {
 		if (length === 0) {
 			return ElementBuilder.createElement(
 				'p',
-				'No se encontraron especialidades',
+				'No se encontraron coincidencias',
 				{
 					class: 'msg',
 				}

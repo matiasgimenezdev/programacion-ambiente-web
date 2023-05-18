@@ -24,12 +24,6 @@
 					Listado de turnos del paciente
 					<span class="patient-name">Apellido, Nombre</span>
 				</h3>
-				<form action="" method="GET" class="form">
-					<p>
-						<label for="filter">Filtrar</label>
-						<input type="search" id="filter" name="filter" autocomplete="off" maxlength="60" />
-					</p>
-				</form>
 			</section>
 
 			<section class="detail-section">
