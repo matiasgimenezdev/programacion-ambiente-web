@@ -25,8 +25,8 @@ export class DragAndDrop {
 		this.$input.addEventListener('change', (event) => {
 			if (this.$input.value) {
 				const file = event.target.files[0];
-				this.loadPreview(file);
 				this.loadFile(file);
+				this.loadPreview(file);
 			} else {
 				this.removePreview();
 			}
@@ -116,6 +116,7 @@ export class DragAndDrop {
 		};
 
 		this.removePreview();
+		this.$label.innerHTML = `<span>${file.name}</span>`;
 		// Si es una imagen, muestra el preview
 		if (file.type.match('image.*')) {
 			let reader = new FileReader();
@@ -155,6 +156,5 @@ export class DragAndDrop {
 		const dataTransfer = new DataTransfer();
 		dataTransfer.items.add(file);
 		this.$input.files = dataTransfer.files;
-		this.$label.innerHTML = `<span>${file.name}</span>`;
 	}
 }
