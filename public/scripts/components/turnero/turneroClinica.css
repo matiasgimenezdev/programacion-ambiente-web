@@ -11,6 +11,7 @@ h3 {
   padding: 2rem 0;
   width: 100%;
   background-color: var(--green);
+  color: var(--light-grey);
 }
 
 

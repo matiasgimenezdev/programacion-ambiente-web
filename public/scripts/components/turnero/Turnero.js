@@ -64,26 +64,47 @@ export class Turnero {
       this.$paciente = "Hernán";
       this.$idTurno = "D14";
 
-      setInterval(() => {
-        const $url = 'scripts/components/turnero/turnero.json';
-        fetch($url)
-          .then((response) => response.json())
-          .then((turnos) => {
-            this.$turnosRequest = turnos.turnos;
-            this.$turnos = this.$turnosRequest;
-            this.setTurnos(this.$turnos, this.$paciente);
-            
-            fetch('scripts/components/turnero/turnos.json')
-              .then((response) => response.json())
-              .then((data) => {
-                this.$profesionales = data.especialistas;
+      const $url = 'scripts/components/turnero/turnero.json';
+      fetch($url)
+        .then((response) => response.json())
+        .then((turnos) => {
+          this.$turnosRequest = turnos.turnos;
+          this.$turnos = this.$turnosRequest;
+          this.setTurnos(this.$turnos, this.$paciente);
+          
+          fetch('scripts/components/turnero/turnos.json')
+            .then((response) => response.json())
+            .then((data) => {
+              this.$profesionales = data.especialistas;
+              this.calcularTiempoDeEspera(this.$profesionales, this.$turnos, this.$idTurno);
+            }
+          );
+
+        }
+      );
+
+      this.$suTurno = false;
+
+        setInterval(() => {
+          if(!this.$suTurno){
+            this.$turnos.shift();
+          }
+        }, 1000);
+
+        setInterval(() => {
+          if(!this.$suTurno){
+            if(this.$turnos[0].id != this.$turnoActual) {
+              if(this.$turnos[0].id == this.$idTurno){
+                this.$suTurno = true;
+                this.notificarTurno();
+              } else {
+                this.$turnoActual = this.$turnos[0].id;
+                this.setTurnos(this.$turnos, this.$paciente);
                 this.calcularTiempoDeEspera(this.$profesionales, this.$turnos, this.$idTurno);
               }
-            );
-
+            }
           }
-        );
-      }, 10000);
+        }, 1000);
     }
 
     // Si es clinica...
@@ -202,6 +223,27 @@ export class Turnero {
     generoValue.textContent = $turno.genero;
   }
 
+  setTurnos($turnos){
+
+    const turnoActual = document.querySelector(".actual");
+
+    turnoActual.textContent = $turnos[0].id;
+
+    const colaContainer = document.querySelector(".cola");
+    colaContainer.innerHTML = '';
+
+    let limit = 5;
+    if($turnos.length < 5){
+      limit = $turnos.length;
+    }
+
+    for(let i = 1; i <= limit; i++){
+      const turno = document.createElement("p");
+      turno.textContent = $turnos[i].id;
+      colaContainer.appendChild(turno);
+    }
+
+  }
 
   setTurnos($turnos, $paciente){
 
@@ -236,7 +278,7 @@ export class Turnero {
     let tiempoEstimado = 0;
 
     for(let i = 0; i <= $turnos.length; i++){
-      console.log($turnos[i].id);
+      
       if($turnos[i].id == $idTurno){
         const profesional = $turnos[i].profesional;
         let partes = profesional.split(" ");
@@ -256,6 +298,31 @@ export class Turnero {
 
     const tiempoDeEsperaEstimado = document.querySelector(".tiempo-espera");
     tiempoDeEsperaEstimado.textContent = "Tiempo de espera estimado: " + tiempoEstimado + " minutos";
+  }
+
+  notificarTurno() {
+    console.log("es tu turno");
+    
+    const main = document.querySelector("main");
+    const notificacion = document.createElement("section");
+    notificacion.classList.add("notificacion");
+
+    const msj = document.createElement("h1");
+    msj.textContent = "Es tu turno";
+
+    const aceptar = document.createElement("button");
+    aceptar.textContent = "Aceptar";
+    aceptar.classList.add("aceptar");
+
+    notificacion.appendChild(msj);
+    notificacion.appendChild(aceptar);
+
+    main.appendChild(notificacion);
+
+    document.querySelector("audio").play();
+
+    window.navigator.vibrate([1000]);
+
   }
 
 

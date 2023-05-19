@@ -5,6 +5,7 @@ header {
   position: relative;
   height: auto;
   box-shadow: none;
+  background-color: var(--green);
 }
 
 h3 {
@@ -13,6 +14,12 @@ h3 {
   margin-top: 2.5rem;
   font-size: 2rem;
   font-weight: bold;
+  color: var(--light-grey);
+}
+
+.list-tittle {
+  margin: 0;
+  color: var(--grey);
 }
 
 .turnero {
@@ -23,13 +30,12 @@ h3 {
 
 .turno-actual {
   display: inline-block;
-
+  margin-top: 2rem;
 }
 
 .lista-turnos {
   width: 20%;
   float: left;
-  border-top: 1px solid;
   margin: 0 1rem;
 }
 
@@ -77,13 +83,11 @@ dt, dd {
 .lista-turnos dt {
   font-weight: bold;
   width: 30%;
-
 }
 
 .boton-siguiente {
-  background-color: var(--yellow);
-  color: var(--green);
-  border: 2px solid var(--green);
+  background-color: var(--green);
+  color: var(--light-grey);
   font-size: 1.5rem;
   font-weight: bold;
   border-radius: 8px;
@@ -99,4 +103,21 @@ dt, dd {
 
 .boton-siguiente:hover {
   transform: scale(1.03);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+
+  .list-tittle {
+    color: var(--light-grey);
+  }
+
+  .boton-siguiente {
+    color: var(--green);
+    background-color: var(--yellow);
+    border: 1px solid var(--green);
+  }
+
+  details{
+    border-top: 1px solid var(--light-grey);
+  }
 }
