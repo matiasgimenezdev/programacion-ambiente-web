@@ -7,6 +7,7 @@ export class TableFilter {
 			class: 'result-filter-container',
 		});
 
+		// Agrega los elementos del filtro
 		$filter.innerHTML = `
             <fieldset class="result-filter">
 				<p class="filter text-filter-container">
@@ -41,6 +42,7 @@ export class TableFilter {
 		});
 	}
 
+	// Divide el array de objetos en subarrays dependiendo del maximo de objetos por pagina
 	setPages(data, max) {
 		let pagesCount = Math.ceil(data.length / max);
 		const maxItems = parseInt(max);
@@ -57,6 +59,7 @@ export class TableFilter {
 		return pages;
 	}
 
+	// Crea el indice de paginas disponibles
 	createIndex(length, pages, loadPage) {
 		this.pages = pages;
 		const $index = ElementBuilder.createElement('div', '', {
@@ -100,6 +103,7 @@ export class TableFilter {
 		return $index;
 	}
 
+	// Ordena el array de objetos en base a alguno de sus propiedades
 	sort(data, order, fieldName) {
 		let sortedData = [];
 		if (order === 'up') {
@@ -114,6 +118,7 @@ export class TableFilter {
 		return sortedData;
 	}
 
+	// Retorna un array con los objetos cuyo valor de propiedad coinciden con el valor del texto de filtro
 	dataFilter(data, filter, fieldName) {
 		if (!filter) {
 			return data;

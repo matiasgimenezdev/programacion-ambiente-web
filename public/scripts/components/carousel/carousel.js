@@ -12,6 +12,7 @@ export class Carousel {
 		this.$imagesItems = document.querySelectorAll('.images-container li');
 		this.$images = document.querySelectorAll('.images-container li img');
 
+		// Inicializa efectos del carrusel previo a estar activo
 		const $loader = this.addLoader();
 		this.$images[0].classList.add('blur');
 		this.$imagesItems[0].classList.add('active');
@@ -28,9 +29,12 @@ export class Carousel {
 			}
 		}
 
+		// Cada 50ms verifica si las imagenes fueron cargadas
 		const interval = setInterval(() => {
 			if (this.checkAllImagesLoaded()) {
+				// Una vez que fueron cargadas, activa la interaccion con el carrusel
 				this.animateCarousel();
+				// Elimina el temporiador
 				clearInterval(interval);
 			}
 		}, 50);
@@ -54,6 +58,7 @@ export class Carousel {
 		$loaderContainer.style.display = 'none';
 	}
 
+	// Retorna el index de la imagen activa
 	activeImage() {
 		let position = 0;
 		this.$imagesItems.forEach(($item, index) => {
@@ -64,6 +69,7 @@ export class Carousel {
 		return position;
 	}
 
+	// Checkea si todas las imagenes se cargaron por completo
 	checkAllImagesLoaded() {
 		let allLoaded = true;
 		for (let i = 0; i < this.$images.length; i++) {
@@ -77,6 +83,7 @@ export class Carousel {
 		return allLoaded;
 	}
 
+	// Activa toda la interaccion con el carrusel
 	animateCarousel() {
 		const addButtons = ($leftButton, $rightButton) => {
 			this.$imagesContainer.appendChild($rightButton);
@@ -91,6 +98,9 @@ export class Carousel {
 			}
 			$leftButton.addEventListener('click', () => previousImageChange());
 			$rightButton.addEventListener('click', () => nextImageChange());
+			this.$imagesContainer.addEventListener('drop', (event) => {
+				event.preventDefault();
+			});
 		};
 
 		const nextImageChange = (count = 1) => {
@@ -173,13 +183,13 @@ export class Carousel {
 		this.$images[0].classList.remove('blur');
 		this.currentImage = this.activeImage();
 
-		// Interaccion mediante thumbs
+		// Agrega interaccion mediante thumbs
 		addThumbs();
 
-		// Interaccion mediante botones
+		// Agrega interaccion mediante botones
 		addButtons($leftButton, $rightButton);
 
-		// Interaccion mediante teclado
+		// Agrega interaccion mediante teclado
 		document.addEventListener('keydown', (event) => {
 			if (event.code === 'ArrowLeft') {
 				previousImageChange();
@@ -190,7 +200,7 @@ export class Carousel {
 			}
 		});
 
-		// Interaccion mediante swipe
+		// Agrega interaccion mediante swipe para mobile
 		this.touchstartX = 0;
 		this.touchendX = 0;
 
@@ -199,6 +209,7 @@ export class Carousel {
 		});
 
 		this.$imagesContainer.addEventListener('touchend', (e) => {
+			// Funcion que checkea cual fue la direccion del swipe
 			const checkDirection = () => {
 				if (this.touchendX < this.touchstartX) {
 					nextImageChange();

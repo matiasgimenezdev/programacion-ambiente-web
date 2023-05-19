@@ -16,22 +16,26 @@ export class DragAndDrop {
 			`;
 		const $reset = document.querySelector('.reset');
 
+		// Cuando se resetea el formulario, debe eliminar el preview de la imagen que estaba cargada, ya que el archivo no se encuentra mas cargado
 		$reset.addEventListener('click', () => {
 			this.removePreview();
 		});
 
+		// Actualiza el preview de la imagen cuando el archivo cambia
 		this.$input.addEventListener('change', (event) => {
 			if (this.$input.value) {
 				const file = event.target.files[0];
-				this.loadPreview(file);
 				this.loadFile(file);
+				this.loadPreview(file);
 			} else {
 				this.removePreview();
 			}
 		});
 
+		// Agrega el resto de eventos que dan el funcionamiento al drag & drop al contenedor principal
 		this.addDragAndDropEvents(this.$container, this.$container);
 
+		// Agrega el resto de eventos que dan el funcionamiento al drag & drop a todos los elementos hijos del contenedor
 		const $children = this.$container.childNodes;
 		$children.forEach(($element) => {
 			this.addDragAndDropEvents($element, this.$container);
@@ -78,6 +82,7 @@ export class DragAndDrop {
 		});
 	}
 
+	// Elimina el preview de la imagen que se esta mostrando en ese momento.
 	removePreview() {
 		const $oldPreviewImage = document.querySelector('p.estudio img');
 		if ($oldPreviewImage) {
@@ -99,8 +104,8 @@ export class DragAndDrop {
 		}
 	}
 
+	// Carga el preview de la imagen que se subio.
 	loadPreview(file) {
-		console.log(file);
 		const previewError = () => {
 			const $message = ElementBuilder.createElement(
 				'p',
@@ -111,6 +116,8 @@ export class DragAndDrop {
 		};
 
 		this.removePreview();
+		this.$label.innerHTML = `<span>${file.name}</span>`;
+		// Si es una imagen, muestra el preview
 		if (file.type.match('image.*')) {
 			let reader = new FileReader();
 			reader.readAsDataURL(file);
@@ -132,6 +139,7 @@ export class DragAndDrop {
 			previewError();
 		}
 
+		// Agrega el boton que permite quitar el archivo cargado
 		const $cancel = ElementBuilder.createElement('button', 'x', {
 			class: 'cancel-button',
 		});
@@ -143,10 +151,10 @@ export class DragAndDrop {
 		this.$container.appendChild($cancel);
 	}
 
+	// Carga el archivo dropeado en el area del drag & drop
 	loadFile(file) {
 		const dataTransfer = new DataTransfer();
 		dataTransfer.items.add(file);
 		this.$input.files = dataTransfer.files;
-		this.$label.innerHTML = `<span>${file.name}</span>`;
 	}
 }
