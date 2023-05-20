@@ -1,14 +1,26 @@
 import { ElementBuilder } from '../../utils/ElementBuilder.js';
 export class Turnero {
 
-  constructor($user) {
+  constructor() {
 
-    // Si es medico...
-    if($user == "medico"){
+    const paciente = document.querySelector("#paciente");
+    const medico = document.querySelector("#medico");
+    const clinica = document.querySelector("#clinica");
+
+
+    medico.addEventListener('change', () => {
+
+      const style = document.querySelector("#style");
+      if(style)
+        style.remove();
+
+      const main = document.querySelector("main");
+      main.innerText = '';
 
       const $link = ElementBuilder.createElement('link', '', {
         rel: 'stylesheet',
         href: 'scripts/components/turnero/turneroMedico.css',
+        id: 'style',
       });
       document.head.appendChild($link);
       
@@ -40,14 +52,21 @@ export class Turnero {
 
         }
       );
-    }
+    });
 
-    // Si es paciente...
-    if($user == "paciente"){
+    paciente.addEventListener('change', () => {
+
+      const style = document.querySelector("#style");
+      if(style)
+        style.remove();
+
+      const main = document.querySelector("main");
+      main.innerText = '';
 
       const $link = ElementBuilder.createElement('link', '', {
         rel: 'stylesheet',
         href: 'scripts/components/turnero/turneroPaciente.css',
+        id: 'style',
       });
       document.head.appendChild($link);
 
@@ -107,14 +126,21 @@ export class Turnero {
             
           }
         }, 500);
-    }
+    });
 
-    // Si es clinica...
-    if($user == ""){
+    clinica.addEventListener('change', () => {
+
+      const style = document.querySelector("#style");
+      if(style)
+        style.remove();
+
+      const main = document.querySelector("main");
+      main.innerText = "";
 
       const $link = ElementBuilder.createElement('link', '', {
         rel: 'stylesheet',
         href: 'scripts/components/turnero/turneroClinica.css',
+        id: 'style',
       });
       document.head.appendChild($link);
       
@@ -151,7 +177,7 @@ export class Turnero {
           }
         }
       }, 500);
-    }
+    });
 
   }
 
@@ -341,6 +367,9 @@ export class Turnero {
 
     notificacion.appendChild(msj);
     notificacion.appendChild(aceptar);
+
+    const audio = document.querySelector("audio");
+    audio.play();
 
     const link = document.createElement("a");
     link.href = "/";
