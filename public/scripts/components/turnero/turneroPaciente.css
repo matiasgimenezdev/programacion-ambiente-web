@@ -1,158 +1,165 @@
 @import url('../../../assets/styles/turnero.css');
 
 .title {
-  display: none;
+	display: none;
 }
 
 .turnos {
-  margin: 1rem;
+	margin: 1rem;
 }
 
 h3 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: auto;
-  width: 100%;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  color: var(--light-grey);
-  background-color: var(--green);
-  border-radius: 4px;
+	font-size: 2rem;
+	font-weight: bold;
+	margin: auto;
+	width: 100%;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+	color: var(--light-grey);
+	background-color: var(--green);
 }
 
 article {
-  text-align: center;
+	text-align: center;
 }
 
-.turno-actual p, .cola-turnos p {
-  border: 2px solid var(--green);
-  border-radius: 4px;
+.turno-actual p,
+.cola-turnos p {
+	border: 2px solid var(--green);
 }
 
 .turno-actual p {
-  font-size: 4rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+	font-size: 4rem;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
 
 .cola-turnos p {
-  font-size: 2rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+	font-size: 2rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 .turno-user {
-  font-size: 2rem;
-  font-weight: bold;
-  background-color: var(--light-grey);
-  color: var(--green);
-  border: 2px solid var(--green);
-  margin: auto;
-  text-align: center;
-  width: 20rem;
-  margin-bottom: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-radius: 4px;
+	font-size: 2rem;
+	font-weight: bold;
+	background-color: var(--light-grey);
+	color: var(--green);
+	border: 2px solid var(--green);
+	margin: auto;
+	text-align: center;
+	width: 20rem;
+	margin-bottom: 1rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 summary {
-  background-color: var(--light-grey);
-  color: var(--green);
-  font-size: 2rem;
-  font-weight: bold;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border: 2px solid var(--green);
-  border-radius: 4px;
+	position: relative;
+	background-color: var(--yellow);
+	color: var(--green);
+	font-size: 2rem;
+	font-weight: bold;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border: 2px solid var(--green);
+}
+
+summary::after {
+	content: '+';
+	position: absolute;
+	top: 17px;
+	right: 30px;
 }
 
 details {
-  border: none;
+	border: none;
 }
 
 details[open] > summary {
-	background-color: var(--light-grey);
+	background-color: var(--yellow);
 	color: var(--green);
 	border-bottom: 1px solid var(--green);
 	transition: background 0.3s ease-in-out;
 }
 
 details[open] > p {
-  color: var(--green);
-  background-color: var(--light-grey);
-  padding: 1rem 0;
-  font-size: 1.2rem;
+	color: var(--green);
+	background-color: var(--light-grey);
+	padding: 1rem 0;
+	font-size: 1.2rem;
 }
 
-
 .notificacion {
-  position: fixed;
-  margin: 0;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--light-grey);
-  text-align: center;
-  border: 1px solid var(--green);
+	position: fixed;
+	margin: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--light-grey);
+	text-align: center;
+	border: 1px solid var(--green);
 }
 
 .msj {
-  font-size: 3rem;
-  font-weight: bold;
-  color: var(--green);
-  position: relative;
-  left: 0;
-  width: 100%;
-  margin-top: 15rem;
+	font-size: 3rem;
+	font-weight: bold;
+	color: var(--green);
+	position: relative;
+	left: 0;
+	width: 100%;
+	margin-top: 15rem;
 }
 
 .aceptar {
-  position: relative;
-  margin-top: 4rem;
-  font-size: 1.4rem;
-  font-weight: bold;
-  background-color: var(--light-grey);
-  border: 2px solid var(--green);
-  width: 12rem;
-  border-radius: 8px;
-  padding: 1rem 0;
-  transition: transform 0.1s ease-in;
-  cursor: pointer;
+	position: relative;
+	margin-top: 4rem;
+	font-size: 1.4rem;
+	font-weight: bold;
+	background-color: var(--light-grey);
+	border: 2px solid var(--green);
+	width: 12rem;
+	border-radius: 8px;
+	padding: 1rem 0;
+	transition: transform 0.1s ease-in;
+	cursor: pointer;
 }
 
 .aceptar:hover {
-  transform: scale(1.03);
+	transform: scale(1.03);
 }
 
 a {
-  color: var(--green);
-  text-decoration: none;
+	color: var(--green);
+	text-decoration: none;
 }
 
-
 @media screen and (prefers-color-scheme: dark) {
+	.turno-user {
+		background-color: var(--yellow);
+	}
 
-  .turno-user {
-    background-color: var(--yellow);
-  }
+	summary {
+		background-color: var(--light-grey);
+		color: var(--green);
+	}
 
-  
-  h3, .turno-actual p, .cola-turnos p {
-    border: 1px solid var(--light-grey);
-  }
+	h3,
+	.turno-actual p,
+	.cola-turnos p {
+		border: 1px solid var(--light-grey);
+	}
 
-  .aceptar {
-    background-color: var(--yellow);
-  }
+	.aceptar {
+		background-color: var(--yellow);
+	}
 
-  .notificacion {
-    background-color: var(--grey);
-  }
+	.notificacion {
+		background-color: var(--grey);
+	}
 
-  .msj {
-    color: var(--yellow);
-  }
-
+	.msj {
+		color: var(--yellow);
+	}
 }
