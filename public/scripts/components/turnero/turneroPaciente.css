@@ -45,18 +45,42 @@ article {
   border: 2px solid var(--green);
   margin: auto;
   text-align: center;
-  width: 70%;
+  width: 20rem;
   margin-bottom: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-radius: 4px;
 }
 
-.su-turno {
+summary {
   background-color: var(--light-grey);
   color: var(--green);
+  font-size: 2rem;
   font-weight: bold;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: 2px solid var(--green);
+  border-radius: 4px;
 }
+
+details {
+  border: none;
+}
+
+details[open] > summary {
+	background-color: var(--light-grey);
+	color: var(--green);
+	border-bottom: 1px solid var(--green);
+	transition: background 0.3s ease-in-out;
+}
+
+details[open] > p {
+  color: var(--green);
+  background-color: var(--light-grey);
+  padding: 1rem 0;
+  font-size: 1.2rem;
+}
+
 
 .notificacion {
   position: fixed;
@@ -74,33 +98,57 @@ h1 {
   font-size: 3rem;
   font-weight: bold;
   color: var(--green);
-  position: fixed;
+  position: relative;
   left: 0;
   width: 100%;
-  margin-top: 50%;
+  margin-top: 10rem;
 }
 
 .aceptar {
   position: relative;
-  margin-top: 80%;
+  margin-top: 4rem;
   font-size: 1.4rem;
   font-weight: bold;
   background-color: var(--light-grey);
-  color: var(--green);
   border: 2px solid var(--green);
-  width: 40%;
+  width: 12rem;
   border-radius: 8px;
   padding: 1rem 0;
+  transition: transform 0.1s ease-in;
+  cursor: pointer;
 }
+
+.aceptar:hover {
+  transform: scale(1.03);
+}
+
+a {
+  color: var(--green);
+  text-decoration: none;
+}
+
 
 @media screen and (prefers-color-scheme: dark) {
 
   .turno-user {
     background-color: var(--yellow);
   }
+
   
   h3, .turno-actual p, .cola-turnos p {
     border: 1px solid var(--light-grey);
+  }
+
+  .aceptar {
+    background-color: var(--yellow);
+  }
+
+  .notificacion {
+    background-color: var(--grey);
+  }
+
+  h1 {
+    color: var(--yellow);
   }
 
 }
