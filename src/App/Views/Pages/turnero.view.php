@@ -5,6 +5,12 @@
 </head>
 
 <body>
+  <header>
+		<?php require __DIR__ . "/../Fragments/header.view.php" ?>
+	</header>
 	<main>
+    <h2 class="title">
+			<?= $title ?>
+		</h2>
   </main>
 </body>

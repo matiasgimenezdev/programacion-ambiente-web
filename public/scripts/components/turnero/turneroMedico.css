@@ -1,7 +1,7 @@
 @import url('../../../assets/styles/turnero.css');
 
 
-header {
+.turno-actual-header {
   position: relative;
   height: auto;
   box-shadow: none;
@@ -15,11 +15,6 @@ h3 {
   font-size: 2rem;
   font-weight: bold;
   color: var(--light-grey);
-}
-
-.list-tittle {
-  margin: 0;
-  color: var(--grey);
 }
 
 .turnero {

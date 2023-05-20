@@ -3,14 +3,14 @@ export class Turnero {
 
   constructor($user) {
 
-    const $link = ElementBuilder.createElement('link', '', {
-      rel: 'stylesheet',
-      href: 'scripts/components/turnero/turneroPaciente.css',
-    });
-    document.head.appendChild($link);
-
     // Si es medico...
     if($user == "medico"){
+
+      const $link = ElementBuilder.createElement('link', '', {
+        rel: 'stylesheet',
+        href: 'scripts/components/turnero/turneroMedico.css',
+      });
+      document.head.appendChild($link);
       
       const container = document.querySelector("main");
       fetch('scripts/components/turnero/medico-view.html')
@@ -44,6 +44,12 @@ export class Turnero {
 
     // Si es paciente...
     if($user == "paciente"){
+
+      const $link = ElementBuilder.createElement('link', '', {
+        rel: 'stylesheet',
+        href: 'scripts/components/turnero/turneroPaciente.css',
+      });
+      document.head.appendChild($link);
 
       
       const container = document.querySelector("main");
@@ -105,6 +111,12 @@ export class Turnero {
 
     // Si es clinica...
     if($user == ""){
+
+      const $link = ElementBuilder.createElement('link', '', {
+        rel: 'stylesheet',
+        href: 'scripts/components/turnero/turneroClinica.css',
+      });
+      document.head.appendChild($link);
       
       const container = document.querySelector("main");
       fetch('scripts/components/turnero/clinica-view.html')
@@ -117,18 +129,28 @@ export class Turnero {
         }
       );
 
-      // Consulta cada 10 segundos turno actual
+      const $url = 'scripts/components/turnero/turnero.json';
+      fetch($url)
+        .then((response) => response.json())
+        .then((turnos) => {
+          this.$turnosRequest = turnos.turnos;
+          this.$turnos = this.$turnosRequest;
+          this.setTurnos(this.$turnos);
+        }
+      );
+
       setInterval(() => {
-        const $url = 'scripts/components/turnero/turnero.json';
-        fetch($url)
-          .then((response) => response.json())
-          .then((turnos) => {
-            this.$turnosRequest = turnos.turnos;
-            this.$turnos = this.$turnosRequest;
+        this.$turnos.shift();
+      }, 2000);
+
+      setInterval(() => {
+        if(this.$turnos.length > 0) {
+          if(this.$turnos[0].id != this.$turnoActual) { 
+            this.$turnoActual = this.$turnos[0].id;
             this.setTurnos(this.$turnos);
           }
-        );
-      }, 10000);
+        }
+      }, 500);
     }
 
   }
@@ -311,6 +333,7 @@ export class Turnero {
     notificacion.classList.add("notificacion");
 
     const msj = document.createElement("h1");
+    msj.classList.add("msj");
     msj.textContent = "Es tu turno";
 
     const aceptar = document.createElement("button");

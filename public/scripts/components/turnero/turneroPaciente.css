@@ -1,5 +1,9 @@
 @import url('../../../assets/styles/turnero.css');
 
+.title {
+  display: none;
+}
+
 .turnos {
   margin: 1rem;
 }
@@ -94,14 +98,14 @@ details[open] > p {
   border: 1px solid var(--green);
 }
 
-h1 {
+.msj {
   font-size: 3rem;
   font-weight: bold;
   color: var(--green);
   position: relative;
   left: 0;
   width: 100%;
-  margin-top: 10rem;
+  margin-top: 15rem;
 }
 
 .aceptar {
@@ -147,7 +151,7 @@ a {
     background-color: var(--grey);
   }
 
-  h1 {
+  .msj {
     color: var(--yellow);
   }
 
