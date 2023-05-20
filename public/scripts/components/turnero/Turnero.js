@@ -100,7 +100,6 @@ export class Turnero {
               this.calcularTiempoDeEspera(this.$profesionales, this.$turnos, this.$idTurno);
             }
           );
-
         }
       );
 

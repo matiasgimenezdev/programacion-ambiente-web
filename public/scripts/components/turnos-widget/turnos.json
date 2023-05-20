@@ -184,7 +184,7 @@
             "apellido": "Deadpeople",
             "diasQueAtiende": [
                 "Lunes",
-                "Miercoles",
+                "Miércoles",
                 "Viernes"
             ],
             "horarioInicio": {
@@ -223,22 +223,22 @@
                     "minutos": 50
                 },
                 {
-                    "dia": "Miercoles",
+                    "dia": "Miércoles",
                     "horas": 14,
                     "minutos": 30
                 },
                 {
-                    "dia": "Miercoles",
+                    "dia": "Miércoles",
                     "horas": 14,
                     "minutos": 50
                 },
                 {
-                    "dia": "Miercoles",
+                    "dia": "Miércoles",
                     "horas": 16,
                     "minutos": 30
                 },
                 {
-                    "dia": "Miercoles",
+                    "dia": "Miércoles",
                     "horas": 17,
                     "minutos": 0
                 },
