@@ -2,10 +2,12 @@ import { Carousel } from './components/carousel/carousel.js';
 import { DragAndDrop } from './components/drag-drop/drag-drop.js';
 import { ScriptLoader } from './utils/ScriptLoader.js';
 import { TurnosWidget } from './components/turnos-widget/TurnosWidget.js';
-import { Turnero } from './components/turnero/Turnero.js';
 import { EspecialidadesFilter } from './components/especialidades-filter/especialidades-filter.js';
 import { ProfesionalesFilter } from './components/profesionales-filter/profesionales-filter.js';
 import { TurnosFilter } from './components/turnos-filter/turnos-filter.js';
+import { TurneroMedico } from './components/turneros/turnero-medico/TurneroMedico.js';
+import { TurneroClinica } from './components/turneros/turnero-clinica/TurneroClinica.js';
+import { turneroPaciente } from './components/turneros/turnero-paciente/TurneroPaciente.js';
 
 const routes = {
 	'/solicitar-turno': [
@@ -46,11 +48,25 @@ const routes = {
 			initFunction: () => new EspecialidadesFilter(),
 		},
 	],
-	'/turnero': [
+	'/turneroMedico': [
 		{
-			scriptName: 'Turnero',
-			scriptPath: 'scripts/components/turnero/Turnero.js',
-			initFunction: () => new Turnero('paciente'),
+			scriptName: 'TurneroMedico',
+			scriptPath: 'scripts/components/turneros/turnero-medico/TurneroMedico.js',
+			initFunction: () => new TurneroMedico(),
+		},
+	],
+	'/turneroClinica': [
+		{
+			scriptName: 'TurneroClinica',
+			scriptPath: 'scripts/components/turneros/turnero-clinica/TurneroClinica.js',
+			initFunction: () => new TurneroClinica(),
+		},
+	],
+	'/turneroPaciente': [
+		{
+			scriptName: 'TurneroPaciente',
+			scriptPath: 'scripts/components/turneros/turnero-paciente/TurneroPaciente.js',
+			initFunction: () => new turneroPaciente(),
 		},
 	],
 
