@@ -13,10 +13,10 @@
             $this -> configs["LOG_PATH"] = $this -> joinPaths("..", $path);
 
             $this->configs['DB_ADAPTER'] = getenv('DB_ADAPTER') ?? 'mysql';
-            $this->configs['DB_HOSTNAME'] = getenv('DB_HOSTNAME') ?? 'localhost';
-            $this->configs['DB_DBNAME'] = getenv('DB_DBNAME') ?? 'ul_hospital_db';
-            $this->configs['DB_USERNAME'] = getenv('DB_USERNAME') ?? 'paw_developer';
-            $this->configs['DB_PASSWORD'] = getenv('DB_PASSWORD') ?? 'web_develop';
+            $this->configs['DB_HOST'] = getenv('DB_HOST') ?? 'localhost';
+            $this->configs['DB_NAME'] = getenv('DB_NAME') ?? 'ul_hospital_db';
+            $this->configs['DB_USER'] = getenv('DB_USER') ?? 'paw_developer';
+            $this->configs['DB_PASS'] = getenv('DB_PASS') ?? 'web_develop';
             $this->configs['DB_PORT'] = getenv('DB_PORT') ?? '3306';
             $this->configs['DB_CHARSET'] = getenv('DB_CHARSET') ?? 'utf8';
         }

@@ -1,11 +1,11 @@
 <?php
-require __DIR__ . "/../vendor/autoload.php";
+require __DIR__ . '/../vendor/autoload.php';
 
-use Paw\Core\Database\ConnectionBuilder;
+
 use PAW\Core\Request;
 use PAW\Core\Router;
 use PAW\Core\Config;
-
+use PAW\Core\DataBase\ConnectionBuilder;
 
 $request = Request::getInstance();
 $router = Router::getInstance();
@@ -13,7 +13,7 @@ $router->setLogger();
 $config = Config::getInstance();
 
 $connectionBuilder = new ConnectionBuilder();
-$connectionBulilder->setLogger($log);
+$connectionBuilder->setLogger();
 $connection = $connectionBuilder->make($config);
 
 $whoops = new \Whoops\Run;

@@ -1,11 +1,11 @@
 <?php
 
-namespace Paw\Core\Database;
+namespace PAW\Core\DataBase;
 
 use PDO;
 use PDOException;
-use Paw\Core\Config;
-use Paw\Core\Traits\Loggable;
+use PAW\Core\Config;
+use PAW\Core\Traits\Loggable;
 
 class ConnectionBuilder 
 {
@@ -13,28 +13,23 @@ class ConnectionBuilder
 
   public function make(Config $config):PDO
   {
-    try {
-      $adapter = $config->get('DB_ADAPTER');
-      $hostname = $config->get('DB_HOSTAME');
-      $dbName = $config->get('DB_DBNAME');
-      $port = $config->get('DB_PORT');
-      $charset = $config->get('DB_CHARSET');
+      $adapter = $config->getConfig('DB_ADAPTER');
+      $hostname = $config->getConfig('DB_HOST');
+      $dbName = $config->getConfig('DB_NAME');
+      $port = $config->getConfig('DB_PORT');
+      $charset = $config->getConfig('DB_CHARSET');
 
       return new PDO(
         "{$adapter}:host={$hostname};dbname={$dbName};
           port={$port};charset={$charset}",
-        $config->get('DB_USERNAME'),
-        $config->get('DB_PASSWORD'),
+        $config->getConfig('DB_USER'),
+        $config->getConfig('DB_PASS'),
         [
           'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
           ]
         ]
       );
-    } catch (PDOException $e) {
-      $this->logger->error('Internal Server Error', ["Error" => $e]);
-      die("Error Interno - Consulte a administrador");
-    }
   }
 }
 ?>
