@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . "/../vendor/autoload.php";
 
+use Paw\Core\Database\ConnectionBuilder;
 use PAW\Core\Request;
 use PAW\Core\Router;
 use PAW\Core\Config;
@@ -11,11 +12,13 @@ $router = Router::getInstance();
 $router->setLogger();
 $config = Config::getInstance();
 
+$connectionBuilder = new ConnectionBuilder();
+$connectionBulilder->setLogger($log);
+$connection = $connectionBuilder->make($config);
+
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
-
-
 
 $router->get("/", "HomeController", "home");
 $router->get("/solicitar-turno", "TurnosController", "solicitarTurno");
