@@ -38,7 +38,9 @@ Además se incorporan nociones de plantillas y se les solicitará la migración 
 ```
 $ composer install
 
-$ cp .env.example .env
+$ cp .env.example .env (editar el .env con los valores deseados)
+
+$ phinx migrate -e development (ejecuta migrations)
 
 $ php -S localhost:8080 -t public
 ```
