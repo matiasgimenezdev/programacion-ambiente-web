@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block head %}
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}{% endblock %} - My Webpage</title>
+		<link rel="icon" type="image/svg" href="assets/images/Favicon.svg" />
+		<!-- Cada template hijo que extienda de este, agrega su <link> para css -->
+		<!-- Cada template hijo que extienda de este, modifica el block 'title' con su titulo especifico -->
+		<script src="scripts/app.js" type="module"></script>
+		{% endblock %}
+	</head>
+	<body>
+		<header>
+			{% block header %}
+			<!-- Agregar aca el contenido de <header> -->
+			{% endblock %}
+		</header>
+		<body>
+			{% block body %}
+			<!-- Cada template hijo que extienda de este, modifica el block 'body' con su titulo especifico -->
+			{% endblock %}
+		</body>
+		<footer>
+			<!-- Agregar aca el contenido de <footer> -->
+		</footer>
+	</body>
+</html>
