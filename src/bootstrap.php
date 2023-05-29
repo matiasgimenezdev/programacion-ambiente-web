@@ -5,7 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use PAW\Core\Request;
 use PAW\Core\Router;
 use PAW\Core\Config;
-use PAW\Core\DataBase\ConnectionBuilder;
+use PAW\Core\Database\ConnectionBuilder;
 
 $request = Request::getInstance();
 $router = Router::getInstance();
@@ -19,6 +19,12 @@ $connection = $connectionBuilder->make($config);
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
+
+$loader = new \Twig\Loader\FilesystemLoader(__DIR__."/App/Views/Templates");
+$twig = new \Twig\Environment($loader, [
+    'cache' => __DIR__."/../cache/twig",
+]);
+
 
 $router->get("/", "HomeController", "home");
 $router->get("/solicitar-turno", "TurnosController", "solicitarTurno");

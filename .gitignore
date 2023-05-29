@@ -2,3 +2,4 @@
 .env
 /logs/
 /src/App/Uploads/
+/cache/
