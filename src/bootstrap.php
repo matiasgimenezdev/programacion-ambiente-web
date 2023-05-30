@@ -20,11 +20,6 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
-$loader = new \Twig\Loader\FilesystemLoader(__DIR__."/App/Views/Templates");
-$twig = new \Twig\Environment($loader, [
-    'cache' => __DIR__."/../cache/twig",
-]);
-
 
 $router->get("/", "HomeController", "home");
 $router->get("/solicitar-turno", "TurnosController", "solicitarTurno");

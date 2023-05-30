@@ -1,30 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		{% block head %}
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{% block title %}{% endblock %} - My Webpage</title>
+		<title>UL Hospitals {{" | " ~ title}}</title>
 		<link rel="icon" type="image/svg" href="assets/images/Favicon.svg" />
-		<!-- Cada template hijo que extienda de este, agrega su <link> para css -->
-		<!-- Cada template hijo que extienda de este, modifica el block 'title' con su titulo especifico -->
+		<link rel="stylesheet" href="{{'assets/styles/' ~ style ~ '.css'}}" />
 		<script src="scripts/app.js" type="module"></script>
-		{% endblock %}
 	</head>
 	<body>
 		<header>
-			{% block header %}
-			<!-- Agregar aca el contenido de <header> -->
-			{% endblock %}
+			<h1>
+				<img
+					src="/assets/images/Imagotipo.svg"
+					alt="UL Hospitals logo"
+				/>
+			</h1>
+			<section>
+				<a href="/login" class="profile"></a>
+				<label for="menu" class="menu"></label>
+			</section>
+			<input class="menu-input" type="checkbox" name="menu" id="menu" />
+			<nav class="header-nav">
+				<ul>
+					{% for item in headerMenu %} {% if item.name == title %}
+					<li class="current">
+						<a href="{{item.href}}">{{item.name}}</a>
+					</li>
+					{% else %}
+					<li>
+						<a href="{{item.href}}">{{item.name}}</a>
+					</li>
+					{% endif %} {% endfor %}
+				</ul>
+			</nav>
 		</header>
-		<body>
-			{% block body %}
-			<!-- Cada template hijo que extienda de este, modifica el block 'body' con su titulo especifico -->
+		<main>
+			{% block main %}
+			<!-- Cada template hijo que extienda de este, modifica el block 'main' con su contenido especifico -->
 			{% endblock %}
-		</body>
+		</main>
 		<footer>
-			<!-- Agregar aca el contenido de <footer> -->
+			<address>
+				<p>Ruta 5 y Avenida Constitución, Luján, Buenos Aires</p>
+				<p>+54 (2323) 221133 - Atención telefónica las 24hs</p>
+			</address>
+			<nav>
+				<ul>
+					{% for item in footerMenu %}
+					<li>
+						<a href="{{item.href}}">{{item.content}}</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</nav>
+			<p>
+				&copy;2023 Clinica Universitaria.
+				<small>Todos los derechos reservados.</small>
+			</p>
 		</footer>
 	</body>
 </html>
