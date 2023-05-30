@@ -1,7 +1,12 @@
 <?php 
     namespace PAW\App\Models\Especialidad;
+
+    use PAW\Core\Model;
     
-    class Especialidad {
+    class Especialidad extends Model{
+
+        private $table = 'especialidad';
+
         private $fields = [
             "id" => null,
             "name" => null,

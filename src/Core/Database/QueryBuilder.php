@@ -1,6 +1,6 @@
 <?php
 
-namespace Paw\Core\Database;
+namespace PAW\Core\DataBase;
 
 use PDO;
 use Monolog\Logger;
@@ -13,20 +13,20 @@ class QueryBuilder
     $this->logger = $logger;
   }
 
-  public function select($table, $params = [])
+  public function select($table)
   {
     //WHERE id = 1 AND nombre = 'pepe AND email = '...' ;
     //WHERE id = ?
     //WHERE id = :id (flag)
-    $where = " 1 = 1 ";
+    /*$where = " 1 = 1 ";
     if (isset($params['id'])) {
       $where = " id = :id ";
-    }
-    $query = "select * from {$table} where {$where}";
+    }*/
+    $query = "select * from {$table}";
     $sentencia = $this->pdo->prepare($query);
-    if (isset($params['id'])) {
+    /*if (isset($params['id'])) {
       $sentencia->bindValue(":id", $params['id']);
-    }
+    }*/
     $sentencia->setFetchMode(PDO::FETCH_ASSOC);
     $sentencia->execute();
     return $sentencia->fetchAll();

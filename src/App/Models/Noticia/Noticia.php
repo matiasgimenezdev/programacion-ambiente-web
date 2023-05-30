@@ -1,7 +1,9 @@
 <?php
     namespace PAW\App\Models\Noticia;
 
-    class Noticia {
+    use PAW\Core\Model;
+    
+    class Noticia extends Model{
         private $fields = [
             "id" => null,
             "title" => null,

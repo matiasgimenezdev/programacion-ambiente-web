@@ -2,8 +2,9 @@
 namespace PAW\App\Models\Noticia;
 
 use PAW\App\Models\Noticia\Noticia;
+use PAW\Core\Model;
 
-class NoticiasCollection
+class NoticiasCollection extends Model
 {
     private array $noticias = [
         [

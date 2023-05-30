@@ -7,10 +7,14 @@ use finfo;
 use const FILEINFO_MIME_TYPE;
 
 use DateTime;
+use PAW\Core\Model;
 
-class Turno
+class Turno extends Model
 {
   use Messenger;
+
+  private $table = 'turno';
+
   private $fields = [
     "id" => null,
     "dni" => null,

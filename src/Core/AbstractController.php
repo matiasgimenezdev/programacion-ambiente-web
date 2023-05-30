@@ -1,6 +1,9 @@
 <?php
 namespace PAW\Core;
 
+use PAW\Core\DataBase\QueryBuilder;
+use PAW\Core\Model;
+
 class AbstractController
 {
     public $viewsDirectory;
@@ -10,8 +13,13 @@ class AbstractController
 
     public function __construct()
     {
+
+        global $connection, $log;
+
         if (!is_null($this->modelName)) {
+            $qb = new QueryBuilder($connection, $log);
             $model = new $this->modelName;
+            $model->setQueryBuilder($qb);
             $this->setModel($model);
         }
 

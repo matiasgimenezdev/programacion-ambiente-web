@@ -1,8 +1,12 @@
 <?php
 namespace PAW\App\Models\Profesional;
 
+use PAW\Core\Model;
 
-class Profesional {
+class Profesional extends Model{
+
+  private $table = 'profesional';
+
   private $fields = [
     "id" => null,
     "name" => null,

@@ -4,9 +4,13 @@ namespace PAW\App\Models\Paciente;
 use PAW\Core\Traits\Messenger;
 use PAW\Core\SubmitStatus;
 use DateTime;
+use PAW\Core\Model;
 
-class Paciente {
+class Paciente extends Model{
     use Messenger;
+
+
+    private $table = 'paciente';
 
     private $fields = [
         "id" => null,

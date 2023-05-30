@@ -1,11 +1,15 @@
 <?php
     namespace PAW\App\Models\Especialidad;
     use PAW\App\Models\Especialidad\Especialidad;
+    use PAW\Core\Model;
 
-    class EspecialidadesCollection {
+    class EspecialidadesCollection extends Model{
+
+        public $table = 'especialidad';
 
         public function getAll() {
-            $especialidades = [
+
+            /*$especialidades = [
                 [
                     "id" => 1,
                     "name" => "Odontologia",
@@ -24,7 +28,8 @@
                     tempore illum voluptates consequuntur laudantium.
                     Corporis nulla nostrum eos doloribus!"
                 ]
-            ];
+            ];*/
+            $especialidades = $this->queryBuilder->select($this->table);
             $especialidadesCollection = [];
             foreach ($especialidades as $especialidad) {
                 $especialidadInstance = new Especialidad;

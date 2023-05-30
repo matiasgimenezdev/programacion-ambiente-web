@@ -20,6 +20,6 @@
         "filp/whoops": "^2.15",
         "monolog/monolog": "^3.3",
         "vlucas/phpdotenv": "^5.5",
-        "twig/twig": "^3.0"
+        "twig/twig": "^3.6"
     }
 }
