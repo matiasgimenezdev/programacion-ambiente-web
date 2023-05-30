@@ -16,11 +16,6 @@ class PageController extends AbstractController
         $this->requireView("Institucional", "institucional", "institucional");
     }
 
-    public function obrasSociales()
-    {
-        $this->requireView("Obras Sociales", "obras-sociales", "obras-sociales");
-    }
-
     public function contacto()
     {
         $this->requireView("Contacto", "contacto", "contacto");
@@ -56,10 +51,10 @@ class PageController extends AbstractController
 
     private function requireView($title, $view, $style)
     {
-        // $renderer = Renderer::getInstance();
-        // $template = $twig->load($view.'.html');
-        // echo $template->render(['title' => $title, 'style' => $style]);
-        require $this->viewsDirectory . "{$view}.view.php";
+        $renderer = Renderer::getInstance();
+        $templateLoader = $renderer -> getTemplateLoader();
+        $template = $templateLoader->load($view.'.html');
+        echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => $title, 'style' => $style]);
     }
 }
 

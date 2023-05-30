@@ -16,7 +16,19 @@ class NoticiasCollection extends Model
                 respecto del Covid-19. Además, brindan consejos y
                 medidas de prevención para implementar en nuestro día a
                 día.",
-            "body" => "Body de la noticia",
+            "body" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.",
             "img" => "/assets/images/inicio/noticias/covid.jpg",
             "imgAlt" => "Medica con barbijo levantando la mano"
         ],
@@ -28,7 +40,19 @@ class NoticiasCollection extends Model
                 más las personas que recurren, por sus propios medios, a
                 la toma de un medicamento con el objetivo de tratar un
                 dolor o contrarrestar una molestia.",
-            "body" => "Body de la noticia",
+            "body" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.",
             "img" => "/assets/images/inicio/noticias/medicacion.jpg",
             "imgAlt" => "Persona con medicamentos en su mano"
         ],
@@ -40,7 +64,19 @@ class NoticiasCollection extends Model
                 nos referimos a que ayuda a desarrollar la inteligencia
                 y las capacidades de lenguaje, de conocimiento, además
                 de protegerlo de enfermedades infecciosas y crónicas.",
-            "body" => "Body de la noticia",
+            "body" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.",
             "img" => "/assets/images/inicio/noticias/lactancia.jpg",
             "imgAlt" => "Madre amamantando a su bebe"
         ],
@@ -53,7 +89,19 @@ class NoticiasCollection extends Model
                 para la salud, sino que, además, toma más compleja la
                 detección de otras patologías a través de los exámenes
                 médicos habituales",
-            "body" => "Body de la noticia",
+            "body" => "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime
+            deleniti ipsam adipisci. Vero possimus distinctio enim deserunt quidem. Iste
+            alias natus possimus nisi architecto nulla accusamus, repellendus fugit
+            laudantium dolores.",
             "img" => "/assets/images/noticias/obesidad.jpg",
             "imgAlt" => "Médico calculando el perimetro al paciente"
         ]

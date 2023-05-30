@@ -1,9 +1,12 @@
 <?php
 namespace PAW\App\Models\ObraSocial;
+use PAW\Core\Model;
 
 
 class ObraSocial
 {
+
+
   private $fields = [
     "id" => null,
     "name" => null,

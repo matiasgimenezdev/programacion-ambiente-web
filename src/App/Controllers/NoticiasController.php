@@ -3,6 +3,7 @@ namespace PAW\App\Controllers;
 
 use PAW\Core\AbstractController;
 use PAW\Core\Request;
+use PAW\Core\Renderer;
 use PAW\App\Models\Noticia\NoticiasCollection;
 
 class NoticiasController extends AbstractController
@@ -11,10 +12,12 @@ class NoticiasController extends AbstractController
 
     public function noticias()
     {
-        $title = "Noticias";
-        $style = "noticias";
         $noticias = $this->model->getAll();
-        require $this-> viewsDirectory . "noticias.view.php";
+        $renderer = Renderer::getInstance();
+        $templateLoader =  $renderer->getTemplateLoader();
+        $template = $templateLoader->load('noticias.html');
+        echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 
+            'title' => "Noticias", 'style' => "noticias", 'noticias' => $noticias]);
     }
 
     public function noticia()
@@ -22,9 +25,11 @@ class NoticiasController extends AbstractController
         $request = Request::getInstance();
         $id = $request->getKey("id");
         $noticia = $this->model->getOne($id);
-        $title = "Noticia";
-        $style = "noticia";
-        require $this->viewsDirectory . "noticia.view.php";
+        $renderer = Renderer::getInstance();
+        $templateLoader =  $renderer->getTemplateLoader();
+        $template = $templateLoader->load('noticia.html');
+        echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 
+            'title' => "Noticia", 'style' => "noticia", 'noticia' => $noticia]);
     }
 
     public function ultimasNoticias($amount)
