@@ -4,6 +4,8 @@ use PAW\Core\Model;
 
 class ObraSocial extends Model
 {
+
+
   private $fields = [
     "id" => null,
     "name" => null,

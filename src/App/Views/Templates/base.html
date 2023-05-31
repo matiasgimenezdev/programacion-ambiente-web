@@ -12,10 +12,12 @@
 	<body>
 		<header>
 			<h1>
-				<img
-					src="/assets/images/Imagotipo.svg"
-					alt="UL Hospitals logo"
-				/>
+				<a href="/">
+					<img
+						src="/assets/images/Imagotipo.svg"
+						alt="UL Hospitals logo"
+					/>
+				</a>
 			</h1>
 			<section>
 				<a href="/login" class="profile"></a>
@@ -41,6 +43,7 @@
 			<!-- Cada template hijo que extienda de este, modifica el block 'main' con su contenido especifico -->
 			{% endblock %}
 		</main>
+		{% block footer %}
 		<footer>
 			<address>
 				<p>Ruta 5 y Avenida Constitución, Luján, Buenos Aires</p>
@@ -60,5 +63,6 @@
 				<small>Todos los derechos reservados.</small>
 			</p>
 		</footer>
+		{% endblock %}
 	</body>
 </html>

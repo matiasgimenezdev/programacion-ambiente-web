@@ -1,7 +1,7 @@
 <?php
 namespace PAW\Core;
 
-use PAW\Core\DataBase\QueryBuilder;
+use PAW\Core\Database\QueryBuilder;
 use PAW\Core\Model;
 
 class AbstractController

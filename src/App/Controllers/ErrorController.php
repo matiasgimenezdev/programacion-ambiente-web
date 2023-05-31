@@ -1,19 +1,24 @@
 <?php 
     namespace PAW\App\Controllers;
     use PAW\Core\AbstractController;
+    use PAW\Core\Renderer;
+
 
     class ErrorController extends AbstractController {
 
         public function notFound() {
-            $style = "error";
-            $title = "Not Found";
-            require $this -> viewsDirectory  . "Error/not-found.view.php";
+            $renderer = Renderer::getInstance();
+            $templateLoader = $renderer -> getTemplateLoader();
+            $template = $templateLoader->load('Error/error.html');
+            echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Not Found', 'style' => 'error']);
+            
         }
 
         public function internalError() {
-            $style = "error";
-            $title = "Internal Server Error";
-            require $this -> viewsDirectory  . "Error/internal-error.view.php";
+            $renderer = Renderer::getInstance();
+            $templateLoader = $renderer -> getTemplateLoader();
+            $template = $templateLoader->load('Error/error.html');
+            echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Internal Server Error', 'style' => 'error']);
         }
 
     }
