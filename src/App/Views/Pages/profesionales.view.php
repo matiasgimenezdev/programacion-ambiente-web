@@ -14,7 +14,7 @@
 			<h2 class="title">
 				<?= $title ?>
 			</h2>
-			<form action="/profesional-search" method="GET">
+			<form action="/profesional/search" method="GET">
 				<fieldset>
 					<legend>Buscar un profesional</legend>
 					<p class="input-container">

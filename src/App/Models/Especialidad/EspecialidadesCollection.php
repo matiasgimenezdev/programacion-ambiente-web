@@ -39,12 +39,11 @@
             return $especialidadesCollection;
         }
 
-        public function  getEspecialidades(){
+        public function getEspecialidades(){
             $especialidades = $this->queryBuilder->select($this->table);
-            $archivo = 'especialidades.json';
-            $contenido = json_encode($especialidades);
-            file_put_contents($archivo, $contenido);
-            return $archivo;
+            $json = json_encode($especialidades);
+            header("Content-Type: application/json");
+            echo $json;
         }
     }
 

@@ -31,7 +31,8 @@
         }
 
         public function getAll() {
-            return $especialidades = $this -> model -> getEspecialidades();
+            $especialidades = $this -> model -> getEspecialidades();
+            return json_encode($especialidades);
         }
 
     }

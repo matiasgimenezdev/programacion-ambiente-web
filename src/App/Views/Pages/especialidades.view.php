@@ -10,7 +10,7 @@
 		<main>
 			<section class="search-section">
                 <h2 class="title"><?= $title ?></h2>
-				<form action="/especialidad-search" method="GET">
+				<form action="/especialidad/search" method="GET">
 					<fieldset>
 						<legend>Buscar especialidad</legend>
 						<p class="input-container">

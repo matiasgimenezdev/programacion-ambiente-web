@@ -22,7 +22,7 @@ class QueryBuilder
     if (isset($params['id'])) {
       $where = " id = :id ";
     }*/
-    $query = "select * from {$table}";
+    $query = "SELECT * FROM {$table}";
     $sentencia = $this->pdo->prepare($query);
     /*if (isset($params['id'])) {
       $sentencia->bindValue(":id", $params['id']);
