@@ -32,6 +32,14 @@ class QueryBuilder
     return $sentencia->fetchAll();
   }
 
+  public function selectByColumn($table, $column, $value){
+    $query = "SELECT * FROM {$table} WHERE {$column} = :value";
+    $sentencia = $this->pdo->prepare($query);
+    $sentencia->bindParam(':value', $value);
+    $sentencia->execute();
+    return $sentencia -> fetchAll();
+  }
+
   public function insert()
   {
 

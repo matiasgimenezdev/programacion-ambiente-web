@@ -265,7 +265,10 @@ class Paciente extends Model{
         $status = $this->setDni($registerData["dni"]) ?? $status;
         $status = $this->setEmail($registerData["email"], $registerData["emailConfirmation"]) ?? $status;
         $status = $this->setPassword($registerData["password"], $registerData["passwordConfirmation"]) ?? $status;
-        // Almacena el registro en la BDD
+        if($status -> value === "REGISTER_OK") {
+            // Almacena registro en BDD
+            // $this->queryBuilder->insert($this->table);
+        }
         return ["status" => $status, "message" => $this -> getMessage($status)];
     }
 

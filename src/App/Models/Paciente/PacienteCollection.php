@@ -9,28 +9,6 @@ use PAW\Core\Model;
 class PacienteCollection extends Model
 {
     use Messenger;
-    private $pacientes = [
-        [
-            "id" => 1,
-            "dni" => "12345678",
-            "name" => "José",
-            "lastname" => "Ramírez",
-            "email" => "joseh87@gmail.com",
-            "gender" => "M",
-            "birthdate" => "1978-08-16",
-            "phone" => "02324-15457825"
-        ],
-        [
-            "id" => 2,
-            "dni" => "87654321",
-            "name" => "Armando",
-            "lastname" => "Paredes",
-            "email" => "armandop@gmail.com",
-            "gender" => "M",
-            "birthdate" => "1978-08-16",
-            "phone" => "02323-353591"
-        ]
-    ];
 
     public function getOne($id)
     {
@@ -71,7 +49,8 @@ class PacienteCollection extends Model
     private function getByDni($dni)
     {
         $pacienteInstance = new Paciente;
-        $pacienteInstance->set($this->pacientes[0]);
+        $result = $this->queryBuilder->selectByColumn($this->table, "dni", $dni);
+        $pacienteInstance->set($result[0]);
         return $pacienteInstance;
     }
 
