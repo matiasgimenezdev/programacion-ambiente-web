@@ -1,12 +1,12 @@
 <?php
 namespace PAW\App\Models\Paciente;
 
+use PAW\Core\Model;
 use PAW\Core\Traits\Messenger;
 use PAW\Core\SubmitStatus;
 use DateTime;
-use PAW\Core\Model;
 
-class Paciente extends Model{
+class Paciente extends Model {
     use Messenger;
 
 
@@ -23,6 +23,15 @@ class Paciente extends Model{
         "birthdate" => null,
         "phone" => null
     ];
+
+    private $columns = [
+        "dni",
+        "name",
+        "lastname",
+        "email",
+        "password",
+    ];
+
 
     public function setId($id)
     {
@@ -266,7 +275,12 @@ class Paciente extends Model{
         $status = $this->setEmail($registerData["email"], $registerData["emailConfirmation"]) ?? $status;
         $status = $this->setPassword($registerData["password"], $registerData["passwordConfirmation"]) ?? $status;
         // Almacena el registro en la BDD
-        return ["status" => $status, "message" => $this -> getMessage($status)];
+
+        return ["status" => $status, "message" => $this -> getMessage($status), "fields" => $this->getData(), "columns" => $this->columns];
+    }
+
+    public function getData(){
+        return [$this->getDni(), $this->getName(), $this->getLastname(), $this->getEmail(), $this->getPassword()];
     }
 
     public function login(array $loginData)

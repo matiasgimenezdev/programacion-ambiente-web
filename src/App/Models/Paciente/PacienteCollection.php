@@ -2,13 +2,16 @@
 namespace PAW\App\Models\Paciente;
 
 use PAW\App\Models\Paciente\Paciente;
+use PAW\Core\Model;
 use PAW\Core\SubmitStatus;
 use PAW\Core\Traits\Messenger;
-use PAW\Core\Model;
 
 class PacienteCollection extends Model
 {
     use Messenger;
+
+    private $table = 'paciente';
+
     private $pacientes = [
         [
             "id" => 1,
@@ -46,6 +49,7 @@ class PacienteCollection extends Model
         if ($registerData["terms-conditions"] === "true") {
             $pacienteInstance = new Paciente;
             $registerStatus = $pacienteInstance -> register($registerData);
+            $this->queryBuilder->insert($this->table, $registerStatus["fields"], $registerStatus["columns"]);
             return $registerStatus;
         } else {
             $status = SubmitStatus::NOT_CONFIRMED_TERMS;

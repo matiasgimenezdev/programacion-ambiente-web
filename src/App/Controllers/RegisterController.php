@@ -3,6 +3,7 @@ namespace PAW\App\Controllers;
 use PAW\App\Models\Paciente\PacienteCollection;
 use PAW\Core\AbstractController;
 use PAW\Core\Request;
+use PAW\Core\Renderer;
 
 class RegisterController extends AbstractController {
     public ?string $modelName = PacienteCollection::class;
@@ -18,9 +19,14 @@ class RegisterController extends AbstractController {
             header('Location: /perfil/editar?id=' . "1");
 
         } else {
-            $title = "Registrarse";
+            echo($register["status"]->value);
+            /*$title = "Registrarse";
             $style = "registrarse";
-            require $this -> viewsDirectory . "registrarse.view.php";
+            $view = "registrarse";
+            $renderer = Renderer::getInstance();
+            $templateLoader = $renderer -> getTemplateLoader();
+            $template = $templateLoader->load($view.'.html');
+            echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => $title, 'style' => $style]);*/
         }
     }   
 

@@ -15,9 +15,6 @@ class QueryBuilder
 
   public function select($table)
   {
-    //WHERE id = 1 AND nombre = 'pepe AND email = '...' ;
-    //WHERE id = ?
-    //WHERE id = :id (flag)
     /*$where = " 1 = 1 ";
     if (isset($params['id'])) {
       $where = " id = :id ";
@@ -32,14 +29,26 @@ class QueryBuilder
     return $sentencia->fetchAll();
   }
 
-  public function insert()
+  public function insert($table, $params = [], $columns = [])
   {
-
+    $placeholders = rtrim(str_repeat('?, ', count($columns)), ', ');
+    $columnString = implode(', ', $columns);
+    $query = "INSERT INTO {$table} ({$columnString}) VALUES ({$placeholders})";
+    $sentencia = $this->pdo->prepare($query);
+    $i = 1;
+    foreach ($params as $param) {
+        $sentencia->bindValue($i, $param);
+        $i++;
+    }
+    $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+    $sentencia->execute();
   }
+
   public function update()
   {
 
   }
+
   public function delete()
   {
 
