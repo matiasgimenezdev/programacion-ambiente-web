@@ -102,17 +102,18 @@ class Paciente extends Model{
             if ($email !== $emailConfirmation) {
                 return SubmitStatus::EMAIL_DONT_MATCH;
             }
-
-            // exists($email) funcion que verifica si el email ya esta siendo utilizado por otro paciente.
+            // TODO Verificar que el email no exista en la BDD.
+            // exists("email", $email) funcion que verifica si el email ya esta siendo utilizado por otro paciente.
             // No deja crear una cuenta con un mail ya utilizado
-            // if(exists($email)){
+            // if($this -> exists("email", $email)){
             //     return SubmitStatus::IS_USED_EMAIL;
             // }
 
         } else {
-            // exists($email) funcion que verifica si el email ya esta siendo utilizado por otro paciente.
+            // TODO Verificar que el email exista en la BDD.
+            // exists("email", $email) funcion que verifica si el email ya esta siendo utilizado por otro paciente.
             // No deja loguear en una cuenta cuyo email no existe.
-            // if(!exists($email)){
+            // if(!$this -> exists("email", $email)){
             //     return SubmitStatus::NOT_VALID_EMAIL;
             // }
         }
@@ -148,11 +149,11 @@ class Paciente extends Model{
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $this->fields["password"] = $hashed_password;
         } else {
-            // $hashed_password = obtiene el hash del password asociado al email ingresado
-            // if(!password_verify($password, $hashed_password)){
-            //     return SubmitStatus::WRONG_PASSWORD;
-            // }
-            // $this -> fields["password"] = $hashed_password;
+            $data = $this -> queryBuilder -> selectByColumn($this-> table, "email", $this -> getEmail());
+            if(!password_verify($password, $data["password"])){
+                return SubmitStatus::WRONG_PASSWORD;
+            }
+            $this -> fields["password"] = $hashed_password;
         }
         return $status;
     }
@@ -266,8 +267,18 @@ class Paciente extends Model{
         $status = $this->setEmail($registerData["email"], $registerData["emailConfirmation"]) ?? $status;
         $status = $this->setPassword($registerData["password"], $registerData["passwordConfirmation"]) ?? $status;
         if($status -> value === "REGISTER_OK") {
-            // Almacena registro en BDD
-            // $this->queryBuilder->insert($this->table);
+            $data = [
+                "dni" => $this -> getDni(),
+                "name" => $this -> getName(),
+                "lastname" => $this -> getLastname(),
+                "email" => $this -> getEmail(),
+                "password" => $this -> getPassword(),
+                "gender" => $this -> getGender(),
+                "birthdate" => $this -> getBirthdate(),
+                "phone" => $this -> getPhone(),
+
+            ];
+            $this->queryBuilder->insert($this->table, $data);
         }
         return ["status" => $status, "message" => $this -> getMessage($status)];
     }
@@ -290,6 +301,10 @@ class Paciente extends Model{
         $status = $this->setPhone($updatedData["phone"]) ?? $status;
         // Almacena el registro en la BDD
         return ["status" => $status, "message" => $this -> getMessage($status)];
+    }
+
+    private function exists($key, $value) {
+
     }
 }
 

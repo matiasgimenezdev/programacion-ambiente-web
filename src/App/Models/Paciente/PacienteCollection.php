@@ -23,6 +23,8 @@ class PacienteCollection extends Model
     {
         if ($registerData["terms-conditions"] === "true") {
             $pacienteInstance = new Paciente;
+            // Podriamos hacer que la clase QueryBuilder sea Singleton, de forma que nos evitamos tener que pasarla como dependencia.
+            $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
             $registerStatus = $pacienteInstance -> register($registerData);
             return $registerStatus;
         } else {
