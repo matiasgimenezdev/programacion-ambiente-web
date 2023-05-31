@@ -5,7 +5,7 @@ export class ProfesionalesFilter {
 	constructor() {
 		const $link = ElementBuilder.createElement('link', '', {
 			rel: 'stylesheet',
-			href: 'scripts/components/profesionales-filter/profesionales-filter.css',
+			href: '/scripts/components/profesionales-filter/profesionales-filter.css',
 		});
 		document.head.appendChild($link);
 		this.$container = document.querySelector('section.result-section');
@@ -13,7 +13,7 @@ export class ProfesionalesFilter {
 		this.filter = new TableFilter(this.$container);
 
 		this.url =
-			'scripts/components/profesionales-filter/assets/profesionales.json';
+			'/scripts/components/profesionales-filter/assets/profesionales.json';
 
 		this.createPages();
 		this.addEvents();

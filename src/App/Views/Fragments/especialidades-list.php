@@ -5,7 +5,7 @@
             <p class="specialty-description">
                 <?= $especialidad -> getDescription() ?>
             </p>
-            <a href=" <?= "/profesional-search?profesional=". $especialidad -> getName()?>"><button>Ver profesionales</button></a>
+            <a href=" <?= "/profesional/search?profesional=". $especialidad -> getName()?>"><button>Ver profesionales</button></a>
         </article>
     <?php endforeach; ?>
 <?php else: ?>

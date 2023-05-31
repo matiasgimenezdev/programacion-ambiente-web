@@ -40,32 +40,35 @@ const routes = {
 			initFunction: () => new EspecialidadesFilter(),
 		},
 	],
-	'/especialidad-search': [
+	'/especialidad/search': [
 		{
 			scriptName: 'especialidades-filter',
 			scriptPath:
-				'scripts/components/especialidades-filter/especialidades-filter.js',
+				'/scripts/components/especialidades-filter/especialidades-filter.js',
 			initFunction: () => new EspecialidadesFilter(),
 		},
 	],
 	'/turneroMedico': [
 		{
 			scriptName: 'TurneroMedico',
-			scriptPath: 'scripts/components/turneros/turnero-medico/TurneroMedico.js',
+			scriptPath:
+				'scripts/components/turneros/turnero-medico/TurneroMedico.js',
 			initFunction: () => new TurneroMedico(),
 		},
 	],
 	'/turneroClinica': [
 		{
 			scriptName: 'TurneroClinica',
-			scriptPath: 'scripts/components/turneros/turnero-clinica/TurneroClinica.js',
+			scriptPath:
+				'scripts/components/turneros/turnero-clinica/TurneroClinica.js',
 			initFunction: () => new TurneroClinica(),
 		},
 	],
 	'/turneroPaciente': [
 		{
 			scriptName: 'TurneroPaciente',
-			scriptPath: 'scripts/components/turneros/turnero-paciente/TurneroPaciente.js',
+			scriptPath:
+				'scripts/components/turneros/turnero-paciente/TurneroPaciente.js',
 			initFunction: () => new turneroPaciente(),
 		},
 	],
@@ -78,11 +81,11 @@ const routes = {
 			initFunction: () => new ProfesionalesFilter(),
 		},
 	],
-	'/profesionales-search': [
+	'/profesional/search': [
 		{
 			scriptName: 'profesionales-filter',
 			scriptPath:
-				'scripts/components/profesionales-filter/profesionales-filter.js',
+				'/scripts/components/profesionales-filter/profesionales-filter.js',
 			initFunction: () => new ProfesionalesFilter(),
 		},
 	],
@@ -97,6 +100,7 @@ const routes = {
 
 document.addEventListener('DOMContentLoaded', () => {
 	const currentPath = window.location.pathname;
+	console.log(currentPath);
 	for (const route in routes) {
 		const scripts = routes[route];
 		for (const script of scripts) {

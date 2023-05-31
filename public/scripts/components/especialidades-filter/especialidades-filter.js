@@ -5,7 +5,7 @@ export class EspecialidadesFilter {
 	constructor() {
 		const $link = ElementBuilder.createElement('link', '', {
 			rel: 'stylesheet',
-			href: 'scripts/components/especialidades-filter/especialidades-filter.css',
+			href: '/scripts/components/especialidades-filter/especialidades-filter.css',
 		});
 		document.head.appendChild($link);
 		this.$container = document.querySelector('section.result-section');
@@ -91,7 +91,7 @@ export class EspecialidadesFilter {
 		        <p class="specialty-description">
 		            ${especialidad.description}
 		        </p>
-		        <a href="/profesional-search?profesional=${especialidad.name}"><button>Ver profesionales</button></a>
+		        <a href="/profesional/search?especialidad=${especialidad.name}"><button>Ver profesionales</button></a>
 		    `;
 				$container.appendChild($article);
 			}
