@@ -19,29 +19,70 @@ class QueryBuilder
     if (isset($params['id'])) {
       $where = " id = :id ";
     }*/
-    $query = "SELECT * FROM {$table}";
-    $sentencia = $this->pdo->prepare($query);
-    /*if (isset($params['id'])) {
-      $sentencia->bindValue(":id", $params['id']);
-    }*/
-    $sentencia->setFetchMode(PDO::FETCH_ASSOC);
-    $sentencia->execute();
-    return $sentencia->fetchAll();
+    try {
+      $query = "SELECT * FROM {$table}";
+      $sentencia = $this->pdo->prepare($query);
+      /*if (isset($params['id'])) {
+        $sentencia->bindValue(":id", $params['id']);
+      }*/
+      $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+      $sentencia->execute();
+      return $sentencia->fetchAll();
+    } catch (PDOException $e) {
+      $this -> logger -> getLogger() -> info(
+        "Error al ejecutar la consulta: " . $e->getMessage(),
+        [
+            "Operation" => 'SELECT',
+            "Table" => $table,
+        ]
+      );
+    }
   }
 
-  public function insert($table, $params = [], $columns = [])
-  {
-    $placeholders = rtrim(str_repeat('?, ', count($columns)), ', ');
-    $columnString = implode(', ', $columns);
-    $query = "INSERT INTO {$table} ({$columnString}) VALUES ({$placeholders})";
+  public function selectByColumn($table, $column, $value){
+    try {
+
+    $query = "SELECT * FROM {$table} WHERE {$column} = :value";
     $sentencia = $this->pdo->prepare($query);
-    $i = 1;
-    foreach ($params as $param) {
-        $sentencia->bindValue($i, $param);
-        $i++;
-    }
-    $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+    $sentencia->bindParam(':value', $value);
     $sentencia->execute();
+    return $sentencia -> fetchAll();
+    } catch (PDOException $e) {
+      $this -> logger -> getLogger() -> info(
+        "Error al ejecutar la consulta: " . $e->getMessage(),
+        [
+            "Operation" => 'SELECT',
+            "Table" => $table,
+            "Column" => $column
+        ]
+      );
+    }
+  }
+
+  public function insert($table, $data)
+  {
+    try {
+      $columns = implode(", ", array_keys($data));
+      $placeholders = ":" . implode(", :", array_keys($data));
+      $query = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})";
+      $sentencia = $this->pdo->prepare($query);
+      foreach ($data as $column => $value) {
+        $sentencia->bindValue(':' . $column, $value);
+      }
+      $result = $sentencia->execute();
+      if($result != true) {
+        throw new PDOException($sentencia->errorInfo()[2]);
+      }
+    } catch (PDOException $e) {
+      $this -> logger -> getLogger() -> info(
+        "Error al ejecutar la consulta: " . $e->getMessage(),
+        [
+            "Operation" => 'INSERT',
+            "Table" => $table
+        ]
+      );
+    }
+
   }
 
   public function update()

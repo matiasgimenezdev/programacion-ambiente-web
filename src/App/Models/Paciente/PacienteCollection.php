@@ -9,6 +9,7 @@ use PAW\Core\Traits\Messenger;
 class PacienteCollection extends Model
 {
     use Messenger;
+<<<<<<< HEAD
 
     private $table = 'paciente';
 
@@ -34,13 +35,16 @@ class PacienteCollection extends Model
             "phone" => "02323-353591"
         ]
     ];
+=======
+    public $table = "paciente";
+>>>>>>> 363f9da3f0e668ef4599ed2dd8e69f823ea48419
 
     public function getOne($id)
     {
         $pacienteInstance = new Paciente;
-        $ids = array_column($this->pacientes, 'id');
-        $index = array_search($id, $ids);
-        $pacienteInstance->set($this->pacientes[$index]);
+        // Podriamos hacer que la clase QueryBuilder sea Singleton, de forma que nos evitamos tener que pasarla como dependencia.
+        $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
+        $pacienteInstance->set($this-> queryBuilder -> selectByColumn($this -> table, "id_paciente", $id));
         return $pacienteInstance;
     }
 
@@ -48,6 +52,8 @@ class PacienteCollection extends Model
     {
         if ($registerData["terms-conditions"] === "true") {
             $pacienteInstance = new Paciente;
+            // Podriamos hacer que la clase QueryBuilder sea Singleton, de forma que nos evitamos tener que pasarla como dependencia.
+            $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
             $registerStatus = $pacienteInstance -> register($registerData);
             $this->queryBuilder->insert($this->table, $registerStatus["fields"], $registerStatus["columns"]);
             return $registerStatus;
@@ -72,10 +78,11 @@ class PacienteCollection extends Model
         return $updateStatus;
     }
 
-    private function getByDni($dni)
+    public function getByDni($dni)
     {
         $pacienteInstance = new Paciente;
-        $pacienteInstance->set($this->pacientes[0]);
+        $result = $this->queryBuilder->selectByColumn($this->table, "dni", $dni);
+        $pacienteInstance->set($result[0]);
         return $pacienteInstance;
     }
 

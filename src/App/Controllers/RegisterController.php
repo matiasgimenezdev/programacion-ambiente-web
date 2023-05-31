@@ -12,12 +12,12 @@ class RegisterController extends AbstractController {
         $request = Request::getInstance();
         $registerData = $request -> getRegisterData();
         $register = $this -> model -> register($registerData);
-
         if($register["status"]-> value === "REGISTER_OK") {
-            // $id = $this -> model -> getId($dni);
-            // Obtendría el ID que le fue asignado y lo redirige a la pagina de su perfil por si desea seguir cargando mas datos personales.
-            header('Location: /perfil/editar?id=' . "1");
-
+            $paciente = $this -> model -> getByDni($registerData["dni"]);
+            // echo "<pre>";
+            // var_dump($paciente);
+            // die;
+            header('Location: /perfil/editar?id=' . $paciente -> getIdPaciente());
         } else {
             echo($register["status"]->value);
             /*$title = "Registrarse";
