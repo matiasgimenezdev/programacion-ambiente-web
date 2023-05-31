@@ -29,6 +29,7 @@ $router->get("/turnos", "TurnosController", "turnos");
 $router->get("/turno-search", "TurnosController", "search");
 $router->get("/especialidades", "EspecialidadesController", "especialidades");
 $router->get("/especialidad-search", "EspecialidadesController", "search");
+$router->get("/especialidades-getAll", "EspecialidadesController", "getAll");
 $router->get("/profesionales", "ProfesionalesController", "profesionales");
 $router->get("/profesional-search", "ProfesionalesController", "search");
 $router->get("/institucional", "PageController", "institucional");

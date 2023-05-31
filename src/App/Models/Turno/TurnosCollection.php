@@ -2,8 +2,9 @@
 namespace PAW\App\Models\Turno;
 
 use PAW\App\Models\Turno\Turno;
+use PAW\Core\Model;
 
-class TurnosCollection
+class TurnosCollection extends Model
 {
 
   private $turnos = [

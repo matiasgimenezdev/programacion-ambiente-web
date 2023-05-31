@@ -29,6 +29,11 @@
             }
             require $this -> viewsDirectory . "especialidades.view.php";
         }
+
+        public function getAll() {
+            return $especialidades = $this -> model -> getEspecialidades();
+        }
+
     }
 
 ?>

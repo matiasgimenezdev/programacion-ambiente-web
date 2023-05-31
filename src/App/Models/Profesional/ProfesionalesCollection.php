@@ -1,8 +1,9 @@
 <?php
 namespace PAW\App\Models\Profesional;
 use PAW\App\Models\Profesional\Profesional;
+use PAW\Core\Model;
 
-  class ProfesionalesCollection {
+  class ProfesionalesCollection extends Model{
 
     public function getAll() {
       $profesionales = [

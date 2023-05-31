@@ -12,8 +12,10 @@ export class EspecialidadesFilter {
 		this.$container.innerHTML = '';
 		this.filter = new TableFilter(this.$container);
 
-		this.url =
-			'scripts/components/especialidades-filter/assets/especialidades.json';
+		//this.url =
+			//'scripts/components/especialidades-filter/assets/especialidades.json';
+
+    this.url = '/especialidades-getAll';
 
 		this.createPages();
 		this.addEvents();
@@ -49,6 +51,7 @@ export class EspecialidadesFilter {
 
 	async getData() {
 		const response = await fetch(this.url);
+		console.log(response);
 		const data = await response.json();
 		return data;
 	}

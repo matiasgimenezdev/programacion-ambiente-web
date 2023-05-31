@@ -4,8 +4,9 @@ namespace PAW\App\Models\Paciente;
 use PAW\App\Models\Paciente\Paciente;
 use PAW\Core\SubmitStatus;
 use PAW\Core\Traits\Messenger;
+use PAW\Core\Model;
 
-class PacienteCollection
+class PacienteCollection extends Model
 {
     use Messenger;
     private $pacientes = [

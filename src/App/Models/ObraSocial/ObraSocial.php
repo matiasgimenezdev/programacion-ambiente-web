@@ -1,8 +1,8 @@
 <?php
 namespace PAW\App\Models\ObraSocial;
+use PAW\Core\Model;
 
-
-class ObraSocial
+class ObraSocial extends Model
 {
   private $fields = [
     "id" => null,

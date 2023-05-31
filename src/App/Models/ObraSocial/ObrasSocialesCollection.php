@@ -2,8 +2,9 @@
 namespace PAW\App\Models\ObraSocial;
 
 use PAW\App\Models\ObraSocial\ObraSocial;
+use PAW\Core\Model;
 
-class ObrasSocialesCollection
+class ObrasSocialesCollection extends Model
 {
 
   public function getAll()
