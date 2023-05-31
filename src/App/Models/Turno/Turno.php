@@ -16,7 +16,7 @@ class Turno extends Model
   private $table = 'turno';
 
   private $fields = [
-    "id" => null,
+    "id_turno" => null,
     "dni" => null,
     "name" => null,
     "lastname" => null,
@@ -186,7 +186,7 @@ class Turno extends Model
   public function setFecha($date)
   {
     $status = null;
-    if (!(date_create($date))) {
+    /*if (!(date_create($date))) {
       return SubmitStatus::NOT_VALID_SHIFTDATE;
     }
 
@@ -198,7 +198,7 @@ class Turno extends Model
     $currentDate = new DateTime();
     if ($date < $currentDate->format('Y-m-d')) {
       return SubmitStatus::NOT_VALID_SHIFTDATE;
-    }
+    }*/
 
     $this->fields["fecha"] = $date;
     return $status;
@@ -207,7 +207,7 @@ class Turno extends Model
   public function setHora($hora)
   {
     $status = null;
-    if (!(DateTime::createFromFormat('H:i', $hora))) {
+    /*if (!(DateTime::createFromFormat('H:i', $hora))) {
       return SubmitStatus::NOT_VALID_SHIFTTIME;
     }
 
@@ -215,7 +215,7 @@ class Turno extends Model
     $currentTime = date('h:i');
     if ($this->fields["fecha"] == $currentDate->format('Y-m-d') && $hora <= $currentTime) {
       return SubmitStatus::NOT_VALID_SHIFTDATE;
-    }
+    }*/
 
     $this->fields["hora"] = $hora;
     return $status;
@@ -255,7 +255,7 @@ class Turno extends Model
 
   public function getId()
   {
-    return $this->fields["id"];
+    return $this->fields["id_turno"];
   }
 
   public function getDni()
@@ -316,7 +316,7 @@ class Turno extends Model
 
   public function getObrasocial()
   {
-    return $this->fields["obra"];
+    return $this->fields["obraSocial"];
   }
 
   public function getHora()
@@ -340,6 +340,16 @@ class Turno extends Model
     }
   }
 
+  public function setPendiente($pendiente)
+  {
+    $this->fields["pendiente"] = $pendiente;
+  }
+
+  public function getPendiente()
+  {
+    return $this->fields["pendiente"];
+  }
+
   public function registrarTurno(array $shiftData)
   {
     $status = SubmitStatus::REGISTER_OK;
@@ -358,7 +368,26 @@ class Turno extends Model
     $status = $this->setHora($shiftData["hora"]) ?? $status;
     $status = $this->setEstudio($shiftData["estudio"]) ?? $status;
 
-    // Almacena el turno en la BDD
+    if($status -> value === "REGISTER_OK") {
+      $data = [
+          "dni" => $this -> getDni(),
+          "name" => $this -> getName(),
+          "lastname" => $this -> getLastname(),
+          "genero" => $this -> getGenero(),
+          "Nacimiento" => $this -> getNacimiento(),
+          "Edad" => $this->getEdad(),
+          "email" => $this -> getEmail(),
+          "telefono" => $this -> getTelefono(),
+          "id_especialidad" => $this->getEspecialidad(),
+          "matricula" => $this->getProfesional(),
+          "id_obra_social" => $this->getObrasocial(),
+          "fecha_turno" => $this->getFecha(),
+          "hora_turno" => $this->getHora(),
+          "pendiente" => $this->getPendiente(),
+      ];
+      $this->queryBuilder->insert($this->table, $data);
+    } 
+
     return ["status" => $status, "message" => $this->getMessage($status)];
   }
 

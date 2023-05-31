@@ -9,35 +9,8 @@ use PAW\Core\Traits\Messenger;
 class PacienteCollection extends Model
 {
     use Messenger;
-<<<<<<< HEAD
 
-    private $table = 'paciente';
-
-    private $pacientes = [
-        [
-            "id" => 1,
-            "dni" => "12345678",
-            "name" => "José",
-            "lastname" => "Ramírez",
-            "email" => "joseh87@gmail.com",
-            "gender" => "M",
-            "birthdate" => "1978-08-16",
-            "phone" => "02324-15457825"
-        ],
-        [
-            "id" => 2,
-            "dni" => "87654321",
-            "name" => "Armando",
-            "lastname" => "Paredes",
-            "email" => "armandop@gmail.com",
-            "gender" => "M",
-            "birthdate" => "1978-08-16",
-            "phone" => "02323-353591"
-        ]
-    ];
-=======
     public $table = "paciente";
->>>>>>> 363f9da3f0e668ef4599ed2dd8e69f823ea48419
 
     public function getOne($id)
     {
@@ -55,7 +28,6 @@ class PacienteCollection extends Model
             // Podriamos hacer que la clase QueryBuilder sea Singleton, de forma que nos evitamos tener que pasarla como dependencia.
             $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
             $registerStatus = $pacienteInstance -> register($registerData);
-            $this->queryBuilder->insert($this->table, $registerStatus["fields"], $registerStatus["columns"]);
             return $registerStatus;
         } else {
             $status = SubmitStatus::NOT_CONFIRMED_TERMS;

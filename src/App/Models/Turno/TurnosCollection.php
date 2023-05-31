@@ -49,6 +49,7 @@ class TurnosCollection extends Model
   public function solicitarTurno($shiftData)
   {
     $turnoInstance = new Turno;
+    $turnoInstance -> setQueryBuilder($this -> queryBuilder);
     $registerStatus = $turnoInstance->registrarTurno($shiftData);
     return $registerStatus;
   }
