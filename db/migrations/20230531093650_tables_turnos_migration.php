@@ -31,7 +31,7 @@ final class TablesTurnosMigration extends AbstractMigration
         ->addColumn('name', 'string', ['limit' => 30])
         ->addColumn('lastname', 'string', ['limit' => 30])
         ->addColumn('email', 'string', ['limit' => 30])
-        ->addColumn('password', 'string', ['limit' => 30])
+        ->addColumn('password', 'string')
         ->addColumn('gender', 'string', ['limit' => 1])
         ->addColumn('birthdate', 'datetime')
         ->addColumn('phone', 'string', ['limit' => 30])
