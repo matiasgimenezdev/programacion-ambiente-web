@@ -14,7 +14,7 @@
 		<form method="POST" action="/perfil/actualizar">
 			<fieldset>
 				<h2>Informacion básica</h2>
-				<input name="id" type="hidden" value="<?= $paciente->getId() ?>">
+				<input name="id" type="hidden" value="<?= $paciente->getIdPaciente() ?>">
 				<p>
 					<label for="dni">DNI</label>
 					<input name="dni" required type="text" disabled value="<?= $paciente->getDni() ?>" />

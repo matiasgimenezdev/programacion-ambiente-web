@@ -13,7 +13,7 @@ class Paciente extends Model{
     private $table = 'paciente';
 
     private $fields = [
-        "id" => null,
+        "id_paciente" => null,
         "dni" => null,
         "name" => null,
         "lastname" => null,
@@ -24,9 +24,9 @@ class Paciente extends Model{
         "phone" => null
     ];
 
-    public function setId($id)
+    public function setIdPaciente($id)
     {
-        $this->fields["id"] = $id;
+        $this->fields["id_paciente"] = $id;
     }
 
     public function setDni($dni)
@@ -149,11 +149,11 @@ class Paciente extends Model{
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $this->fields["password"] = $hashed_password;
         } else {
-            $data = $this -> queryBuilder -> selectByColumn($this-> table, "email", $this -> getEmail());
-            if(!password_verify($password, $data["password"])){
-                return SubmitStatus::WRONG_PASSWORD;
-            }
-            $this -> fields["password"] = $hashed_password;
+            // $data = $this -> queryBuilder -> selectByColumn($this-> table, "email", $this -> getEmail());
+            // if(!password_verify($password, $data["password"])){
+            //     return SubmitStatus::WRONG_PASSWORD;
+            // }
+            // $this -> fields["password"] = $hashed_password;
         }
         return $status;
     }
@@ -203,9 +203,9 @@ class Paciente extends Model{
         return $status;
     }
 
-    public function getId()
+    public function getIdPaciente()
     {
-        return $this->fields["id"];
+        return $this->fields["id_paciente"];
     }
 
     public function getDni()
@@ -253,7 +253,12 @@ class Paciente extends Model{
             if (!isset($values[$field])) {
                 continue;
             }
-            $method = "set" . ucfirst($field);
+            $property = explode("_", $field);
+            if(count($property) > 1) {
+                $method = "set" . ucfirst($property[0]) . ucfirst($property[1]);
+            } else {
+                $method = "set" . ucfirst($property[0]);
+            }
             $status = $this->$method($values[$field]);
         }
     }

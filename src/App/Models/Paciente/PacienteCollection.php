@@ -9,13 +9,14 @@ use PAW\Core\Model;
 class PacienteCollection extends Model
 {
     use Messenger;
+    public $table = "paciente";
 
     public function getOne($id)
     {
         $pacienteInstance = new Paciente;
-        $ids = array_column($this->pacientes, 'id');
-        $index = array_search($id, $ids);
-        $pacienteInstance->set($this->pacientes[$index]);
+        // Podriamos hacer que la clase QueryBuilder sea Singleton, de forma que nos evitamos tener que pasarla como dependencia.
+        $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
+        $pacienteInstance->set($this-> queryBuilder -> selectByColumn($this -> table, "id_paciente", $id));
         return $pacienteInstance;
     }
 
@@ -48,7 +49,7 @@ class PacienteCollection extends Model
         return $updateStatus;
     }
 
-    private function getByDni($dni)
+    public function getByDni($dni)
     {
         $pacienteInstance = new Paciente;
         $result = $this->queryBuilder->selectByColumn($this->table, "dni", $dni);

@@ -12,8 +12,11 @@ class RegisterController extends AbstractController {
         $registerData = $request -> getRegisterData();
         $register = $this -> model -> register($registerData);
         if($register["status"]-> value === "REGISTER_OK") {
-            $paciente = $this -> model -> getId($dni);
-            header('Location: /perfil/editar?id=' . $paciente -> getId());
+            $paciente = $this -> model -> getByDni($registerData["dni"]);
+            // echo "<pre>";
+            // var_dump($paciente);
+            // die;
+            header('Location: /perfil/editar?id=' . $paciente -> getIdPaciente());
         } else {
             $title = "Registrarse";
             $style = "registrarse";
