@@ -9,7 +9,10 @@ use PAW\Core\Traits\Messenger;
 class PacienteCollection extends Model
 {
     use Messenger;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a402fbb8a2bb21cfb02b2e500e85055e83204c38
     public $table = "paciente";
 
     public function getOne($id)
