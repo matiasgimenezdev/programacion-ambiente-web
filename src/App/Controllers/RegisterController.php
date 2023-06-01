@@ -15,7 +15,7 @@ class RegisterController extends AbstractController {
         if($register["status"]-> value === "REGISTER_OK") {
             $paciente = $this -> model -> getByDni($registerData["dni"]);
             // echo "<pre>";
-            // var_dump($paciente);
+            // var_dump($paciente->getDni());
             // die;
             header('Location: /perfil/editar?id=' . $paciente -> getIdPaciente());
         } else {
