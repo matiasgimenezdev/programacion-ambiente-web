@@ -38,7 +38,7 @@ class Paciente extends Model {
             return SubmitStatus::NOT_VALID_DNI;
         }
 
-        // En el registro de pacientes controla que el DNI no este siendo utilizado
+        // En el registro de pacientes controla que el DNI no se repita con el de otro paciente
         if($register) {
             if($this -> exists("dni", $dni)){
                 return SubmitStatus::IS_USED_DNI;

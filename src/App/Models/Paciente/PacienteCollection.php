@@ -52,9 +52,9 @@ class PacienteCollection extends Model
 
     public function getByDni($dni)
     {
-        // Obtiene el paciente de la BDD
         $pacienteInstance = new Paciente;
         $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
+        // Obtiene el paciente de la BDD con su DNI
         $result = $this->queryBuilder->selectByColumn($this->table, "dni", $dni);
         $pacienteInstance->set($result[0]);
         return $pacienteInstance;
