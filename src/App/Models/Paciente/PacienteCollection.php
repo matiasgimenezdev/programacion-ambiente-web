@@ -53,6 +53,7 @@ class PacienteCollection extends Model
     public function getByDni($dni)
     {
         $pacienteInstance = new Paciente;
+        $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
         $result = $this->queryBuilder->selectByColumn($this->table, "dni", $dni);
         $pacienteInstance->set($result[0]);
         return $pacienteInstance;

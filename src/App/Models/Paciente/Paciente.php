@@ -150,12 +150,14 @@ class Paciente extends Model {
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $this->fields["password"] = $hashed_password;
         } else {
-            // $data = $this -> queryBuilder -> selectByColumn($this-> table, "email", $this -> getEmail());
-            // if(!password_verify($password, $data["password"])){
-            //     return SubmitStatus::WRONG_PASSWORD;
-            // }
-            // $this -> fields["password"] = $hashed_password;
+            $data = $this -> queryBuilder -> selectByColumn($this-> table, "email", $this -> getEmail());
+            $hashed_password = $data[0]["password"];
+            if($password !== $hashed_password){
+                return SubmitStatus::WRONG_PASSWORD;
+            }
+            $this -> fields["password"] = $hashed_password;
         }
+        
         return $status;
     }
 
@@ -179,7 +181,7 @@ class Paciente extends Model {
 
 
         list($year, $month, $day) = explode('-', $birthdate);
-        if (!checkdate($month, $day, $year)) {
+        if (!checkdate(intval($month), intval(substr($day, 0, 2)), intval($year))) {
             return SubmitStatus::NOT_VALID_BIRTHDATE;
         }
 
@@ -250,6 +252,7 @@ class Paciente extends Model {
 
     public function set(array $values)
     {
+
         foreach (array_keys($this->fields) as $field) {
             if (!isset($values[$field])) {
                 continue;
@@ -257,6 +260,7 @@ class Paciente extends Model {
             $property = explode("_", $field);
             if(count($property) > 1) {
                 $method = "set" . ucfirst($property[0]) . ucfirst($property[1]);
+
             } else {
                 $method = "set" . ucfirst($property[0]);
             }
@@ -306,7 +310,22 @@ class Paciente extends Model {
         $status = $this->setBirthdate($updatedData["birthdate"]) ?? $status;
         $status = $this->setGender($updatedData["gender"]) ?? $status;
         $status = $this->setPhone($updatedData["phone"]) ?? $status;
-        // Almacena el registro en la BDD
+
+        if($status -> value === "UPDATE_OK") {
+            $data = [
+                "id_paciente" => $this -> getIdPaciente(),
+                "dni" => $this -> getDni(),
+                "name" => $this -> getName(),
+                "lastname" => $this -> getLastname(),
+                "email" => $this -> getEmail(),
+                "password" => $this -> getPassword(),
+                "gender" => $this -> getGender(),
+                "birthdate" => $this -> getBirthdate(),
+                "phone" => $this -> getPhone(),
+
+            ];
+            $this->queryBuilder->update($this->table, $data);
+        }
         return ["status" => $status, "message" => $this -> getMessage($status)];
     }
 

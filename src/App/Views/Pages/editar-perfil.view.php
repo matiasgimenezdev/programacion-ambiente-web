@@ -18,6 +18,7 @@
 				<p>
 					<label for="dni">DNI</label>
 					<input name="dni" required type="text" disabled value="<?= $paciente->getDni() ?>" />
+					<input name="dni" required type="hidden" value="<?= $paciente->getDni() ?>" />
 				</p>
 				<p>
 					<label for="nombre">Nombre</label>
@@ -62,6 +63,7 @@
 				<p>
 					<label for="email">Correo electrónico</label>
 					<input name="email" type="email" disabled value="<?= $paciente->getEmail() ?>" />
+					<input name="email" type="hidden" value="<?= $paciente->getEmail() ?>" />
 				</p>
 
 				<p>
