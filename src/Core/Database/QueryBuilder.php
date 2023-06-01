@@ -41,21 +41,20 @@ class QueryBuilder
 
   public function selectByColumn($table, $column, $value){
     try {
-
-    $query = "SELECT * FROM {$table} WHERE {$column} = :value";
-    $sentencia = $this->pdo->prepare($query);
-    $sentencia->bindParam(':value', $value);
-    $sentencia->execute();
-    return $sentencia -> fetchAll();
-    } catch (PDOException $e) {
-      $this -> logger -> getLogger() -> info(
-        "Error al ejecutar la consulta: " . $e->getMessage(),
-        [
-            "Operation" => 'SELECT',
-            "Table" => $table,
-            "Column" => $column
-        ]
-      );
+      $query = "SELECT * FROM {$table} WHERE {$column} = :value";
+      $sentencia = $this->pdo->prepare($query);
+      $sentencia->bindParam(':value', $value);
+      $sentencia->execute();
+      return $sentencia -> fetchAll();
+      } catch (PDOException $e) {
+        $this -> logger -> getLogger() -> info(
+          "Error al ejecutar la consulta: " . $e->getMessage(),
+          [
+              "Operation" => 'SELECT',
+              "Table" => $table,
+              "Column" => $column
+          ]
+        );
     }
   }
 
@@ -87,9 +86,6 @@ class QueryBuilder
 
   public function update($table, $data)
   {
-    // echo "<pre>";
-    // var_dump($data);
-    // die;
     try {
       $setValues = [];
       foreach ($data as $column => $value) {

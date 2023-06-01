@@ -30,12 +30,19 @@ class Paciente extends Model {
         $this->fields["id_paciente"] = $id;
     }
 
-    public function setDni($dni)
+    public function setDni($dni, $register = false)
     {
         $status = null;
         $dni = trim($dni);
         if (strlen($dni) < 7 || strlen($dni) > 8 || !is_numeric($dni)) {
             return SubmitStatus::NOT_VALID_DNI;
+        }
+
+        // En el registro de pacientes controla que el DNI no este siendo utilizado
+        if($register) {
+            if($this -> exists("dni", $dni)){
+                return SubmitStatus::IS_USED_DNI;
+            }
         }
 
         $this->fields["dni"] = $dni;
@@ -103,20 +110,16 @@ class Paciente extends Model {
             if ($email !== $emailConfirmation) {
                 return SubmitStatus::EMAIL_DONT_MATCH;
             }
-            // TODO Verificar que el email no exista en la BDD.
-            // exists("email", $email) funcion que verifica si el email ya esta siendo utilizado por otro paciente.
             // No deja crear una cuenta con un mail ya utilizado
-            // if($this -> exists("email", $email)){
-            //     return SubmitStatus::IS_USED_EMAIL;
-            // }
+            if($this -> exists("email", $email)){
+                return SubmitStatus::IS_USED_EMAIL;
+            }
 
         } else {
-            // TODO Verificar que el email exista en la BDD.
-            // exists("email", $email) funcion que verifica si el email ya esta siendo utilizado por otro paciente.
             // No deja loguear en una cuenta cuyo email no existe.
-            // if(!$this -> exists("email", $email)){
-            //     return SubmitStatus::NOT_VALID_EMAIL;
-            // }
+            if(!$this -> exists("email", $email)){
+                return SubmitStatus::NOT_VALID_EMAIL;
+            }
         }
 
         $this->fields["email"] = $email;
@@ -273,7 +276,7 @@ class Paciente extends Model {
         $status = SubmitStatus::REGISTER_OK;
         $status = $this->setName($registerData["name"]) ?? $status;
         $status = $this->setLastname($registerData["lastname"]) ?? $status;
-        $status = $this->setDni($registerData["dni"]) ?? $status;
+        $status = $this->setDni($registerData["dni"], true) ?? $status;
         $status = $this->setEmail($registerData["email"], $registerData["emailConfirmation"]) ?? $status;
         $status = $this->setPassword($registerData["password"], $registerData["passwordConfirmation"]) ?? $status;
 
@@ -329,8 +332,13 @@ class Paciente extends Model {
         return ["status" => $status, "message" => $this -> getMessage($status)];
     }
 
-    private function exists($key, $value) {
-
+    private function exists($column, $value) {
+        $result = $this-> queryBuilder -> selectByColumn($this -> table, $column, $value);
+        $exists = true;
+        if(count($result) === 0) {
+            $exists = false;
+        }
+        return $exists;
     }
 }
 

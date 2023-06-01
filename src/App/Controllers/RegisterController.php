@@ -14,19 +14,13 @@ class RegisterController extends AbstractController {
         $register = $this -> model -> register($registerData);
         if($register["status"]-> value === "REGISTER_OK") {
             $paciente = $this -> model -> getByDni($registerData["dni"]);
-            // echo "<pre>";
-            // var_dump($paciente->getDni());
-            // die;
             header('Location: /perfil/editar?id=' . $paciente -> getIdPaciente());
         } else {
-            echo($register["status"]->value);
-            /*$title = "Registrarse";
-            $style = "registrarse";
-            $view = "registrarse";
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
-            $template = $templateLoader->load($view.'.html');
-            echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => $title, 'style' => $style]);*/
+            $template = $templateLoader->load('registrarse.html');
+            echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Registrarse', 'style' => 'registrarse', 
+                'registerData' => $registerData, 'register' => $register]);
         }
     }   
 
