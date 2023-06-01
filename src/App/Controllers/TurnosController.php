@@ -18,6 +18,12 @@ class TurnosController extends AbstractController
     require $this->viewsDirectory . "turnos.view.php";
   }
 
+  public function getTurnos()
+  {
+    $turnos = $this -> model -> getTurnos();
+    return json_encode($turnos);
+  }
+
   public function solicitarTurno()
   {
     $title = "Solicitar Turno";

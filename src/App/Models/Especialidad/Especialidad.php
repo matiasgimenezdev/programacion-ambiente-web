@@ -17,6 +17,10 @@
             $this -> fields["id"] = $id;
         }
 
+        public function getId() {
+            $this -> fields["id"];
+        }
+
         public function setName($name) {
             $this -> fields["name"] = $name;
         }

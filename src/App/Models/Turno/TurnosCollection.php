@@ -7,6 +7,8 @@ use PAW\Core\Model;
 class TurnosCollection extends Model
 {
 
+  private $table = "turno";
+
   private $turnos = [
     [
       "id" => 1,
@@ -60,6 +62,13 @@ class TurnosCollection extends Model
     $cancelStatus = $turnoInstance -> cancelarTurno();
     return $cancelStatus;
   }
+
+  public function getTurnos(){
+    $turnos = $this->queryBuilder->select($this->table);
+    $json = json_encode($turnos);
+    header("Content-Type: application/json");
+    echo $json;
+}
 
 }
 

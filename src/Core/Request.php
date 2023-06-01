@@ -78,7 +78,7 @@
                 "fecha" => $this->getKey("fecha-turno"),
                 "hora" => $this->getKey("hora-turno"),
                 "estudio" => $this -> getKey("estudio")
-              ];
+            ];
         }
 
     }
