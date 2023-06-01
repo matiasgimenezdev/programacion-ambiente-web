@@ -26,6 +26,7 @@
             $searchText = ucfirst(strtolower(trim($searchText)));
             if(strlen($searchText) > 0){
                 $especialidades = $this -> model -> getAll();
+                //TODO Implementar busqueda de especialidades
                 // $especialidades = $this -> model -> get($searchText);
             } else {
                 $especialidades = $this -> model -> getAll();

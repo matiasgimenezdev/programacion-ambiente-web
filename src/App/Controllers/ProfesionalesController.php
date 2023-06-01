@@ -28,6 +28,7 @@ class ProfesionalesController extends AbstractController
     $searchText = ucfirst(strtolower(trim($searchText)));
     if (strlen($searchText) > 0) {
       $profesionales = $this->model->getAll();
+      //TODO Implementar busqueda de profesionales
       // $profesionales = $this -> model -> get($searchText);
     } else {
       $profesionales = $this->model->getAll();

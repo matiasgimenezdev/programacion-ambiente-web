@@ -5,6 +5,13 @@ use PAW\Core\Model;
 
   class ProfesionalesCollection extends Model{
 
+    public $table = 'profesional';
+
+
+    public function get($searchText) {
+      //TODO Implementar consulta a la BDD filtrando por el texto de busqueda ingresado por el usuario
+    }
+
     public function getAll() {
       $profesionales = [
         [
