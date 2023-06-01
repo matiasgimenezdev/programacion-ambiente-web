@@ -16,7 +16,8 @@ class PacienteCollection extends Model
         $pacienteInstance = new Paciente;
         // Podriamos hacer que la clase QueryBuilder sea Singleton, de forma que nos evitamos tener que pasarla como dependencia.
         $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
-        $pacienteInstance->set($this-> queryBuilder -> selectByColumn($this -> table, "id_paciente", $id));
+        $result = $this-> queryBuilder -> selectByColumn($this -> table, "id_paciente", $id);
+        $pacienteInstance->set($result[0]);
         return $pacienteInstance;
     }
 
@@ -52,6 +53,7 @@ class PacienteCollection extends Model
     public function getByDni($dni)
     {
         $pacienteInstance = new Paciente;
+        $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
         $result = $this->queryBuilder->selectByColumn($this->table, "dni", $dni);
         $pacienteInstance->set($result[0]);
         return $pacienteInstance;

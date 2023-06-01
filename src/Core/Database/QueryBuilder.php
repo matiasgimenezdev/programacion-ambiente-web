@@ -85,9 +85,37 @@ class QueryBuilder
 
   }
 
-  public function update()
+  public function update($table, $data)
   {
+    // echo "<pre>";
+    // var_dump($data);
+    // die;
+    try {
+      $setValues = [];
+      foreach ($data as $column => $value) {
+          $setValues[] = $column . ' = :' . $column;
+      }
+      $setClause = implode(", ", $setValues);
+      $query = "UPDATE {$table} SET {$setClause} WHERE id_paciente = :id";
+      $sentencia = $this->pdo->prepare($query);
 
+      foreach ($data as $column => $value) {
+          $sentencia->bindValue(':' . $column, $value);
+      }
+      $sentencia->bindValue(':id', $data["id_paciente"]);
+      $result = $sentencia->execute();
+      if ($result != true) {
+          throw new PDOException($sentencia->errorInfo()[2]);
+      }
+  } catch (PDOException $e) {
+      $this->logger->getLogger()->info(
+          "Error al ejecutar la consulta: " . $e->getMessage(),
+          [
+              "Operation" => 'UPDATE',
+              "Table" => $table
+          ]
+      );
+  }
   }
 
   public function delete()
