@@ -16,7 +16,7 @@ class ProfesionalesController extends AbstractController
     $profesionales = $this->model->getAll();
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
-    $template = $templateLoader->load('profesionales.html');
+    $template = $templateLoader->load('profesionales.twig');
     echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Profesionales', 
     'style' => 'profesionales', 'profesionales' => $profesionales, 'searchText' => $searchText]);
   }
@@ -35,7 +35,7 @@ class ProfesionalesController extends AbstractController
     }
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
-    $template = $templateLoader->load('profesionales.html');
+    $template = $templateLoader->load('profesionales.twig');
     echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Profesionales', 
     'style' => 'profesionales', 'profesionales' => $profesionales, 'searchText' => $searchText]);
   }

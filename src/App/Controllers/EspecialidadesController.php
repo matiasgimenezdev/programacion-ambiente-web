@@ -15,7 +15,7 @@
             $especialidades = $this -> model -> getAll();
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
-            $template = $templateLoader->load('especialidades.html');
+            $template = $templateLoader->load('especialidades.twig');
             echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Especialidades', 
             'style' => 'especialidades', 'especialidades' => $especialidades, 'searchText' => $searchText]);
         }
@@ -34,7 +34,7 @@
 
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
-            $template = $templateLoader->load('especialidades.html');
+            $template = $templateLoader->load('especialidades.twig');
             echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Especialidades', 
             'style' => 'especialidades', 'especialidades' => $especialidades, 'searchText' => $searchText]);
         }

@@ -21,7 +21,7 @@ class LoginController extends AbstractController
         } else {
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
-            $template = $templateLoader->load('iniciar-sesion.html');
+            $template = $templateLoader->load('iniciar-sesion.twig');
             echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Iniciar sesión', 'style' => 'iniciar-sesion']);
         }
     }

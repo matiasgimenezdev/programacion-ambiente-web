@@ -18,7 +18,7 @@ class RegisterController extends AbstractController {
         } else {
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
-            $template = $templateLoader->load('registrarse.html');
+            $template = $templateLoader->load('registrarse.twig');
             echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Registrarse', 'style' => 'registrarse', 
                 'registerData' => $registerData, 'register' => $register]);
         }

@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block main %} {% if update['status'] is defined %}
+{% extends "base.twig" %} {% block main %} {% if update['status'] is defined %}
 <p
 	class="msg{{ update['status'].value != 'UPDATE_OK' ? ' error' : ' success' }}"
 >

@@ -15,7 +15,7 @@ class NoticiasController extends AbstractController
         $noticias = $this->model->getAll();
         $renderer = Renderer::getInstance();
         $templateLoader =  $renderer->getTemplateLoader();
-        $template = $templateLoader->load('noticias.html');
+        $template = $templateLoader->load('noticias.twig');
         echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 
             'title' => "Noticias", 'style' => "noticias", 'noticias' => $noticias]);
     }
@@ -27,7 +27,7 @@ class NoticiasController extends AbstractController
         $noticia = $this->model->getOne($id);
         $renderer = Renderer::getInstance();
         $templateLoader =  $renderer->getTemplateLoader();
-        $template = $templateLoader->load('noticia.html');
+        $template = $templateLoader->load('noticia.twig');
         echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 
             'title' => "Noticia", 'style' => "noticia", 'noticia' => $noticia]);
     }

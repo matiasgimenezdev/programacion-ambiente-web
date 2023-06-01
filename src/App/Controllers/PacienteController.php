@@ -14,7 +14,7 @@ class PacienteController extends AbstractController {
     $paciente = $this -> model -> getOne($id);
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
-    $template = $templateLoader->load('perfil.html');
+    $template = $templateLoader->load('perfil.twig');
     echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Tu perfil', 
       'style' => 'perfil', 'paciente' => $paciente]);
   }
@@ -27,7 +27,7 @@ class PacienteController extends AbstractController {
     $paciente = $this -> model -> getOne($id);
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
-    $template = $templateLoader->load('editar-perfil.html');
+    $template = $templateLoader->load('editar-perfil.twig');
     echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Editar datos', 
       'style' => 'editar-perfil', 'paciente' => $paciente, 'updatedData' => $updatedData, 'update' => $update]);
   }

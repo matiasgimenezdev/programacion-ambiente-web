@@ -16,7 +16,7 @@ class ObrasSocialesController extends AbstractController
     $obrasSociales = $this-> model-> getAll();
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
-    $template = $templateLoader->load('obras-sociales.html');
+    $template = $templateLoader->load('obras-sociales.twig');
     echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Obras Sociales', 
       'style' => 'obras-sociales', 'obrasSociales' => $obrasSociales]);
   }

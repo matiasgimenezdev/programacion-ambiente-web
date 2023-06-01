@@ -9,7 +9,7 @@
         public function notFound() {
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
-            $template = $templateLoader->load('Error/error.html');
+            $template = $templateLoader->load('Error/error.twig');
             echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Not Found', 'style' => 'error']);
             
         }
@@ -17,7 +17,7 @@
         public function internalError() {
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
-            $template = $templateLoader->load('Error/error.html');
+            $template = $templateLoader->load('Error/error.twig');
             echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Internal Server Error', 'style' => 'error']);
         }
 
