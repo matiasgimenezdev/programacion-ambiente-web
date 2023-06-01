@@ -86,10 +86,8 @@
 					<!--<input type="text" name="especialidad" id="especialidades" required tabindex="8" maxlength="30" autocomplete="off" value="<?= $shiftData["especialidad"] ?? "" ?>"/>-->
 					<select class="especialidad" id="opcion" name="especialidades">
 					<?php if (sizeof($especialidades) > 0): ?>
-							<?php $i = 1?>
 							<?php foreach ($especialidades as $especialidad): ?>
-								<option value="<?= $i?>"><?= $especialidad->getName() ?></option>
-								<?php $i++ ?>
+								<option value="<?= $especialidad->getName()?>"><?= $especialidad->getName() ?></option>
 							<?php endforeach; ?>
 						<?php endif; ?>
 					</select>

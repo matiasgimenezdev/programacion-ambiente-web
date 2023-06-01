@@ -26,6 +26,7 @@ $router->get("/solicitar-turno", "TurnosController", "solicitarTurno");
 $router->post("/solicitar-turno", "TurnosController", "registrarTurno");
 $router->get("/cancelar-turno", "TurnosController", "cancelarTurno");
 $router->get("/turnos", "TurnosController", "turnos");
+$router->get("/turnos/get", "TurnosController", "getTurnos");
 $router->get("/turno-search", "TurnosController", "search");
 $router->get("/especialidades", "EspecialidadesController", "especialidades");
 $router->get("/especialidad/search", "EspecialidadesController", "search");

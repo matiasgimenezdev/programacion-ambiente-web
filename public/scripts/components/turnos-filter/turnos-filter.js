@@ -13,7 +13,7 @@ export class TurnosFilter {
 		this.$container.innerHTML = '';
 		this.filter = new TableFilter(this.$container);
 
-		this.url = 'scripts/components/turnos-filter/assets/turnos.json';
+		this.url = '/turnos/get';
 
 		this.createPages();
 		this.addEvents();
@@ -50,6 +50,7 @@ export class TurnosFilter {
 	async getData() {
 		const response = await fetch(this.url);
 		const data = await response.json();
+		console.log(data);
 		return data;
 	}
 
@@ -87,21 +88,21 @@ export class TurnosFilter {
 				});
 				$details.innerHTML = `
                     <summary data-id="<?= $turno->getId() ?>">Turno
-                        ${turno.id}
+                        ${turno.id_turno}
                     </summary>
                     <h4>Información del turno</h4>
                     <ul>
                         <li>Médico:
-                            ${turno.profesional}
+                            ${turno.matricula}
                         </li>
                         <li>Especialidad:
-                            ${turno.especialidad}
+                            ${turno.id_especialidad}
                         </li>
                         <li>Fecha:
-                            ${turno.date}
+                            ${turno.fecha_turno}
                         </li>
                         <li>Hora:
-                            ${turno.time}
+                            ${turno.hora_turno}
                         </li>
                     </ul>
                     <button class='cancelar-turno'>Cancelar turno</button>;
