@@ -190,7 +190,7 @@ class Paciente extends Model {
             return SubmitStatus::NOT_VALID_BIRTHDATE;
         }
 
-        $this->fields["birthdate"] = $birthdate;
+        $this->fields["birthdate"] = substr($birthdate, 0, 10);
         return $status;
     }
 
