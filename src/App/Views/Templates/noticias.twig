@@ -1,23 +1,23 @@
-{% extends "base.twig" %} {% block main %}
-
-<h2 class="title">{{title}}</h2>
-<section class="latest-news">
-	{% for noticia in noticias %}
-	<article class="new {% if loop.first %}head{% endif %}">
-		<a href="{{'/noticia?id=' ~ noticia.getId()}}">
-			<img
-				src="{{noticia.getImg()}}"
-				alt="{{noticia.getImgAlt()}}"
-				width="300"
-				height="200"
-			/>
-		</a>
-		<a href="{{'/noticia?id=' ~ noticia.getId()}}">
-			<h3>{{noticia.getTitle()}}</h3>
-		</a>
-		<p>{{noticia.getDescription()}}</p>
-	</article>
-	{% endfor %}
-</section>
-<a href="/solicitar-turno.html" title="Solicitar turno" class="turn"></a>
+{% extends "base.twig" %} 
+{% block main %}
+	<h2 class="title">{{title}}</h2>
+	<section class="latest-news">
+		{% for noticia in noticias %}
+		<article class="new {% if loop.first %}head{% endif %}">
+			<a href="{{'/noticia?id=' ~ noticia.getId()}}">
+				<img
+					src="{{noticia.getImg()}}"
+					alt="{{noticia.getImgAlt()}}"
+					width="300"
+					height="200"
+				/>
+			</a>
+			<a href="{{'/noticia?id=' ~ noticia.getId()}}">
+				<h3>{{noticia.getTitle()}}</h3>
+			</a>
+			<p>{{noticia.getDescription()}}</p>
+		</article>
+		{% endfor %}
+	</section>
+	<a href="/solicitar-turno.html" title="Solicitar turno" class="turn"></a>
 {% endblock %}

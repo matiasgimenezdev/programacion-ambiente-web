@@ -1,14 +1,17 @@
-{% extends "base.twig" %} {% block main %}
-<h2 class="title">{{title}}</h2>
-<h2 class="title">{{title}}</h2>
-<section class="turnos">
-  <article class="turno-actual">
-    <h3>Turno Actual</h3>
-    <p class="actual"></p>
-  </article>
-  <article class="cola-turnos">
-    <h3>Siguiente</h3>
-    <div class="cola"></div>
-  </article>
-</section>
+{% extends "base.twig" %} 
+{% block main %}
+  <h2 class="title">{{title}}</h2>
+  <h2 class="title">{{title}}</h2>
+  <section class="turnos">
+    <article class="turno-actual">
+      <h3>Turno Actual</h3>
+      <p class="actual"></p>
+    </article>
+    <article class="cola-turnos">
+      <h3>Siguiente</h3>
+      <div class="cola"></div>
+    </article>
+  </section>
+{% endblock %}
+{% block footer %} 
 {% endblock %}

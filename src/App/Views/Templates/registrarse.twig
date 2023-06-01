@@ -136,9 +136,8 @@
 					</label>
 				</p>
 			</fieldset>
-			{% if register.status is defined and register.status.value !=
-			'REGISTER_OK'%}
-			<p class="msg">{{ register.message }}</p>
+			{% if register.status is defined and register.status.value != 'REGISTER_OK'%}
+				<p class="msg">{{ register.message }}</p>
 			{% endif %}
 			<input type="submit" id="boton-submit" value="Registrarme" />
 		</form>

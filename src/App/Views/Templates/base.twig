@@ -38,31 +38,33 @@
 				</ul>
 			</nav>
 		</header>
+
 		<main>
 			{% block main %}
-			<!-- Cada template hijo que extienda de este, modifica el block 'main' con su contenido especifico -->
+				<!-- Cada template hijo que extienda de este, modifica el block 'main' con su contenido especifico -->
 			{% endblock %}
 		</main>
+
 		{% block footer %}
-		<footer>
-			<address>
-				<p>Ruta 5 y Avenida Constitución, Luján, Buenos Aires</p>
-				<p>+54 (2323) 221133 - Atención telefónica las 24hs</p>
-			</address>
-			<nav>
-				<ul>
-					{% for item in footerMenu %}
-					<li>
-						<a href="{{item.href}}">{{item.content}}</a>
-					</li>
-					{% endfor %}
-				</ul>
-			</nav>
-			<p>
-				&copy;2023 Clinica Universitaria.
-				<small>Todos los derechos reservados.</small>
-			</p>
-		</footer>
+			<footer>
+				<address>
+					<p>Ruta 5 y Avenida Constitución, Luján, Buenos Aires</p>
+					<p>+54 (2323) 221133 - Atención telefónica las 24hs</p>
+				</address>
+				<nav>
+					<ul>
+						{% for item in footerMenu %}
+						<li>
+							<a href="{{item.href}}">{{item.content}}</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</nav>
+				<p>
+					&copy;2023 Clinica Universitaria.
+					<small>Todos los derechos reservados.</small>
+				</p>
+			</footer>
 		{% endblock %}
 	</body>
 </html>

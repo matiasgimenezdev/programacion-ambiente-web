@@ -46,7 +46,7 @@
 				</p>
 			</fieldset>
 			{% if login.status is defined and login.status.value != 'LOGIN_OK'%}
-			<p class="msg">{{ login.message }}</p>
+				<p class="msg">{{ login.message }}</p>
 			{% endif %}
 			<input type="submit" value="Iniciar sesión" />
 		</form>

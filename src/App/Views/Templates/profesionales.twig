@@ -1,46 +1,47 @@
-{% extends "base.twig" %} {% block main %}
-<section class="search-section">
-	<h2 class="title">
-		<h2 class="title">{{title}}</h2>
-	</h2>
-	<form action="/profesional/search" method="GET">
-		<fieldset>
-			<legend>Buscar un profesional</legend>
-			<p class="input-container">
-				<label class="label" for="profesional">
-					Ingrese nombre, apellido o especialidad
-				</label>
-				<input
-					class="input"
-					type="search"
-					id="profesional"
-					name="profesional"
-					autocomplete="off"
-					maxlength="60"
-				/>
-			</p>
-			<input type="submit" value="Buscar" />
-		</fieldset>
-	</form>
-</section>
+{% extends "base.twig" %} 
+{% block main %}
+	<section class="search-section">
+		<h2 class="title">
+			<h2 class="title">{{title}}</h2>
+		</h2>
+		<form action="/profesional/search" method="GET">
+			<fieldset>
+				<legend>Buscar un profesional</legend>
+				<p class="input-container">
+					<label class="label" for="profesional">
+						Ingrese nombre, apellido o especialidad
+					</label>
+					<input
+						class="input"
+						type="search"
+						id="profesional"
+						name="profesional"
+						autocomplete="off"
+						maxlength="60"
+					/>
+				</p>
+				<input type="submit" value="Buscar" />
+			</fieldset>
+		</form>
+	</section>
 
-<section class="result-section">
-	{% if searchText|length > 0 %}
-	<h3>
-		Resultados de busqueda para
-		<span class="search-text">{{searchText}}</span>
-	</h3>
-	{% endif %} {% for profesional in profesionales %}
-	<article class="search-result">
-		<h4 class="profesional-name">{{profesional.getName()}}</h4>
-		<p class="profesional-area">{{profesional.getEspecialidad()}}</p>
-		<p class="profesional-description">{{profesional.getDescription()}}</p>
-		<button>Solicitar un turno</button>
-	</article>
-	{% else %}
-	<h4 class="profesional-name">
-		No se encontraron profesionales que coincidan con la busqueda
-	</h4>
-	{% endfor %}
-</section>
+	<section class="result-section">
+		{% if searchText|length > 0 %}
+		<h3>
+			Resultados de busqueda para
+			<span class="search-text">{{searchText}}</span>
+		</h3>
+		{% endif %} {% for profesional in profesionales %}
+		<article class="search-result">
+			<h4 class="profesional-name">{{profesional.getName()}}</h4>
+			<p class="profesional-area">{{profesional.getEspecialidad()}}</p>
+			<p class="profesional-description">{{profesional.getDescription()}}</p>
+			<button>Solicitar un turno</button>
+		</article>
+		{% else %}
+		<h4 class="profesional-name">
+			No se encontraron profesionales que coincidan con la busqueda
+		</h4>
+		{% endfor %}
+	</section>
 {% endblock %}

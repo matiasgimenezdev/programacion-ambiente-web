@@ -1,20 +1,22 @@
-{% extends "base.twig" %} {% block main %}
-
-<h2 class="title">{{title}}</h2>
-<section class="turnos">
-  <p class="turno-user"></p>
+{% extends "base.twig" %} 
+{% block main %}
+  <h2 class="title">{{title}}</h2>
   <section class="turnos">
-    <article class="turno-actual">
-      <h3>Turno Actual</h3>
-      <p class="actual"></p>
-    </article>
-    <article class="cola-turnos">
-      <h3>Siguiente</h3>
-      <div class="cola"></div>
-    </article>
+    <p class="turno-user"></p>
+    <section class="turnos">
+      <article class="turno-actual">
+        <h3>Turno Actual</h3>
+        <p class="actual"></p>
+      </article>
+      <article class="cola-turnos">
+        <h3>Siguiente</h3>
+        <div class="cola"></div>
+      </article>
+    </section>
+    <audio
+      src="scripts/components/turneros/turnero-paciente/NOTIFICACIÓN DE ANDROID SATURADO.mp3"
+    ></audio>
   </section>
-  <audio
-    src="scripts/components/turneros/turnero-paciente/NOTIFICACIÓN DE ANDROID SATURADO.mp3"
-  ></audio>
-</section>
-{% endblock %} {% block footer %} {% endblock %}
+{% endblock %} 
+{% block footer %} 
+{% endblock %}
