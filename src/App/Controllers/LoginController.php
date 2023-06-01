@@ -4,6 +4,7 @@ namespace PAW\App\Controllers;
 use PAW\App\Models\Paciente\PacienteCollection;
 use PAW\Core\AbstractController;
 use PAW\Core\Request;
+use PAW\Core\Renderer;
 
 class LoginController extends AbstractController
 {
@@ -18,9 +19,10 @@ class LoginController extends AbstractController
         if ($login["status"]->value === "LOGIN_OK") {
             header('Location: /');
         } else {
-            $title = "Iniciar sesión";
-            $style = "iniciar-sesion";
-            require $this->viewsDirectory . "iniciar-sesion.view.php";
+            $renderer = Renderer::getInstance();
+            $templateLoader = $renderer -> getTemplateLoader();
+            $template = $templateLoader->load('iniciar-sesion.html');
+            echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Iniciar sesión', 'style' => 'iniciar-sesion']);
         }
     }
 
