@@ -12,11 +12,10 @@ class TurnosController extends AbstractController
 
   public function turnos()
   {
-    $searchText = "";
-    // Debe utilizar $_SESSION["email"] para poder recuperar los turnos del paciente logueado
-    // $turnos -> $this -> model -> getTurnos($_SESSION["email"]);
-    $turnos = $this->model->getAll();
     session_start();
+    $searchText = "";
+    // Debe utilizar $_SESSION["email"] para poder recuperar los turnos del paciente logueado y poder mostrarlo en la vista de turnos.
+    $turnos -> $this -> getTurnos($_SESSION["email"]);
     if(isset($_SESSION["id"])) {
       $renderer = Renderer::getInstance();
       $templateLoader = $renderer -> getTemplateLoader();
@@ -28,9 +27,10 @@ class TurnosController extends AbstractController
     }
   }
 
-  public function getTurnos()
+  public function getTurnos($email)
   {
-    $turnos = $this -> model -> getTurnos();
+    // Recupera los turnos del paciente.
+    $turnos = $this -> model -> getTurnosPaciente('especialidad', 'profesional', 'paciente', $email);
     return json_encode($turnos);
   }
 
@@ -55,7 +55,13 @@ class TurnosController extends AbstractController
       $especialidades = $e->model->getAll();
       $os = new ObrasSocialesController;
       $obrasSociales = $os->model->getAll();
-      require $this->viewsDirectory . "solicitar-turno.view.php";
+
+      $renderer = Renderer::getInstance();
+      $templateLoader = $renderer -> getTemplateLoader();
+      $template = $templateLoader->load('solicitar-turno.twig');
+      echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Solicitar Turno', 
+      'style' => 'solicitar-turno', 'profesionales' => $profesionales, 'especialidades' => $especialidades, 'obrasSociales' => $obrasSociales]);
+      // require $this->viewsDirectory . "solicitar-turno.view.php";
     } else {
       header('Location: /login');
     }
@@ -78,7 +84,11 @@ class TurnosController extends AbstractController
       $especialidades = $e->model->getAll();
       $os = new ObrasSocialesController;
       $obrasSociales = $os->model->getAll();
-      require $this->viewsDirectory . "solicitar-turno.view.php";
+      $renderer = Renderer::getInstance();
+      $templateLoader = $renderer -> getTemplateLoader();
+      $template = $templateLoader->load('solicitar-turno.twig');
+      echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Solicitar Turno', 
+      'style' => 'solicitar-turno', 'profesionales' => $profesionales, 'especialidades' => $especialidades, 'obrasSociales' => $obrasSociales]);
     }
   }
 

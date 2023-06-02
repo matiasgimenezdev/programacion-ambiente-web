@@ -61,7 +61,9 @@ class TurnosCollection extends Model
     $this->queryBuilder->deleteById($this->table, 'id_turno', $id);
   }
 
-  public function getTurnos(){
+  public function getTurnosPaciente($table2, $table3, $table4, $emailValue){
+
+    // Aca deberia hacer un join entre las tablas de 'turnos', 'paciente', 'profesional' y 'especialidad' para obtener los turnos del paciente con email = $emailValue.
     $turnos = $this->queryBuilder->select($this->table);
     $json = json_encode($turnos);
     header("Content-Type: application/json");
