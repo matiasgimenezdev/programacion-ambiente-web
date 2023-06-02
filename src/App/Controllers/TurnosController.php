@@ -15,7 +15,7 @@ class TurnosController extends AbstractController
     session_start();
     $searchText = "";
     // Debe utilizar $_SESSION["email"] para poder recuperar los turnos del paciente logueado y poder mostrarlo en la vista de turnos.
-    $turnos -> $this -> getTurnos($_SESSION["email"]);
+    $turnos = $this -> getTurnos($_SESSION["email"]);
     if(isset($_SESSION["id"])) {
       $renderer = Renderer::getInstance();
       $templateLoader = $renderer -> getTemplateLoader();
@@ -30,7 +30,7 @@ class TurnosController extends AbstractController
   public function getTurnos($email)
   {
     // Recupera los turnos del paciente.
-    $turnos = $this -> model -> getTurnosPaciente('especialidad', 'profesional', 'paciente', $email);
+    $turnos = $this -> model -> getJoinTurnos('paciente', 'especialidad', 'profesional');
     return json_encode($turnos);
   }
 

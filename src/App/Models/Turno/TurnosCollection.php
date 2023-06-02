@@ -61,18 +61,8 @@ class TurnosCollection extends Model
     $this->queryBuilder->deleteById($this->table, 'id_turno', $id);
   }
 
-  public function getTurnosPaciente($table2, $table3, $table4, $emailValue){
-
-    // Aca deberia hacer un join entre las tablas de 'turnos', 'paciente', 'profesional' y 'especialidad' para obtener los turnos del paciente con email = $emailValue.
-    $turnos = $this->queryBuilder->select($this->table);
-    $json = json_encode($turnos);
-    header("Content-Type: application/json");
-    echo $json;
-  }
-
-  public function getJoinTurnos($table2, $table3){
-    //$turnosProfesional = $this->queryBuilder->join($this->table, 'profesional', $table3, 'matricula', 'turno.id_turno, turno.fecha_turno, turno.hora_turno, turno.especialidad, profesional.name as profesional_name, profesional.lastname as profesional_lastname');
-  $turnosProfesional = $this->queryBuilder->join([$this->table, $table2, $table3], ['especialidad', 'id_especialidad', 'profesional', 'matricula'], 'turno.id_turno, turno.fecha_turno, turno.hora_turno, especialidad.name as especialidad, profesional.name as profesional_name, profesional.lastname as profesional_lastname');
+  public function getJoinTurnos($table2, $table3, $table4){
+    $turnosProfesional = $this->queryBuilder->join([$this->table, $table2, $table3, $table4], ['email', 'email', 'especialidad', 'id_especialidad', 'profesional', 'matricula'], 'turno.id_turno, turno.fecha_turno, turno.hora_turno, especialidad.name as especialidad, profesional.name as profesional_name, profesional.lastname as profesional_lastname');
     $json = json_encode($turnosProfesional);
     header("Content-Type: application/json");
     echo $json;
