@@ -1,0 +1,47 @@
+{% extends "base.twig" %} 
+
+{% block main %}
+    <h2 class="title"> {{title}} </h2>
+		{% if cancel['status'] is defined and cancel['status'].value == 'CANCEL_OK' %}
+            <p class="msg success">{{ cancel['message'] }}</p>
+        {% endif %}
+		<section class="turnos-section">
+			<section class="section-controls">
+				<button class="solicitar-turno-button">
+					<a href="/solicitar-turno">Solicitar turno nuevo</a>
+				</button>
+				<h3>
+					Listado de turnos del paciente
+					<span class="patient-name">Apellido, Nombre</span>
+				</h3>
+			</section>
+
+			<section class="detail-section">
+				{% for turno in turnos %}
+                    <details>
+                        <summary data-id="{{turno.getId()}}">Turno
+                            {{turno.getId()}}
+                        </summary>
+                        <h4>Información del turno</h4>
+                        <ul>
+                            <li>Médico:
+                                {{turno.getProfesional()}}
+                            </li>
+                            <li>Especialidad:
+                                {{turno.getEspecialidad()}}
+                            </li>
+                            <li>Fecha:
+                                {{turno.getFecha()}}
+                            </li>
+                            <li>Hora:
+                                {{turno.getHora()}}
+                            </li>
+                        </ul>
+                        <button class="cancelar-turno">Cancelar turno</button>
+                        </details>
+		        {% else %}
+                    <h4> No tienes turnos programados </h4>
+                {% endfor %}
+			</section>
+		</section>
+{% endblock %}

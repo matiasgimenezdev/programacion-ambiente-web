@@ -31,13 +31,14 @@
 			Resultados de busqueda para
 			<span class="search-text">{{searchText}}</span>
 		</h3>
-		{% endif %} {% for profesional in profesionales %}
-		<article class="search-result">
-			<h4 class="profesional-name">{{profesional.getName()}}</h4>
-			<p class="profesional-area">{{profesional.getEspecialidad()}}</p>
-			<p class="profesional-description">{{profesional.getDescription()}}</p>
-			<button>Solicitar un turno</button>
-		</article>
+		{% endif %} 
+		{% for profesional in profesionales %}
+			<article class="search-result">
+				<h4 class="profesional-name">{{profesional.getName()}}</h4>
+				<p class="profesional-area">{{profesional.getEspecialidad()}}</p>
+				<p class="profesional-description">{{profesional.getDescription()}}</p>
+				<button>Solicitar un turno</button>
+			</article>
 		{% else %}
 		<h4 class="profesional-name">
 			No se encontraron profesionales que coincidan con la busqueda
