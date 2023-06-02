@@ -12,9 +12,10 @@ export class ProfesionalesFilter {
 		this.$container.innerHTML = '';
 		this.filter = new TableFilter(this.$container);
 
-		this.url =
-			'/scripts/components/profesionales-filter/assets/profesionales.json';
+		// this.url =
+		// 	'/scripts/components/profesionales-filter/assets/profesionales.json';
 
+		this.url = '/profesionales/get';
 		this.createPages();
 		this.addEvents();
 		this.sort = false;
@@ -82,7 +83,7 @@ export class ProfesionalesFilter {
 					class: 'search-result',
 				});
 				$article.innerHTML = `
-		        	<h4 class="profesional-name"> ${profesional.name} </h4>
+		        	<h4 class="profesional-name"> ${profesional.name} ${profesional.lastname}</h4>
 					<p class="profesional-area">
 						${profesional.area}
 					</p>

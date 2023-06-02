@@ -13,7 +13,7 @@ class ProfesionalesController extends AbstractController
   public function profesionales()
   {
     $searchText = "";
-    $profesionales = $this->model->getAll();
+    $profesionales = $this-> model ->getProfesionales();
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
     $template = $templateLoader->load('profesionales.twig');
@@ -44,6 +44,10 @@ class ProfesionalesController extends AbstractController
     'style' => 'profesionales', 'profesionales' => $profesionales, 'searchText' => $searchText, 'session' => $sessionId]);
   }
 
+  public function getAll() {
+    $profesionales = $this -> model -> getProfesionales();
+    echo json_encode($profesionales);
+  }
 
 }
 
