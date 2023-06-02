@@ -68,7 +68,14 @@ class TurnosCollection extends Model
     $json = json_encode($turnos);
     header("Content-Type: application/json");
     echo $json;
-}
+  }
+
+  public function getJoinTurnos($table2, $table3){
+    $turnosProfesional = $this->queryBuilder->join($this->table, 'profesional', $table3, 'matricula', 'turno.id_turno, turno.fecha_turno, turno.hora_turno, turno.especialidad, profesional.name as profesional_name, profesional.lastname as profesional_lastname');
+    $json = json_encode($turnosProfesional);
+    header("Content-Type: application/json");
+    echo $json;
+  }
 
 }
 

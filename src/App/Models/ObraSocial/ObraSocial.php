@@ -17,6 +17,11 @@ class ObraSocial extends Model
     $this->fields["id"] = $id;
   }
 
+  public function getId()
+  {
+    return $this->fields["id"];
+  }
+
   public function setName($name)
   {
     $this->fields["name"] = $name;

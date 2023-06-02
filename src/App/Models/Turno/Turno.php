@@ -36,7 +36,7 @@ class Turno extends Model
 
   public function setId($id)
   {
-    $this->fields["id"] = $id;
+    $this->fields["id_turno"] = $id;
   }
 
   public function setDni($dni)
@@ -378,9 +378,9 @@ class Turno extends Model
           "Edad" => $this->getEdad(),
           "email" => $this -> getEmail(),
           "telefono" => $this -> getTelefono(),
-          "id_especialidad" => $this->getEspecialidad(),
-          "matricula" => $this->getProfesional(),
-          "id_obra_social" => $this->getObrasocial(),
+          "especialidad" => $this->getEspecialidad(),
+          "profesional" => $this->getProfesional(),
+          "obra_social" => $this->getObrasocial(),
           "fecha_turno" => $this->getFecha(),
           "hora_turno" => $this->getHora(),
           "pendiente" => $this->getPendiente(),

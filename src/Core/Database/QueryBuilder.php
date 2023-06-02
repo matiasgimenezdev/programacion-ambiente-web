@@ -122,4 +122,30 @@ class QueryBuilder
   {
 
   }
+
+  public function join($table1, $column1, $table2, $column2, $columns)
+  {
+    try {
+      $query = "SELECT {$columns}
+            FROM {$table1}
+            INNER JOIN {$table2} ON {$table1}.{$column1} = {$table2}.{$column2}";
+
+      $sentencia = $this->pdo->prepare($query);
+
+      $result = $sentencia->execute();
+      if ($result != true) {
+          throw new PDOException($sentencia->errorInfo()[2]);
+      }
+      return $sentencia -> fetchAll();
+    } catch (PDOException $e) {
+      $this->logger->getLogger()->info(
+          "Error al ejecutar la consulta: " . $e->getMessage(),
+          [
+              "Operation" => 'JOIN',
+              "Table 1" => $table1,
+              "Table 2" => $table2
+          ]
+      );
+    }
+  }
 }

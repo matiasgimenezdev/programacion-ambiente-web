@@ -8,17 +8,21 @@
         private $table = 'especialidad';
 
         private $fields = [
-            "id" => null,
+            "id_especialidad" => null,
             "name" => null,
             "description" => null,
         ];
 
-        public function setId($id) {
-            $this -> fields["id"] = $id;
+        public function getFields(){
+            return $this->fields;
+        }
+
+        public function setId_especialidad($id) {
+            $this -> fields["id_especialidad"] = $id;
         }
 
         public function getId() {
-            $this -> fields["id"];
+            return $this -> fields["id_especialidad"];
         }
 
         public function setName($name) {
