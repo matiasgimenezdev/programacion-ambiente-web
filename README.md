@@ -36,8 +36,8 @@ Además se incorporan nociones de plantillas y se les solicitará la migración 
 
 ```
 $ sudo apt-get install php-mysql
-$ composer global require robmorgan/phinx ; export PATH=$PATH:~/.config/composer/vendor/bin
 
+$ composer global require robmorgan/phinx ; export PATH=$PATH:~/.config/composer/vendor/bin
 ```
 
 -   Parado en el directorio raiz del proyecto, ejecutar:
