@@ -9,10 +9,8 @@
         public ?string $modelName = EspecialidadesCollection::class;
 
         public function especialidades() {
-            $title = "Especialidades";
-            $style = "especialidades";
             $searchText = "";
-            $especialidades = $this -> getAll();
+            $especialidades = $this -> model -> getEspecialidades();
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
             $template = $templateLoader->load('especialidades.twig');
@@ -27,7 +25,7 @@
             if(strlen($searchText) > 0){
                 $especialidades = $this -> model -> get($searchText);
             } else {
-                $especialidades = $this -> model -> getAll();
+                $especialidades = $this -> model -> getEspecialidades();
             }
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
@@ -40,8 +38,6 @@
             $especialidades = $this -> model -> getEspecialidades();
             echo json_encode($especialidades);
         }
-
-
     }
 
 ?>
