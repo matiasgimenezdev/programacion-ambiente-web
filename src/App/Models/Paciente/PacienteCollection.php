@@ -60,5 +60,15 @@ class PacienteCollection extends Model
         $pacienteInstance->set($result[0]);
         return $pacienteInstance;
     }
+
+    public function getByEmail($email)
+    {
+        $pacienteInstance = new Paciente;
+        $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
+        // Obtiene el paciente de la BDD con su email
+        $result = $this->queryBuilder->selectByColumn($this->table, "email", $email);
+        $pacienteInstance->set($result[0]);
+        return $pacienteInstance;
+    }
 }
 ?>
