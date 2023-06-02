@@ -65,9 +65,7 @@ class TurnosCollection extends Model
 
     // Aca deberia hacer un join entre las tablas de 'turnos', 'paciente', 'profesional' y 'especialidad' para obtener los turnos del paciente con email = $emailValue.
     $turnos = $this->queryBuilder->select($this->table);
-    $json = json_encode($turnos);
-    header("Content-Type: application/json");
-    echo $json;
+    return $turnos;
   }
 
   public function getJoinTurnos($table2, $table3){

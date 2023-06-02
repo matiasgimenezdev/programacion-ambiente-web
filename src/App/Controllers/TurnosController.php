@@ -15,13 +15,13 @@ class TurnosController extends AbstractController
     session_start();
     $searchText = "";
     // Debe utilizar $_SESSION["email"] para poder recuperar los turnos del paciente logueado y poder mostrarlo en la vista de turnos.
-    $turnos -> $this -> getTurnos($_SESSION["email"]);
+    // $turnos -> $this -> getTurnos($_SESSION["email"]);
     if(isset($_SESSION["id"])) {
       $renderer = Renderer::getInstance();
       $templateLoader = $renderer -> getTemplateLoader();
       $template = $templateLoader->load('turnos.twig');
       echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Turnos', 
-        'style' => 'turnos', 'turnos' => $turnos, 'searchText' => $searchText]);
+        'style' => 'turnos', 'searchText' => $searchText]);
     } else {
       header('Location: /login');
     }
