@@ -127,7 +127,7 @@ class Paciente extends Model {
 
     }
 
-    public function setPassword($password, $passwordConfirmation = false)
+    public function setPassword($password, $passwordConfirmation = "")
     {
         $status = null;
         if (strlen($password) < 8) {
@@ -145,17 +145,16 @@ class Paciente extends Model {
         }
 
         // El password de confirmacion solo se pasa al momento de registrarse. En el resto de usos del metodo setPassword, no se tiene en cuenta este segundo parametro.
-        if ($passwordConfirmation) {
+        if (strlen($passwordConfirmation) > 0) {
             if ($password !== $passwordConfirmation) {
                 return SubmitStatus::PASSWORD_DONT_MATCH;
             }
-
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $this->fields["password"] = $hashed_password;
         } else {
             $data = $this -> queryBuilder -> selectByColumn($this-> table, "email", $this -> getEmail());
             $hashed_password = $data[0]["password"];
-            if($password !== $hashed_password){
+            if(!password_verify($password, $hashed_password)){
                 return SubmitStatus::WRONG_PASSWORD;
             }
             $this -> fields["password"] = $hashed_password;
@@ -302,7 +301,11 @@ class Paciente extends Model {
         $status = SubmitStatus::LOGIN_OK;
         $status = $this->setEmail($loginData["email"]) ?? $status;
         $status = $this->setPassword($loginData["password"]) ?? $status;
-        return ["status" => $status, "message" => $this -> getMessage($status)];
+        $id = -1;
+        if($status -> value === "LOGIN_OK") {
+            $id = $this -> getIdPaciente();
+        } 
+        return ["status" => $status, "message" => $this -> getMessage($status), "login_id" => $id];
     }
 
     public function update(array $updatedData)

@@ -12,7 +12,7 @@
             $title = "Especialidades";
             $style = "especialidades";
             $searchText = "";
-            $especialidades = $this -> model -> getAll();
+            $especialidades = $this -> getAll();
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
             $template = $templateLoader->load('especialidades.twig');
@@ -25,13 +25,10 @@
             $searchText = $request -> getKey("especialidad");
             $searchText = ucfirst(strtolower(trim($searchText)));
             if(strlen($searchText) > 0){
-                $especialidades = $this -> model -> getAll();
-                //TODO Implementar busqueda de especialidades
-                // $especialidades = $this -> model -> get($searchText);
+                $especialidades = $this -> model -> get($searchText);
             } else {
                 $especialidades = $this -> model -> getAll();
             }
-
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
             $template = $templateLoader->load('especialidades.twig');
@@ -41,7 +38,7 @@
 
         public function getAll() {
             $especialidades = $this -> model -> getEspecialidades();
-            return json_encode($especialidades);
+            echo json_encode($especialidades);
         }
 
 

@@ -39,6 +39,7 @@ class PacienteCollection extends Model
     {
         //TODO Implementar login contra la BDD
         $pacienteInstance = new Paciente;
+        $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
         $loginStatus = $pacienteInstance->login($loginData);
         return $loginStatus;
     }
@@ -56,6 +57,16 @@ class PacienteCollection extends Model
         $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
         // Obtiene el paciente de la BDD con su DNI
         $result = $this->queryBuilder->selectByColumn($this->table, "dni", $dni);
+        $pacienteInstance->set($result[0]);
+        return $pacienteInstance;
+    }
+
+    public function getByEmail($email)
+    {
+        $pacienteInstance = new Paciente;
+        $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
+        // Obtiene el paciente de la BDD con su email
+        $result = $this->queryBuilder->selectByColumn($this->table, "email", $email);
         $pacienteInstance->set($result[0]);
         return $pacienteInstance;
     }

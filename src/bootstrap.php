@@ -43,7 +43,7 @@ $router->get("/noticias", "NoticiasController", "noticias");
 $router->get("/noticia", "NoticiasController", "noticia");
 $router->get("/obras-sociales", "ObrasSocialesController", "obrasSociales");
 $router->get("/contacto", "PageController", "contacto");
-$router->get("/login", "PageController", "login");
+$router->get("/login", "LoginController", "login");
 $router->post("/login", "LoginController", "login");
 $router->get("/register", "PageController", "register");
 $router->post("/register", "RegisterController", "register");
