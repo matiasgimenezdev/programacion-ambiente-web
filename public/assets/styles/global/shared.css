@@ -210,6 +210,10 @@ main {
 	z-index: 1000;
 }
 
+.logout {
+	display: none;
+}
+
 @media only screen and (min-width: 950px) {
 	header {
 		height: 200px;
@@ -313,6 +317,21 @@ main {
 
 	.turn {
 		display: none;
+	}
+
+	.logout {
+		display: block;
+		height: 2rem;
+		width: 2rem;
+		font-size: 1.8rem;
+		font-weight: bold;
+		text-align: center;
+		border-radius: 15px;
+		text-decoration: none;
+		margin-right: 2vw;
+		margin-top: 2rem;
+		background-color: transparent;
+		color: var(--red);
 	}
 
 	.title {

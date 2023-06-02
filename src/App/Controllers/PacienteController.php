@@ -17,8 +17,10 @@ class PacienteController extends AbstractController {
       $id = $request -> getKey("id");
       $paciente = $this -> model -> getOne($id);
       $template = $templateLoader->load('perfil.twig');
+      session_start();
+      $sessionId = $_SESSION['id'] ?? "";
       echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Tu perfil', 
-        'style' => 'perfil', 'paciente' => $paciente]);
+        'style' => 'perfil', 'paciente' => $paciente, 'session' => $sessionId]);
     } else {
       header('Location: /login');
     }
@@ -33,8 +35,10 @@ class PacienteController extends AbstractController {
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
     $template = $templateLoader->load('editar-perfil.twig');
+    session_start();
+    $sessionId = $_SESSION['id'] ?? "";
     echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Editar datos', 
-      'style' => 'editar-perfil', 'paciente' => $paciente, 'updatedData' => $updatedData, 'update' => $update]);
+      'style' => 'editar-perfil', 'paciente' => $paciente, 'updatedData' => $updatedData, 'update' => $update, 'session' => $sessionId]);
   }
 
   public function actualizarPerfil() {

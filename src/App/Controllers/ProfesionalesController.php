@@ -17,8 +17,10 @@ class ProfesionalesController extends AbstractController
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
     $template = $templateLoader->load('profesionales.twig');
+    session_start();
+    $sessionId = $_SESSION['id'] ?? "";
     echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Profesionales', 
-    'style' => 'profesionales', 'profesionales' => $profesionales, 'searchText' => $searchText]);
+    'style' => 'profesionales', 'profesionales' => $profesionales, 'searchText' => $searchText, 'session' => $sessionId]);
   }
 
   public function search()
@@ -36,8 +38,10 @@ class ProfesionalesController extends AbstractController
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
     $template = $templateLoader->load('profesionales.twig');
+    session_start();
+    $sessionId = $_SESSION['id'] ?? "";
     echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Profesionales', 
-    'style' => 'profesionales', 'profesionales' => $profesionales, 'searchText' => $searchText]);
+    'style' => 'profesionales', 'profesionales' => $profesionales, 'searchText' => $searchText, 'session' => $sessionId]);
   }
 
 

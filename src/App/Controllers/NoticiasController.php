@@ -16,8 +16,10 @@ class NoticiasController extends AbstractController
         $renderer = Renderer::getInstance();
         $templateLoader =  $renderer->getTemplateLoader();
         $template = $templateLoader->load('noticias.twig');
+        session_start();
+        $sessionId = $_SESSION['id'] ?? "";
         echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 
-            'title' => "Noticias", 'style' => "noticias", 'noticias' => $noticias]);
+            'title' => "Noticias", 'style' => "noticias", 'noticias' => $noticias,'session' => $sessionId]);
     }
 
     public function noticia()
@@ -28,8 +30,10 @@ class NoticiasController extends AbstractController
         $renderer = Renderer::getInstance();
         $templateLoader =  $renderer->getTemplateLoader();
         $template = $templateLoader->load('noticia.twig');
+        session_start();
+        $sessionId = $_SESSION['id'] ?? "";
         echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 
-            'title' => "Noticia", 'style' => "noticia", 'noticia' => $noticia]);
+            'title' => "Noticia", 'style' => "noticia", 'noticia' => $noticia, 'session' => $sessionId]);
     }
 
     public function ultimasNoticias($amount)

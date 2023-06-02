@@ -10,7 +10,9 @@
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
             $template = $templateLoader->load('Error/error.twig');
-            echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Not Found', 'style' => 'error']);
+            session_start();
+            $sessionId = $_SESSION['id'] ?? "";
+            echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Not Found', 'style' => 'error', 'session' => $sessionId]);
             
         }
 
@@ -18,6 +20,8 @@
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
             $template = $templateLoader->load('Error/error.twig');
+            session_start();
+            $sessionId = $_SESSION['id'] ?? "";
             echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Internal Server Error', 'style' => 'error']);
         }
 

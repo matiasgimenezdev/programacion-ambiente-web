@@ -14,8 +14,10 @@
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
             $template = $templateLoader->load('especialidades.twig');
+            session_start();
+            $sessionId = $_SESSION['id'] ?? "";
             echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Especialidades', 
-            'style' => 'especialidades', 'especialidades' => $especialidades, 'searchText' => $searchText]);
+            'style' => 'especialidades', 'especialidades' => $especialidades, 'searchText' => $searchText, 'session' => $sessionId]);
         }
 
         public function search() {
@@ -30,8 +32,10 @@
             $renderer = Renderer::getInstance();
             $templateLoader = $renderer -> getTemplateLoader();
             $template = $templateLoader->load('especialidades.twig');
+            session_start();
+            $sessionId = $_SESSION['id'] ?? "";
             echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Especialidades', 
-            'style' => 'especialidades', 'especialidades' => $especialidades, 'searchText' => $searchText]);
+            'style' => 'especialidades', 'especialidades' => $especialidades, 'searchText' => $searchText, 'session' => $sessionId]);
         }
 
         public function getAll() {

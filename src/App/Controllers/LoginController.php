@@ -10,6 +10,15 @@ class LoginController extends AbstractController
 {
     public ?string $modelName = PacienteCollection::class;
 
+    public function logout()
+    {
+        session_start();
+        session_destroy();
+        $_SESSION = array();
+        header('Location: /');
+
+    }
+
     public function login()
     {
         $request = Request::getInstance();

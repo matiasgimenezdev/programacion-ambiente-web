@@ -14,8 +14,10 @@ class HomeController extends AbstractController {
         $renderer = Renderer::getInstance();
         $templateLoader =  $renderer->getTemplateLoader();
         $template = $templateLoader->load('inicio.twig');
+        session_start();
+        $sessionId = $_SESSION['id'] ?? "";
         echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 
-            'title' => "Inicio", 'style' => "home", 'noticias' => $noticias]);
+            'title' => "Inicio", 'style' => "home", 'noticias' => $noticias, 'session' => $sessionId]);
     }
 }
 ?>

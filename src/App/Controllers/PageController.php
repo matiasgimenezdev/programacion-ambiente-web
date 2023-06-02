@@ -49,7 +49,9 @@ class PageController extends AbstractController
         $renderer = Renderer::getInstance();
         $templateLoader = $renderer -> getTemplateLoader();
         $template = $templateLoader->load($view.'.twig');
-        echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => $title, 'style' => $style]);
+        session_start();
+        $sessionId = $_SESSION['id'] ?? "";
+        echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => $title, 'style' => $style, 'session' => $sessionId]);
     }
 }
 
