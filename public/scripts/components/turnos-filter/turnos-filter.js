@@ -13,7 +13,8 @@ export class TurnosFilter {
 		this.$container.innerHTML = '';
 		this.filter = new TableFilter(this.$container);
 
-		this.url = '/turnos/get';
+		this.urlTurnos = '/turnos/get';
+		this.urlEspecialidades = '/especialidades/get';
 
 		this.createPages();
 		this.addEvents();
@@ -48,7 +49,14 @@ export class TurnosFilter {
 	}
 
 	async getData() {
-		const response = await fetch(this.url);
+		const response = await fetch(this.urlTurnos);
+		const data = await response.json();
+		console.log(data);
+		return data;
+	}
+
+	async getEspecialidades() {
+		const response = await fetch(this.urlEspecialidades);
 		const data = await response.json();
 		console.log(data);
 		return data;
@@ -81,6 +89,7 @@ export class TurnosFilter {
 		const $filter = document.querySelector('.result-filter-container');
 		$container.innerHTML = '';
 		$container.appendChild($filter);
+
 		if (pages.length > 0) {
 			for (let turno of pages[indexNumber]) {
 				const $details = ElementBuilder.createElement('details', '', {
@@ -93,10 +102,10 @@ export class TurnosFilter {
                     <h4>Información del turno</h4>
                     <ul>
                         <li>Médico:
-                            ${turno.matricula}
+                            ${turno.profesional_name} ${turno.profesional_lastname}
                         </li>
                         <li>Especialidad:
-                            ${turno.id_especialidad}
+                            ${turno.especialidad}
                         </li>
                         <li>Fecha:
                             ${turno.fecha_turno}

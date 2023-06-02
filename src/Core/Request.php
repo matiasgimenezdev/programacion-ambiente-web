@@ -72,9 +72,9 @@
                 "edad" => $this->getKey("edad"),
                 "email" => $this->getKey("email"),
                 "telefono" => $this->getKey("telefono"),
-                "especialidad" => $this->getKey("especialidad"),
-                "profesional" => $this->getKey("medico"),
-                "obraSocial" => $this->getKey("obra-social"),
+                "especialidad" => $this->getKey("especialidades"),
+                "profesional" => $this->getKey("profesionales"),
+                "obraSocial" => $this->getKey("obrasSociales"),
                 "fecha" => $this->getKey("fecha-turno"),
                 "hora" => $this->getKey("hora-turno"),
                 "estudio" => $this -> getKey("estudio")

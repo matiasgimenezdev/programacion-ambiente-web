@@ -35,6 +35,14 @@ class TurnosController extends AbstractController
     return json_encode($turnos);
   }
 
+  public function getJoinTurnos()
+  {
+    /*$e = new Especialidad;
+    $tableEspecialidad = $e->getFields();*/
+    $turnos = $this -> model -> getJoinTurnos('especialidad', 'profesional');
+    return json_encode($turnos);
+  }
+
   public function solicitarTurno()
   {
     $renderer = Renderer::getInstance();

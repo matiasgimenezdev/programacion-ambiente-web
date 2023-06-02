@@ -44,6 +44,7 @@
             return json_encode($especialidades);
         }
 
+
     }
 
 ?>
