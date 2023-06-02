@@ -1,0 +1,114 @@
+{% extends "base.twig" %} 
+{% block main %} 
+	{% if update['status'] is defined %}
+		<p class="msg{{ update['status'].value != 'UPDATE_OK' ? ' error' : ' success' }}">
+			{{ update['message'] }}
+		</p>
+	{% endif %}
+
+	<form method="POST" action="/perfil/actualizar">
+		<fieldset>
+			<h2>Informacion básica</h2>
+			<input name="id" type="hidden" value="{{paciente.getIdPaciente()}}" />
+			<p>
+				<label for="dni">DNI</label>
+				<input
+					name="dni"
+					required
+					type="text"
+					disabled
+					value="{{paciente.getDni()}}"
+				/>
+				<input
+					name="dni"
+					required
+					type="hidden"
+					value="{{paciente.getDni()}}"
+				/>
+			</p>
+			<p>
+				<label for="nombre">Nombre</label>
+				<input
+					name="nombre"
+					required
+					type="text"
+					value="{{ paciente.getName() }}"
+					autocomplete="off"
+				/>
+			</p>
+
+			<p>
+				<label for="apellido">Apellido</label>
+				<input
+					name="apellido"
+					required
+					type="text"
+					value="{{paciente.getLastname()}}"
+					autocomplete="off"
+				/>
+			</p>
+
+			<p>
+				<label for="nacimiento">Fecha de nacimiento</label>
+				<input
+					name="nacimiento"
+					required
+					type="date"
+					value="{{ paciente.getBirthdate() }}"
+				/>
+			</p>
+
+			<p>
+				<label for="genero">Género</label>
+				<input
+					type="radio"
+					name="genero"
+					id="masculino"
+					value="M"
+					{% if paciente.getGender() %}
+						{% if paciente.getGender() !="F" %}
+							checked
+						{% endif %}
+					{% endif %}
+				/>
+				<label for="masculino">Masculino</label>
+				<input type="radio" name="genero" id="femenino" value="F" 
+				{% if paciente.getGender() %} 
+					{% if paciente.getGender() == "F" %} 
+						checked
+					{% endif %} 
+				{% endif %} />
+				<label for="femenino">Femenino</label>
+			</p>
+		</fieldset>
+		<fieldset>
+			<h2>Informacion de contacto</h2>
+			<p>
+				<label for="email">Correo electrónico</label>
+				<input
+					name="email"
+					type="email"
+					disabled
+					value="{{paciente.getEmail()}}"
+				/>
+				<input name="email" type="hidden" value="{{paciente.getEmail()}}" />
+			</p>
+
+			<p>
+				<label for="telefono">Teléfono</label>
+				<input
+					name="telefono"
+					required
+					type="tel"
+					value="{{ paciente.getPhone() }}"
+					autocomplete="off"
+				/>
+			</p>
+		</fieldset>
+		<p class="submit-reset">
+			<input type="submit" value="Confirmar cambios" />
+			<input type="reset" value="Cancelar" />
+		</p>
+	</form>
+	<a href="/solicitar-turno" title="Solicitar turno" class="turn"></a>
+{% endblock %}

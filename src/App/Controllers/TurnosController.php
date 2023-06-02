@@ -3,6 +3,7 @@ namespace PAW\App\Controllers;
 
 use PAW\Core\AbstractController;
 use PAW\Core\Request;
+use PAW\Core\Renderer;
 use PAW\App\Models\Turno\TurnosCollection;
 
 class TurnosController extends AbstractController
@@ -11,11 +12,13 @@ class TurnosController extends AbstractController
 
   public function turnos()
   {
-    $title = "Turnos";
-    $style = "turnos";
     $searchText = "";
     $turnos = $this->model->getAll();
-    require $this->viewsDirectory . "turnos.view.php";
+    $renderer = Renderer::getInstance();
+    $templateLoader = $renderer -> getTemplateLoader();
+    $template = $templateLoader->load('turnos.twig');
+    echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Turnos', 
+    'style' => 'turnos', 'turnos' => $turnos, 'searchText' => $searchText]);
   }
 
   public function getTurnos()
@@ -53,10 +56,7 @@ class TurnosController extends AbstractController
     $register = $this->model->solicitarTurno($shiftData);
 
     if ($register["status"]->value === "REGISTER_OK") {
-      // $id = $this -> model -> getId($dni);
-      // Obtendría el ID que le fue asignado y lo redirige a la pagina de su perfil por si desea seguir cargando mas datos personales.
       header('Location: /turnos');
-
     } else {
       // $shiftData = $shiftData;
       $title = "Solicitar Turno";

@@ -1,0 +1,52 @@
+{% extends "base.twig" %} 
+{% block main %}
+	<article class="carousel">
+		<ul class="carousel-list">
+			<li class="carousel-item">
+				<img
+					src="assets/images/inicio/carousel/clinica.webp"
+					alt="Vista del frente de la clínica"
+				/>
+			</li>
+			<li class="carousel-item">
+				<img
+					src="assets/images/inicio/carousel/medicos.webp"
+					alt="Medicos trabajando"
+				/>
+			</li>
+			<li class="carousel-item">
+				<img
+					src="assets/images/inicio/carousel/quirofano.webp"
+					alt="Quirófano de la clínica"
+				/>
+			</li>
+			<li class="carousel-item">
+				<img
+					src="assets/images/inicio/carousel/madre&hijo.webp"
+					alt="Una madre con su hijo recien nacido"
+				/>
+			</li>
+		</ul>
+	</article>
+
+	<section class="latest-news">
+		{% for noticia in noticias %}
+			<article class="new">
+				<a href="{{'/noticia?id=' ~ noticia.getId()}}">
+					<img
+						src="{{noticia.getImg()}}"
+						alt="{{noticia.getImgAlt()}}"
+						width="300"
+						height="200"
+					/>
+				</a>
+				<a href="{{'/noticia?id=' ~ noticia.getId()}}">
+					<h3>{{noticia.getTitle()}}</h3>
+				</a>
+				<p>{{noticia.getDescription()}}</p>
+			</article>
+		{% endfor %}
+		<a href="/solicitar-turno" title="Solicitar turno" class="turn"></a>
+		<a class="more-news" href="/noticias">Ver más noticias</a>
+	</section>
+{% endblock %}

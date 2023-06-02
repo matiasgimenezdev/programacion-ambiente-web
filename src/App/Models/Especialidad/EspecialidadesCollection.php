@@ -7,6 +7,10 @@
 
         public $table = 'especialidad';
 
+        public function get($searchText) {
+            //TODO Implementar consulta a la BDD filtrando por el texto de busqueda ingresado por el usuario
+          }
+
         public function getAll() {
 
             /*$especialidades = [

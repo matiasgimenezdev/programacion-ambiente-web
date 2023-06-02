@@ -35,7 +35,7 @@ final class TablesTurnosMigration extends AbstractMigration
         ->addColumn('email', 'string', ['limit' => 30])
         ->addColumn('password', 'string')
         ->addColumn('gender', 'string', ['limit' => 1])
-        ->addColumn('birthdate', 'datetime')
+        ->addColumn('birthdate', 'date')
         ->addColumn('phone', 'string', ['limit' => 30])
         ->create();
 
@@ -54,14 +54,21 @@ final class TablesTurnosMigration extends AbstractMigration
         ->addColumn('name', 'string', ['limit' => 30])
         ->addColumn('lastname', 'string', ['limit' => 30])
         ->addColumn('genero', 'string', ['limit' => 1])
-        ->addColumn('nacimiento', 'datetime')
+        ->addColumn('nacimiento', 'date')
         ->addColumn('edad', 'integer')
         ->addColumn('email', 'string', ['limit' => 30])
         ->addColumn('telefono', 'string', ['limit' => 30])
+<<<<<<< HEAD
         ->addColumn('especialidad', 'string')
         ->addColumn('profesional', 'string')
         ->addColumn('obra_social', 'string')
         ->addColumn('fecha_turno', 'datetime')
+=======
+        ->addColumn('id_especialidad', 'integer', ['signed' => false])
+        ->addColumn('matricula', 'integer', ['signed' => false])
+        ->addColumn('id_obra_social', 'integer', ['signed' => false])
+        ->addColumn('fecha_turno', 'date')
+>>>>>>> dc16925b15726c50683e31549d5e0ee19b3e7332
         ->addColumn('hora_turno', 'time')
         ->addColumn('pendiente', 'boolean', ['default' => true])
         ->create();

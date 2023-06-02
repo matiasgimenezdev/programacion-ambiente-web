@@ -1,0 +1,11 @@
+{% extends "base.twig" %} 
+{% block main %}
+	<article>
+		<h2 class="title">{{noticia.getTitle()}}</h2>
+		<figure>
+			<img src="{{noticia.getImg()}}" alt="{{noticia.getImgAlt()}}" />
+			<figcaption>{{noticia.getDescription()}}</figcaption>
+		</figure>
+		<p>{{noticia.getBody()}}</p>
+	</article>
+{% endblock %}

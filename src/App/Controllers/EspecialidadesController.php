@@ -2,6 +2,7 @@
     namespace PAW\App\Controllers;
     use PAW\Core\AbstractController;
     use PAW\Core\Request;
+    use PAW\Core\Renderer;
     use PAW\App\Models\Especialidad\EspecialidadesCollection;
 
     class EspecialidadesController extends AbstractController {
@@ -12,22 +13,30 @@
             $style = "especialidades";
             $searchText = "";
             $especialidades = $this -> model -> getAll();
-            require $this -> viewsDirectory . "especialidades.view.php";
+            $renderer = Renderer::getInstance();
+            $templateLoader = $renderer -> getTemplateLoader();
+            $template = $templateLoader->load('especialidades.twig');
+            echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Especialidades', 
+            'style' => 'especialidades', 'especialidades' => $especialidades, 'searchText' => $searchText]);
         }
 
         public function search() {
             $request = Request::getInstance();
             $searchText = $request -> getKey("especialidad");
             $searchText = ucfirst(strtolower(trim($searchText)));
-            $title = "Especialidades";
-            $style = "especialidades";
             if(strlen($searchText) > 0){
                 $especialidades = $this -> model -> getAll();
+                //TODO Implementar busqueda de especialidades
                 // $especialidades = $this -> model -> get($searchText);
             } else {
                 $especialidades = $this -> model -> getAll();
             }
-            require $this -> viewsDirectory . "especialidades.view.php";
+
+            $renderer = Renderer::getInstance();
+            $templateLoader = $renderer -> getTemplateLoader();
+            $template = $templateLoader->load('especialidades.twig');
+            echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Especialidades', 
+            'style' => 'especialidades', 'especialidades' => $especialidades, 'searchText' => $searchText]);
         }
 
         public function getAll() {
