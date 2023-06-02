@@ -12,9 +12,6 @@ export class EspecialidadesFilter {
 		this.$container.innerHTML = '';
 		this.filter = new TableFilter(this.$container);
 
-		//this.url =
-		//'scripts/components/especialidades-filter/assets/especialidades.json';
-
 		this.url = '/especialidades/get';
 
 		this.createPages();
