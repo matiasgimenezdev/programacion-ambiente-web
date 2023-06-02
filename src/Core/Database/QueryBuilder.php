@@ -114,17 +114,63 @@ class QueryBuilder
   }
   }
 
-  public function delete()
+  public function deleteById($table, $column, $id)
   {
-
+    $query = "DELETE FROM {$table} WHERE {$column} = {$id}";
+    $sentencia = $this->pdo->prepare($query);
+    $result = $sentencia->execute();
+    if ($result != true) {
+        throw new PDOException($sentencia->errorInfo()[2]);
+    }
   }
 
-  public function join($table1, $column1, $table2, $column2, $columns)
+  /*public function join($table1, $column1, $table2, $column2, $columns)
   {
     try {
       $query = "SELECT {$columns}
             FROM {$table1}
             INNER JOIN {$table2} ON {$table1}.{$column1} = {$table2}.{$column2}";
+
+      $sentencia = $this->pdo->prepare($query);
+
+      $result = $sentencia->execute();
+      if ($result != true) {
+          throw new PDOException($sentencia->errorInfo()[2]);
+      }
+      return $sentencia -> fetchAll();
+    } catch (PDOException $e) {
+      $this->logger->getLogger()->info(
+          "Error al ejecutar la consulta: " . $e->getMessage(),
+          [
+              "Operation" => 'JOIN',
+              "Table 1" => $table1,
+              "Table 2" => $table2
+          ]
+      );
+    }
+  }*/
+
+  public function join($tables, $conditions, $columns)
+  {
+    try {
+      $query = "SELECT {$columns}
+            FROM {$tables[0]}
+            INNER JOIN {$tables[1]} ON {$tables[0]}.{$conditions[0]} = {$tables[1]}.{$conditions[1]}";
+
+      $firstTable = array_shift($tables);
+      $antCondition = array_shift($conditions);
+
+      foreach($tables as $table){
+        $antTable = array_shift($tables);
+        $antCondition = array_shift($conditions);
+        $antCondition = array_shift($conditions);
+        if(count($tables) > 0) {
+          $query = $query . " INNER JOIN {$tables[0]} ON {$firstTable}.{$antCondition} = {$tables[0]}.{$conditions[0]}";
+        } else {
+          break;
+        }
+      }
+
 
       $sentencia = $this->pdo->prepare($query);
 

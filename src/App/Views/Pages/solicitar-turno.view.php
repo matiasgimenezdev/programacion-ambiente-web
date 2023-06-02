@@ -85,7 +85,7 @@
 					<select class="especialidad" id="opcion" name="especialidades">
 					<?php if (sizeof($especialidades) > 0): ?>
 							<?php foreach ($especialidades as $especialidad): ?>
-								<option value="<?=$especialidad->getName()?>"><?= $especialidad->getName() ?></option>
+								<option value="<?=$especialidad->getId()?>"><?= $especialidad->getName() ?></option>
 							<?php endforeach; ?>
 						<?php endif; ?>
 					</select>

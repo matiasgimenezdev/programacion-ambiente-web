@@ -58,9 +58,7 @@ class TurnosCollection extends Model
 
   public function cancelarTurno($id)
   {
-    $turnoInstance = $this -> getOne($id);
-    $cancelStatus = $turnoInstance -> cancelarTurno();
-    return $cancelStatus;
+    $this->queryBuilder->deleteById($this->table, 'id_turno', $id);
   }
 
   public function getTurnos(){
@@ -71,7 +69,8 @@ class TurnosCollection extends Model
   }
 
   public function getJoinTurnos($table2, $table3){
-    $turnosProfesional = $this->queryBuilder->join($this->table, 'profesional', $table3, 'matricula', 'turno.id_turno, turno.fecha_turno, turno.hora_turno, turno.especialidad, profesional.name as profesional_name, profesional.lastname as profesional_lastname');
+    //$turnosProfesional = $this->queryBuilder->join($this->table, 'profesional', $table3, 'matricula', 'turno.id_turno, turno.fecha_turno, turno.hora_turno, turno.especialidad, profesional.name as profesional_name, profesional.lastname as profesional_lastname');
+  $turnosProfesional = $this->queryBuilder->join([$this->table, $table2, $table3], ['especialidad', 'id_especialidad', 'profesional', 'matricula'], 'turno.id_turno, turno.fecha_turno, turno.hora_turno, especialidad.name as especialidad, profesional.name as profesional_name, profesional.lastname as profesional_lastname');
     $json = json_encode($turnosProfesional);
     header("Content-Type: application/json");
     echo $json;
