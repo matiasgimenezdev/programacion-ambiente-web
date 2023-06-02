@@ -4,9 +4,11 @@ namespace PAW\Core\DataBase;
 
 use PDO;
 use Monolog\Logger;
-
+use PAW\Core\Traits\Loggable;
 class QueryBuilder
 {
+  use Loggable;
+
   public function __construct(PDO $pdo, Logger $logger = null)
   {
     $this->pdo = $pdo;
@@ -55,6 +57,29 @@ class QueryBuilder
               "Column" => $column
           ]
         );
+    }
+  }
+
+  public function selectByColumnWithFilter($table, $column, $filter){
+    try {
+      $query = "SELECT * FROM {$table} WHERE {$column} LIKE :filter";
+      $sentencia = $this->pdo->prepare($query);
+      $sentencia->bindValue(':filter', "%$filter%", PDO::PARAM_STR);
+      $result = $sentencia->execute();
+      $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+      // echo "<pre>";
+      // var_dump($sentencia->fetchAll());
+      // die;
+      return $sentencia->fetchAll();
+    } catch (PDOException $e) {
+      $this -> logger -> getLogger() -> info(
+        "Error al ejecutar la consulta: " . $e->getMessage(),
+        [
+            "Operation" => 'SELECT',
+            "Table" => $table,
+            "Column" => $column
+        ]
+      );
     }
   }
 

@@ -9,7 +9,6 @@ class Model
 {
   use Loggable;
 
-
   public function setQueryBuilder(QueryBuilder $qb){
     $this->queryBuilder = $qb;
   }

@@ -8,31 +8,11 @@
         public $table = 'especialidad';
 
         public function get($searchText) {
-            //TODO Implementar consulta a la BDD filtrando por el texto de busqueda ingresado por el usuario
+            $especialidades = $this->queryBuilder->selectByColumnWithFilter($this->table, "name", $searchText);
+            return $especialidades;
           }
 
         public function getAll() {
-
-            /*$especialidades = [
-                [
-                    "id" => 1,
-                    "name" => "Odontologia",
-                    "description" => "Odontologia description - Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sapiente assumenda, nisi esse laborum
-                    necessitatibus rem libero expedita deleniti? Eaque quod
-                    tempore illum voluptates consequuntur laudantium.
-                    Corporis nulla nostrum eos doloribus!"
-                ],
-                [
-                    "id" => 2,
-                    "name" => "Cardiologia",
-                    "description" => "Cardiologia description - Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Sapiente assumenda, nisi esse laborum
-                    necessitatibus rem libero expedita deleniti? Eaque quod
-                    tempore illum voluptates consequuntur laudantium.
-                    Corporis nulla nostrum eos doloribus!"
-                ]
-            ];*/
             $especialidades = $this->queryBuilder->select($this->table);
             $especialidadesCollection = [];
             foreach ($especialidades as $especialidad) {
@@ -45,9 +25,7 @@
 
         public function getEspecialidades(){
             $especialidades = $this->queryBuilder->select($this->table);
-            $json = json_encode($especialidades);
-            header("Content-Type: application/json");
-            echo $json;
+            return $especialidades;
         }
     }
 
