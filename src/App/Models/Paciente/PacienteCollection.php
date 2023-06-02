@@ -39,6 +39,7 @@ class PacienteCollection extends Model
     {
         //TODO Implementar login contra la BDD
         $pacienteInstance = new Paciente;
+        $pacienteInstance -> setQueryBuilder($this -> queryBuilder);
         $loginStatus = $pacienteInstance->login($loginData);
         return $loginStatus;
     }

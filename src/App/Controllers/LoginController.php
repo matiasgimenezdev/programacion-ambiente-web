@@ -17,6 +17,10 @@ class LoginController extends AbstractController
         $login = $this->model->login($loginData);
 
         if ($login["status"]->value === "LOGIN_OK") {
+            session_start();
+            $_SESSION["id"] = session_create_id();
+            // Guarda el email para poder recuperar informacion del paciente logueado
+            $_SESSION["email"] = $loginData["email"];
             header('Location: /');
         } else {
             $renderer = Renderer::getInstance();

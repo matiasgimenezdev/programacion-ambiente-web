@@ -13,12 +13,20 @@ class TurnosController extends AbstractController
   public function turnos()
   {
     $searchText = "";
+    // Debe utilizar $_SESSION["email"] para poder recuperar los turnos del paciente logueado
+    // $turnos -> $this -> model -> getTurnos($_SESSION["email"]);
     $turnos = $this->model->getAll();
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
-    $template = $templateLoader->load('turnos.twig');
-    echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Turnos', 
-    'style' => 'turnos', 'turnos' => $turnos, 'searchText' => $searchText]);
+    session_start();
+    if(isset($_SESSION["id"])) {
+      $template = $templateLoader->load('turnos.twig');
+      echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Turnos', 
+        'style' => 'turnos', 'turnos' => $turnos, 'searchText' => $searchText]);
+    } else {
+      $template = $templateLoader->load('iniciar-sesion.twig');
+      echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Iniciar sesión', 'style' => 'iniciar-sesion']);
+    }
   }
 
   public function getTurnos()
@@ -29,16 +37,24 @@ class TurnosController extends AbstractController
 
   public function solicitarTurno()
   {
-    $title = "Solicitar Turno";
-    $style = "solicitar-turno";
-    $shiftData = [];
-    $p = new ProfesionalesController;
-    $profesionales = $p->model->getAll();
-    $e = new EspecialidadesController;
-    $especialidades = $e->model->getAll();
-    $os = new ObrasSocialesController;
-    $obrasSociales = $os->model->getAll();
-    require $this->viewsDirectory . "solicitar-turno.view.php";
+    $renderer = Renderer::getInstance();
+    $templateLoader = $renderer -> getTemplateLoader();
+    session_start();
+    if(isset($_SESSION["id"])) {
+      $title = "Solicitar Turno";
+      $style = "solicitar-turno";
+      $shiftData = [];
+      $p = new ProfesionalesController;
+      $profesionales = $p->model->getAll();
+      $e = new EspecialidadesController;
+      $especialidades = $e->model->getAll();
+      $os = new ObrasSocialesController;
+      $obrasSociales = $os->model->getAll();
+      require $this->viewsDirectory . "solicitar-turno.view.php";
+    } else {
+      $template = $templateLoader->load('iniciar-sesion.twig');
+      echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Iniciar sesión', 'style' => 'iniciar-sesion']);
+    }
   }
 
   public function registrarTurno() {
@@ -50,7 +66,6 @@ class TurnosController extends AbstractController
     if ($register["status"]->value === "REGISTER_OK") {
       header('Location: /turnos');
     } else {
-      // $shiftData = $shiftData;
       $title = "Solicitar Turno";
       $style = "solicitar-turno";
       $p = new ProfesionalesController;
