@@ -9,14 +9,19 @@ class PacienteController extends AbstractController {
   public ?string $modelName = PacienteCollection::class;
 
   public function perfil() {
-    $request = Request::getInstance();
-    $id = $request -> getKey("id");
-    $paciente = $this -> model -> getOne($id);
+    session_start();
     $renderer = Renderer::getInstance();
     $templateLoader = $renderer -> getTemplateLoader();
-    $template = $templateLoader->load('perfil.twig');
-    echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Tu perfil', 
-      'style' => 'perfil', 'paciente' => $paciente]);
+    if(isset($_SESSION["id"])) {
+      $request = Request::getInstance();
+      $id = $request -> getKey("id");
+      $paciente = $this -> model -> getOne($id);
+      $template = $templateLoader->load('perfil.twig');
+      echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Tu perfil', 
+        'style' => 'perfil', 'paciente' => $paciente]);
+    } else {
+      header('Location: /login');
+    }
   }
 
   public function editarPerfil($updatedData = null, $update = null) {

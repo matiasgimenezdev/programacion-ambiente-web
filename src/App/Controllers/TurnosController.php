@@ -16,16 +16,15 @@ class TurnosController extends AbstractController
     // Debe utilizar $_SESSION["email"] para poder recuperar los turnos del paciente logueado
     // $turnos -> $this -> model -> getTurnos($_SESSION["email"]);
     $turnos = $this->model->getAll();
-    $renderer = Renderer::getInstance();
-    $templateLoader = $renderer -> getTemplateLoader();
     session_start();
     if(isset($_SESSION["id"])) {
+      $renderer = Renderer::getInstance();
+      $templateLoader = $renderer -> getTemplateLoader();
       $template = $templateLoader->load('turnos.twig');
       echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Turnos', 
         'style' => 'turnos', 'turnos' => $turnos, 'searchText' => $searchText]);
     } else {
-      $template = $templateLoader->load('iniciar-sesion.twig');
-      echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Iniciar sesión', 'style' => 'iniciar-sesion']);
+      header('Location: /login');
     }
   }
 
@@ -45,8 +44,6 @@ class TurnosController extends AbstractController
 
   public function solicitarTurno()
   {
-    $renderer = Renderer::getInstance();
-    $templateLoader = $renderer -> getTemplateLoader();
     session_start();
     if(isset($_SESSION["id"])) {
       $title = "Solicitar Turno";
@@ -60,8 +57,7 @@ class TurnosController extends AbstractController
       $obrasSociales = $os->model->getAll();
       require $this->viewsDirectory . "solicitar-turno.view.php";
     } else {
-      $template = $templateLoader->load('iniciar-sesion.twig');
-      echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Iniciar sesión', 'style' => 'iniciar-sesion']);
+      header('Location: /login');
     }
   }
 
