@@ -27,11 +27,18 @@ En este TP se abordará la creación de componentes (reutilizables) del sitio co
 
 ### Trabajo Práctico Nº 5: Programación Backend (2)
 
-Al llegar a este punto, lo que resta es integrar al proyecto una capa de persistencia. Se les solicitará que lo hagan vía algún motor de bases de datos relacional (pe MySQL o Postgresql). 
+Al llegar a este punto, lo que resta es integrar al proyecto una capa de persistencia. Se les solicitará que lo hagan vía algún motor de bases de datos relacional (pe MySQL o Postgresql).
 Además se incorporan nociones de plantillas y se les solicitará la migración a una librería que se pueda integrar al proyecto ya existente. Esta migración implica refactorizar ciertas partes del código base ya existente. Esta refactorización es parte de lo que se espera ver como evolución de los conceptos, así que es esperable que sea realizada dentro de los tiempos de entrega del TP.
 
-
 #### Instrucciones de ejecución
+
+-   Se debe contar con Phinx y MySQL instalados
+
+```
+$ sudo apt-get install php-mysql
+$ composer global require robmorgan/phinx ; export PATH=$PATH:~/.config/composer/vendor/bin
+
+```
 
 -   Parado en el directorio raiz del proyecto, ejecutar:
 
@@ -44,5 +51,3 @@ $ phinx migrate -e development (ejecuta migrations)
 
 $ php -S localhost:8080 -t public
 ```
-
-
