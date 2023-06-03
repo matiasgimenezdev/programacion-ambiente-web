@@ -68,8 +68,10 @@ class TurnosController extends AbstractController
     $request = Request::getInstance();
 
     $shiftData = $request -> getTurnData();
-    $register = $this->model->solicitarTurno($shiftData);
 
+    $shiftData = $request -> getTurnData();
+
+    $register = $this->model->solicitarTurno($shiftData);
     if ($register["status"]->value === "REGISTER_OK") {
       header('Location: /turnos');
     } else {
@@ -87,7 +89,7 @@ class TurnosController extends AbstractController
       session_start();
       $sessionId = $_SESSION['id'] ?? "";
       echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Solicitar Turno', 
-      'style' => 'solicitar-turno', 'profesionales' => $profesionales, 'especialidades' => $especialidades, 'obrasSociales' => $obrasSociales, 'session' => $sessionId]);
+      'style' => 'solicitar-turno', 'profesionales' => $profesionales, 'especialidades' => $especialidades, 'obrasSociales' => $obrasSociales, 'session' => $sessionId, 'register' => $register]);
     }
   }
 

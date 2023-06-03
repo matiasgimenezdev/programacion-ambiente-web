@@ -4,22 +4,20 @@ use PAW\Core\Model;
 
 class ObraSocial extends Model
 {
-
-
   private $fields = [
-    "id" => null,
+    "id_obra_social" => null,
     "name" => null,
     "img" => null,
   ];
 
-  public function setId($id)
+  public function setIdObraSocial($id)
   {
-    $this->fields["id"] = $id;
+    $this->fields["id_obra_social"] = $id;
   }
 
-  public function getId()
+  public function getIdObraSocial()
   {
-    return $this->fields["id"];
+    return $this->fields["id_obra_social"];
   }
 
   public function setName($name)
@@ -46,10 +44,16 @@ class ObraSocial extends Model
   {
     foreach (array_keys($this->fields) as $field) {
       if (!isset($values[$field])) {
-        continue;
+          continue;
       }
-      $method = "set" . ucfirst($field);
-      $this->$method($values[$field]);
+      $property = explode("_", $field);
+      if(count($property) > 1) {
+          $method = "set" . ucfirst($property[0]) . ucfirst($property[1]) . ucfirst($property[2]);
+
+      } else {
+          $method = "set" . ucfirst($property[0]);
+      }
+      $status = $this->$method($values[$field]);
     }
   }
 }

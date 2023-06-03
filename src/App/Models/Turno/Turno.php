@@ -151,12 +151,13 @@ class Turno extends Model
       return SubmitStatus::NOT_VALID_AGE;
     }
     $currentDate = new DateTime();
-    $currentYear = intval(date('Y', strtotime($currentDate->format('Y-m-d'))));
-    $birthdate = intval(date('Y', strtotime($this->fields["nacimiento"])));
-    $edadEstimada = $currentYear - $birthdate - 1;
-    if($edad != $edadEstimada){
+    $birthdate = new DateTime($this -> fields["nacimiento"]);
+    $dif = $birthdate->diff($currentDate);
+    $years = $dif->y;
+    if($edad != $years){
       return SubmitStatus::NOT_VALID_AGE_OR_BIRTHDATE;
     }
+    
     $this->field["edad"] = $edad;
   }
 

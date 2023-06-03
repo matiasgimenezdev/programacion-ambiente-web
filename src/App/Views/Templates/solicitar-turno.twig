@@ -65,8 +65,9 @@
 			<p>
 				<label for="obra-social">Obra social</label>
 				<select class="obra-social" id="opcion" name="obrasSociales">
+					<option value="0">Seleccione una Obra Social</option>
                     {% for obraSocial in obrasSociales %}
-                        <option value="{{ obraSocial.getId() }}">{{ obraSocial.getName() }}</option>
+                        <option value="{{ obraSocial.getIdObraSocial() }}">{{ obraSocial.getName() }}</option>
                     {% endfor %}
 				</select>
 			</p>
