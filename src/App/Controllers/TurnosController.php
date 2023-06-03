@@ -50,7 +50,6 @@ class TurnosController extends AbstractController
       $renderer = Renderer::getInstance();
       $templateLoader = $renderer -> getTemplateLoader();
       $template = $templateLoader->load('solicitar-turno.twig');
-      session_start();
       $sessionId = $_SESSION['id'] ?? "";
       echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Solicitar Turno', 
       'style' => 'solicitar-turno', 'profesionales' => $profesionales, 'especialidades' => $especialidades, 'obrasSociales' => $obrasSociales, 'session' => $sessionId]);
