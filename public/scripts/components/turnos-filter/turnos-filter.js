@@ -92,6 +92,7 @@ export class TurnosFilter {
 
 		if (pages.length > 0) {
 			for (let turno of pages[indexNumber]) {
+				console.log(turno);
 				const $details = ElementBuilder.createElement('details', '', {
 					class: 'search-result',
 				});
@@ -114,7 +115,7 @@ export class TurnosFilter {
                             ${turno.hora_turno}
                         </li>
                     </ul>
-                    <button class="cancelar-turno"><a href="/turno/cancel">Cancelar Turno</a></button>
+                    <button class="cancelar-turno"><a href="/turno/cancel?id=${turno.id_turno}">Cancelar Turno</a></button>
 		    	`;
 
 				$container.appendChild($details);

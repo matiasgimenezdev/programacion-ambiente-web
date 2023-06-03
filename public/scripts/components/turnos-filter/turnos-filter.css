@@ -100,6 +100,11 @@ label[id='amount'] {
 	width: auto;
 }
 
+button a {
+	text-decoration: none;
+	color: var(--light-grey);
+}
+
 @media screen and (min-width: 900px) {
 	.result-filter-container {
 		width: 90%;

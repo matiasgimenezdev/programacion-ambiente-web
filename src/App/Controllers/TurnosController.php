@@ -90,7 +90,7 @@ class TurnosController extends AbstractController
 
   public function cancelarTurno() {
     $request = Request::getInstance();
-    $id = $request -> getKey($id);
+    $id = $request -> getKey("id");
     $cancel = $this->model->cancelarTurno($id);
     header('Location: /turnos');
   }
