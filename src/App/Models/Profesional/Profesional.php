@@ -8,16 +8,16 @@ class Profesional extends Model{
   private $table = 'profesional';
 
   private $fields = [
-    "id" => null,
+    "matricula" => null,
     "name" => null,
     "lastname" => null,
     "especialidad" => null,
     "description" => null,
   ];
 
-  public function setId($id)
+  public function setMatricula($id)
   {
-    $this->fields["id"] = $id;
+    $this->fields["matricula"] = $id;
   }
 
   public function setName($name)
@@ -42,7 +42,7 @@ class Profesional extends Model{
 
   public function getId()
   {
-    return $this->fields["id"];
+    return $this->fields["matricula"];
   }
 
   public function getName()

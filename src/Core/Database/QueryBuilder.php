@@ -17,16 +17,11 @@ class QueryBuilder
 
   public function select($table)
   {
-    /*$where = " 1 = 1 ";
-    if (isset($params['id'])) {
-      $where = " id = :id ";
-    }*/
+
     try {
       $query = "SELECT * FROM {$table}";
       $sentencia = $this->pdo->prepare($query);
-      /*if (isset($params['id'])) {
-        $sentencia->bindValue(":id", $params['id']);
-      }*/
+
       $sentencia->setFetchMode(PDO::FETCH_ASSOC);
       $sentencia->execute();
       return $sentencia->fetchAll();
