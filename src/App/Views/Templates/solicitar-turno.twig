@@ -73,6 +73,7 @@
 			<p>
 			    <label for="especialidad">Especialidad</label>
 				<select class="especialidad" id="opcion" name="especialidades">
+					<option value="0">Seleccione una Especialidad</option>
                     {% for especialidad in especialidades %}
                         <option value="{{ especialidad.getId() }}">{{ especialidad.getName() }}</option>
                     {% endfor %}
