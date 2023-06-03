@@ -41,7 +41,9 @@ class TurnosController extends AbstractController
     session_start();
     if(isset($_SESSION["id"])) {
 
-      $shiftData = [];
+      $pac = new PacienteController;
+      $paciente = $pac -> model -> getByEmail($_SESSION["email"]);
+
       $p = new ProfesionalesController;
       $profesionales = $p->model->getAll();
       $e = new EspecialidadesController;
@@ -55,7 +57,8 @@ class TurnosController extends AbstractController
       $sessionId = $_SESSION['id'] ?? "";
 
       echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Solicitar Turno', 
-      'style' => 'solicitar-turno', 'profesionales' => $profesionales, 'especialidades' => $especialidades, 'obrasSociales' => $obrasSociales, 'session' => $sessionId]);
+        'style' => 'solicitar-turno', 'profesionales' => $profesionales, 'especialidades' => $especialidades, 'obrasSociales' => $obrasSociales, 
+        'session' => $sessionId, 'paciente' => $paciente]);
     } else {
       header('Location: /login');
     }

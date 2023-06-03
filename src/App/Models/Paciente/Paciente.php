@@ -344,6 +344,14 @@ class Paciente extends Model {
         }
         return $exists;
     }
+
+    public function getAge() {
+        $currentDate = new DateTime();
+        $birthdate = new DateTime($this-> getBirthdate());
+        $dif = $birthdate->diff($currentDate);
+        $years = $dif->y;
+        return $years;
+    }
 }
 
 

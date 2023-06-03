@@ -9,21 +9,21 @@
 			<legend>Datos personales</legend>
 			<p>
 				<label for="dni">DNI</label>
-				<input type="number" name="dni" id="dni" required tabindex="1" maxlength="8" autocomplete="off" value="{{ shiftData.dni ?? '' }}" />
+				<input type="number" name="dni" id="dni" required tabindex="1" maxlength="8" autocomplete="off" value="{{ paciente.getDni() ?? '' }}" />
 			</p>
 			<p>
 				<label for="nombre">Nombre</label>
-				<input type="text" name="nombre" id="nombre" required tabindex="2" maxlength="30" autocomplete="off" value="{{ shiftData.name ?? '' }}"/>
+				<input type="text" name="nombre" id="nombre" required tabindex="2" maxlength="30" autocomplete="off" value="{{ paciente.getName() ?? '' }}"/>
 			</p>
 			<p>
 				<label for="apellido">Apellido</label>
-				<input type="text" name="apellido" id="apellido" required tabindex="3" maxlength="30" autocomplete="off" value="{{ shiftData.lastname ?? '' }}"/>
+				<input type="text" name="apellido" id="apellido" required tabindex="3" maxlength="30" autocomplete="off" value="{{ paciente.getLastname() ?? '' }}"/>
 			</p>
 			<p class="genero">
 				<label for="genero">Género</label>
 				<input type="radio" name="genero" id="masculino" value="M" 
-                    {% if shiftData['genero'] is defined %}
-                        {% if shiftData['genero'] != 'F' %}
+                    {% if paciente.getGender() is defined %}
+                        {% if paciente.getGender() != 'F' %}
                             checked
                         {% endif %}
                     {% else %}
@@ -32,8 +32,8 @@
 				/>
 				<label for="masculino">Masculino</label>
 				<input type="radio" name="genero" id="femenino" value="F" 
-                    {% if shiftData['genero'] is defined %}
-                        {% if shiftData['genero'] == 'F' %}
+                    {% if paciente.getGender() is defined %}
+                        {% if paciente.getGender() == 'F' %}
                             checked
                         {% endif %}
                     {% endif %}
@@ -42,22 +42,22 @@
 			</p>
 			<p class="fecha">
 				<label for="nacimiento">Fecha de Nacimiento</label>
-				<input type="date" name="nacimiento" id="nacimiento" required tabindex="4" value="{{ shiftData.nacimiento ?? '' }}"/>
+				<input type="date" name="nacimiento" id="nacimiento" required tabindex="4" value="{{ paciente.getBirthdate() ?? '' }}"/>
 			</p>
 			<p class="edad">
 				<label for="edad">Edad</label>
-				<input type="number" name="edad" id="edad" required tabindex="5" maxlength="3" value="{{ shiftData.edad ?? '' }}">
+				<input type="number" name="edad" id="edad" required tabindex="5" maxlength="3" value="{{ paciente.getAge() ?? '' }}">
 			</p>
 		</fieldset>
 		<fieldset class="contact-data">
 			<legend>Datos de contacto</legend>
 			<p>
 				<label for="email">Correo Electrónico</label>
-				<input type="email" name="email" id="email" required tabindex="6" maxlength="50" autocomplete="off" value="{{ shiftData.email ?? '' }}"/>
+				<input type="email" name="email" id="email" required tabindex="6" maxlength="50" autocomplete="off" value="{{ paciente.getEmail() ?? '' }}"/>
 			</p>
 			<p>
 				<label for="telefono">Teléfono Celular</label>
-				<input type="tel" name="telefono" id="telefono" required tabindex="7" maxlength="50" autocomplete="off" value="{{ shiftData.telefono ?? '' }}"/>
+				<input type="tel" name="telefono" id="telefono" required tabindex="7" maxlength="50" autocomplete="off" value="{{ paciente.getPhone() ?? '' }}"/>
 			</p>
 		</fieldset>
 		<fieldset class="turn-data">
