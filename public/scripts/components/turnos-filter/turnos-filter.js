@@ -114,7 +114,7 @@ export class TurnosFilter {
                             ${turno.hora_turno}
                         </li>
                     </ul>
-                    <button class='cancelar-turno'>Cancelar turno</button>;
+                    <button class="cancelar-turno"><a href="/turno/cancel">Cancelar Turno</a></button>
 		    	`;
 
 				$container.appendChild($details);

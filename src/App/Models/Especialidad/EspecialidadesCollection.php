@@ -10,7 +10,8 @@
         public function get($searchText) {
             $especialidades = $this->queryBuilder->selectByColumnWithFilter($this->table, "name", $searchText);
             return $especialidades;
-          }
+        }
+
 
         public function getEspecialidades(){
             $especialidades = $this->queryBuilder->select($this->table);

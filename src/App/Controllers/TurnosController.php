@@ -43,14 +43,14 @@ class TurnosController extends AbstractController
       $p = new ProfesionalesController;
       $profesionales = $p->model->getAll();
       $e = new EspecialidadesController;
-      $especialidades = $e->model->getAll();
+      $especialidades = $e->model->getEspecialidades();
       $os = new ObrasSocialesController;
       $obrasSociales = $os->model->getAll();
 
       $renderer = Renderer::getInstance();
       $templateLoader = $renderer -> getTemplateLoader();
       $template = $templateLoader->load('solicitar-turno.twig');
-      session_start();
+      //session_start();
       $sessionId = $_SESSION['id'] ?? "";
       echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Solicitar Turno', 
       'style' => 'solicitar-turno', 'profesionales' => $profesionales, 'especialidades' => $especialidades, 'obrasSociales' => $obrasSociales, 'session' => $sessionId]);
