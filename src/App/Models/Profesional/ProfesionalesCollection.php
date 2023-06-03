@@ -11,10 +11,15 @@ use PAW\Core\Model;
       //TODO Implementar consulta a la BDD filtrando por el texto de busqueda ingresado por el usuario
     }
 
-    public function getAll()
-    {
-      $profesionales = $this->queryBuilder->select($this->table);
-      return $profesionales;
+    public function getAll() {
+      $profesionalesCollection = [];
+      $profesionales = $this->queryBuilder->select();
+      foreach ($profesionales as $profesional) {
+        $profesionalInstance = new Profesional;
+        $profesionalInstance->set($profesional);
+        $profesionalesCollection[] = $profesionalInstance;
+      }
+      return $profesionalesCollection;
     }
 
     public function getProfesionales(){
