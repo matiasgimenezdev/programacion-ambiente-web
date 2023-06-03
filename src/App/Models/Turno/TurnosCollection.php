@@ -61,8 +61,8 @@ class TurnosCollection extends Model
     $this->queryBuilder->deleteById($this->table, 'id_turno', $id);
   }
 
-  public function getJoinTurnos($table2, $table3, $table4){
-    $turnosProfesional = $this->queryBuilder->join([$this->table, $table2, $table3, $table4], ['email', 'email', 'id_especialidad', 'id_especialidad', 'matricula', 'matricula'], 'turno.id_turno, turno.fecha_turno, turno.hora_turno, especialidad.name as especialidad, profesional.name as profesional_name, profesional.lastname as profesional_lastname');
+  public function getJoinTurnos($table2, $table3, $email){
+    $turnosProfesional = $this->queryBuilder->join([$this->table, $table2, $table3], ['id_especialidad', 'id_especialidad', 'matricula', 'matricula'], 'turno.id_turno, turno.fecha_turno, turno.hora_turno, especialidad.name as especialidad, profesional.name as profesional_name, profesional.lastname as profesional_lastname', $email);
     $json = json_encode($turnosProfesional);
     header("Content-Type: application/json");
     echo $json;

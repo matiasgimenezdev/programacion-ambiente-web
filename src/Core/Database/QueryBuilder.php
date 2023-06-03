@@ -146,7 +146,7 @@ class QueryBuilder
     }
   }
 
-  public function join($tables, $conditions, $columns)
+  public function join($tables, $conditions, $columns, $email)
   {
     try {
       $query = "SELECT {$columns}
@@ -167,6 +167,7 @@ class QueryBuilder
         }
       }
 
+      $query = $query . " WHERE turno.email = '{$email}'";
 
       $sentencia = $this->pdo->prepare($query);
 

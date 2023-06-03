@@ -31,7 +31,8 @@ class TurnosController extends AbstractController
 
   public function getJoinTurnos()
   {
-    $turnos = $this -> model -> getJoinTurnos('paciente', 'especialidad', 'profesional');
+    session_start();
+    $turnos = $this -> model -> getJoinTurnos('especialidad', 'profesional', $_SESSION["email"]);
     return json_encode($turnos);
   }
 
