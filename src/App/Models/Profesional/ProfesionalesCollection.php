@@ -13,7 +13,7 @@ use PAW\Core\Model;
 
     public function getAll() {
       $profesionalesCollection = [];
-      $profesionales = $this->queryBuilder->select();
+      $profesionales = $this->queryBuilder->select($this->table);
       foreach ($profesionales as $profesional) {
         $profesionalInstance = new Profesional;
         $profesionalInstance->set($profesional);

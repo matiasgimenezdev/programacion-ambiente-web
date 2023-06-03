@@ -88,12 +88,14 @@ class QueryBuilder
     try {
       $columns = implode(", ", array_keys($data));
       $placeholders = ":" . implode(", :", array_keys($data));
+
       $query = "INSERT INTO {$table} ({$columns}) VALUES ({$placeholders})";
       $sentencia = $this->pdo->prepare($query);
       foreach ($data as $column => $value) {
         $sentencia->bindValue(':' . $column, $value);
       }
       $result = $sentencia->execute();
+
       if($result != true) {
         throw new PDOException($sentencia->errorInfo()[2]);
       }

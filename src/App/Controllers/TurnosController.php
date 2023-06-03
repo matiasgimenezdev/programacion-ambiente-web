@@ -20,8 +20,10 @@ class TurnosController extends AbstractController
       $renderer = Renderer::getInstance();
       $templateLoader = $renderer -> getTemplateLoader();
       $template = $templateLoader->load('turnos.twig');
+      $sessionId = $_SESSION['id'] ?? "";
+
       echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Turnos', 
-        'style' => 'turnos', 'searchText' => $searchText]);
+        'style' => 'turnos', 'searchText' => $searchText, 'session' => $sessionId]);
     } else {
       header('Location: /login');
     }
@@ -37,24 +39,22 @@ class TurnosController extends AbstractController
   {
     session_start();
     if(isset($_SESSION["id"])) {
-      $title = "Solicitar Turno";
-      $style = "solicitar-turno";
+
       $shiftData = [];
       $p = new ProfesionalesController;
       $profesionales = $p->model->getAll();
       $e = new EspecialidadesController;
-      $especialidades = $e->model->getEspecialidades();
+      $especialidades = $e->model->getAll();
       $os = new ObrasSocialesController;
       $obrasSociales = $os->model->getAll();
-
       $renderer = Renderer::getInstance();
       $templateLoader = $renderer -> getTemplateLoader();
       $template = $templateLoader->load('solicitar-turno.twig');
-      //session_start();
+
       $sessionId = $_SESSION['id'] ?? "";
+
       echo $template->render(['headerMenu' => $this -> headerMenu,'footerMenu' => $this -> footerMenu, 'title' => 'Solicitar Turno', 
       'style' => 'solicitar-turno', 'profesionales' => $profesionales, 'especialidades' => $especialidades, 'obrasSociales' => $obrasSociales, 'session' => $sessionId]);
-      // require $this->viewsDirectory . "solicitar-turno.view.php";
     } else {
       header('Location: /login');
     }

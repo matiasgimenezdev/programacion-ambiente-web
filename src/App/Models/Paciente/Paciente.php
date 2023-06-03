@@ -291,6 +291,7 @@ class Paciente extends Model {
                 "phone" => $this -> getPhone(),
 
             ];
+
             $this->queryBuilder->insert($this->table, $data);
         }
         return ["status" => $status, "message" => $this -> getMessage($status)];
@@ -324,12 +325,12 @@ class Paciente extends Model {
                 "name" => $this -> getName(),
                 "lastname" => $this -> getLastname(),
                 "email" => $this -> getEmail(),
-                "password" => $this -> getPassword(),
                 "gender" => $this -> getGender(),
                 "birthdate" => $this -> getBirthdate(),
                 "phone" => $this -> getPhone(),
 
             ];
+
             $this->queryBuilder->update($this->table, $data);
         }
         return ["status" => $status, "message" => $this -> getMessage($status)];
