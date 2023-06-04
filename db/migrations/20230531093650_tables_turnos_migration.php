@@ -44,6 +44,7 @@ final class TablesTurnosMigration extends AbstractMigration
         $obraSocialTable = $this->table('obra_social');
         $obraSocialTable
         ->addColumn("name", "string")
+        ->addColumn("img", "string")
         ->create();
 
         $obraSocialTable->renameColumn('id', 'id_obra_social')->update();

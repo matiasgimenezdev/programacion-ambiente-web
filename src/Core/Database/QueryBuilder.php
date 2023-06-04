@@ -62,9 +62,6 @@ class QueryBuilder
       $sentencia->bindValue(':filter', "%$filter%", PDO::PARAM_STR);
       $result = $sentencia->execute();
       $sentencia->setFetchMode(PDO::FETCH_ASSOC);
-      // echo "<pre>";
-      // var_dump($sentencia->fetchAll());
-      // die;
       return $sentencia->fetchAll();
     } catch (PDOException $e) {
       $this -> logger -> getLogger() -> info(
@@ -186,5 +183,78 @@ class QueryBuilder
           ]
       );
     }
+  }
+
+
+  // Este metodo se ejecuta una unica vez para cargar datos de prueba en la BDD.
+  public function loadData() {
+    $this -> insert('obra_social', [
+      "name" => "Swiss Medical",
+      "img" => "assets/images/obras-sociales/SwissMedical.svg" 
+    ]);
+    $this -> insert('obra_social', [
+      "name" => "Jerarquicos Salud",
+      "img" => "assets/images/obras-sociales/JerarquicosSalud.png"
+    ]);
+    $this -> insert('obra_social', [
+      "name" => "IOMA - Instituto Obra Médico Asistencial",
+      "img" => "assets/images/obras-sociales/IOMA.png" 
+    ]);
+    $this -> insert('obra_social', [
+      "name" => "OSDE - Organización de Servicios Directos Empresarios",
+      "img" => "assets/images/obras-sociales/OSDE.png"
+    ]);
+    $this -> insert('obra_social', [
+      "name" => "Medife",
+      "img" => "assets/images/obras-sociales/Medife.jpg",
+    ]);
+
+    $this -> insert('especialidad', [
+      "name" => "Odontologia",
+      "description" => "Descripcion Odontologia",
+    ]);
+
+    $this -> insert('especialidad', [
+      "name" => "Cardiologia",
+      "description" => "Descripcion Cardiologia",
+    ]);
+
+    $this -> insert('especialidad', [
+      "name" => "Dermatologia",
+      "description" => "Descripcion Dermatologia",
+    ]);
+
+    $this -> insert('profesional', [
+      "matricula" => 3737,
+      "id_especialidad" => 1,
+      "name" => "Tekito",
+      "lastname" => "Lakarie",
+      "hora_inicio" => "09:00",
+      "hora_fin" => "12:00",
+      "duracion_turno" => 20,
+      "description" => "Descripcion Tekito Lakarie",
+    ]);
+
+    $this -> insert('profesional', [
+      "matricula" => 2222,
+      "id_especialidad" => 2,
+      "name" => "Tarayado",
+      "lastname" => "Tukoko",
+      "hora_inicio" => "13:00",
+      "hora_fin" => "18:00",
+      "duracion_turno" => 30,
+      "description" => "Descripcion Tarayado Tukoko",
+    ]);
+
+    $this -> insert('profesional', [
+      "matricula" => 9595,
+      "id_especialidad" => 3,
+      "name" => "Isee",
+      "lastname" => "Deadpeople",
+      "hora_inicio" => "15:00",
+      "hora_fin" => "18:00",
+      "duracion_turno" => 10,
+      "description" => "Descripcion Isee Deadpeople",
+    ]);
   }
 }

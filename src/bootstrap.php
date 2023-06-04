@@ -6,6 +6,7 @@ use PAW\Core\Request;
 use PAW\Core\Router;
 use PAW\Core\Config;
 use PAW\Core\Database\ConnectionBuilder;
+use PAW\Core\Database\QueryBuilder;
 
 $request = Request::getInstance();
 $router = Router::getInstance();
@@ -15,6 +16,14 @@ $config = Config::getInstance();
 $connectionBuilder = new ConnectionBuilder();
 $connectionBuilder->setLogger();
 $connection = $connectionBuilder->make($config);
+
+// Este codigo se agrego para cargar datos en la BDD y evitar tener que cargarlos manualmente
+$qb = new QueryBuilder($connection, $log);
+if (!file_exists(__DIR__ . '/data_loaded.txt')) {
+    $qb->loadData();
+    // Crear un archivo para indicar que los datos se cargaron
+    file_put_contents(__DIR__ . '/data_loaded.txt', '');
+}
 
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
